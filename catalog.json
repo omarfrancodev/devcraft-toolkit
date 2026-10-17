@@ -2,7 +2,7 @@
   "schema_version": 1,
   "name": "devcraft-toolkit",
   "skills": [
-    {"name": "using-devcraft-toolkit", "role": "entry", "status": "planned", "path": "skills/using-devcraft-toolkit", "requires": []},
+    {"name": "using-devcraft-toolkit", "role": "entry", "status": "available", "path": "skills/using-devcraft-toolkit", "requires": ["git-working-directory-policy", "git-safety-check"]},
     {"name": "git-commit-builder", "role": "coordinator", "status": "planned", "path": "skills/git-commit-builder", "requires": []},
     {"name": "git-publish-work", "role": "coordinator", "status": "planned", "path": "skills/git-publish-work", "requires": []},
     {"name": "git-activity-report", "role": "coordinator", "status": "planned", "path": "skills/git-activity-report", "requires": []},
