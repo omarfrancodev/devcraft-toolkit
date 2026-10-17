@@ -109,7 +109,10 @@ devcraft-toolkit/
     __init__.py
     validate_repository.py
   tests/
+    __init__.py
+    repository/__init__.py
     repository/test_repository_validation.py
+    integration/__init__.py
     integration/test_git_context_fixtures.py
     support/__init__.py
     support/git_fixtures.py
