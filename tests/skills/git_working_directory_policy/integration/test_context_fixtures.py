@@ -81,6 +81,16 @@ class RepositoryContextFixtureTests(unittest.TestCase):
             self.git(repo, "config", "--show-origin", "--get", "user.email")
             self.assertEqual(before, snapshot_repository(repo))
 
+    def test_git_status_instructions_disable_optional_locks(self):
+        repo_root = Path(__file__).resolve().parents[4]
+        for relative in (
+            "skills/git-working-directory-policy/SKILL.md",
+            "skills/git-safety-check/SKILL.md",
+        ):
+            with self.subTest(skill=relative):
+                instructions = (repo_root / relative).read_text(encoding="utf-8")
+                self.assertIn("git --no-optional-locks status", instructions)
+
 
 if __name__ == "__main__":
     unittest.main()
