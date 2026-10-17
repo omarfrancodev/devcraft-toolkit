@@ -1,0 +1,19 @@
+# Local Git worktrees
+/.worktrees/
+
+# Local environment and secrets
+/.venv/
+.env
+.env.local
+
+# Python caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Generated distributions
+/dist/
+
+# Operating system files
+.DS_Store
+Thumbs.db
