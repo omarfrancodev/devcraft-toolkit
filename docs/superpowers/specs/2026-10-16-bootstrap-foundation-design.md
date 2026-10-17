@@ -1,6 +1,7 @@
 # Devcraft Toolkit Foundation Design
 
 Date: 2026-10-16
+Updated: 2026-10-17
 Status: Proposed for review; this document authorizes no implementation or release.
 Scope: Milestone 1, the repository foundation and three usable entry/context/safety skills.
 
@@ -8,7 +9,7 @@ Scope: Milestone 1, the repository foundation and three usable entry/context/saf
 
 Devcraft Toolkit is a single maintained collection of composable capabilities for Git operations, code review, and activity reporting across coding harnesses. Users can invoke an individual capability or a coordinator. Platform-specific business integrations such as Jira remain outside the core.
 
-The human has approved the suite identity, the eighteen-skill target inventory, the three coordinator names, language behavior, and centralized tests. The present request is to prepare a spec and implementation plan in an isolated worktree, starting with the basics. It is not an instruction to implement all eighteen skills, migrate CCR, or archive its repository now.
+The human has approved the suite identity, the seventeen-skill target inventory, the three coordinator names, language behavior, and centralized tests. The present request is to prepare a spec and implementation plan in an isolated worktree, starting with the basics. It is not an instruction to implement all seventeen skills, migrate CCR, or archive its repository now.
 
 This is architectural work. The design and plan are prepared together at the human's explicit request; both remain reviewable drafts before implementation begins.
 
@@ -20,8 +21,8 @@ The local repository identity is omarfrancodev <fofe2803@gmail.com>. The global 
 
 ## Alternatives and selected increment
 
-1. Implement all eighteen skills immediately: broad scope, coupled migrations, and no established validation boundary.
-2. Add eighteen empty skill folders: misleading discoverability and no usable outcome.
+1. Implement all seventeen skills immediately: broad scope, coupled migrations, and no established validation boundary.
+2. Add seventeen empty skill folders: misleading discoverability and no usable outcome.
 3. Establish a small usable foundation, then extend it: selected.
 
 Milestone 1 creates three real skills, a catalog that distinguishes available and planned capabilities, repository validation, centralized tests and behavioral evaluation instructions. It establishes the rules the later workflows will follow.
@@ -34,6 +35,8 @@ Milestone 1 creates three real skills, a catalog that distinguishes available an
 - Resolve language once for an execution; an explicit later user instruction can update it.
 - Translate natural-language content and visible template labels; preserve technical identifiers, schema keys and command syntax.
 - All tests, scenarios, fixtures and evaluation records live under the repository-root tests/ directory, never under skills/<name>/.
+- Group skill-owned tests by skill first, then by scope under tests/skills/<skill_package>/; reserve repository/ and shared directories for genuine infrastructure or cross-skill coverage.
+- A skill's test package name is its canonical name with hyphens replaced by underscores; keep the canonical name in scenario/evaluation ownership.
 - Every available skill is self-contained except for explicitly cataloged dependencies on other available skills.
 - Planned skills have catalog entries but no discoverable SKILL.md placeholders.
 - Instructions and catalog dependencies do not grant tools, permissions, user authorization or automatic installation.
@@ -44,11 +47,12 @@ Milestone 1 creates three real skills, a catalog that distinguishes available an
 - Milestone 1 performs no product Git writes, network operations or credential changes through its skills.
 - Development tooling uses Python 3.11+ with PyYAML>=6.0,<7.0; unittest is the test runner.
 - Git is required for Git-specific skills and integration fixtures, not for merely reading their instructions.
-- Jira, CCR migration, full coordinators, installable plugin manifests, release automation and repository archival are deferred.
+- Jira and CCR integration are outside the current scope; CCR has no catalog entry, dependency, routing hook, test folder or migration task in this project.
+- Full coordinators, installable plugin manifests and release automation are deferred.
 
 ## Target capability inventory
 
-The catalog has exactly the following eighteen entries. Available below means the completed Milestone 1 target, not the current planning checkout.
+The catalog has exactly the following seventeen entries. Available below means the completed Milestone 1 target, not the current planning checkout.
 
 | Name | Role | Milestone 1 status |
 | --- | --- | --- |
@@ -56,7 +60,6 @@ The catalog has exactly the following eighteen entries. Available below means th
 | git-commit-builder | Commit coordinator | planned |
 | git-publish-work | Publication coordinator | planned |
 | git-activity-report | Activity-report coordinator | planned |
-| comprehensive-code-review | Independent review capability | planned |
 | git-analyze-changes | Git capability | planned |
 | git-plan-commits | Git capability | planned |
 | git-stage-changes | Git capability | planned |
@@ -77,7 +80,7 @@ Milestone 1 declared dependencies:
 - git-working-directory-policy has no skill dependencies.
 - Planned entries have empty dependency lists until their own designs define and validate them.
 
-CCR keeps its name, standalone resources, profiles, contracts and independent installation. No copy or rename of the existing CCR installation is part of this increment.
+CCR continues to evolve in its own project and is excluded from this project's active inventory and roadmap. Reconsider its integration only after the owner selects a stable version and authorizes a separate design. Archive the original repository only after that later integration has been completed and verified; no archival is scheduled now.
 
 ## Repository layout after implementation
 
@@ -112,21 +115,31 @@ devcraft-toolkit/
     __init__.py
     repository/__init__.py
     repository/test_repository_validation.py
-    integration/__init__.py
-    integration/test_git_context_fixtures.py
+    skills/__init__.py
+    skills/git_working_directory_policy/__init__.py
+    skills/git_working_directory_policy/integration/__init__.py
+    skills/git_working_directory_policy/integration/test_context_fixtures.py
+    skills/git_working_directory_policy/scenarios/context.md
+    skills/git_safety_check/__init__.py
+    skills/git_safety_check/integration/__init__.py
+    skills/git_safety_check/integration/test_preflight_fixtures.py
+    skills/git_safety_check/scenarios/preflight.md
+    skills/using_devcraft_toolkit/scenarios/routing-and-language.md
+    integration/scenarios/context-to-preflight.md
     support/__init__.py
     support/git_fixtures.py
     scenarios/README.md
-    scenarios/git-context.md
-    scenarios/git-preflight.md
-    scenarios/routing-and-language.md
 ~~~
 
 Create files only when their task needs them. Do not add empty future skills, .gitkeep files, copied vendor plugins or an installer/runtime framework. Do not choose a license on the human's behalf.
 
 Skill resources stay inside the skill folder; root development tools and docs are not implicit runtime dependencies. Cross-skill references use declared skill names, not machine-specific paths.
 
-Root tests are grouped by repository validation, Git integration support and behavioral skill scenarios. Future CCR tests move to tests/skills/comprehensive-code-review/ during its later migration; fixtures belong under tests/fixtures/ when needed. Never copy its tests into a distributed skill.
+Each skill owns a subtree tests/skills/<skill_package>/, with unit/, integration/, support/, scenarios/, fixtures/ and evaluations/ created only when needed. Python-compatible package names normalize hyphens to underscores (for example git-safety-check maps to git_safety_check); scenario/evaluation records state the canonical skill name.
+
+tests/repository/ owns catalog, validator and repository-layout checks. tests/integration/ owns tests spanning multiple skills and must name all participating skills. tests/support/ and tests/fixtures/ contain only helpers/data genuinely reused by multiple owners; otherwise place them under the owning skill. tests/scenarios/README.md is the common evaluation protocol, not a container for unowned skill scenarios. Shared code has one maintained implementation, not a copied helper per skill. Retained evaluation evidence stays with its skill owner or the cross-skill integration suite.
+
+The validator rejects a tests/skills/ package that does not map to a catalog name and test code placed in skills/<name>/. Reviewers check that files in shared groups genuinely cover repository infrastructure or multiple named skills; the validator must not guess semantic ownership by scanning test wording. A synthetic future package is not created merely because a capability is planned.
 
 ## Catalog and discovery contract
 
@@ -169,9 +182,9 @@ Return ready, no_op, blocked, needs_decision or limited with observed evidence a
 
 Route requests only within toolkit scope. Resolve language and actual installed capabilities. Do not auto-load this entry in unrelated conversations or require every capability on every request.
 
-In Milestone 1, a repository-context or Git-preflight request can use the two available supporting skills. A request for committing, publication, activity generation or CCR must explicitly report that the target capability is planned/not installed in this distribution. It must not claim completion, silently emulate a missing coordinator or modify another installation.
+In Milestone 1, a repository-context or Git-preflight request can use the two available supporting skills. A request for committing, publication or activity generation must explicitly report that the target capability is planned/not installed in this distribution. It must not claim completion, silently emulate a missing coordinator or modify another installation.
 
-An independently installed CCR may be used only when its actual availability, user scope and version are established. Milestone 1 does not bundle, install, configure or require it.
+The entry has no CCR-specific route, fallback or integration. It does not inspect or alter the independent CCR project.
 
 Compose existing results without repeated repository-wide discovery. Refresh facts affected by changes. Structured questions and progress tools are optional adaptations; required unanswered decisions still wait for the user.
 
@@ -181,7 +194,7 @@ Use the full explicit language preference where available, then the current requ
 
 Commit subjects, future reports, MR/PR text and interactive questions follow the same precedence; technical Conventional Commit types remain unchanged. Language adaptation is not scope expansion or permission to write externally.
 
-Docs default to English. Behavioral evaluation reports follow the evaluating user's language and live only in tests/evaluations/ when explicitly retained; they are not installed resources.
+Docs default to English. Behavioral evaluation reports follow the evaluating user's language. Retain skill-owned reports only in tests/skills/<skill_package>/evaluations/<run>/; retain cross-skill reports in tests/integration/evaluations/<run>/. They are not installed resources.
 
 ## Repository validation
 
@@ -189,7 +202,7 @@ scripts/validate_repository.py exposes validate_repository(root: Path) -> list[V
 
 Validate catalog shape, canonical names/roles/statuses/paths, uniqueness, dependency closure/cycles, available/planned folder agreement, required frontmatter and a nonempty instruction body. Parse YAML using yaml.safe_load; never execute constructors. Check the Agent Skills name/description limits and directory-name agreement.
 
-Reject test directories/test modules inside available skill folders and skill-local symlinks that escape their root. Validate explicit local Markdown links to skill resources; distinguish URLs, fragment-only links and declared cross-skill dependencies. Ignore inline/fenced code examples instead of treating them as links; support relative resource links and file anchors. Reject linked files outside the skill or missing linked files. This is scoped repository validation, not a claim of implementing a complete Markdown parser or the full Agent Skills standard.
+Reject test directories/test modules inside available skill folders and skill-local symlinks that escape their root. Validate test ownership and normalized skill packages using the root test-layout contract; README documentation does not replace that check. Validate explicit local Markdown links to skill resources; distinguish URLs, fragment-only links and declared cross-skill dependencies. Ignore inline/fenced code examples instead of treating them as links; support relative resource links and file anchors. Reject linked files outside the skill or missing linked files. This is scoped repository validation, not a claim of implementing a complete Markdown parser or the full Agent Skills standard.
 
 Validation reports source problems without modifying files, fetching URLs or loading a harness. Structural success does not prove behavioral correctness, language quality or model compliance.
 
@@ -202,25 +215,23 @@ Validation reports source problems without modifying files, fetching URLs or loa
 5. Missing tools or unsupported symlink facilities are explicit limitations/skips, not passed coverage.
 6. A maintainer can run python -m unittest discover -s tests -p "test_*.py" -v and python scripts/validate_repository.py --root . after installing requirements-dev.txt.
 7. Document actual executed harness/version and scenario results before claiming compatibility. A single-harness smoke check does not prove every harness.
-8. End state: exactly three available skills, fifteen planned entries, all tests centralized, documented dependency groups, and no misleading full-suite/plugin installation claim.
+8. End state: exactly three available skills, fourteen planned entries, all tests centralized and grouped by owner and scope, documented dependency groups, and no misleading full-suite/plugin installation claim.
 
 ## Follow-on increments
 
 - Shared capabilities: commit formatting, natural-language reports, safe project-check discovery and portable progress.
 - Commit workflow: analysis, plan, staging and git-commit-builder, preserving user-selected hunks and decisions.
 - Activity workflow: date/timezone/author selection and verified translated templates.
-- CCR migration: preserve history/contracts/standalone behavior, relocate tests centrally and validate the viewer contract.
 - Publication workflow: synchronize, review exact versions, push, MR/PR lifecycle and promotion with separate authorizations.
 - Harness distribution: validated manifests, selective bundles, CI and releases after selecting supported interfaces.
-- Historical repository transition: announce and verify migration before archiving CCR's original repository.
 
-Each increment gets its own bounded design/plan as needed. This spec is a target map and a foundation implementation contract, not a hidden eighteen-skill implementation plan.
+Each increment gets its own bounded design/plan as needed. This spec is a target map and a foundation implementation contract, not a hidden seventeen-skill implementation plan.
 
 ## Sources and review notes
 
-- Human decisions in the current Devcraft Toolkit conversation through 2026-10-16.
+- Human decisions in the current Devcraft Toolkit conversation through 2026-10-17, including CCR exclusion and per-skill test ownership.
 - https://agentskills.io/specification (consulted 2026-10-16): SKILL.md metadata, resource structure and relative references.
 - Existing README.md and .gitignore at the repository baseline.
 - Existing Git helper skills and original agents informed the compatibility corrections; they are not runtime dependencies.
 
-Self-review: the eighteen names are preserved; tests are external; Spanish-only rules are removed; clean-publication and unborn-commit cases are distinct; no global identity mutation, empty skill advertisement, automatic dependency installation or unverified harness compatibility is promised.
+Self-review: seventeen active names exclude CCR; tests are external and grouped by skill and scope; Spanish-only rules are removed; clean-publication and unborn-commit cases are distinct; no global identity mutation, empty skill advertisement, automatic dependency installation or unverified harness compatibility is promised.
