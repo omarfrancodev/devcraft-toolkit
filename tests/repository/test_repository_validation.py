@@ -133,6 +133,16 @@ class RepositoryValidationTests(unittest.TestCase):
         self.skill_tree(text="---\nname: alpha\ndescription: A useful test skill.\n---\n\nRead [context](references/missing.md).\n")
         self.assertIn("missing-resource", {item[0] for item in self.codes_and_paths()})
 
+    def test_local_link_supports_angle_bracket_destination_with_spaces(self):
+        text = "---\nname: alpha\ndescription: A useful test skill.\n---\n\nRead [context](<references/context notes.md>).\n"
+        self.skill_tree(text=text, resource=("references/context notes.md", "Context"))
+        self.assertEqual(set(), self.codes_and_paths())
+
+    def test_empty_local_link_destination_is_reported_without_crashing(self):
+        text = "---\nname: alpha\ndescription: A useful test skill.\n---\n\nRead [context]( ).\n"
+        self.skill_tree(text=text)
+        self.assertEqual(set(), self.codes_and_paths())
+
     def test_resource_escape_is_reported(self):
         self.skill_tree(text="---\nname: alpha\ndescription: A useful test skill.\n---\n\nRead [outside](../outside.md).\n")
         self.assertIn("resource-escape", {item[0] for item in self.codes_and_paths()})

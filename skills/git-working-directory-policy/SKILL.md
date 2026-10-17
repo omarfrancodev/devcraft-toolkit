@@ -17,7 +17,7 @@ Collect evidence with read-only Git commands:
 - `git rev-parse --git-dir` and `git rev-parse --git-common-dir` for the worktree Git directory and shared Git directory.
 - `git rev-parse --show-superproject-working-tree` to detect a submodule.
 - `git symbolic-ref --short -q HEAD` and `git rev-parse --verify HEAD` to distinguish a named branch, an unborn branch, and detached HEAD.
-- `git status --short --branch` for the observed branch and working-tree summary when relevant.
+- `git --no-optional-locks status --short --branch` for the observed branch and working-tree summary when relevant. Keep optional locks disabled for every `status` inspection so Git does not refresh and write optional index data.
 - `git config --show-origin --get user.name` and `git config --show-origin --get user.email` for effective Git identity and the configuration source Git reports.
 
 Use the selected path as the command working directory or pass it to `git -C` on every independently launched command. If Git reports that the path is not a repository, say so plainly. If Git is unavailable, report that limitation. Never invent a root, branch, identity, or configuration origin.

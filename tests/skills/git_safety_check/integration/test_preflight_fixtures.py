@@ -56,7 +56,7 @@ class GitPreflightFixtureTests(unittest.TestCase):
         for kind in ("normal", "unborn", "dirty", "staged", "conflicted", "detached", "missing-identity"):
             with self.subTest(kind=kind), git_fixture(kind, self.root, dirname=kind) as repo:
                 before = snapshot_repository(repo)
-                self.git(repo, "status", "--short", "--branch")
+                self.git(repo, "--no-optional-locks", "status", "--short", "--branch")
                 self.git(repo, "rev-parse", "--verify", "HEAD", check=False)
                 self.git(repo, "config", "--show-origin", "--get", "user.name", check=False)
                 self.assertEqual(before, snapshot_repository(repo))

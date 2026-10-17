@@ -208,7 +208,14 @@ def _validate_skill_links(name: str, skill_root: Path, body: str, issues: list[V
     without_fences = _FENCED_CODE.sub("", body)
     visible = _INLINE_CODE.sub("", without_fences)
     for match in _MARKDOWN_LINK.finditer(visible):
-        destination = match.group(1).strip().split(maxsplit=1)[0].strip("<>")
+        raw_destination = match.group(1).strip()
+        if raw_destination.startswith("<"):
+            closing = raw_destination.find(">")
+            if closing == -1:
+                continue
+            destination = raw_destination[1:closing]
+        else:
+            destination = raw_destination.split(maxsplit=1)[0] if raw_destination else ""
         parsed = urlsplit(destination)
         if parsed.scheme in {"http", "https", "mailto"} or not parsed.path:
             continue

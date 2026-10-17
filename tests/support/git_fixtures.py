@@ -15,8 +15,7 @@ def _git(args: list[str], *, cwd: Path, env: dict[str, str] | None = None, check
     child_env["GIT_CONFIG_NOSYSTEM"] = "1"
     if env:
         child_env.update(env)
-    output_encoding = "mbcs" if os.name == "nt" else "utf-8"
-    return subprocess.run(["git", *args], cwd=cwd, env=child_env, check=check, capture_output=True, text=True, encoding=output_encoding)
+    return subprocess.run(["git", *args], cwd=cwd, env=child_env, check=check, capture_output=True, text=True, encoding="utf-8")
 
 
 def _init_repository(path: Path, root: Path) -> None:
@@ -96,6 +95,8 @@ def snapshot_repository(repo: Path) -> dict[str, str]:
     refs = _git(["for-each-ref", "--format=%(refname) %(objectname)"], cwd=repo).stdout.strip()
     head_result = _git(["rev-parse", "--verify", "HEAD"], cwd=repo, check=False)
     head = head_result.stdout.strip() if head_result.returncode == 0 else "<unborn>"
+    symbolic_head_result = _git(["symbolic-ref", "-q", "HEAD"], cwd=repo, check=False)
+    symbolic_head = symbolic_head_result.stdout.strip() if symbolic_head_result.returncode == 0 else "<detached>"
     index_result = _git(["rev-parse", "--git-path", "index"], cwd=repo)
     index = Path(index_result.stdout.strip())
     if not index.is_absolute():
@@ -103,6 +104,7 @@ def snapshot_repository(repo: Path) -> dict[str, str]:
     snapshot = {
         "refs": refs,
         "HEAD": head,
+        "symbolic-HEAD": symbolic_head,
         "index": hashlib.sha256(index.read_bytes()).hexdigest() if index.is_file() else "<missing>",
     }
     for path in sorted(repo.rglob("*")):

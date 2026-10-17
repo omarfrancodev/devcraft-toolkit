@@ -11,7 +11,7 @@ Use this skill only to preflight the user's requested Git intent. It depends on 
 
 Accept intent `inspect`, `commit`, or `publish`, plus the selected repository context when available. If no context exists, discover only the selected repository. Use explicit working directories or `git -C` in every separately launched command. Keep spaces and Unicode intact.
 
-Refresh the facts relevant to the intent with read-only Git commands: conflict and in-progress-operation state, branch/HEAD state, staged/index state, unstaged and untracked files, effective `user.name` and `user.email` plus their origins, and whether a commit exists. Prefer `GIT_OPTIONAL_LOCKS=0` for status inspection where supported. Do not run stage, unstage, commit, checkout/switch, fetch, push, stash, reset, clean, or repair commands.
+Refresh the facts relevant to the intent with read-only Git commands: conflict and in-progress-operation state, branch/HEAD state, staged/index state, unstaged and untracked files, effective `user.name` and `user.email` plus their origins, and whether a commit exists. Run status inspection as `git --no-optional-locks status ...` so Git cannot refresh optional index data. Do not run stage, unstage, commit, checkout/switch, fetch, push, stash, reset, clean, or repair commands.
 
 Preserve the user's exact existing index selection and unstaged exclusions. Do not stage untracked or unstaged content on the user's behalf. Inspecting state does not require Git identity.
 

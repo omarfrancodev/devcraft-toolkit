@@ -37,6 +37,14 @@ class RepositoryContextFixtureTests(unittest.TestCase):
             common_dir = Path(self.git(repo, "rev-parse", "--git-common-dir"))
             self.assertNotEqual(git_dir.resolve(), common_dir.resolve())
 
+    def test_unicode_linked_worktree_paths_and_index_are_snapshotted(self):
+        with git_fixture("linked-worktree", self.root, dirname="linked 中文") as repo:
+            top_level = self.git(repo, "rev-parse", "--show-toplevel")
+            self.assertTrue(top_level)
+            snapshot = snapshot_repository(repo)
+            self.assertNotEqual("<missing>", snapshot["index"])
+            self.assertIn("working:README.md", snapshot)
+
     def test_detached_fixture_has_head_without_branch(self):
         with git_fixture("detached", self.root) as repo:
             self.assertEqual("", self.git(repo, "branch", "--show-current"))
@@ -50,6 +58,15 @@ class RepositoryContextFixtureTests(unittest.TestCase):
             self.assertIn("index", snapshot)
             self.assertIn("working:README.md", snapshot)
 
+    def test_snapshot_detects_symbolic_head_change_at_same_commit(self):
+        with git_fixture("normal", self.root) as repo:
+            self.git(repo, "branch", "same-commit")
+            before = snapshot_repository(repo)
+            self.git(repo, "switch", "same-commit")
+            after = snapshot_repository(repo)
+            self.assertEqual(before["HEAD"], after["HEAD"])
+            self.assertNotEqual(before["symbolic-HEAD"], after["symbolic-HEAD"])
+
     def test_read_only_context_queries_preserve_repository_snapshot(self):
         with git_fixture("normal", self.root, dirname="repo con espacio ü") as repo:
             before = snapshot_repository(repo)
@@ -59,7 +76,7 @@ class RepositoryContextFixtureTests(unittest.TestCase):
             self.git(repo, "rev-parse", "--show-superproject-working-tree")
             self.git(repo, "symbolic-ref", "--short", "-q", "HEAD")
             self.git(repo, "rev-parse", "--verify", "HEAD")
-            self.git(repo, "status", "--short", "--branch")
+            self.git(repo, "--no-optional-locks", "status", "--short", "--branch")
             self.git(repo, "config", "--show-origin", "--get", "user.name")
             self.git(repo, "config", "--show-origin", "--get", "user.email")
             self.assertEqual(before, snapshot_repository(repo))
