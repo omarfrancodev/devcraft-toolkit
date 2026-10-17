@@ -33,28 +33,61 @@ def _commit_readme(path: Path) -> None:
 
 @contextmanager
 def git_fixture(kind: str, root: Path, *, dirname: str = "repo") -> Iterator[Path]:
-    """Create a normal, unborn, linked-worktree, or detached Git fixture."""
-    if kind not in {"normal", "unborn", "linked-worktree", "detached"}:
+    """Create an isolated Git fixture for context or preflight scenarios."""
+    kinds = {"normal", "unborn", "linked-worktree", "detached", "dirty", "staged", "conflicted", "missing-identity"}
+    if kind not in kinds:
         raise ValueError(f"Unsupported fixture kind: {kind}")
     root = Path(root).resolve()
     root.mkdir(parents=True, exist_ok=True)
+    global_config = root / ".fixture-global-config"
+    global_config.write_text("", encoding="utf-8")
+    env_keys = ("GIT_CONFIG_GLOBAL", "GIT_CONFIG_NOSYSTEM", "GIT_AUTHOR_NAME", "GIT_AUTHOR_EMAIL", "GIT_COMMITTER_NAME", "GIT_COMMITTER_EMAIL")
+    prior_env = {key: os.environ.get(key) for key in env_keys}
+    os.environ["GIT_CONFIG_GLOBAL"] = str(global_config)
+    os.environ["GIT_CONFIG_NOSYSTEM"] = "1"
+    for key in env_keys[2:]:
+        os.environ.pop(key, None)
     repository = root / dirname
-    if kind == "linked-worktree":
-        source = root / f"{dirname}-source"
-        _init_repository(source, root)
-        _commit_readme(source)
-        _git(["worktree", "add", "-b", "fixture-linked", str(repository)], cwd=source)
-        return_value = repository
-    else:
-        _init_repository(repository, root)
-        if kind in {"normal", "detached"}:
-            _commit_readme(repository)
-        if kind == "detached":
-            _git(["checkout", "--detach", "HEAD"], cwd=repository)
-        elif kind == "unborn":
-            (repository / "README.md").write_text("Untracked fixture.\n", encoding="utf-8")
-        return_value = repository
-    yield return_value
+    try:
+        if kind == "linked-worktree":
+            source = root / f"{dirname}-source"
+            _init_repository(source, root)
+            _commit_readme(source)
+            _git(["worktree", "add", "-b", "fixture-linked", str(repository)], cwd=source)
+        else:
+            _init_repository(repository, root)
+            if kind != "unborn":
+                _commit_readme(repository)
+            if kind == "unborn":
+                (repository / "README.md").write_text("Untracked fixture.\n", encoding="utf-8")
+            elif kind == "detached":
+                _git(["checkout", "--detach", "HEAD"], cwd=repository)
+            elif kind == "dirty":
+                with (repository / "README.md").open("a", encoding="utf-8") as readme:
+                    readme.write("Unstaged change.\n")
+            elif kind == "staged":
+                (repository / "staged.txt").write_text("Staged selection.\n", encoding="utf-8")
+                _git(["add", "--", "staged.txt"], cwd=repository)
+            elif kind == "conflicted":
+                _git(["switch", "-c", "fixture-conflict"], cwd=repository)
+                (repository / "README.md").write_text("Conflict branch.\n", encoding="utf-8")
+                _git(["commit", "-am", "fixture: conflicting branch"], cwd=repository)
+                _git(["switch", "main"], cwd=repository)
+                (repository / "README.md").write_text("Main branch conflict.\n", encoding="utf-8")
+                _git(["commit", "-am", "fixture: main conflict"], cwd=repository)
+                merge = _git(["merge", "fixture-conflict"], cwd=repository, check=False)
+                if merge.returncode == 0:
+                    raise RuntimeError("Conflict fixture merge unexpectedly succeeded.")
+            elif kind == "missing-identity":
+                _git(["config", "--local", "--unset", "user.name"], cwd=repository)
+                _git(["config", "--local", "--unset", "user.email"], cwd=repository)
+        yield repository
+    finally:
+        for key, value in prior_env.items():
+            if value is None:
+                os.environ.pop(key, None)
+            else:
+                os.environ[key] = value
 
 
 def snapshot_repository(repo: Path) -> dict[str, str]:

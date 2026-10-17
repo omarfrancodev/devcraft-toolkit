@@ -1,0 +1,1 @@
+"""Git preflight fixture tests."""
