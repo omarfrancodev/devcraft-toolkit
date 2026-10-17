@@ -6,4 +6,4 @@ The toolkit is designed to combine independent capabilities with coordinators fo
 
 Skill definitions and default templates use English. User-facing content follows an explicit language preference or the language of the user's request, defaulting to English when neither can be determined. Tests are maintained outside individual skill directories, grouped by the owning skill and then by test scope; repository infrastructure and cross-skill coverage have separate shared groups.
 
-This repository is in its initial setup stage.
+This repository is in its foundation implementation stage. The catalog records the target inventory; capabilities marked `planned` are not available skills in this distribution. The first milestone establishes three usable skills and centralized repository validation.
