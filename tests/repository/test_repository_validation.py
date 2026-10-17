@@ -193,6 +193,11 @@ class RepositoryValidationTests(unittest.TestCase):
         (package / "test_unknown.py").write_text("", encoding="utf-8")
         self.assertIn("test-ownership", {item[0] for item in self.codes_and_paths()})
 
+    def test_python_cache_is_not_treated_as_skill_test_package(self):
+        self.catalog([self.entry("alpha")])
+        (self.root / "tests" / "skills" / "__pycache__").mkdir(parents=True)
+        self.assertNotIn("test-ownership", {item[0] for item in self.codes_and_paths()})
+
 
 if __name__ == "__main__":
     unittest.main()

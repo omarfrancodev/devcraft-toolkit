@@ -1,0 +1,69 @@
+import tempfile
+import unittest
+from pathlib import Path
+
+from tests.support.git_fixtures import git_fixture, snapshot_repository
+
+
+class RepositoryContextFixtureTests(unittest.TestCase):
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory(dir=Path(__file__).resolve().parents[4])
+        self.root = Path(self.temp.name)
+
+    def tearDown(self):
+        self.temp.cleanup()
+
+    def git(self, repo, *args):
+        import subprocess
+
+        return subprocess.run(["git", *args], cwd=repo, check=True, capture_output=True, text=True).stdout.strip()
+
+    def test_normal_fixture_supports_spaces_and_unicode(self):
+        with git_fixture("normal", self.root, dirname="repo con espacio ü") as repo:
+            self.assertEqual("repo con espacio ü", repo.name)
+            self.assertEqual("true", self.git(repo, "rev-parse", "--is-inside-work-tree"))
+            self.assertEqual("Fixture User", self.git(repo, "config", "--local", "user.name"))
+            self.assertTrue((repo / "README.md").is_file())
+
+    def test_unborn_fixture_has_main_branch_and_untracked_readme(self):
+        with git_fixture("unborn", self.root) as repo:
+            self.assertEqual("main", self.git(repo, "symbolic-ref", "--short", "HEAD"))
+            self.assertIn("?? README.md", self.git(repo, "status", "--short"))
+            self.assertNotEqual(0, __import__("subprocess").run(["git", "rev-parse", "--verify", "HEAD"], cwd=repo, capture_output=True).returncode)
+
+    def test_linked_worktree_has_separate_git_and_common_directories(self):
+        with git_fixture("linked-worktree", self.root) as repo:
+            git_dir = Path(self.git(repo, "rev-parse", "--git-dir"))
+            common_dir = Path(self.git(repo, "rev-parse", "--git-common-dir"))
+            self.assertNotEqual(git_dir.resolve(), common_dir.resolve())
+
+    def test_detached_fixture_has_head_without_branch(self):
+        with git_fixture("detached", self.root) as repo:
+            self.assertEqual("", self.git(repo, "branch", "--show-current"))
+            self.assertTrue(self.git(repo, "rev-parse", "--verify", "HEAD"))
+
+    def test_snapshot_captures_refs_head_index_and_working_files(self):
+        with git_fixture("normal", self.root) as repo:
+            snapshot = snapshot_repository(repo)
+            self.assertIn("refs", snapshot)
+            self.assertIn("HEAD", snapshot)
+            self.assertIn("index", snapshot)
+            self.assertIn("working:README.md", snapshot)
+
+    def test_read_only_context_queries_preserve_repository_snapshot(self):
+        with git_fixture("normal", self.root, dirname="repo con espacio ü") as repo:
+            before = snapshot_repository(repo)
+            self.git(repo, "rev-parse", "--show-toplevel")
+            self.git(repo, "rev-parse", "--git-dir")
+            self.git(repo, "rev-parse", "--git-common-dir")
+            self.git(repo, "rev-parse", "--show-superproject-working-tree")
+            self.git(repo, "symbolic-ref", "--short", "-q", "HEAD")
+            self.git(repo, "rev-parse", "--verify", "HEAD")
+            self.git(repo, "status", "--short", "--branch")
+            self.git(repo, "config", "--show-origin", "--get", "user.name")
+            self.git(repo, "config", "--show-origin", "--get", "user.email")
+            self.assertEqual(before, snapshot_repository(repo))
+
+
+if __name__ == "__main__":
+    unittest.main()

@@ -240,6 +240,8 @@ def _validate_test_ownership(root: Path, names: dict[str, dict], issues: list[Va
         return
     known_packages = {name.replace("-", "_") for name in names}
     for package in skill_tests.iterdir():
+        if package.name == "__pycache__":
+            continue
         if package.is_dir() and package.name not in known_packages:
             issues.append(ValidationIssue("test-ownership", package.relative_to(root).as_posix(), "Skill test package does not map to a catalog skill."))
 

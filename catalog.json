@@ -14,7 +14,7 @@
     {"name": "git-manage-pull-request", "role": "capability", "status": "planned", "path": "skills/git-manage-pull-request", "requires": []},
     {"name": "git-promote", "role": "capability", "status": "planned", "path": "skills/git-promote", "requires": []},
     {"name": "git-safety-check", "role": "support", "status": "planned", "path": "skills/git-safety-check", "requires": []},
-    {"name": "git-working-directory-policy", "role": "support", "status": "planned", "path": "skills/git-working-directory-policy", "requires": []},
+    {"name": "git-working-directory-policy", "role": "support", "status": "available", "path": "skills/git-working-directory-policy", "requires": []},
     {"name": "conventional-commits-style", "role": "support", "status": "planned", "path": "skills/conventional-commits-style", "requires": []},
     {"name": "validation-discovery", "role": "support", "status": "planned", "path": "skills/validation-discovery", "requires": []},
     {"name": "natural-language-report-writer", "role": "support", "status": "planned", "path": "skills/natural-language-report-writer", "requires": []},
