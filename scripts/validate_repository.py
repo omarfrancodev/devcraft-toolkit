@@ -20,8 +20,8 @@ _SKILL_NAME = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 _ROLES = {"entry", "coordinator", "capability", "support"}
 _STATUSES = {"planned", "available"}
 _MARKDOWN_LINK = re.compile(r"\]\(([^)]+)\)")
-_FENCED_CODE = re.compile(r"(?m)^\s*(```+|~~~+).*?^\s*\1\s*$", re.DOTALL)
-_INLINE_CODE = re.compile(r"(`+).*?\1", re.DOTALL)
+_FENCE_OPEN = re.compile(r"^ {0,3}(`{3,}|~{3,})(.*)$")
+_FENCE_CLOSE = re.compile(r"^ {0,3}(`+|~+)[ \t]*$")
 
 
 @dataclass(frozen=True)
@@ -53,11 +53,12 @@ def validate_repository(root: Path) -> list[ValidationIssue]:
         return [_issue("catalog-schema", f"Cannot read valid catalog.json: {exc}")]
 
     issues: list[ValidationIssue] = []
-    if not isinstance(data, dict) or data.get("schema_version") != 1 or data.get("name") != "devcraft-toolkit" or not isinstance(data.get("skills"), list):
+    if not isinstance(data, dict) or type(data.get("schema_version")) is not int or data["schema_version"] != 1 or data.get("name") != "devcraft-toolkit" or not isinstance(data.get("skills"), list):
         return [_issue("catalog-schema", "Expected schema_version 1, name devcraft-toolkit, and a skills array.")]
 
     names: dict[str, dict] = {}
     paths: dict[str, str] = {}
+    valid_entries: list[dict] = []
     for index, entry in enumerate(data["skills"]):
         location = f"catalog.json:skills[{index}]"
         if not isinstance(entry, dict):
@@ -88,6 +89,7 @@ def validate_repository(root: Path) -> list[ValidationIssue]:
             valid = False
         if not valid:
             continue
+        valid_entries.append(entry)
         if name in names:
             issues.append(_issue("duplicate-name", f"Skill name {name!r} occurs more than once."))
         else:
@@ -97,7 +99,8 @@ def validate_repository(root: Path) -> list[ValidationIssue]:
         else:
             paths[skill_path] = name
 
-    for name, entry in names.items():
+    for entry in valid_entries:
+        name = entry["name"]
         for dependency in entry["requires"]:
             if dependency not in names:
                 issues.append(_issue("unknown-dependency", f"{name!r} requires unknown skill {dependency!r}."))
@@ -118,7 +121,7 @@ def validate_repository(root: Path) -> list[ValidationIssue]:
         visited.add(name)
         return cyclic
 
-    if any(visit(name) for name in names) and not any(item.code == "dependency-cycle" for item in issues):
+    if any(visit(name) for name in names):
         issues.append(_issue("dependency-cycle", "Skill dependencies contain a cycle."))
 
     if any(entry.get("status") == "available" for entry in names.values()) and yaml is None:
@@ -126,7 +129,6 @@ def validate_repository(root: Path) -> list[ValidationIssue]:
             "missing-dependency", "requirements-dev.txt",
             "PyYAML is required to validate available skill frontmatter; install requirements-dev.txt.",
         ))
-        return issues
 
     for name, entry in names.items():
         skill_root = (root / Path(*entry["path"].split("/"))).resolve()
@@ -135,11 +137,8 @@ def validate_repository(root: Path) -> list[ValidationIssue]:
             issues.append(ValidationIssue("invalid-path", f"catalog.json:skills/{name}", f"Catalog path must be {expected_path!r}."))
             continue
         skill_md = skill_root / "SKILL.md"
-        if entry["status"] == "planned":
-            if skill_md.exists():
-                issues.append(ValidationIssue("planned-placeholder", f"{entry['path']}/SKILL.md", "Planned skills must not expose SKILL.md."))
-            continue
-        _validate_available_skill(root, name, skill_root, skill_md, issues)
+        if entry["status"] == "available":
+            _validate_available_skill(root, name, skill_root, skill_md, issues)
 
     _validate_discoverable_skills(root, names, issues)
     _validate_test_ownership(root, names, issues)
@@ -162,26 +161,27 @@ def _validate_available_skill(root: Path, name: str, skill_root: Path, skill_md:
     if closing is None:
         issues.append(ValidationIssue("skill-frontmatter", f"{relative_skill}/SKILL.md", "SKILL.md must begin with YAML frontmatter delimited by --- lines."))
         return
-    try:
-        metadata = yaml.safe_load("\n".join(lines[1:closing]))
-    except yaml.YAMLError as exc:
-        issues.append(ValidationIssue("skill-frontmatter", f"{relative_skill}/SKILL.md", f"Invalid YAML frontmatter: {exc}"))
-        return
-    if not isinstance(metadata, dict):
-        issues.append(ValidationIssue("skill-frontmatter", f"{relative_skill}/SKILL.md", "Frontmatter must be a YAML mapping."))
-        return
-    skill_name = metadata.get("name")
-    description = metadata.get("description")
-    if (
-        not isinstance(skill_name, str)
-        or skill_name != name
-        or len(skill_name) > 64
-        or not _SKILL_NAME.fullmatch(skill_name)
-        or not isinstance(description, str)
-        or not description.strip()
-        or len(description) > 1024
-    ):
-        issues.append(ValidationIssue("skill-frontmatter", f"{relative_skill}/SKILL.md", "Frontmatter needs the matching lowercase skill name (max 64 chars) and a nonempty description (max 1024 chars)."))
+    if yaml is not None:
+        try:
+            metadata = yaml.safe_load("\n".join(lines[1:closing]))
+        except (yaml.YAMLError, RecursionError) as exc:
+            issues.append(ValidationIssue("skill-frontmatter", f"{relative_skill}/SKILL.md", f"Invalid YAML frontmatter: {exc}"))
+            return
+        if not isinstance(metadata, dict):
+            issues.append(ValidationIssue("skill-frontmatter", f"{relative_skill}/SKILL.md", "Frontmatter must be a YAML mapping."))
+            return
+        skill_name = metadata.get("name")
+        description = metadata.get("description")
+        if (
+            not isinstance(skill_name, str)
+            or skill_name != name
+            or len(skill_name) > 64
+            or not _SKILL_NAME.fullmatch(skill_name)
+            or not isinstance(description, str)
+            or not description.strip()
+            or len(description) > 1024
+        ):
+            issues.append(ValidationIssue("skill-frontmatter", f"{relative_skill}/SKILL.md", "Frontmatter needs the matching lowercase skill name (max 64 chars) and a nonempty description (max 1024 chars)."))
 
     body = "\n".join(lines[closing + 1:]).strip()
     if not body:
@@ -195,9 +195,13 @@ def _validate_available_skill(root: Path, name: str, skill_root: Path, skill_md:
                     candidate.resolve(strict=False).relative_to(skill_root)
                 except ValueError:
                     issues.append(ValidationIssue("resource-escape", candidate.relative_to(root).as_posix(), "Skill symlink resolves outside the skill root."))
-            if candidate.is_dir() and candidate.name == "tests":
+            if candidate.is_dir() and candidate.name.casefold() == "tests":
                 issues.append(ValidationIssue("skill-local-tests", candidate.relative_to(root).as_posix(), "Tests must be kept under the repository-root tests/ directory."))
-            elif candidate.is_file() and candidate.name.startswith("test_") and candidate.suffix == ".py":
+            elif candidate.is_file() and candidate.suffix.casefold() == ".py" and (
+                candidate.name.casefold().startswith("test")
+                or candidate.name.casefold().endswith("_test.py")
+                or candidate.name.casefold() == "conftest.py"
+            ):
                 issues.append(ValidationIssue("skill-local-tests", candidate.relative_to(root).as_posix(), "Test modules must be kept under the repository-root tests/ directory."))
     except OSError as exc:
         issues.append(ValidationIssue("resource-escape", relative_skill, f"Cannot inspect skill resources safely: {exc}"))
@@ -205,8 +209,8 @@ def _validate_available_skill(root: Path, name: str, skill_root: Path, skill_md:
 
 def _validate_skill_links(name: str, skill_root: Path, body: str, issues: list[ValidationIssue]) -> None:
     relative_skill = f"skills/{name}"
-    without_fences = _FENCED_CODE.sub("", body)
-    visible = _INLINE_CODE.sub("", without_fences)
+    without_fences = _remove_fenced_code(body)
+    visible = _remove_inline_code(without_fences)
     for match in _MARKDOWN_LINK.finditer(visible):
         raw_destination = match.group(1).strip()
         if raw_destination.startswith("<"):
@@ -232,13 +236,107 @@ def _validate_skill_links(name: str, skill_root: Path, body: str, issues: list[V
             issues.append(ValidationIssue("missing-resource", f"{relative_skill}/SKILL.md", f"Linked skill resource does not exist: {destination!r}."))
 
 
+def _mask_non_newlines(text: str, start: int, end: int) -> str:
+    return "".join("\n" if character == "\n" else "\r" if character == "\r" else " " for character in text[start:end])
+
+
+def _remove_fenced_code(body: str) -> str:
+    """Mask fenced blocks, including an opening fence that runs to EOF."""
+    lines = body.splitlines(keepends=True)
+    masked = list(body)
+    offset = 0
+    index = 0
+    while index < len(lines):
+        line = lines[index].rstrip("\r\n")
+        opening = _FENCE_OPEN.match(line)
+        if opening is None or (opening.group(1)[0] == "`" and "`" in opening.group(2)):
+            offset += len(lines[index])
+            index += 1
+            continue
+
+        marker = opening.group(1)
+        marker_char = marker[0]
+        marker_size = len(marker)
+        block_start = offset
+        offset += len(lines[index])
+        index += 1
+        block_end = len(body)
+        while index < len(lines):
+            closing_line = lines[index].rstrip("\r\n")
+            closing = _FENCE_CLOSE.match(closing_line)
+            if closing is not None and closing.group(1)[0] == marker_char and len(closing.group(1)) >= marker_size:
+                offset += len(lines[index])
+                index += 1
+                block_end = offset
+                break
+            offset += len(lines[index])
+            index += 1
+        masked[block_start:block_end] = _mask_non_newlines(body, block_start, block_end)
+    return "".join(masked)
+
+
+def _remove_inline_code(body: str) -> str:
+    """Mask CommonMark-style inline code spans with exact-length delimiters."""
+    masked = list(body)
+    index = 0
+    while index < len(body):
+        if body[index] != "`":
+            index += 1
+            continue
+        opening_end = index + 1
+        while opening_end < len(body) and body[opening_end] == "`":
+            opening_end += 1
+        opening_size = opening_end - index
+        preceding_slashes = 0
+        slash_index = index - 1
+        while slash_index >= 0 and body[slash_index] == "\\":
+            preceding_slashes += 1
+            slash_index -= 1
+        if preceding_slashes % 2:
+            index = opening_end
+            continue
+
+        cursor = opening_end
+        closing_end = None
+        while cursor < len(body):
+            closing_start = body.find("`", cursor)
+            if closing_start == -1:
+                break
+            candidate_end = closing_start + 1
+            while candidate_end < len(body) and body[candidate_end] == "`":
+                candidate_end += 1
+            if candidate_end - closing_start == opening_size:
+                closing_end = candidate_end
+                break
+            cursor = candidate_end
+        if closing_end is None:
+            index = opening_end
+            continue
+        masked[index:closing_end] = _mask_non_newlines(body, index, closing_end)
+        index = closing_end
+    return "".join(masked)
+
+
 def _validate_discoverable_skills(root: Path, names: dict[str, dict], issues: list[ValidationIssue]) -> None:
     skills_root = root / "skills"
     if not skills_root.is_dir():
         return
-    for candidate in skills_root.iterdir():
-        if candidate.is_dir() and (candidate / "SKILL.md").exists() and candidate.name not in names:
-            issues.append(ValidationIssue("unlisted-skill", candidate.relative_to(root).as_posix(), "Discoverable skill directory is absent from catalog.json."))
+    catalog_paths = {entry["path"]: entry for entry in names.values()}
+    for candidate in skills_root.rglob("SKILL.md"):
+        if not candidate.is_file():
+            continue
+        relative_parent = candidate.parent.relative_to(root).as_posix()
+        if relative_parent in catalog_paths:
+            if catalog_paths[relative_parent]["status"] == "planned":
+                issues.append(ValidationIssue("planned-placeholder", candidate.relative_to(root).as_posix(), "Planned skills must not expose SKILL.md."))
+            continue
+        if any(
+            entry["status"] == "planned" and relative_parent.startswith(f"{skill_path}/")
+            for skill_path, entry in catalog_paths.items()
+        ):
+            issues.append(ValidationIssue("planned-placeholder", candidate.relative_to(root).as_posix(), "Planned skills must not expose nested SKILL.md files."))
+        else:
+            issues.append(ValidationIssue("unlisted-skill", candidate.parent.relative_to(root).as_posix(), "Discoverable skill directory is absent from catalog.json."))
 
 
 def _validate_test_ownership(root: Path, names: dict[str, dict], issues: list[ValidationIssue]) -> None:
@@ -249,7 +347,9 @@ def _validate_test_ownership(root: Path, names: dict[str, dict], issues: list[Va
     for package in skill_tests.iterdir():
         if package.name == "__pycache__":
             continue
-        if package.is_dir() and package.name not in known_packages:
+        if package.is_file() and package.name != "__init__.py" and package.suffix.casefold() == ".py":
+            issues.append(ValidationIssue("test-ownership", package.relative_to(root).as_posix(), "Skill test modules must belong to a catalog skill package."))
+        elif package.is_dir() and package.name not in known_packages:
             issues.append(ValidationIssue("test-ownership", package.relative_to(root).as_posix(), "Skill test package does not map to a catalog skill."))
 
 

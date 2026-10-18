@@ -2,21 +2,21 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from tests.support.git_fixtures import git_fixture, snapshot_repository
+from tests.support.git_fixtures import _git, git_fixture, snapshot_repository
 
 
 class RepositoryContextFixtureTests(unittest.TestCase):
     def setUp(self):
-        self.temp = tempfile.TemporaryDirectory(dir=Path(__file__).resolve().parents[4])
+        temp_root = Path(__file__).resolve().parents[4] / "tests" / ".tmp"
+        temp_root.mkdir(parents=True, exist_ok=True)
+        self.temp = tempfile.TemporaryDirectory(dir=temp_root)
         self.root = Path(self.temp.name)
 
     def tearDown(self):
         self.temp.cleanup()
 
     def git(self, repo, *args):
-        import subprocess
-
-        return subprocess.run(["git", *args], cwd=repo, check=True, capture_output=True, text=True).stdout.strip()
+        return _git(list(args), cwd=Path(repo)).stdout.strip()
 
     def test_normal_fixture_supports_spaces_and_unicode(self):
         with git_fixture("normal", self.root, dirname="repo con espacio ü") as repo:
@@ -29,7 +29,7 @@ class RepositoryContextFixtureTests(unittest.TestCase):
         with git_fixture("unborn", self.root) as repo:
             self.assertEqual("main", self.git(repo, "symbolic-ref", "--short", "HEAD"))
             self.assertIn("?? README.md", self.git(repo, "status", "--short"))
-            self.assertNotEqual(0, __import__("subprocess").run(["git", "rev-parse", "--verify", "HEAD"], cwd=repo, capture_output=True).returncode)
+            self.assertNotEqual(0, _git(["rev-parse", "--verify", "HEAD"], cwd=repo, check=False).returncode)
 
     def test_linked_worktree_has_separate_git_and_common_directories(self):
         with git_fixture("linked-worktree", self.root) as repo:
@@ -57,6 +57,13 @@ class RepositoryContextFixtureTests(unittest.TestCase):
             self.assertIn("HEAD", snapshot)
             self.assertIn("index", snapshot)
             self.assertIn("working:README.md", snapshot)
+            self.assertIn("working-mode:README.md", snapshot)
+
+            pseudo_ref = repo / ".git" / "ORIG_HEAD"
+            pseudo_ref.write_text("fixture pseudo-ref\n", encoding="utf-8")
+            after_pseudo_ref = snapshot_repository(repo)
+            self.assertNotIn("git:common/ORIG_HEAD", snapshot)
+            self.assertIn("git:common/ORIG_HEAD", after_pseudo_ref)
 
     def test_snapshot_detects_symbolic_head_change_at_same_commit(self):
         with git_fixture("normal", self.root) as repo:

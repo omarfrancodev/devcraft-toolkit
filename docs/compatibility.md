@@ -10,7 +10,7 @@ The available skills use Markdown instructions, YAML frontmatter, relative resou
 - Python: 3.14.3; PyYAML: 6.0.3; Git for Windows: 2.45.0.windows.1.
 - The final suite ran from a worktree virtual environment with system site packages. PyYAML was available from the base Python; isolated package installation could not be confirmed because PyPI DNS/network access was unavailable.
 - Automated fixtures exercised normal, unborn, linked-worktree, detached, dirty, staged, conflicted, and missing-identity Git states.
-- Read-only context/preflight queries preserved refs, HEAD, index bytes, and working-file digests in the fixture suites.
+- Read-only context/preflight queries preserved refs, HEAD, index bytes, Git metadata outside the object database, and working-file contents and modes in the fixture suites.
 - The Windows symlink escape fixture was skipped because the OS denied the required symlink privilege. The validator includes containment checks, but that symlink case was not dynamically exercised here.
 
 ## Limits

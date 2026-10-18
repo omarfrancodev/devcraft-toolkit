@@ -103,7 +103,7 @@ Stage exact owned files only. Before any commit verify the repository-local iden
 **Interfaces:**
 - Test-only context manager git_fixture(kind: str, root: Path, *, dirname: str = "repo") -> Iterator[Path].
 - Supported kinds introduced here: normal, unborn, linked-worktree, detached.
-- Test-only snapshot_repository(repo: Path) -> dict[str, str] captures refs, HEAD, index digest and working-file digests, excluding Git administration directories.
+- Test-only snapshot_repository(repo: Path) -> dict[str, str] captures refs, HEAD, index digest, pseudo-ref and other Git metadata outside the object database, plus working-file content digests and modes.
 - Skill output follows the spec's repository-context contract; it is plain sourced information, not a callable Python API.
 - Mark git-working-directory-policy available with requires=[] only after its scenarios are actually exercised.
 

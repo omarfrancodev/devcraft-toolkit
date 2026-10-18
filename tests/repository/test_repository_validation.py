@@ -3,6 +3,7 @@ import os
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 from scripts.validate_repository import validate_repository
 
@@ -30,7 +31,9 @@ INVENTORY = {
 
 class RepositoryValidationTests(unittest.TestCase):
     def setUp(self):
-        self.temp = tempfile.TemporaryDirectory(dir=Path(__file__).resolve().parents[2])
+        temp_root = Path(__file__).resolve().parents[2] / "tests" / ".tmp"
+        temp_root.mkdir(parents=True, exist_ok=True)
+        self.temp = tempfile.TemporaryDirectory(dir=temp_root)
         self.root = Path(self.temp.name)
 
     def tearDown(self):
@@ -74,6 +77,15 @@ class RepositoryValidationTests(unittest.TestCase):
         self.catalog([self.entry()])
         self.assertEqual([], validate_repository(self.root))
 
+    def test_schema_version_requires_an_exact_integer(self):
+        for schema_version in (True, 1.0):
+            with self.subTest(schema_version=schema_version):
+                (self.root / "catalog.json").write_text(
+                    json.dumps({"schema_version": schema_version, "name": "devcraft-toolkit", "skills": []}),
+                    encoding="utf-8",
+                )
+                self.assertIn(("catalog-schema", "catalog.json"), self.codes_and_paths())
+
     def test_accepts_project_inventory_of_seventeen_names(self):
         self.catalog([self.entry(name, role) for name, role in INVENTORY.items()])
         self.assertEqual([], validate_repository(self.root))
@@ -81,6 +93,13 @@ class RepositoryValidationTests(unittest.TestCase):
     def test_duplicate_name(self):
         self.catalog([self.entry("alpha"), self.entry("alpha", path="skills/other")])
         self.assertIn(("duplicate-name", "catalog.json"), self.codes_and_paths())
+
+    def test_duplicate_entries_still_validate_each_dependency_list(self):
+        self.catalog([
+            self.entry("alpha"),
+            self.entry("alpha", path="skills/other", requires=["missing-skill"]),
+        ])
+        self.assertIn(("unknown-dependency", "catalog.json"), self.codes_and_paths())
 
     def test_absolute_or_parent_path(self):
         self.catalog([self.entry("alpha", path="../outside")])
@@ -96,6 +115,15 @@ class RepositoryValidationTests(unittest.TestCase):
             self.entry("beta", requires=["alpha"]),
         ])
         self.assertIn(("dependency-cycle", "catalog.json"), self.codes_and_paths())
+
+    def test_multiple_dependency_cycles_produce_one_aggregate_issue(self):
+        self.catalog([
+            self.entry("alpha", requires=["beta"]),
+            self.entry("beta", requires=["alpha"]),
+            self.entry("gamma", requires=["delta"]),
+            self.entry("delta", requires=["gamma"]),
+        ])
+        self.assertEqual(1, sum(issue.code == "dependency-cycle" for issue in validate_repository(self.root)))
 
     def test_available_requires_planned(self):
         self.catalog([
@@ -114,6 +142,20 @@ class RepositoryValidationTests(unittest.TestCase):
     def test_malformed_skill_frontmatter_is_reported(self):
         self.skill_tree(text="---\nname: [invalid\n---\nbody\n")
         self.assertIn("skill-frontmatter", {item[0] for item in self.codes_and_paths()})
+
+    def test_deep_frontmatter_is_reported_without_traceback(self):
+        nested = "[" * 1500 + "null" + "]" * 1500
+        text = f"---\nname: alpha\ndescription: A useful test skill.\nmetadata: {nested}\n---\nbody\n"
+        self.skill_tree(text=text)
+        self.assertIn("skill-frontmatter", {item[0] for item in self.codes_and_paths()})
+
+    def test_missing_yaml_dependency_does_not_skip_skill_layout_checks(self):
+        skill_root = self.skill_tree()
+        (skill_root / "tests").mkdir()
+        with patch("scripts.validate_repository.yaml", None):
+            codes = {issue.code for issue in validate_repository(self.root)}
+        self.assertIn("missing-dependency", codes)
+        self.assertIn("skill-local-tests", codes)
 
     def test_skill_frontmatter_requires_matching_name_and_description(self):
         self.skill_tree(text="---\nname: other\ndescription: ''\n---\nbody\n")
@@ -165,6 +207,12 @@ class RepositoryValidationTests(unittest.TestCase):
         (skill_root / "test_example.py").write_text("", encoding="utf-8")
         self.assertIn("skill-local-tests", {item[0] for item in self.codes_and_paths()})
 
+    def test_available_skill_detects_common_python_test_file_names(self):
+        skill_root = self.skill_tree()
+        for filename in ("conftest.py", "tests.py", "test_alpha.PY", "testfoo.py"):
+            (skill_root / filename).write_text("", encoding="utf-8")
+        self.assertIn("skill-local-tests", {item[0] for item in self.codes_and_paths()})
+
     def test_planned_skill_must_not_expose_skill_md(self):
         entry = self.entry("alpha", status="planned")
         skill_root = self.root / entry["path"]
@@ -180,6 +228,20 @@ class RepositoryValidationTests(unittest.TestCase):
         (orphan / "SKILL.md").write_text("---\nname: orphan-skill\ndescription: Orphan.\n---\nbody\n", encoding="utf-8")
         self.assertIn("unlisted-skill", {item[0] for item in self.codes_and_paths()})
 
+    def test_nested_skill_markdown_is_not_hidden_from_catalog_checks(self):
+        planned = self.entry("alpha", status="planned")
+        self.catalog([planned])
+        nested = self.root / "skills" / "alpha" / "docs"
+        nested.mkdir(parents=True)
+        (nested / "SKILL.md").write_text("nested", encoding="utf-8")
+        self.assertIn("planned-placeholder", {item[0] for item in self.codes_and_paths()})
+
+        self.catalog([self.entry("alpha")])
+        nested_unlisted = self.root / "skills" / "group" / "hidden"
+        nested_unlisted.mkdir(parents=True)
+        (nested_unlisted / "SKILL.md").write_text("nested", encoding="utf-8")
+        self.assertIn("unlisted-skill", {item[0] for item in self.codes_and_paths()})
+
     def test_local_links_ignore_urls_code_and_inline_examples(self):
         text = (
             "---\nname: alpha\ndescription: A useful test skill.\n---\n\n"
@@ -188,6 +250,31 @@ class RepositoryValidationTests(unittest.TestCase):
         )
         self.skill_tree(text=text, resource=("references/context.md", "Context"))
         self.assertEqual(set(), self.codes_and_paths())
+
+    def test_inline_code_does_not_close_on_a_shorter_run(self):
+        text = (
+            "---\nname: alpha\ndescription: A useful test skill.\n---\n\n"
+            "An unmatched run ``` surrounds [outside](../outside.md) before a shorter run ``.\n"
+        )
+        self.skill_tree(text=text)
+        self.assertIn("resource-escape", {item[0] for item in self.codes_and_paths()})
+
+    def test_matching_single_backticks_hide_their_markdown_contents(self):
+        text = (
+            "---\nname: alpha\ndescription: A useful test skill.\n---\n\n"
+            "Use the ` character literally. See [escape](../outside.md) and "
+            "[gone](references/gone.md), then `code`.\n"
+        )
+        self.skill_tree(text=text)
+        self.assertEqual(set(), self.codes_and_paths())
+
+    def test_unclosed_fence_hides_examples_through_end_of_document(self):
+        text = (
+            "---\nname: alpha\ndescription: A useful test skill.\n---\n\n"
+            "```md\n[example](missing-fenced.md)\n"
+        )
+        self.skill_tree(text=text)
+        self.assertNotIn("missing-resource", {item[0] for item in self.codes_and_paths()})
 
     def test_root_test_ownership_accepts_normalized_skill_package(self):
         self.skill_tree(self.entry("git-working-directory-policy", status="available"))
@@ -202,6 +289,28 @@ class RepositoryValidationTests(unittest.TestCase):
         package.mkdir(parents=True)
         (package / "test_unknown.py").write_text("", encoding="utf-8")
         self.assertIn("test-ownership", {item[0] for item in self.codes_and_paths()})
+
+    def test_root_test_ownership_rejects_loose_python_modules(self):
+        self.catalog([self.entry("alpha")])
+        skill_tests = self.root / "tests" / "skills"
+        skill_tests.mkdir(parents=True)
+        (skill_tests / "test_orphan.py").write_text("", encoding="utf-8")
+        issues = validate_repository(self.root)
+        self.assertIn(("test-ownership", "tests/skills/test_orphan.py"), {(issue.code, issue.path) for issue in issues})
+
+    def test_root_test_ownership_allows_skills_package_marker(self):
+        self.catalog([self.entry("alpha")])
+        package_marker = self.root / "tests" / "skills" / "__init__.py"
+        package_marker.parent.mkdir(parents=True)
+        package_marker.write_text("", encoding="utf-8")
+        self.assertNotIn("test-ownership", {item[0] for item in self.codes_and_paths()})
+
+    def test_root_test_ownership_covers_the_entire_skill_subtree(self):
+        self.catalog([self.entry("alpha")])
+        nested = self.root / "tests" / "skills" / "alpha" / "eval" / "ghost_skill"
+        nested.mkdir(parents=True)
+        (nested / "test_nested.py").write_text("", encoding="utf-8")
+        self.assertNotIn("test-ownership", {item[0] for item in self.codes_and_paths()})
 
     def test_python_cache_is_not_treated_as_skill_test_package(self):
         self.catalog([self.entry("alpha")])
