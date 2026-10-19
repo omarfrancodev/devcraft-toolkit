@@ -15,8 +15,15 @@ class RepositoryContextFixtureTests(unittest.TestCase):
     def tearDown(self):
         self.temp.cleanup()
 
+    def run_git(self, repo, *args, check=True):
+        env = {
+            "GIT_CONFIG_GLOBAL": str(self.root / ".fixture-global-config"),
+            "GIT_CONFIG_NOSYSTEM": "1",
+        }
+        return _git(list(args), cwd=Path(repo), env=env, check=check)
+
     def git(self, repo, *args):
-        return _git(list(args), cwd=Path(repo)).stdout.strip()
+        return self.run_git(repo, *args).stdout.strip()
 
     def test_normal_fixture_supports_spaces_and_unicode(self):
         with git_fixture("normal", self.root, dirname="repo con espacio ü") as repo:
@@ -29,7 +36,7 @@ class RepositoryContextFixtureTests(unittest.TestCase):
         with git_fixture("unborn", self.root) as repo:
             self.assertEqual("main", self.git(repo, "symbolic-ref", "--short", "HEAD"))
             self.assertIn("?? README.md", self.git(repo, "status", "--short"))
-            self.assertNotEqual(0, _git(["rev-parse", "--verify", "HEAD"], cwd=repo, check=False).returncode)
+            self.assertNotEqual(0, self.run_git(repo, "rev-parse", "--verify", "HEAD", check=False).returncode)
 
     def test_linked_worktree_has_separate_git_and_common_directories(self):
         with git_fixture("linked-worktree", self.root) as repo:

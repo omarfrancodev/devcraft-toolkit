@@ -296,10 +296,12 @@ def _remove_inline_code(body: str) -> str:
             index = opening_end
             continue
 
+        paragraph_break = re.search(r"\r?\n[ \t]*\r?\n", body[opening_end:])
+        paragraph_end = opening_end + paragraph_break.start() if paragraph_break else len(body)
         cursor = opening_end
         closing_end = None
-        while cursor < len(body):
-            closing_start = body.find("`", cursor)
+        while cursor < paragraph_end:
+            closing_start = body.find("`", cursor, paragraph_end)
             if closing_start == -1:
                 break
             candidate_end = closing_start + 1

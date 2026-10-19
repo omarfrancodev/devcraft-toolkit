@@ -259,14 +259,34 @@ class RepositoryValidationTests(unittest.TestCase):
         self.skill_tree(text=text)
         self.assertIn("resource-escape", {item[0] for item in self.codes_and_paths()})
 
-    def test_matching_single_backticks_hide_their_markdown_contents(self):
+    def test_escaped_literal_backtick_does_not_hide_resource_links(self):
         text = (
             "---\nname: alpha\ndescription: A useful test skill.\n---\n\n"
-            "Use the ` character literally. See [escape](../outside.md) and "
+            "Use the \\` character literally. See [escape](../outside.md) and "
             "[gone](references/gone.md), then `code`.\n"
         )
         self.skill_tree(text=text)
-        self.assertEqual(set(), self.codes_and_paths())
+        self.assertEqual(
+            {"resource-escape", "missing-resource"},
+            {code for code, _path in self.codes_and_paths()},
+        )
+
+    def test_unmatched_inline_delimiter_does_not_cross_paragraphs(self):
+        text = (
+            "---\nname: alpha\ndescription: A useful test skill.\n---\n\n"
+            "Use the ` character literally. See [escape](../outside.md).\n\n"
+            "A later inline example is `code`.\n"
+        )
+        self.skill_tree(text=text)
+        self.assertIn("resource-escape", {item[0] for item in self.codes_and_paths()})
+
+    def test_backtick_in_fence_info_string_does_not_open_code_block(self):
+        text = (
+            "---\nname: alpha\ndescription: A useful test skill.\n---\n\n"
+            "``` a`b\n[inside](missing-fenced.md)\n```\n"
+        )
+        self.skill_tree(text=text)
+        self.assertIn("missing-resource", {item[0] for item in self.codes_and_paths()})
 
     def test_unclosed_fence_hides_examples_through_end_of_document(self):
         text = (

@@ -19,9 +19,6 @@ def _git(args: list[str], *, cwd: Path, env: dict[str, str] | None = None, check
         }:
             child_env.pop(key, None)
     child_env["GIT_CONFIG_NOSYSTEM"] = "1"
-    fixture_global_config = Path(cwd).resolve().parent / ".fixture-global-config"
-    if fixture_global_config.is_file():
-        child_env["GIT_CONFIG_GLOBAL"] = str(fixture_global_config)
     if env:
         child_env.update(env)
     return subprocess.run(["git", *args], cwd=cwd, env=child_env, check=check, capture_output=True, text=True, encoding="utf-8")
