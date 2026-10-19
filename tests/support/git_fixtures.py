@@ -61,26 +61,26 @@ def git_fixture(kind: str, root: Path, *, dirname: str = "repo") -> Iterator[Pat
         if kind == "unborn":
             (repository / "README.md").write_text("Untracked fixture.\n", encoding="utf-8")
         elif kind == "detached":
-            _git(["checkout", "--detach", "HEAD"], cwd=repository)
+            _git(["checkout", "--detach", "HEAD"], cwd=repository, env=fixture_env)
         elif kind == "dirty":
             with (repository / "README.md").open("a", encoding="utf-8") as readme:
                 readme.write("Unstaged change.\n")
         elif kind == "staged":
             (repository / "staged.txt").write_text("Staged selection.\n", encoding="utf-8")
-            _git(["add", "--", "staged.txt"], cwd=repository)
+            _git(["add", "--", "staged.txt"], cwd=repository, env=fixture_env)
         elif kind == "conflicted":
-            _git(["switch", "-c", "fixture-conflict"], cwd=repository)
+            _git(["switch", "-c", "fixture-conflict"], cwd=repository, env=fixture_env)
             (repository / "README.md").write_text("Conflict branch.\n", encoding="utf-8")
-            _git(["commit", "-am", "fixture: conflicting branch"], cwd=repository)
-            _git(["switch", "main"], cwd=repository)
+            _git(["commit", "-am", "fixture: conflicting branch"], cwd=repository, env=fixture_env)
+            _git(["switch", "main"], cwd=repository, env=fixture_env)
             (repository / "README.md").write_text("Main branch conflict.\n", encoding="utf-8")
-            _git(["commit", "-am", "fixture: main conflict"], cwd=repository)
-            merge = _git(["merge", "fixture-conflict"], cwd=repository, check=False)
+            _git(["commit", "-am", "fixture: main conflict"], cwd=repository, env=fixture_env)
+            merge = _git(["merge", "fixture-conflict"], cwd=repository, env=fixture_env, check=False)
             if merge.returncode == 0:
                 raise RuntimeError("Conflict fixture merge unexpectedly succeeded.")
         elif kind == "missing-identity":
-            _git(["config", "--local", "--unset", "user.name"], cwd=repository)
-            _git(["config", "--local", "--unset", "user.email"], cwd=repository)
+            _git(["config", "--local", "--unset", "user.name"], cwd=repository, env=fixture_env)
+            _git(["config", "--local", "--unset", "user.email"], cwd=repository, env=fixture_env)
     yield repository
 
 

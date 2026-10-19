@@ -280,6 +280,14 @@ class RepositoryValidationTests(unittest.TestCase):
         self.skill_tree(text=text)
         self.assertIn("resource-escape", {item[0] for item in self.codes_and_paths()})
 
+    def test_unmatched_single_backtick_does_not_hide_link_before_double_span(self):
+        text = (
+            "---\nname: alpha\ndescription: A useful test skill.\n---\n\n"
+            "Use the ` character literally. See [escape](../outside.md), then ``code``.\n"
+        )
+        self.skill_tree(text=text)
+        self.assertIn("resource-escape", {item[0] for item in self.codes_and_paths()})
+
     def test_backtick_in_fence_info_string_does_not_open_code_block(self):
         text = (
             "---\nname: alpha\ndescription: A useful test skill.\n---\n\n"

@@ -95,7 +95,7 @@ class GitPreflightFixtureTests(unittest.TestCase):
                 self.git(default_repo, "status", "--short", "--branch")
                 if default_before == default_index.read_bytes():
                     self.skipTest(
-                        "Git did not refresh stale index metadata during the control status on this platform; "
+                        "platform limitation: Git did not refresh stale index metadata during the control status; "
                         "the optional-lock behavior cannot be distinguished here."
                     )
 
