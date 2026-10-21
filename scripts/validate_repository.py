@@ -19,9 +19,12 @@ except ImportError:  # The CLI reports a focused install hint when skills need p
 _SKILL_NAME = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 _ROLES = {"entry", "coordinator", "capability", "support"}
 _STATUSES = {"planned", "available"}
-_MARKDOWN_LINK = re.compile(r"\]\(([^)]+)\)")
 _FENCE_OPEN = re.compile(r"^ {0,3}(`{3,}|~{3,})(.*)$")
 _FENCE_CLOSE = re.compile(r"^ {0,3}(`+|~+)[ \t]*$")
+_INVENTORY_SPEC = Path("docs/superpowers/specs/2026-10-16-bootstrap-foundation-design.md")
+_INVENTORY_HEADING = "## Target capability inventory"
+_INVENTORY_ROW = re.compile(r"^\|\s*([a-z0-9]+(?:-[a-z0-9]+)*)\s*\|\s*[^|\n]+\|\s*(?:planned|available)\s*\|$")
+_MARKDOWN_ESCAPABLE = set('!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~')
 
 
 @dataclass(frozen=True)
@@ -33,6 +36,41 @@ class ValidationIssue:
 
 def _issue(code: str, message: str) -> ValidationIssue:
     return ValidationIssue(code=code, path="catalog.json", message=message)
+
+
+def _load_spec_inventory(root: Path) -> tuple[set[str] | None, str | None]:
+    """Read the canonical target names when validating the full project root."""
+    is_project_root = (root / "AGENTS.md").is_file()
+    if not is_project_root:
+        try:
+            is_project_root = (root / "README.md").read_text(encoding="utf-8").splitlines()[0] == "# Devcraft Toolkit"
+        except (OSError, UnicodeError, IndexError):
+            is_project_root = False
+    if not is_project_root:
+        return None, None
+
+    spec_path = root / _INVENTORY_SPEC
+    try:
+        lines = spec_path.read_text(encoding="utf-8").splitlines()
+    except (OSError, UnicodeError) as exc:
+        return None, f"Cannot read canonical skill inventory spec {_INVENTORY_SPEC.as_posix()}: {exc}"
+
+    in_inventory = False
+    names: list[str] = []
+    for line in lines:
+        if line.strip() == _INVENTORY_HEADING:
+            in_inventory = True
+            continue
+        if in_inventory and line.startswith("## "):
+            break
+        if in_inventory:
+            match = _INVENTORY_ROW.fullmatch(line)
+            if match:
+                names.append(match.group(1))
+
+    if len(names) != 17 or len(set(names)) != 17:
+        return None, f"The canonical inventory in {_INVENTORY_SPEC.as_posix()} must define exactly 17 unique skill names."
+    return set(names), None
 
 
 def _is_within(path: Path, root: Path) -> bool:
@@ -53,6 +91,9 @@ def validate_repository(root: Path) -> list[ValidationIssue]:
         return [_issue("catalog-schema", f"Cannot read valid catalog.json: {exc}")]
 
     issues: list[ValidationIssue] = []
+    canonical_names, inventory_error = _load_spec_inventory(root)
+    if inventory_error:
+        issues.append(ValidationIssue("catalog-inventory", _INVENTORY_SPEC.as_posix(), inventory_error))
     if not isinstance(data, dict) or type(data.get("schema_version")) is not int or data["schema_version"] != 1 or data.get("name") != "devcraft-toolkit" or not isinstance(data.get("skills"), list):
         return [_issue("catalog-schema", "Expected schema_version 1, name devcraft-toolkit, and a skills array.")]
 
@@ -98,6 +139,19 @@ def validate_repository(root: Path) -> list[ValidationIssue]:
             issues.append(_issue("duplicate-name", f"Skill path {skill_path!r} is shared by {paths[skill_path]!r} and {name!r}."))
         else:
             paths[skill_path] = name
+
+    if canonical_names is not None:
+        missing = sorted(canonical_names - names.keys())
+        unexpected = sorted(names.keys() - canonical_names)
+        if missing or unexpected:
+            details = []
+            if missing:
+                details.append(f"missing from catalog: {', '.join(missing)}")
+            if unexpected:
+                details.append(f"not in spec: {', '.join(unexpected)}")
+            issues.append(ValidationIssue(
+                "catalog-inventory", "catalog.json", "Catalog names differ from the design spec (" + "; ".join(details) + ").",
+            ))
 
     for entry in valid_entries:
         name = entry["name"]
@@ -195,7 +249,7 @@ def _validate_available_skill(root: Path, name: str, skill_root: Path, skill_md:
                     candidate.resolve(strict=False).relative_to(skill_root)
                 except ValueError:
                     issues.append(ValidationIssue("resource-escape", candidate.relative_to(root).as_posix(), "Skill symlink resolves outside the skill root."))
-            if candidate.is_dir() and candidate.name.casefold() == "tests":
+            if candidate.is_dir() and candidate.name.casefold() in {"test", "tests"}:
                 issues.append(ValidationIssue("skill-local-tests", candidate.relative_to(root).as_posix(), "Tests must be kept under the repository-root tests/ directory."))
             elif candidate.is_file() and candidate.suffix.casefold() == ".py" and (
                 candidate.name.casefold().startswith("test")
@@ -211,29 +265,257 @@ def _validate_skill_links(name: str, skill_root: Path, body: str, issues: list[V
     relative_skill = f"skills/{name}"
     without_fences = _remove_fenced_code(body)
     visible = _remove_inline_code(without_fences)
-    for match in _MARKDOWN_LINK.finditer(visible):
-        raw_destination = match.group(1).strip()
-        if raw_destination.startswith("<"):
-            closing = raw_destination.find(">")
-            if closing == -1:
-                continue
-            destination = raw_destination[1:closing]
-        else:
-            destination = raw_destination.split(maxsplit=1)[0] if raw_destination else ""
-        parsed = urlsplit(destination)
-        if parsed.scheme in {"http", "https", "mailto"} or not parsed.path:
+    visible, reference_destinations = _remove_reference_definitions(visible)
+    destinations = [*reference_destinations, *_iter_inline_link_destinations(visible)]
+    for destination in destinations:
+        if destination is None:
+            issues.append(ValidationIssue(
+                "invalid-link-destination", f"{relative_skill}/SKILL.md",
+                "Cannot safely interpret a Markdown link destination.",
+            ))
             continue
-        decoded = unquote(parsed.path)
+        try:
+            parsed = urlsplit(destination)
+        except ValueError:
+            issues.append(ValidationIssue(
+                "invalid-link-destination", f"{relative_skill}/SKILL.md",
+                f"Cannot safely interpret Markdown link destination {destination!r}.",
+            ))
+            continue
+        scheme = parsed.scheme.casefold()
+        windows_drive = len(scheme) == 1 and destination[1:2] == ":"
+        if not windows_drive and (scheme or parsed.netloc):
+            if scheme != "file":
+                continue
+        raw_path = destination if windows_drive else parsed.path
+        if not raw_path:
+            continue
+        decoded = unquote(raw_path)
         target = Path(decoded)
         candidate = target if target.is_absolute() else skill_root / target
         try:
             resolved = candidate.resolve(strict=False)
+        except (OSError, RuntimeError, ValueError):
+            issues.append(ValidationIssue(
+                "invalid-link-destination", f"{relative_skill}/SKILL.md",
+                f"Cannot safely resolve Markdown link destination {destination!r}.",
+            ))
+            continue
+        try:
             resolved.relative_to(skill_root)
         except ValueError:
             issues.append(ValidationIssue("resource-escape", f"{relative_skill}/SKILL.md", f"Local link escapes the skill root: {destination!r}."))
             continue
         if not resolved.is_file():
             issues.append(ValidationIssue("missing-resource", f"{relative_skill}/SKILL.md", f"Linked skill resource does not exist: {destination!r}."))
+
+
+def _is_escaped(text: str, index: int) -> bool:
+    slashes = 0
+    index -= 1
+    while index >= 0 and text[index] == "\\":
+        slashes += 1
+        index -= 1
+    return slashes % 2 == 1
+
+
+def _unescape_markdown(value: str) -> str:
+    result: list[str] = []
+    index = 0
+    while index < len(value):
+        if (
+            value[index] == "\\"
+            and index + 1 < len(value)
+            and value[index + 1] in _MARKDOWN_ESCAPABLE
+        ):
+            index += 1
+        result.append(value[index])
+        index += 1
+    return "".join(result)
+
+
+def _matching_square_bracket(text: str, opening: int) -> int | None:
+    if opening >= len(text) or text[opening] != "[" or _is_escaped(text, opening):
+        return None
+    depth = 0
+    index = opening
+    while index < len(text):
+        if text[index] == "\\" and index + 1 < len(text):
+            index += 2
+            continue
+        if text[index] == "[":
+            depth += 1
+        elif text[index] == "]":
+            depth -= 1
+            if depth == 0:
+                return index
+        index += 1
+    return None
+
+
+def _parse_reference_destination(text: str) -> str | None:
+    text = text.lstrip(" \t")
+    if not text:
+        return None
+    if text[0] == "<":
+        index = 1
+        while index < len(text):
+            if text[index] in "\r\n":
+                return None
+            if text[index] == ">" and not _is_escaped(text, index):
+                return _unescape_markdown(text[1:index])
+            index += 1
+        return None
+
+    start = index = 0
+    depth = 0
+    while index < len(text):
+        character = text[index]
+        if character == "\\" and index + 1 < len(text):
+            index += 2
+            continue
+        if character.isspace():
+            break
+        if character == "<":
+            return None
+        if character == "(":
+            depth += 1
+            if depth > 32:
+                return None
+        elif character == ")":
+            if depth == 0:
+                return None
+            depth -= 1
+        index += 1
+    if depth or index == start:
+        return None
+    return _unescape_markdown(text[start:index])
+
+
+def _remove_reference_definitions(body: str) -> tuple[str, list[str | None]]:
+    """Extract reference destinations and mask their definition lines."""
+    masked = list(body)
+    destinations: list[str | None] = []
+    offset = 0
+    for line in body.splitlines(keepends=True):
+        content = line.rstrip("\r\n")
+        indent = len(content) - len(content.lstrip(" "))
+        if indent <= 3 and indent < len(content) and content[indent] == "[":
+            closing = _matching_square_bracket(content, indent)
+            if closing is not None and closing + 1 < len(content) and content[closing + 1] == ":":
+                destinations.append(_parse_reference_destination(content[closing + 2:]))
+                masked[offset:offset + len(line)] = _mask_non_newlines(body, offset, offset + len(line))
+        offset += len(line)
+    return "".join(masked), destinations
+
+
+def _parse_inline_link_destination(text: str, opening: int) -> tuple[str, int] | None:
+    index = opening + 1
+    while index < len(text) and text[index].isspace():
+        index += 1
+    if index < len(text) and text[index] == ")":
+        return "", index + 1
+    if index >= len(text):
+        return None
+
+    if text[index] == "<":
+        destination_start = index + 1
+        index = destination_start
+        while index < len(text):
+            if text[index] in "\r\n":
+                return None
+            if text[index] == ">" and not _is_escaped(text, index):
+                break
+            index += 1
+        if index >= len(text):
+            return None
+        destination = _unescape_markdown(text[destination_start:index])
+        index += 1
+    else:
+        destination_start = index
+        depth = 0
+        while index < len(text):
+            character = text[index]
+            if character == "\\" and index + 1 < len(text):
+                index += 2
+                continue
+            if character.isspace():
+                break
+            if character == "<":
+                return None
+            if character == "(":
+                depth += 1
+                if depth > 32:
+                    return None
+            elif character == ")":
+                if depth == 0:
+                    break
+                depth -= 1
+            index += 1
+        if depth:
+            return None
+        destination = _unescape_markdown(text[destination_start:index])
+
+    before_whitespace = index
+    while index < len(text) and text[index].isspace():
+        index += 1
+    if index < len(text) and text[index] == ")":
+        return destination, index + 1
+    if index == before_whitespace:
+        return None
+
+    title_end = _parse_link_title(text, index)
+    if title_end is None:
+        return None
+    index = title_end
+    while index < len(text) and text[index].isspace():
+        index += 1
+    if index < len(text) and text[index] == ")":
+        return destination, index + 1
+    return None
+
+
+def _parse_link_title(text: str, start: int) -> int | None:
+    if start >= len(text) or text[start] not in {'"', "'", "("}:
+        return None
+    opening = text[start]
+    closing = ")" if opening == "(" else opening
+    depth = 1 if opening == "(" else 0
+    index = start + 1
+    while index < len(text):
+        if text[index] == "\\" and index + 1 < len(text):
+            index += 2
+            continue
+        if opening == "(" and text[index] == "(":
+            depth += 1
+        elif text[index] == closing:
+            if opening != "(" or depth == 1:
+                return index + 1
+            depth -= 1
+        index += 1
+    return None
+
+
+def _iter_inline_link_destinations(text: str) -> list[str | None]:
+    destinations: list[str | None] = []
+    index = 0
+    while index < len(text):
+        if text[index] != "[" or _is_escaped(text, index):
+            index += 1
+            continue
+        closing = _matching_square_bracket(text, index)
+        if closing is None or closing + 1 >= len(text) or text[closing + 1] != "(":
+            index += 1
+            continue
+        parsed = _parse_inline_link_destination(text, closing + 1)
+        if parsed is None:
+            destinations.append(None)
+            index = closing + 2
+            continue
+        destination, index = parsed
+        if destination:
+            destinations.append(destination)
+    return destinations
 
 
 def _mask_non_newlines(text: str, start: int, end: int) -> str:

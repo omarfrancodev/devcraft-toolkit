@@ -14,13 +14,14 @@ from typing import Iterator
 def _git(args: list[str], *, cwd: Path, env: dict[str, str] | None = None, check: bool = True) -> subprocess.CompletedProcess[str]:
     child_env = os.environ.copy()
     for key in tuple(child_env):
-        if key.startswith("GIT_CONFIG_") or key in {
-            "GIT_AUTHOR_NAME", "GIT_AUTHOR_EMAIL", "GIT_COMMITTER_NAME", "GIT_COMMITTER_EMAIL",
-        }:
+        if key.upper().startswith("GIT_"):
             child_env.pop(key, None)
     child_env["GIT_CONFIG_NOSYSTEM"] = "1"
     if env:
         child_env.update(env)
+    for key in tuple(child_env):
+        if key.upper().startswith("GIT_") and key.upper() not in {"GIT_CONFIG_GLOBAL", "GIT_CONFIG_NOSYSTEM"}:
+            child_env.pop(key, None)
     return subprocess.run(["git", *args], cwd=cwd, env=child_env, check=check, capture_output=True, text=True, encoding="utf-8")
 
 
@@ -84,6 +85,16 @@ def git_fixture(kind: str, root: Path, *, dirname: str = "repo") -> Iterator[Pat
     yield repository
 
 
+def _record_snapshot_path(snapshot: dict[str, str], path: Path, mode_key: str, content_key: str) -> None:
+    try:
+        file_stat = path.lstat()
+        snapshot[mode_key] = str(stat.S_IMODE(file_stat.st_mode))
+        contents = os.readlink(path).encode("utf-8") if path.is_symlink() else path.read_bytes()
+        snapshot[content_key] = hashlib.sha256(contents).hexdigest()
+    except OSError:
+        snapshot[content_key] = "<unreadable>"
+
+
 def snapshot_repository(repo: Path) -> dict[str, str]:
     """Capture Git metadata and working-file contents and modes without reading objects."""
     repo = Path(repo).resolve()
@@ -114,33 +125,47 @@ def snapshot_repository(repo: Path) -> dict[str, str]:
         for current, directories, files in os.walk(git_root):
             current_path = Path(current)
             relative_dir = current_path.relative_to(git_root)
-            directories[:] = [name for name in directories if name != "objects"]
-            for directory in directories:
+            directories[:] = [
+                name for name in directories
+                if name != "objects" or (current_path / name).is_symlink()
+            ]
+            for directory in tuple(directories):
                 directory_path = current_path / directory
                 relative = (relative_dir / directory).as_posix()
-                snapshot[f"git:{scope}/{relative}/"] = "<directory>"
+                if directory_path.is_symlink():
+                    _record_snapshot_path(
+                        snapshot, directory_path,
+                        f"git-mode:{scope}/{relative}", f"git:{scope}/{relative}",
+                    )
+                    directories.remove(directory)
+                else:
+                    snapshot[f"git:{scope}/{relative}/"] = "<directory>"
             for filename in files:
                 path = current_path / filename
                 relative = (relative_dir / filename).as_posix()
-                try:
-                    file_stat = path.lstat()
-                    snapshot[f"git-mode:{scope}/{relative}"] = str(stat.S_IMODE(file_stat.st_mode))
-                    contents = os.readlink(path).encode("utf-8") if path.is_symlink() else path.read_bytes()
-                    snapshot[f"git:{scope}/{relative}"] = hashlib.sha256(contents).hexdigest()
-                except OSError:
-                    snapshot[f"git:{scope}/{relative}"] = "<unreadable>"
+                _record_snapshot_path(
+                    snapshot, path,
+                    f"git-mode:{scope}/{relative}", f"git:{scope}/{relative}",
+                )
 
     for current, directories, files in os.walk(repo):
         current_path = Path(current)
         directories[:] = [name for name in directories if name != ".git"]
+        for directory in tuple(directories):
+            path = current_path / directory
+            if path.is_symlink():
+                relative = path.relative_to(repo).as_posix()
+                _record_snapshot_path(
+                    snapshot, path,
+                    f"working-mode:{relative}", f"working:{relative}",
+                )
+                directories.remove(directory)
         for filename in files:
             path = current_path / filename
             relative = path.relative_to(repo)
-            try:
-                file_stat = path.lstat()
-                snapshot[f"working-mode:{relative.as_posix()}"] = str(stat.S_IMODE(file_stat.st_mode))
-                contents = os.readlink(path).encode("utf-8") if path.is_symlink() else path.read_bytes()
-                snapshot[f"working:{relative.as_posix()}"] = hashlib.sha256(contents).hexdigest()
-            except OSError:
-                snapshot[f"working:{relative.as_posix()}"] = "<unreadable>"
+            relative_text = relative.as_posix()
+            _record_snapshot_path(
+                snapshot, path,
+                f"working-mode:{relative_text}", f"working:{relative_text}",
+            )
     return snapshot
