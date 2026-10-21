@@ -449,7 +449,6 @@ def _strip_blockquote_prefix(line: str) -> tuple[str, int]:
             break
         cursor = index + spaces
         if cursor >= len(line) or line[cursor] != ">":
-            index = cursor
             break
         blockquotes += 1
         index = cursor + 1
@@ -458,14 +457,96 @@ def _strip_blockquote_prefix(line: str) -> tuple[str, int]:
     return line[index:], blockquotes
 
 
+def _leading_spaces(line: str) -> int:
+    return len(line) - len(line.lstrip(" "))
+
+
+def _list_item_indentation(line: str, base_indent: int = 0) -> tuple[int, int] | None:
+    relative_line = line[base_indent:]
+    marker_indent = _leading_spaces(relative_line)
+    if marker_indent > 3:
+        return None
+    marker = _LIST_MARKER.match(relative_line, marker_indent)
+    if marker is None:
+        return None
+
+    whitespace_start = marker.end()
+    whitespace_end = whitespace_start
+    while whitespace_end < len(relative_line) and relative_line[whitespace_end] in " \t":
+        whitespace_end += 1
+    if whitespace_end == whitespace_start:
+        return None
+    whitespace = relative_line[whitespace_start:whitespace_end]
+    whitespace_columns = 1 if "\t" in whitespace or len(whitespace) > 4 else len(whitespace)
+    absolute_marker_indent = base_indent + marker_indent
+    content_indent = absolute_marker_indent + (marker.end() - marker_indent) + whitespace_columns
+    return absolute_marker_indent, content_indent
+
+
+def _normalize_list_continuation(
+    line: str,
+    blockquotes: int,
+    list_contexts: list[tuple[int, int, int]],
+) -> str:
+    """Remove the active list item's content indentation and track nested items."""
+    if not line.strip(" \t"):
+        return line
+
+    indentation = _leading_spaces(line)
+    while list_contexts:
+        context_quotes, _, content_indent = list_contexts[-1]
+        if context_quotes > blockquotes or (context_quotes == blockquotes and indentation < content_indent):
+            list_contexts.pop()
+            continue
+        break
+
+    base_indent = 0
+    if list_contexts and list_contexts[-1][0] == blockquotes:
+        base_indent = list_contexts[-1][2]
+    if indentation < base_indent:
+        base_indent = 0
+    normalized = line[base_indent:]
+
+    marker_indentation = _list_item_indentation(line, base_indent)
+    if marker_indentation is not None:
+        marker_indent, content_indent = marker_indentation
+        while (
+            list_contexts
+            and list_contexts[-1][0] == blockquotes
+            and list_contexts[-1][1] >= marker_indent
+        ):
+            list_contexts.pop()
+        list_contexts.append((blockquotes, marker_indent, content_indent))
+    return normalized
+
+
+def _strip_active_list_indent(
+    line: str,
+    blockquotes: int,
+    list_contexts: list[tuple[int, int, int]],
+) -> tuple[str, bool]:
+    base_indent = next(
+        (content_indent for context_quotes, _, content_indent in reversed(list_contexts) if context_quotes == blockquotes),
+        0,
+    )
+    if not base_indent:
+        return line, True
+    if _leading_spaces(line) < base_indent:
+        return line, False
+    return line[base_indent:], True
+
+
 def _remove_reference_definitions(body: str) -> tuple[str, dict[str, str | None]]:
     """Extract reference definitions in simple containers and mask their lines."""
     masked = list(body)
     definitions: dict[str, str | None] = {}
+    list_contexts: list[tuple[int, int, int]] = []
     offset = 0
     for line in body.splitlines(keepends=True):
         content = line.rstrip("\r\n")
-        normalized, _ = _strip_markdown_container_prefix(content)
+        quoted, blockquotes = _strip_blockquote_prefix(content)
+        continued = _normalize_list_continuation(quoted, blockquotes, list_contexts)
+        normalized, _ = _strip_markdown_container_prefix(continued)
         indent = len(normalized) - len(normalized.lstrip(" "))
         if indent <= 3 and indent < len(normalized) and normalized[indent] == "[":
             closing = _matching_square_bracket(normalized, indent)
@@ -626,14 +707,18 @@ def _mask_non_newlines(text: str, start: int, end: int) -> str:
 
 
 def _remove_fenced_code(body: str) -> str:
-    """Mask fenced blocks, including an opening fence that runs to EOF."""
+    """Mask fenced blocks until their fence or containing block ends."""
     lines = body.splitlines(keepends=True)
     masked = list(body)
+    list_contexts: list[tuple[int, int, int]] = []
     offset = 0
     index = 0
     while index < len(lines):
         raw_line = lines[index].rstrip("\r\n")
-        line, opening_blockquotes = _strip_markdown_container_prefix(raw_line)
+        quoted, blockquotes = _strip_blockquote_prefix(raw_line)
+        continued = _normalize_list_continuation(quoted, blockquotes, list_contexts)
+        line, nested_blockquotes = _strip_markdown_container_prefix(continued)
+        opening_blockquotes = blockquotes + nested_blockquotes
         opening = _FENCE_OPEN.match(line)
         if opening is None or (opening.group(1)[0] == "`" and "`" in opening.group(2)):
             offset += len(lines[index])
@@ -644,6 +729,7 @@ def _remove_fenced_code(body: str) -> str:
         marker_char = marker[0]
         marker_size = len(marker)
         block_start = offset
+        opening_list_contexts = list(list_contexts)
         offset += len(lines[index])
         index += 1
         block_end = len(body)
@@ -652,11 +738,20 @@ def _remove_fenced_code(body: str) -> str:
             if opening_blockquotes:
                 closing_line, closing_blockquotes = _strip_blockquote_prefix(raw_closing_line)
                 if closing_blockquotes < opening_blockquotes:
+                    block_end = offset
+                    break
+                if closing_blockquotes > opening_blockquotes:
                     offset += len(lines[index])
                     index += 1
                     continue
             else:
                 closing_line = raw_closing_line
+            closing_line, inside_list = _strip_active_list_indent(
+                closing_line, opening_blockquotes, opening_list_contexts,
+            )
+            if not inside_list:
+                block_end = offset
+                break
             closing = _FENCE_CLOSE.match(closing_line)
             if closing is not None and closing.group(1)[0] == marker_char and len(closing.group(1)) >= marker_size:
                 offset += len(lines[index])
