@@ -21,6 +21,7 @@ _ROLES = {"entry", "coordinator", "capability", "support"}
 _STATUSES = {"planned", "available"}
 _FENCE_OPEN = re.compile(r"^ {0,3}(`{3,}|~{3,})(.*)$")
 _FENCE_CLOSE = re.compile(r"^ {0,3}(`+|~+)[ \t]*$")
+_LIST_MARKER = re.compile(r"(?:[*+-]|[0-9]{1,9}[.)])(?=[ \t])")
 _INVENTORY_SPEC = Path("docs/superpowers/specs/2026-10-16-bootstrap-foundation-design.md")
 _INVENTORY_HEADING = "## Target capability inventory"
 _INVENTORY_ROW = re.compile(r"^\|\s*([a-z0-9]+(?:-[a-z0-9]+)*)\s*\|\s*[^|\n]+\|\s*(?:planned|available)\s*\|$")
@@ -265,7 +266,11 @@ def _validate_skill_links(name: str, skill_root: Path, body: str, issues: list[V
     relative_skill = f"skills/{name}"
     without_fences = _remove_fenced_code(body)
     visible = _remove_inline_code(without_fences)
-    visible, reference_destinations = _remove_reference_definitions(visible)
+    visible, reference_definitions = _remove_reference_definitions(visible)
+    reference_destinations = [
+        reference_definitions[label]
+        for label in dict.fromkeys(_iter_reference_labels(visible, reference_definitions))
+    ]
     destinations = [*reference_destinations, *_iter_inline_link_destinations(visible)]
     for destination in destinations:
         if destination is None:
@@ -392,21 +397,119 @@ def _parse_reference_destination(text: str) -> str | None:
     return _unescape_markdown(text[start:index])
 
 
-def _remove_reference_definitions(body: str) -> tuple[str, list[str | None]]:
-    """Extract reference destinations and mask their definition lines."""
+def _normalize_reference_label(label: str) -> str:
+    return re.sub(r"\s+", " ", _unescape_markdown(label)).strip().casefold()
+
+
+def _strip_markdown_container_prefix(line: str) -> tuple[str, int]:
+    """Strip simple blockquote/list prefixes for block-level Markdown checks."""
+    index = 0
+    blockquotes = 0
+    while index < len(line):
+        spaces = 0
+        while index + spaces < len(line) and line[index + spaces] == " ":
+            spaces += 1
+        if spaces > 3:
+            break
+        cursor = index + spaces
+        if cursor < len(line) and line[cursor] == ">":
+            blockquotes += 1
+            index = cursor + 1
+            if index < len(line) and line[index] in " \t":
+                index += 1
+            continue
+
+        marker = _LIST_MARKER.match(line, cursor)
+        if marker is None:
+            index = cursor
+            break
+        index = marker.end()
+        whitespace_start = index
+        while index < len(line) and line[index] in " \t":
+            index += 1
+        if index == whitespace_start:
+            break
+        if line[whitespace_start:index].count(" ") > 4 or "\t" in line[whitespace_start:index]:
+            # Leave excess indentation visible so an indented code block is not
+            # mistaken for a fence or a reference definition.
+            index = whitespace_start + 1
+            break
+    return line[index:], blockquotes
+
+
+def _strip_blockquote_prefix(line: str) -> tuple[str, int]:
+    """Strip only blockquote markers, preserving list-like code content."""
+    index = 0
+    blockquotes = 0
+    while index < len(line):
+        spaces = 0
+        while index + spaces < len(line) and line[index + spaces] == " ":
+            spaces += 1
+        if spaces > 3:
+            break
+        cursor = index + spaces
+        if cursor >= len(line) or line[cursor] != ">":
+            index = cursor
+            break
+        blockquotes += 1
+        index = cursor + 1
+        if index < len(line) and line[index] in " \t":
+            index += 1
+    return line[index:], blockquotes
+
+
+def _remove_reference_definitions(body: str) -> tuple[str, dict[str, str | None]]:
+    """Extract reference definitions in simple containers and mask their lines."""
     masked = list(body)
-    destinations: list[str | None] = []
+    definitions: dict[str, str | None] = {}
     offset = 0
     for line in body.splitlines(keepends=True):
         content = line.rstrip("\r\n")
-        indent = len(content) - len(content.lstrip(" "))
-        if indent <= 3 and indent < len(content) and content[indent] == "[":
-            closing = _matching_square_bracket(content, indent)
-            if closing is not None and closing + 1 < len(content) and content[closing + 1] == ":":
-                destinations.append(_parse_reference_destination(content[closing + 2:]))
+        normalized, _ = _strip_markdown_container_prefix(content)
+        indent = len(normalized) - len(normalized.lstrip(" "))
+        if indent <= 3 and indent < len(normalized) and normalized[indent] == "[":
+            closing = _matching_square_bracket(normalized, indent)
+            if closing is not None and closing + 1 < len(normalized) and normalized[closing + 1] == ":":
+                label = _normalize_reference_label(normalized[indent + 1:closing])
+                if label and label not in definitions:
+                    definitions[label] = _parse_reference_destination(normalized[closing + 2:])
                 masked[offset:offset + len(line)] = _mask_non_newlines(body, offset, offset + len(line))
         offset += len(line)
-    return "".join(masked), destinations
+    return "".join(masked), definitions
+
+
+def _iter_reference_labels(text: str, definitions: dict[str, str | None]) -> list[str]:
+    """Resolve shortcut, collapsed, and full reference uses against definitions."""
+    labels: list[str] = []
+    index = 0
+    while index < len(text):
+        if text[index] != "[" or _is_escaped(text, index):
+            index += 1
+            continue
+        closing = _matching_square_bracket(text, index)
+        if closing is None:
+            index += 1
+            continue
+
+        content_label = _normalize_reference_label(text[index + 1:closing])
+        next_index = closing + 1
+        if next_index < len(text) and text[next_index] == "(":
+            parsed = _parse_inline_link_destination(text, next_index)
+            index = parsed[1] if parsed is not None else next_index + 1
+            continue
+        if next_index < len(text) and text[next_index] == "[":
+            reference_end = _matching_square_bracket(text, next_index)
+            if reference_end is not None:
+                explicit_label = _normalize_reference_label(text[next_index + 1:reference_end])
+                label = explicit_label or content_label
+                if label in definitions:
+                    labels.append(label)
+                index = reference_end + 1
+                continue
+        if content_label in definitions:
+            labels.append(content_label)
+        index = closing + 1
+    return labels
 
 
 def _parse_inline_link_destination(text: str, opening: int) -> tuple[str, int] | None:
@@ -529,7 +632,8 @@ def _remove_fenced_code(body: str) -> str:
     offset = 0
     index = 0
     while index < len(lines):
-        line = lines[index].rstrip("\r\n")
+        raw_line = lines[index].rstrip("\r\n")
+        line, opening_blockquotes = _strip_markdown_container_prefix(raw_line)
         opening = _FENCE_OPEN.match(line)
         if opening is None or (opening.group(1)[0] == "`" and "`" in opening.group(2)):
             offset += len(lines[index])
@@ -544,7 +648,15 @@ def _remove_fenced_code(body: str) -> str:
         index += 1
         block_end = len(body)
         while index < len(lines):
-            closing_line = lines[index].rstrip("\r\n")
+            raw_closing_line = lines[index].rstrip("\r\n")
+            if opening_blockquotes:
+                closing_line, closing_blockquotes = _strip_blockquote_prefix(raw_closing_line)
+                if closing_blockquotes < opening_blockquotes:
+                    offset += len(lines[index])
+                    index += 1
+                    continue
+            else:
+                closing_line = raw_closing_line
             closing = _FENCE_CLOSE.match(closing_line)
             if closing is not None and closing.group(1)[0] == marker_char and len(closing.group(1)) >= marker_size:
                 offset += len(lines[index])
