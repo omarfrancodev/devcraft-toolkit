@@ -80,3 +80,30 @@ cases:
     assertions:
       - "Report the missing capability honestly without emulation, automatic installation or an invented completed result."
 ```
+
+## Natural-language report writer composition cases
+
+Canonical composed capability: `natural-language-report-writer`.
+
+```yaml
+cases:
+  - id: REPORTING-ENTRY-01
+    name: direct_call
+    request: "Invoke natural-language-report-writer directly with its first owned scenario."
+    facts: "The new standalone capability is installed; no repository root is supplied to the installed skill."
+    assertions:
+      - "The owned behavior is preserved; no development catalog or root docs are required at runtime."
+  - id: REPORTING-ENTRY-02
+    name: optional_entry_route
+    request: "Use Devcraft Toolkit for the natural-language reporting request in the first owned scenario."
+    facts: "The entry, its foundation dependencies and natural-language-report-writer are actually installed."
+    assertions:
+      - "Route the requested operation to natural-language-report-writer without running an unrelated Git preflight or another coordinator."
+      - "Language and permission boundaries remain those of the owned scenario."
+  - id: REPORTING-ENTRY-03
+    name: optional_skill_absent
+    request: "Use Devcraft Toolkit for the same natural-language reporting request."
+    facts: "The entry and foundation group are installed, but natural-language-report-writer is not."
+    assertions:
+      - "Report the missing capability honestly without emulation, automatic installation or an invented completed result."
+```

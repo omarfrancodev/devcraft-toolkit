@@ -2,11 +2,11 @@
 
 ## Current foundation
 
-The distribution provides repository context, read-only Git preflight, a composition entry, standalone Conventional Commit message formatting, and portable progress tracking. The catalog records seventeen target capabilities, with five available and twelve planned. Both optional capabilities can be installed alone or alongside the entry; neither adds a hard skill dependency. The entry routes to progress control when installed and reports it unavailable when absent.
+The distribution provides repository context, read-only Git preflight, a composition entry, standalone Conventional Commit message formatting, portable progress tracking, and evidence-based report writing. The catalog records seventeen target capabilities, with six available and eleven planned. All three optional capabilities can be installed alone or alongside the entry; none adds a hard skill dependency. The entry routes commit-message, progress-control, and natural-language-reporting requests to the matching optional skill when installed, and reports unavailable capabilities honestly when absent.
 
 ## Shared capabilities
 
-The shared-capability sequence began with progress control, which is available; the remaining capabilities are evidence-based natural-language reports and project validation discovery. Each capability has an independent contract and tests grouped by its canonical skill owner. Conventional Commit formatting is available and is not a runtime dependency of the remaining shared capabilities.
+The shared-capability sequence delivered progress control and evidence-based natural-language reporting; project validation discovery remains planned. Each capability has an independent contract and tests grouped by its canonical skill owner. Conventional Commit formatting is available and is not a runtime dependency of the remaining shared capability.
 
 ## Git coordinators
 
@@ -24,7 +24,7 @@ Each capability has its own self-contained spec and implementation plan. The exe
 | --- | --- | --- | --- |
 | conventional-commits-style | available | [Commit message formatting](superpowers/specs/2026-10-22-commit-message-formatting-design.md) | [Implementation](superpowers/plans/2026-10-22-commit-message-formatting.md) |
 | todo-workflow-controller | available | [Progress control](superpowers/specs/2026-10-22-progress-control-design.md) | [Implementation](superpowers/plans/2026-10-22-progress-control.md) |
-| natural-language-report-writer | planned | [Natural-language reporting](superpowers/specs/2026-10-22-natural-language-reporting-design.md) | [Implementation](superpowers/plans/2026-10-22-natural-language-reporting.md) |
+| natural-language-report-writer | available | [Natural-language reporting](superpowers/specs/2026-10-22-natural-language-reporting-design.md) | [Implementation](superpowers/plans/2026-10-22-natural-language-reporting.md) |
 | validation-discovery | planned | [Project validation](superpowers/specs/2026-10-22-project-validation-design.md) | [Implementation](superpowers/plans/2026-10-22-project-validation.md) |
 
 The table reflects catalog availability. Planned designs do not create installable skill placeholders or imply completed behavior.

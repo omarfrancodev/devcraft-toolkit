@@ -14,10 +14,12 @@ Message formatting returns a proposal from supplied facts and conventions. It ne
 
 `todo-workflow-controller` is also standalone with no required skill dependencies. The entry routes progress-control requests to it when installed; the capability is not part of the entry's hard dependency closure. When it is absent, the entry reports that limit rather than imitating the capability. A missing native progress tool is handled by the installed skill's documented inline fallback. Progress tracking preserves state and gates but does not execute workflow steps or grant permission for side effects; a step named `publish` does not request Git publication or a Git preflight.
 
+`natural-language-report-writer` is a standalone capability for turning supplied facts into activity reports, progress updates, or summaries. The entry routes matching requests to it when installed and reports it unavailable when absent. Direct use needs no repository context; local output still requires a user-selected destination.
+
 ## Data flow and boundaries
 
 `git-working-directory-policy` discovers and reports context for the user-selected repository. `git-safety-check` refreshes volatile Git state and evaluates only the requested read-only intent. The entry composes those results without repeating stable discovery, while refreshing branch, HEAD, index, conflict, identity, and working-tree facts when they could have changed.
 
 The preflight result `ready` is not authorization to perform a Git write. Missing tools do not grant new capabilities. Unanswered material decisions remain unresolved until the user answers.
 
-Commit creation and coordination, publication coordination, and activity reporting remain planned capabilities in this distribution. Report their absence honestly; do not emulate them or claim they ran.
+Git commit creation and coordination, publication coordination, and the `git-activity-report` coordinator remain planned in this distribution. Do not replace those workflows with manual imitation. Evidence-based report writing from supplied facts is a separate available capability when installed; it does not inspect Git history.

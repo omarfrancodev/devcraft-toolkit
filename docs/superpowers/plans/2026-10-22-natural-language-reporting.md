@@ -232,7 +232,7 @@ Expected: `Repository catalog is valid.` and exit 0. Fix source/catalog/resource
 Run: `git diff --check`.
 Expected: exit 0 and no whitespace errors. Inspect that only Task 1 files and the named availability updates are changed.
 
-- [ ] **Step 25: Commit the complete standalone delivery**
+- [x] **Step 25: Commit the complete standalone delivery**
 
 Inspect effective repository-local identity before the write. Stage exact owned files and commit the verified capability; do not stage a directory or unrelated work.
 
@@ -240,6 +240,9 @@ Inspect effective repository-local identity before the write. Stage exact owned 
 git add -- skills/natural-language-report-writer/SKILL.md skills/natural-language-report-writer/references/report-quality.md skills/natural-language-report-writer/assets/report.md tests/skills/natural_language_report_writer/scenarios/reporting.md tests/skills/natural_language_report_writer/fixtures/report-facts.json tests/skills/natural_language_report_writer/evaluations/standalone.md catalog.json README.md docs/architecture.md docs/installation.md docs/compatibility.md AGENTS.md tests/scenarios/README.md
 git commit -m "feat: add natural-language-report-writer"
 ~~~
+
+**Result:** Committed locally as `e6abfa1` on `feat/capability-design` using the repository-local Git identity. No push was performed.
+
 The message is an English source example; follow the active contribution-language instruction for execution. This task contains its own test/evaluation cycle and independently usable deliverable.
 
 ### Task 2: Deliver and verify optional toolkit composition
@@ -253,13 +256,14 @@ The message is an English source example; follow the active contribution-languag
 - Modify: `docs/installation.md`
 - Modify: `docs/compatibility.md`
 - Modify: `docs/roadmap.md`
+- Modify: `README.md`
 
 **Interfaces:**
 - Consumes: Task 1's available standalone capability and its recorded evidence, plus the actual installed-state variants below.
 - Produces: an optional route, truthful absent-installation behavior and recorded entry evidence; the entry's existing hard dependency group stays unchanged.
 - A composition failure keeps this task incomplete; it does not silently redefine a verified standalone result.
 
-- [ ] **Step 1: Write the entry-composition behavior cases**
+- [x] **Step 1: Write the entry-composition behavior cases**
 
 Append an owned `natural-language-report-writer` section to `tests/skills/using_devcraft_toolkit/scenarios/routing-and-language.md` with these cases; keep existing entry cases intact.
 
@@ -286,53 +290,56 @@ cases:
       - "Report the missing capability honestly without emulation, automatic installation or an invented completed result."
 ~~~
 
-- [ ] **Step 2: Evaluate the existing entry before changing its instructions**
+- [x] **Step 2: Evaluate the existing entry before changing its instructions**
 
 Run `REPORTING-ENTRY-01`, `REPORTING-ENTRY-02`, `REPORTING-ENTRY-03` against the current entry and the Task 1 standalone skill. Record actual responses and assertions in `tests/skills/using_devcraft_toolkit/evaluations/reporting-composition.md`. Expected: identify a concrete routing gap if one exists; do not assume the entry needs more text merely because a new skill exists.
 
-- [ ] **Step 3: Implement only the demonstrated composition change**
+- [x] **Step 3: Implement only the demonstrated composition change**
 
 If the baseline entry misses a named assertion, modify `skills/using-devcraft-toolkit/SKILL.md` and `skills/using-devcraft-toolkit/references/composition.md` to add the optional installed route and preserve missing-capability behavior. If it already meets every assertion, leave its instructions unchanged and record that decision. Do not add `natural-language-report-writer` to the entry's hard `requires` array.
 
-- [ ] **Step 4: Verify composition case REPORTING-ENTRY-01**
+- [x] **Step 4: Verify composition case REPORTING-ENTRY-01**
 
 Run the exact `REPORTING-ENTRY-01` packet with the resulting entry and installed-state variant. Record observed behavior in `tests/skills/using_devcraft_toolkit/evaluations/reporting-composition.md`. Expected: every assertion for that case holds. If an optional tool/installation condition cannot be exercised, record the specific limitation rather than a pass.
 
-- [ ] **Step 5: Verify composition case REPORTING-ENTRY-02**
+- [x] **Step 5: Verify composition case REPORTING-ENTRY-02**
 
 Run the exact `REPORTING-ENTRY-02` packet with the resulting entry and installed-state variant. Record observed behavior in `tests/skills/using_devcraft_toolkit/evaluations/reporting-composition.md`. Expected: every assertion for that case holds. If an optional tool/installation condition cannot be exercised, record the specific limitation rather than a pass.
 
-- [ ] **Step 6: Verify composition case REPORTING-ENTRY-03**
+- [x] **Step 6: Verify composition case REPORTING-ENTRY-03**
 
 Run the exact `REPORTING-ENTRY-03` packet with the resulting entry and installed-state variant. Record observed behavior in `tests/skills/using_devcraft_toolkit/evaluations/reporting-composition.md`. Expected: every assertion for that case holds. If an optional tool/installation condition cannot be exercised, record the specific limitation rather than a pass.
 
-- [ ] **Step 7: Update composition and installation documentation**
+- [x] **Step 7: Update composition and installation documentation**
 
-Modify `docs/composition.md`, `docs/installation.md`, `docs/compatibility.md`, `docs/roadmap.md` to describe direct versus optional entry use, actual evaluated coverage and current availability. Catalog status was established by Task 1; a routing issue does not invent failure or success of standalone behavior.
+Modify `README.md`, `docs/composition.md`, `docs/installation.md`, `docs/compatibility.md`, and `docs/roadmap.md` to describe direct versus optional entry use, actual evaluated coverage and current availability. Catalog status was established by Task 1; a routing issue does not invent failure or success of standalone behavior.
 
-- [ ] **Step 8: Run the automated regression suite**
+- [x] **Step 8: Run the automated regression suite**
 
 Run: `python -m unittest discover -s tests -p "test_*.py" -v`.
 Expected: pass with actual environmental skips disclosed and a nonzero discovered test count.
 
-- [ ] **Step 9: Validate the repository after composition**
+- [x] **Step 9: Validate the repository after composition**
 
 Run: `python scripts/validate_repository.py --root .`.
 Expected: exit 0 and `Repository catalog is valid.`. The catalog still has seventeen names and the entry's two hard dependencies.
 
-- [ ] **Step 10: Inspect the composition diff**
+- [x] **Step 10: Inspect the composition diff**
 
 Run: `git diff --check`.
 Expected: exit 0. Confirm no unimplemented coordinator, CCR/Jira integration, plugin or extra runtime was introduced.
 
-- [ ] **Step 11: Commit the complete composition delivery**
+- [x] **Step 11: Commit the complete composition delivery**
 
 Stage only actually changed files from this exact owned list and the retained entry evaluation. Keep the successfully verified standalone declaration intact.
 
 ~~~sh
-git add -- skills/using-devcraft-toolkit/SKILL.md skills/using-devcraft-toolkit/references/composition.md tests/skills/using_devcraft_toolkit/scenarios/routing-and-language.md tests/skills/using_devcraft_toolkit/evaluations/reporting-composition.md docs/composition.md docs/installation.md docs/compatibility.md docs/roadmap.md
+git add -- skills/using-devcraft-toolkit/SKILL.md skills/using-devcraft-toolkit/references/composition.md tests/skills/using_devcraft_toolkit/scenarios/routing-and-language.md tests/skills/using_devcraft_toolkit/evaluations/reporting-composition.md docs/composition.md docs/installation.md docs/compatibility.md docs/roadmap.md README.md docs/superpowers/plans/2026-10-22-natural-language-reporting.md
 git commit -m "feat: route natural-language-report-writer through the toolkit"
 ~~~
+
+**Result:** Committed locally on `feat/capability-design` using the repository-local identity. No push was performed.
+
 Inspect local identity before the write. Branch publication, PR creation, merge and release require their own authorization.
 
 ## Self-review and execution handoff

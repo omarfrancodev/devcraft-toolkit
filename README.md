@@ -2,7 +2,7 @@
 
 A modular toolkit of composable skills for repository context, read-only Git preflight, standalone Conventional Commit drafting, and portable progress tracking. Compatibility is recorded only for harnesses actually exercised.
 
-The distribution currently includes six available skills: `using-devcraft-toolkit`, `git-working-directory-policy`, `git-safety-check`, `conventional-commits-style`, `todo-workflow-controller`, and `natural-language-report-writer`. Commit coordination, publication coordination, activity reporting, and validation discovery remain planned capabilities, not usable skills in this distribution. CCR integration is outside the current scope.
+The distribution currently includes six available skills: `using-devcraft-toolkit`, `git-working-directory-policy`, `git-safety-check`, `conventional-commits-style`, `todo-workflow-controller`, and `natural-language-report-writer`. Git commit coordination, publication coordination, the Git activity-report coordinator, and validation discovery remain planned capabilities, not usable skills in this distribution. CCR integration is outside the current scope.
 
 Skill definitions and default templates use English. User-facing content follows an explicit language preference or the language of the user's request, defaulting to English when neither can be determined. Tests are maintained outside individual skill directories, grouped by the owning skill and then by test scope; repository infrastructure and cross-skill coverage have separate shared groups.
 
