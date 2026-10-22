@@ -1,7 +1,7 @@
 # Commit Message Formatting Design
 
 Date: 2026-10-22
-Status: Draft for written-spec review.
+Status: Implemented.
 Capability: conventional-commits-style
 
 ## Goal
@@ -57,7 +57,7 @@ Treat quotation marks, apostrophes, dollar signs and shell-looking text as messa
 
 The skill has no required skill dependencies and works without a Git repository. It never stages, commits, renames a branch, queries a ticket platform, publishes a message or adds unsolicited attribution.
 
-Behavioral cases cover English/Spanish/another language, explicit override, indeterminate language, meaningful/omitted scope, a project-specific type, confirmed versus ambiguous references, a later reference correction, unsupported breaking claims, mixed unrelated changes and quote-bearing text. Check semantics and side effects rather than exact prose. Do not infer a type-to-version release outcome as an executed release.
+Behavioral cases cover English/Spanish/another language, explicit override, indeterminate language, meaningful/omitted scope, a project-specific type, confirmed versus ambiguous references, a later reference correction, ticket-reference placement during standalone and corrected flows, unsupported breaking claims, mixed unrelated changes and quote-bearing text. Check semantics and side effects rather than exact prose. Do not infer a type-to-version release outcome as an executed release.
 
 ## Error handling and authorization
 
@@ -118,6 +118,24 @@ Use a fresh supported evaluation context when available; record whether executio
 - Assertions:
   - Ask for the change intent instead of producing a generic unsupported completion claim.
 
+### FMT-07: ticket_reference_uses_conventional_footer
+
+- Request: Draft a Conventional Commit for the parser fix and reference TASK-13.
+- Supplied evidence: The parser rejects empty names with a generic error; it should continue rejecting them and show a clear, actionable validation message. No project convention specifies ticket placement.
+- Assertions:
+  - The subject begins with `fix(parser):`; the ticket does not lead the subject.
+  - Include only TASK-13 in a Conventional Commit footer, such as `Refs: TASK-13`, without inventing ticket status.
+  - Do not run Git or query a ticket system.
+
+### FMT-08: corrected_reference_preserves_commit_format
+
+- Request: Prepare a commit for the parser fix. Relevant issues may be TASK-12 or TASK-13. Do not choose one for me.
+- Supplied evidence: The parser rejects an empty name with a clear error. Later response: Use TASK-13.
+- Assertions:
+  - Initial output asks which applicable issue to use and invents neither selection nor extra issue.
+  - After the explicit correction, the subject begins with `fix(parser):`, only TASK-13 is referenced, and it appears in a footer rather than before the type.
+  - No Git operation or ticket lookup occurs.
+
 Capture actual observations and assertion outcomes in tests/skills/conventional_commits_style/evaluations/standalone.md. Where a required evaluation could not run, record the limitation and leave the availability decision open. No new script is required merely to turn prose into keyword tests.
 
 ## File structure
@@ -151,7 +169,7 @@ Preserve the read-only foundation context/preflight contracts. A report's explic
 
 ## Risks and review focus
 
-1. FMT-01: competing references and a later correction preserve the actual user decision.
+1. FMT-01, FMT-07 and FMT-08: competing references, later corrections and ticket placement preserve the actual user decision and Conventional Commit shape.
 2. FMT-02: project-specific types, optional scope and requested bodies remain usable.
 3. FMT-03: breaking syntax is never inferred from a request alone.
 4. FMT-04: shell-looking message data is preserved without execution.
@@ -163,4 +181,4 @@ The implementation plan maps every item above to a named case and a concrete tas
 
 - [Conventional Commits 1.0.0](https://www.conventionalcommits.org/en/v1.0.0/): message structure, optional scope/body/footers and breaking markers.
 
-Project requirements are stated in this document; links provide accessible standards or in-repository contracts. Review this spec before treating its companion plan as ready for execution.
+Project requirements are stated in this document; links provide accessible standards or in-repository contracts. This spec is the behavioral contract for the companion implementation plan.

@@ -1,6 +1,6 @@
 ---
 name: using-devcraft-toolkit
-description: Route in-scope repository and Git preflight requests to installed Devcraft Toolkit skills and compose their evidence in the user's language.
+description: Route in-scope repository and Git requests to installed Devcraft Toolkit skills and compose their evidence in the user's language.
 ---
 
 # Using Devcraft Toolkit
@@ -15,9 +15,10 @@ Determine the requested scope and the capabilities actually installed in the cur
 
 ## Route available requests
 
+- Conventional Commit message drafting or review: use `conventional-commits-style` when installed. It returns a proposal from supplied facts and conventions; it does not need repository context or a Git preflight. If it is absent, report that capability as unavailable. Do not emulate it or install it automatically.
 - Repository location, worktree, branch, or identity context: use `git-working-directory-policy` when installed.
-- Read-only Git safety preflight for `inspect`, `commit`, or `publish` intent: use `git-safety-check` when installed, with its declared `git-working-directory-policy` dependency.
-- Commit coordination, publication coordination, and activity reporting: these capabilities are planned and not available in this foundation distribution. State that clearly. Do not silently emulate the missing capability, route to an unrelated skill, claim completion, or modify another installation.
+- Read-only Git safety preflight for a request to inspect repository safety or assess readiness for a Git operation: use `git-safety-check` when installed, with its declared `git-working-directory-policy` dependency. A request to draft or review commit-message text alone does not request this preflight.
+- Commit creation and coordination, publication coordination, and activity reporting: these capabilities are planned and not available in this foundation distribution. State that clearly. Do not silently emulate the missing capability, route to an unrelated skill, claim completion, or modify another installation. Conventional Commit formatting does not create a commit.
 - Any request outside toolkit scope: handle it without loading this entry.
 
 If a requested capability is absent, report the actual limitation and offer only an in-scope available alternative when one exists. Catalog entries and dependencies do not grant tools, permissions, authorization, or automatic installation.

@@ -24,3 +24,30 @@ Expected evidence: the same scope decision is applied regardless of language; on
 - When an individual skill is installed without the repository checkout, it must not try to open the development-only `catalog.json` or root documentation.
 
 Expected evidence: route only within the requested scope, report actual installed capabilities, and retain any unresolved user decision without performing an unrelated operation.
+## Conventional Commit composition cases
+
+Canonical composed capability: `conventional-commits-style`.
+
+```yaml
+cases:
+  - id: FORMATTING-ENTRY-01
+    name: direct_call
+    request: "Invoke conventional-commits-style directly with its first owned scenario."
+    facts: "The standalone skill is installed; no repository root is supplied to it."
+    assertions:
+      - "The owned behavior is preserved; no development catalog or root docs are required at runtime."
+  - id: FORMATTING-ENTRY-02
+    name: optional_entry_route
+    request: "Use Devcraft Toolkit for the commit message formatting request in the first owned scenario."
+    facts: "The entry, its foundation dependencies and conventional-commits-style are installed."
+    assertions:
+      - "Route the request to conventional-commits-style without running an unrelated Git preflight or another coordinator."
+      - "Ask which issue applies before drafting; after TASK-13 is selected, preserve the Conventional Commit subject and put only that key in a footer."
+      - "Language and permission boundaries remain those of the owned scenario."
+  - id: FORMATTING-ENTRY-03
+    name: optional_skill_absent
+    request: "Use Devcraft Toolkit for the same commit message formatting request."
+    facts: "The entry and foundation group are installed, but conventional-commits-style is not."
+    assertions:
+      - "Report the missing capability honestly without emulation, automatic installation or an invented completed result."
+```

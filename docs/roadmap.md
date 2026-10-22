@@ -2,29 +2,29 @@
 
 ## Current foundation
 
-The distribution provides repository context, read-only Git preflight and a composition entry. The catalog records seventeen target capabilities, with three available and fourteen planned. Available skills have maintained instructions, local resources and recorded validation evidence.
+The distribution provides repository context, read-only Git preflight, a composition entry, and standalone Conventional Commit message formatting. The catalog records seventeen target capabilities, with four available and thirteen planned. The formatter can be installed alone or optionally alongside the entry; it has no hard skill dependencies.
 
 ## Shared capabilities
 
-The next increment develops Conventional Commit formatting, evidence-based natural-language reports, project validation discovery and portable progress tracking. Each capability has an independent contract and tests grouped by its canonical skill owner.
+The shared-capability sequence is progress control, evidence-based natural-language reports, and project validation discovery. Each capability has an independent contract and tests grouped by its canonical skill owner. Conventional Commit formatting is available and is not a runtime dependency of the remaining shared capabilities.
 
 ## Git coordinators
 
-Commit construction, activity reporting and publication are separate increments. Their designs must define inputs, evidence, state changes, authorization boundaries and acceptance criteria before implementation. Planned capabilities have no discoverable skill placeholders and are not emulated by the entry.
+Commit construction, activity reporting, and publication are separate increments. Their designs must define inputs, evidence, state changes, authorization boundaries, and acceptance criteria before implementation. Planned capabilities have no discoverable skill placeholders and are not emulated by the entry.
 
 ## Deferred capabilities
 
-CCR and Jira integration, plugin packaging, automated installation, CI distribution and release automation are outside the current scope. A later design must establish the applicable interfaces and checks before introducing any of them. No license is selected by this increment.
+CCR and Jira integration, plugin packaging, automated installation, CI distribution, and release automation are outside the current scope. A later design must establish the applicable interfaces and checks before introducing any of them. No license is selected by this increment.
 
 ## Shared-capability designs
 
-Each capability has its own self-contained spec and implementation plan. The suggested execution order is formatting, progress control, reporting and validation; these are independent deliveries, not runtime dependencies.
+Each capability has its own self-contained spec and implementation plan. The execution order is formatting, progress control, reporting, and validation; these are independent deliveries, not runtime dependencies.
 
-| Capability | Design | Plan |
-| --- | --- | --- |
-| conventional-commits-style | [Commit message formatting](superpowers/specs/2026-10-22-commit-message-formatting-design.md) | [Implementation](superpowers/plans/2026-10-22-commit-message-formatting.md) |
-| todo-workflow-controller | [Progress control](superpowers/specs/2026-10-22-progress-control-design.md) | [Implementation](superpowers/plans/2026-10-22-progress-control.md) |
-| natural-language-report-writer | [Natural-language reporting](superpowers/specs/2026-10-22-natural-language-reporting-design.md) | [Implementation](superpowers/plans/2026-10-22-natural-language-reporting.md) |
-| validation-discovery | [Project validation](superpowers/specs/2026-10-22-project-validation-design.md) | [Implementation](superpowers/plans/2026-10-22-project-validation.md) |
+| Capability | Status | Design | Plan |
+| --- | --- | --- | --- |
+| conventional-commits-style | available | [Commit message formatting](superpowers/specs/2026-10-22-commit-message-formatting-design.md) | [Implementation](superpowers/plans/2026-10-22-commit-message-formatting.md) |
+| todo-workflow-controller | planned | [Progress control](superpowers/specs/2026-10-22-progress-control-design.md) | [Implementation](superpowers/plans/2026-10-22-progress-control.md) |
+| natural-language-report-writer | planned | [Natural-language reporting](superpowers/specs/2026-10-22-natural-language-reporting-design.md) | [Implementation](superpowers/plans/2026-10-22-natural-language-reporting.md) |
+| validation-discovery | planned | [Project validation](superpowers/specs/2026-10-22-project-validation-design.md) | [Implementation](superpowers/plans/2026-10-22-project-validation.md) |
 
-These documents are proposed designs. They do not change current catalog availability or claim completed implementation.
+The table reflects catalog availability. Planned designs do not create installable skill placeholders or imply completed behavior.
