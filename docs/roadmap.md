@@ -2,7 +2,7 @@
 
 ## Current foundation
 
-The distribution provides repository context, read-only Git preflight, a composition entry, standalone Conventional Commit message formatting, and portable progress tracking. The catalog records seventeen target capabilities, with five available and twelve planned. The formatter can be installed alone or optionally alongside the entry; it has no hard skill dependencies.
+The distribution provides repository context, read-only Git preflight, a composition entry, standalone Conventional Commit message formatting, and portable progress tracking. The catalog records seventeen target capabilities, with five available and twelve planned. Both optional capabilities can be installed alone or alongside the entry; neither adds a hard skill dependency. The entry routes to progress control when installed and reports it unavailable when absent.
 
 ## Shared capabilities
 

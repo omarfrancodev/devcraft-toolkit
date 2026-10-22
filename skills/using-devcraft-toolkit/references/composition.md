@@ -12,9 +12,13 @@ The foundation group is:
 
 The entry depends on both supporting skills. `git-safety-check` depends on `git-working-directory-policy`. A standalone installation needs the declared dependency closure and must select each skill explicitly in its harness.
 
-## Optional standalone capability
+## Optional standalone capabilities
 
 `conventional-commits-style` has no required skill dependencies. Install it separately to use directly, or alongside the entry for optional routing. The entry does not require it; when it is installed, the entry routes commit-message drafting or review to that skill. When absent, the entry reports the missing capability without imitation or automatic installation.
+
+`todo-workflow-controller` has no required skill dependencies. Install it by itself for multi-step progress tracking, or alongside the entry for optional routing. The entry does not require it. When installed, route progress-control requests to it. When absent, report the missing capability without manually imitating it or installing it. The standalone skill can use inline status when a native progress tool is unavailable; a missing tool does not mean the skill itself is unavailable.
+
+Progress tracking preserves workflow state; it does not execute tracked steps, create files or schedules as a fallback, or grant permission for side effects. A step named `publish` does not by itself request Git publication or a Git preflight.
 
 ## Result boundaries
 

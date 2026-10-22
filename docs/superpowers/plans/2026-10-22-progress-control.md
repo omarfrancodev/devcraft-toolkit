@@ -216,54 +216,56 @@ The message is an English source example; follow the active contribution-languag
 - Produces: an optional route, truthful absent-installation behavior and recorded entry evidence; the entry's existing hard dependency group stays unchanged.
 - A composition failure keeps this task incomplete; it does not silently redefine a verified standalone result.
 
-- [ ] **Step 1: Write the entry-composition behavior cases**
+- [x] **Step 1: Write the entry-composition behavior cases**
 
-Append an owned `todo-workflow-controller` section to `tests/skills/using_devcraft_toolkit/scenarios/routing-and-language.md` with these cases; keep existing entry cases intact.
+The cases were refined to make routing observable by asking the user-facing actor to name the installed skill. Append an owned `todo-workflow-controller` section to `tests/skills/using_devcraft_toolkit/scenarios/routing-and-language.md` with these cases; keep existing entry cases intact.
 
 ~~~yaml
 cases:
   - id: PROGRESS-ENTRY-01
     name: direct_call
-    request: "Invoke todo-workflow-controller directly with its first owned scenario."
-    facts: "The new standalone capability is installed; no repository root is supplied to the installed skill."
+    request: "Invoke todo-workflow-controller for this request: Track inspect -> validate -> publish before a tight deadline. Validation is required. An optional summary may be skipped."
+    facts: "Inspect completed; validation failed; summary is optional and omitted. The standalone skill is installed; no repository root is supplied."
     assertions:
-      - "The owned behavior is preserved; no development catalog or root docs are required at runtime."
+      - "Preserve the owned behavior; no development catalog or root docs are required at runtime."
+      - "Keep required validation incomplete, dependent publish blocked or pending, and optional summary skipped."
   - id: PROGRESS-ENTRY-02
     name: optional_entry_route
-    request: "Use Devcraft Toolkit for the portable progress control request in the first owned scenario."
-    facts: "The entry, its foundation dependencies and todo-workflow-controller are actually installed."
+    request: "Use Devcraft Toolkit for this request: Track inspect -> validate -> publish before a tight deadline. Validation is required. An optional summary may be skipped. Tell me which installed skill will track the workflow."
+    facts: "Inspect completed; validation failed; summary is optional and omitted. The entry, its foundation dependencies and todo-workflow-controller are installed; no progress tool or repository root is supplied."
     assertions:
-      - "Route the requested operation to todo-workflow-controller without running an unrelated Git preflight or another coordinator."
-      - "Language and permission boundaries remain those of the owned scenario."
+      - "Name and route to todo-workflow-controller as the installed progress capability; make the selection observable in the response."
+      - "Treat publish as a workflow step and do not run a Git preflight or publication workflow."
+      - "Preserve the owned progress behavior, language and permission boundaries."
   - id: PROGRESS-ENTRY-03
     name: optional_skill_absent
-    request: "Use Devcraft Toolkit for the same portable progress control request."
-    facts: "The entry and foundation group are installed, but todo-workflow-controller is not."
+    request: "Use Devcraft Toolkit for the same portable progress-control request."
+    facts: "The entry and foundation group are installed, but todo-workflow-controller is not. The user asks to track the same failed-validation workflow."
     assertions:
       - "Report the missing capability honestly without emulation, automatic installation or an invented completed result."
 ~~~
 
-- [ ] **Step 2: Evaluate the existing entry before changing its instructions**
+- [x] **Step 2: Evaluate the existing entry before changing its instructions**
 
 Run `PROGRESS-ENTRY-01`, `PROGRESS-ENTRY-02`, `PROGRESS-ENTRY-03` against the current entry and the Task 1 standalone skill. Record actual responses and assertions in `tests/skills/using_devcraft_toolkit/evaluations/2026-10-22-codex-desktop/progress-composition.md`. Record every fresh-context variant; a named assertion failure or inconsistent routing result is evidence of a gap, while a consistent pass requires no route change.
 
-- [ ] **Step 3: Implement only the demonstrated composition change**
+- [x] **Step 3: Implement only the demonstrated composition change**
 
 If the baseline entry fails a named assertion, modify `skills/using-devcraft-toolkit/SKILL.md` and `skills/using-devcraft-toolkit/references/composition.md` to add the optional installed route and preserve missing-capability behavior. If it already meets every assertion, leave its instructions unchanged and record that decision. Do not add `todo-workflow-controller` to the entry's hard `requires` array.
 
-- [ ] **Step 4: Verify composition case PROGRESS-ENTRY-01**
+- [x] **Step 4: Verify composition case PROGRESS-ENTRY-01**
 
 Run the exact `PROGRESS-ENTRY-01` packet with the resulting entry and installed-state variant. Record observed behavior in `tests/skills/using_devcraft_toolkit/evaluations/2026-10-22-codex-desktop/progress-composition.md`. Expected: every assertion for that case holds. If an optional tool/installation condition cannot be exercised, record the specific limitation rather than a pass.
 
-- [ ] **Step 5: Verify composition case PROGRESS-ENTRY-02**
+- [x] **Step 5: Verify composition case PROGRESS-ENTRY-02**
 
 Run the exact `PROGRESS-ENTRY-02` packet with the resulting entry and installed-state variant. Record observed behavior in `tests/skills/using_devcraft_toolkit/evaluations/2026-10-22-codex-desktop/progress-composition.md`. Expected: every assertion for that case holds. If an optional tool/installation condition cannot be exercised, record the specific limitation rather than a pass.
 
-- [ ] **Step 6: Verify composition case PROGRESS-ENTRY-03**
+- [x] **Step 6: Verify composition case PROGRESS-ENTRY-03**
 
 Run the exact `PROGRESS-ENTRY-03` packet with the resulting entry and installed-state variant. Record observed behavior in `tests/skills/using_devcraft_toolkit/evaluations/2026-10-22-codex-desktop/progress-composition.md`. Expected: every assertion for that case holds. If an optional tool/installation condition cannot be exercised, record the specific limitation rather than a pass.
 
-- [ ] **Step 7: Update composition and installation documentation**
+- [x] **Step 7: Update composition and installation documentation**
 
 Modify `docs/composition.md`, `docs/installation.md`, `docs/compatibility.md`, `docs/roadmap.md` to describe direct versus optional entry use, actual evaluated coverage and current availability. Catalog status was established by Task 1; a routing issue does not invent failure or success of standalone behavior.
 
@@ -300,5 +302,6 @@ Inspect local identity before the write. Branch publication, PR creation, merge 
 - Review Focus: all five classes map to concrete owned cases before implementation; no missing-file failure or generic prose check substitutes for baseline behavior.
 - Proportion: implementation bodies remain with the executor; literal test packets, source templates and fixture interfaces preserve the non-obvious decisions.
 - Task 1 execution: all five baseline and manual GREEN cases are recorded; the baseline showed no valid RED. The portable contract remains a product requirement, while native loading and other harnesses remain unverified. The full suite passed (57 tests, one Windows symlink-permission skip), the repository validator passed, and `git diff --check` passed.
+- Task 2 execution: direct, routed, and absent-installation cases were evaluated in fresh manual contexts. The refined baseline showed that the entry did not invoke the matching installed capability and could imitate it when absent; all three GREEN cases passed after the explicit optional route was added. The route does not alter the entry hard dependencies. Native loading and actual harness-managed installed-state discovery remain unverified.
 
 Execution selection: Native implementation in the isolated worktree with fresh-agent behavior evaluations. The user authorized implementation in roadmap order; the current shared-capability sequence is formatting, progress control, reporting and validation. Each delivery requires its recorded behavior checks and repository validation. Branch publication, pull requests and releases are outside this plan.

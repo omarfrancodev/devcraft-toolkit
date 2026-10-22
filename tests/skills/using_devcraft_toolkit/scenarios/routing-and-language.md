@@ -51,3 +51,32 @@ cases:
     assertions:
       - "Report the missing capability honestly without emulation, automatic installation or an invented completed result."
 ```
+
+## todo-workflow-controller composition cases
+
+Canonical composed capability: `todo-workflow-controller`.
+
+```yaml
+cases:
+  - id: PROGRESS-ENTRY-01
+    name: direct_call
+    request: "Invoke todo-workflow-controller for this request: Track inspect -> validate -> publish before a tight deadline. Validation is required. An optional summary may be skipped."
+    facts: "Inspect completed; validation failed; summary is optional and omitted. The standalone skill is installed; no repository root is supplied."
+    assertions:
+      - "Preserve the owned behavior; no development catalog or root docs are required at runtime."
+      - "Keep required validation incomplete, dependent publish blocked or pending, and optional summary skipped."
+  - id: PROGRESS-ENTRY-02
+    name: optional_entry_route
+    request: "Use Devcraft Toolkit for this request: Track inspect -> validate -> publish before a tight deadline. Validation is required. An optional summary may be skipped. Tell me which installed skill will track the workflow."
+    facts: "Inspect completed; validation failed; summary is optional and omitted. The entry, its foundation dependencies and todo-workflow-controller are installed; no progress tool or repository root is supplied."
+    assertions:
+      - "Name and route to todo-workflow-controller as the installed progress capability; make the selection observable in the response."
+      - "Treat publish as a workflow step and do not run a Git preflight or publication workflow."
+      - "Preserve the owned progress behavior, language and permission boundaries."
+  - id: PROGRESS-ENTRY-03
+    name: optional_skill_absent
+    request: "Use Devcraft Toolkit for the same portable progress-control request."
+    facts: "The entry and foundation group are installed, but todo-workflow-controller is not. The user asks to track the same failed-validation workflow."
+    assertions:
+      - "Report the missing capability honestly without emulation, automatic installation or an invented completed result."
+```
