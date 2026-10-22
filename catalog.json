@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "name": "devcraft-toolkit",
+  "skills": [
+    {"name": "using-devcraft-toolkit", "role": "entry", "status": "available", "path": "skills/using-devcraft-toolkit", "requires": ["git-working-directory-policy", "git-safety-check"]},
+    {"name": "git-commit-builder", "role": "coordinator", "status": "planned", "path": "skills/git-commit-builder", "requires": []},
+    {"name": "git-publish-work", "role": "coordinator", "status": "planned", "path": "skills/git-publish-work", "requires": []},
+    {"name": "git-activity-report", "role": "coordinator", "status": "planned", "path": "skills/git-activity-report", "requires": []},
+    {"name": "git-analyze-changes", "role": "capability", "status": "planned", "path": "skills/git-analyze-changes", "requires": []},
+    {"name": "git-plan-commits", "role": "capability", "status": "planned", "path": "skills/git-plan-commits", "requires": []},
+    {"name": "git-stage-changes", "role": "capability", "status": "planned", "path": "skills/git-stage-changes", "requires": []},
+    {"name": "git-sync-branch", "role": "capability", "status": "planned", "path": "skills/git-sync-branch", "requires": []},
+    {"name": "git-publish-changes", "role": "capability", "status": "planned", "path": "skills/git-publish-changes", "requires": []},
+    {"name": "git-manage-pull-request", "role": "capability", "status": "planned", "path": "skills/git-manage-pull-request", "requires": []},
+    {"name": "git-promote", "role": "capability", "status": "planned", "path": "skills/git-promote", "requires": []},
+    {"name": "git-safety-check", "role": "support", "status": "available", "path": "skills/git-safety-check", "requires": ["git-working-directory-policy"]},
+    {"name": "git-working-directory-policy", "role": "support", "status": "available", "path": "skills/git-working-directory-policy", "requires": []},
+    {"name": "conventional-commits-style", "role": "support", "status": "planned", "path": "skills/conventional-commits-style", "requires": []},
+    {"name": "validation-discovery", "role": "support", "status": "planned", "path": "skills/validation-discovery", "requires": []},
+    {"name": "natural-language-report-writer", "role": "support", "status": "planned", "path": "skills/natural-language-report-writer", "requires": []},
+    {"name": "todo-workflow-controller", "role": "support", "status": "planned", "path": "skills/todo-workflow-controller", "requires": []}
+  ]
+}

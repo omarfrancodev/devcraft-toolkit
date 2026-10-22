@@ -1,9 +1,9 @@
 # Devcraft Toolkit
 
-A modular toolkit of composable skills for Git operations, code review, and activity reporting across AI coding harnesses.
+A modular toolkit of composable skills for repository context and read-only Git preflight. The source is designed for selection by coding harnesses; compatibility is recorded only for harnesses actually exercised.
 
-The toolkit is designed to combine independent capabilities with coordinators for building commits, publishing work, and generating activity reports. Comprehensive Code Review (CCR) will remain independently installable. Platform-specific integrations such as Jira are outside the core scope.
+The foundation distribution currently includes three available skills: `using-devcraft-toolkit`, `git-working-directory-policy`, and `git-safety-check`. Commit coordination, publication coordination, and activity reporting are planned capabilities, not usable skills in this distribution. Comprehensive Code Review remains separate; no integration is included in this project.
 
-Skill definitions and default templates use English. User-facing content follows an explicit language preference or the language of the user's request, defaulting to English when neither can be determined. Tests are maintained outside individual skill directories.
+Skill definitions and default templates use English. User-facing content follows an explicit language preference or the language of the user's request, defaulting to English when neither can be determined. Tests are maintained outside individual skill directories, grouped by the owning skill and then by test scope; repository infrastructure and cross-skill coverage have separate shared groups.
 
-This repository is in its initial setup stage.
+The [catalog](catalog.json) records all seventeen target capabilities and marks each as `available` or `planned`. See [installation](docs/installation.md), [architecture](docs/architecture.md), [language behavior](docs/language.md), and [compatibility evidence](docs/compatibility.md).

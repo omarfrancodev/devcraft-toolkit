@@ -1,0 +1,1 @@
+"""Git fixture integration tests."""

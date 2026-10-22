@@ -1,5 +1,6 @@
 # Local Git worktrees
 /.worktrees/
+/tests/.tmp/
 
 # Local environment and secrets
 /.venv/
