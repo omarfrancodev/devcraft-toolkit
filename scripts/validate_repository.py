@@ -401,8 +401,24 @@ def _normalize_reference_label(label: str) -> str:
     return re.sub(r"\s+", " ", _unescape_markdown(label)).strip().casefold()
 
 
+def _expand_tabs(line: str) -> str:
+    """Expand tabs using CommonMark's four-column tab stops."""
+    expanded: list[str] = []
+    column = 0
+    for character in line:
+        if character == "\t":
+            spaces = 4 - column % 4
+            expanded.append(" " * spaces)
+            column += spaces
+        else:
+            expanded.append(character)
+            column += 1
+    return "".join(expanded)
+
+
 def _strip_markdown_container_prefix(line: str) -> tuple[str, int]:
     """Strip simple blockquote/list prefixes for block-level Markdown checks."""
+    line = _expand_tabs(line)
     index = 0
     blockquotes = 0
     while index < len(line):
@@ -439,6 +455,7 @@ def _strip_markdown_container_prefix(line: str) -> tuple[str, int]:
 
 def _strip_blockquote_prefix(line: str) -> tuple[str, int]:
     """Strip only blockquote markers, preserving list-like code content."""
+    line = _expand_tabs(line)
     index = 0
     blockquotes = 0
     while index < len(line):
@@ -453,6 +470,27 @@ def _strip_blockquote_prefix(line: str) -> tuple[str, int]:
         blockquotes += 1
         index = cursor + 1
         if index < len(line) and line[index] in " \t":
+            index += 1
+    return line[index:], blockquotes
+
+
+def _strip_blockquote_prefixes(line: str, count: int) -> tuple[str, int]:
+    """Strip exactly the leading blockquote depth that encloses a list."""
+    line = _expand_tabs(line)
+    index = 0
+    blockquotes = 0
+    while blockquotes < count:
+        spaces = 0
+        while index + spaces < len(line) and line[index + spaces] == " ":
+            spaces += 1
+        if spaces > 3:
+            break
+        cursor = index + spaces
+        if cursor >= len(line) or line[cursor] != ">":
+            break
+        blockquotes += 1
+        index = cursor + 1
+        if index < len(line) and line[index] == " ":
             index += 1
     return line[index:], blockquotes
 
@@ -718,6 +756,7 @@ def _remove_fenced_code(body: str) -> str:
         quoted, blockquotes = _strip_blockquote_prefix(raw_line)
         continued = _normalize_list_continuation(quoted, blockquotes, list_contexts)
         line, nested_blockquotes = _strip_markdown_container_prefix(continued)
+        opening_list_blockquotes = blockquotes
         opening_blockquotes = blockquotes + nested_blockquotes
         opening = _FENCE_OPEN.match(line)
         if opening is None or (opening.group(1)[0] == "`" and "`" in opening.group(2)):
@@ -735,23 +774,27 @@ def _remove_fenced_code(body: str) -> str:
         block_end = len(body)
         while index < len(lines):
             raw_closing_line = lines[index].rstrip("\r\n")
-            if opening_blockquotes:
-                closing_line, closing_blockquotes = _strip_blockquote_prefix(raw_closing_line)
-                if closing_blockquotes < opening_blockquotes:
-                    block_end = offset
-                    break
-                if closing_blockquotes > opening_blockquotes:
-                    offset += len(lines[index])
-                    index += 1
-                    continue
-            else:
-                closing_line = raw_closing_line
-            closing_line, inside_list = _strip_active_list_indent(
-                closing_line, opening_blockquotes, opening_list_contexts,
+            list_line, closing_list_blockquotes = _strip_blockquote_prefixes(
+                raw_closing_line, opening_list_blockquotes,
+            )
+            if closing_list_blockquotes < opening_list_blockquotes:
+                block_end = offset
+                break
+            list_line, inside_list = _strip_active_list_indent(
+                list_line, opening_list_blockquotes, opening_list_contexts,
             )
             if not inside_list:
                 block_end = offset
                 break
+            closing_line, nested_closing_blockquotes = _strip_blockquote_prefix(list_line)
+            closing_blockquotes = closing_list_blockquotes + nested_closing_blockquotes
+            if closing_blockquotes < opening_blockquotes:
+                block_end = offset
+                break
+            if closing_blockquotes > opening_blockquotes:
+                offset += len(lines[index])
+                index += 1
+                continue
             closing = _FENCE_CLOSE.match(closing_line)
             if closing is not None and closing.group(1)[0] == marker_char and len(closing.group(1)) >= marker_size:
                 offset += len(lines[index])
