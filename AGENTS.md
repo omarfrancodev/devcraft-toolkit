@@ -7,3 +7,5 @@
 - Use explicit working directories for terminal commands. Inspect repository-local Git identity before Git writes; never change global identity.
 - Milestone 1 skills perform no Git writes, network access, or credential changes.
 - Do not add plugin manifests, release automation, CCR integration, Jira integration, or a license without a separate approved design.
+- Keep specifications, plans and skill instructions self-contained: define behavior, inputs, outputs, decisions and evidence without depending on conversations, personal paths, untracked material or unavailable projects.
+- Describe capabilities through their current requirements and observable behavior. Use repository-local references and accessible official technical references; include all information needed to execute the design.

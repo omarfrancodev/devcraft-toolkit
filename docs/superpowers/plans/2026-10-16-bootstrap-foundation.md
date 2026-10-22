@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (- [ ]) syntax for tracking.
 
-**Goal:** Establish a verifiable, portable repository foundation with three real skills and centralized tests, without migrating the full suite.
+**Goal:** Establish a verifiable, portable repository foundation with three real skills and centralized tests.
 
 **Architecture:** A project-level catalog distinguishes available capabilities from future work. Skills remain instruction-first, with local references and explicit dependencies; Python tooling validates the repository but is not a hidden runtime dependency of installed skills.
 
@@ -10,8 +10,8 @@
 
 **Spec:** ../specs/2026-10-16-bootstrap-foundation-design.md
 
-**State:** Planning complete; implementation has not started. Review both documents before executing.
-**Updated:** 2026-10-17 (CCR excluded; tests grouped by skill and scope).
+**State:** Foundation implementation record. The task sequence is retained as the foundation contract; current behavior and evidence are documented in the repository architecture and compatibility guides.
+**Updated:** 2026-10-22 (self-contained design records; tests grouped by skill and scope).
 **Execution checkout:** .worktrees/bootstrap-foundation, branch feat/bootstrap-foundation.
 **Baseline:** README.md and .gitignore, with the foundation spec added on the planning branch.
 
@@ -52,7 +52,7 @@ Complete each task's verification before its commit. Run all development command
 
 Skill behavior is tested through real scenario execution, not substring assertions against SKILL.md. Automated fixture tests establish raw Git conditions; they do not prove a model follows a skill. Record execution limitations honestly.
 
-Stage exact owned files only. Before any commit verify the repository-local identity still resolves to omarfrancodev <fofe2803@gmail.com>; if it differs, stop for the human's decision. Do not change global identity or bypass hooks. Commit examples use English source conventions; adapt subjects to an explicit/current user-language instruction when executing.
+Stage exact owned files only. Before any commit inspect the repository-local identity and honor the configured project identity. Resolve a missing or conflicting identity before writing. Do not change global identity or bypass hooks. Commit examples use English source conventions; adapt subjects to an explicit/current user-language instruction when executing.
 
 ## Task 1: Establish the inventory and catalog validation
 
@@ -131,7 +131,7 @@ Stage exact owned files only. Before any commit verify the repository-local iden
 - [ ] **Step 1: Add and run failing fixture tests in tests/skills/git_safety_check/integration/test_preflight_fixtures.py for staged, dirty, conflicted and missing-identity states.** Run python -m unittest discover -s tests/skills/git_safety_check/integration -p "test_*.py" -v. Extend the shared helpers without changing earlier fixture semantics. Identity-free fixtures must neutralize inherited global identity within the child process/fixture, not edit the developer's configuration.
 - [ ] **Step 2: Define the scenario matrix and expected decisions.** Clean committed repository: publish ready, commit no_op. Unborn repository: inspect permitted, commit preparation permitted with a known identity, publish blocked. Conflicts: mutation blocked. Missing identity: inspect still permitted, future commit blocked. Detached HEAD: mutation needs a branch decision.
 - [ ] **Step 3: Add preservation and tools scenarios.** Existing staged hunks remain intact; no stage/unstage/commit/switch/fetch/push/stash runs. Global work identity without a resolved personal/work choice requires clarification before a write. Missing todo/question tools do not imply safety failure; an unanswered material decision still pauses dependent work.
-- [ ] **Step 4: Write the skill and reference, using read-only Git commands and optional locks disabled where supported.** Do not copy the legacy empty-worktree stop into every intent. A ready result permits only the requested preflight conclusion.
+- [ ] **Step 4: Write the skill and reference, using read-only Git commands and optional locks disabled where supported.** Evaluate a clean worktree according to the requested intent: no_op for an empty commit request and an eligible state for publication. A ready result permits only the requested preflight conclusion.
 - [ ] **Step 5: Execute the scenarios and compare snapshots before/after.** The cross-skill scenario tests/integration/scenarios/context-to-preflight.md names both git-working-directory-policy and git-safety-check: change state after context discovery and require refreshed preflight evidence. Retain skill-only evaluation notes under tests/skills/git_safety_check/evaluations/<run>/ and joint evidence under tests/integration/evaluations/<run>/. Record limitations rather than declaring an unexecuted scenario passed.
 - [ ] **Step 6: Mark the skill available, run the automated suites and repository validator, and commit the exact task files.** Suggested subject feat: add intent-aware Git safety checks.
 
@@ -157,7 +157,7 @@ Stage exact owned files only. Before any commit verify the repository-local iden
 ## Task 6: Document a usable foundation and verify the complete increment
 
 **Files:**
-- Create: docs/installation.md, docs/compatibility.md, docs/migration.md.
+- Create: docs/installation.md, docs/compatibility.md, docs/roadmap.md.
 - Modify: README.md, CONTRIBUTING.md, docs/architecture.md.
 - Modify validation/tests only if a newly evidenced defect requires it.
 
@@ -172,7 +172,7 @@ Stage exact owned files only. Before any commit verify the repository-local iden
 python -m unittest discover -s tests -p "test_*.py" -v
 python scripts/validate_repository.py --root .
 ~~~
-- [ ] **Step 2: Document selective installation and planned scope.** CCR remains exclusively in its separate project until its owner selects a stable version and authorizes a new integration design. It has no active catalog entry, planned migration task, routing hook or test subtree here. No license choice, empty future SKILL.md files, GitHub/GitLab/Jira credentials or generated vendor manifests enter this milestone.
+- [ ] **Step 2: Document selective installation and planned scope.** CCR is outside the active inventory and delivery scope. It has no catalog entry, routing hook, dependency or test subtree. No license choice, empty future SKILL.md files, GitHub/GitLab/Jira credentials or generated vendor manifests enter this milestone.
 - [ ] **Step 3: Run acceptance from a clean environment and confirm discovery actually finds the nested test suites.** Root, repository, skills, each Python skill package, its integration package and shared support __init__.py files make discovery/imports explicit on Python 3.11. Hyphens in canonical skill names map to underscores in test package names. Zero discovered tests is not a passing suite.
 - [ ] **Step 4: Run repository validation, inspect git diff --check and review all retained behavioral results/limitations.** Confirm seventeen catalog entries, only three actual skills, all tests outside skill folders and assigned by skill/scope or explicitly shared ownership, and no false full-suite or cross-harness claims.
 - [ ] **Step 5: Request final branch review under the chosen execution method, resolve material issues and commit the exact documentation files.** Suggested subject docs: document the verified toolkit foundation. Publish a branch or create a PR only when authorized; never merge or release as an implied documentation step.
@@ -193,4 +193,4 @@ Self-review: all tasks have named files, inputs/outputs and observable checks. T
 
 ## Execution handoff
 
-The human explicitly requested both spec and plan; this does not start implementation. Review both artifacts, then choose native execution or subagent-driven execution before beginning Task 1. Native execution is the lower-overhead recommendation for this small foundation with shared validator/fixture interfaces; independent final review still checks the whole branch under the selected method.
+Review this plan together with its in-repository spec and choose native or subagent-driven execution before beginning Task 1. Native execution is the lower-overhead recommendation for this small foundation with shared validator/fixture interfaces; independent final review still checks the whole branch under the selected method.

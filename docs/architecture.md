@@ -9,3 +9,5 @@ The repository validator and tests are development tools. Installed skills do no
 The foundation distribution has exactly three available skills and fourteen planned entries. The available set is `using-devcraft-toolkit`, `git-working-directory-policy`, and `git-safety-check`; the entry depends on both supporting skills, and the safety check depends on repository context discovery. Centralized structural validation and behavioral scenarios live under the repository root's `scripts/` and `tests/` directories.
 
 CCR and Jira workflows, native plugin packaging, automatic installation, and release automation remain outside this increment. See [installation](installation.md), [composition](composition.md), and [compatibility evidence](compatibility.md) for user-facing constraints.
+
+See the [capability roadmap](roadmap.md) for the sequence of product increments.
