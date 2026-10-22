@@ -6,7 +6,7 @@ Skills are independently usable unless their catalog entry declares a dependency
 
 The repository validator and tests are development tools. Installed skills do not depend on them at runtime. Repository tests are grouped under `tests/repository/`, `tests/skills/<normalized-skill-name>/`, or shared integration/support areas when they cover multiple named skills.
 
-The current distribution has five available skills and twelve planned entries. The available set is `using-devcraft-toolkit`, `git-working-directory-policy`, `git-safety-check`, `conventional-commits-style`, and `todo-workflow-controller`; the entry depends on both supporting skills; the formatter and progress controller remain independently usable with no dependencies. Centralized structural validation and behavioral scenarios live under the repository root's `scripts/` and `tests/` directories.
+The current distribution has six available skills and eleven planned entries. The available set is `using-devcraft-toolkit`, `git-working-directory-policy`, `git-safety-check`, `conventional-commits-style`, `todo-workflow-controller`, and `natural-language-report-writer`; the entry depends on both supporting skills; the formatter, progress controller, and report writer remain independently usable with no dependencies. Centralized structural validation and behavioral scenarios live under the repository root's `scripts/` and `tests/` directories.
 
 CCR and Jira workflows, native plugin packaging, automatic installation, and release automation remain outside this increment. See [installation](installation.md), [composition](composition.md), and [compatibility evidence](compatibility.md) for user-facing constraints.
 

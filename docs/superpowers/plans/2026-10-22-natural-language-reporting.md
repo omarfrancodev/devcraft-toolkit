@@ -62,7 +62,7 @@ Use the selected isolated worktree. Resolve the actual Python interpreter before
 - No new callable product API or test-only keyword parser is introduced.
 - Availability is committed atomically with the verified standalone implementation; existing unrelated catalog names/statuses remain unchanged.
 
-- [ ] **Step 1: Write reporting.md as the behavior test**
+- [x] **Step 1: Write reporting.md as the behavior test**
 
 Create `tests/skills/natural_language_report_writer/scenarios/reporting.md` with canonical owner `natural-language-report-writer` and the following case data. These are evaluation packets, not a new automated test engine. Keep assertions separate from the packet given to the acting evaluator.
 
@@ -108,7 +108,7 @@ cases:
       - "Unrelated files and the input fixture remain unchanged."
 ~~~
 
-- [ ] **Step 2: Write the data-only fact fixture**
+- [x] **Step 2: Write the data-only fact fixture**
 
 Create `tests/skills/natural_language_report_writer/fixtures/report-facts.json` with these exact values; scenarios use a copy of this data.
 
@@ -126,39 +126,39 @@ Create `tests/skills/natural_language_report_writer/fixtures/report-facts.json` 
 }
 ~~~
 
-- [ ] **Step 3: Run baseline case RPT-01 without the candidate skill**
+- [x] **Step 3: Run baseline case RPT-01 without the candidate skill**
 
 Use a supported fresh evaluation context with only the `RPT-01` request/facts from `tests/skills/natural_language_report_writer/scenarios/reporting.md` and the actual permitted tools. Omit candidate instructions and assertions from the actor packet. Record its response, tool effects and each assertion outcome in `tests/skills/natural_language_report_writer/evaluations/standalone.md` under `RPT-01/baseline`. Expected RED evidence is a specific observed violated assertion; absence of the skill alone is not a failure.
 
-- [ ] **Step 4: Run baseline case RPT-02 without the candidate skill**
+- [x] **Step 4: Run baseline case RPT-02 without the candidate skill**
 
 Use a supported fresh evaluation context with only the `RPT-02` request/facts from `tests/skills/natural_language_report_writer/scenarios/reporting.md` and the actual permitted tools. Omit candidate instructions and assertions from the actor packet. Record its response, tool effects and each assertion outcome in `tests/skills/natural_language_report_writer/evaluations/standalone.md` under `RPT-02/baseline`. Expected RED evidence is a specific observed violated assertion; absence of the skill alone is not a failure.
 
-- [ ] **Step 5: Run baseline case RPT-03 without the candidate skill**
+- [x] **Step 5: Run baseline case RPT-03 without the candidate skill**
 
 Use a supported fresh evaluation context with only the `RPT-03` request/facts from `tests/skills/natural_language_report_writer/scenarios/reporting.md` and the actual permitted tools. Omit candidate instructions and assertions from the actor packet. Record its response, tool effects and each assertion outcome in `tests/skills/natural_language_report_writer/evaluations/standalone.md` under `RPT-03/baseline`. Expected RED evidence is a specific observed violated assertion; absence of the skill alone is not a failure.
 
-- [ ] **Step 6: Run baseline case RPT-04 without the candidate skill**
+- [x] **Step 6: Run baseline case RPT-04 without the candidate skill**
 
 Use a supported fresh evaluation context with only the `RPT-04` request/facts from `tests/skills/natural_language_report_writer/scenarios/reporting.md` and the actual permitted tools. Omit candidate instructions and assertions from the actor packet. Record its response, tool effects and each assertion outcome in `tests/skills/natural_language_report_writer/evaluations/standalone.md` under `RPT-04/baseline`. Expected RED evidence is a specific observed violated assertion; absence of the skill alone is not a failure.
 
-- [ ] **Step 7: Run baseline case RPT-05 without the candidate skill**
+- [x] **Step 7: Run baseline case RPT-05 without the candidate skill**
 
 Use a supported fresh evaluation context with only the `RPT-05` request/facts from `tests/skills/natural_language_report_writer/scenarios/reporting.md` and the actual permitted tools. Omit candidate instructions and assertions from the actor packet. Record its response, tool effects and each assertion outcome in `tests/skills/natural_language_report_writer/evaluations/standalone.md` under `RPT-05/baseline`. Expected RED evidence is a specific observed violated assertion; absence of the skill alone is not a failure.
 
-- [ ] **Step 8: Assess the baseline before authoring**
+- [x] **Step 8: Assess the baseline before authoring**
 
 Identify which named assertion actually failed and why. If all cases pass, do not claim RED or write guidance merely to satisfy this plan: record the result and resolve whether an untested requirement or any need for the capability remains. Missing supported evaluation contexts or tools produce an explicit limitation; never manufacture independence or a failed baseline.
 
-- [ ] **Step 9: Write the primary skill**
+- [x] **Step 9: Write the primary skill**
 
 Create `skills/natural-language-report-writer/SKILL.md` with `name: natural-language-report-writer` and a concise description limited to when the skill applies. Implement the spec's request/result flow and boundaries, addressing the demonstrated baseline gap. The body carries essential behavior; substantial conditional detail goes in the listed local reference. No root-doc runtime dependency or hard skill dependency is added.
 
-- [ ] **Step 10: Write the local reference**
+- [x] **Step 10: Write the local reference**
 
 Create `skills/natural-language-report-writer/references/report-quality.md` with the spec's domain decisions and the demonstrated edge cases. For each of `RPT-01`, `RPT-02`, `RPT-03`, `RPT-04`, `RPT-05`, an executor must be able to find the decision that governs its assertions. Do not copy the test packet into installed resources or replace behavior with a list of prohibitions unrelated to an observed failure.
 
-- [ ] **Step 11: Write the English starter template**
+- [x] **Step 11: Write the English starter template**
 
 Create `skills/natural-language-report-writer/assets/report.md` with this source structure. The skill translates visible headings, honors an explicitly requested format first, and removes an unused optional Open items section; placeholder keys remain unchanged.
 
@@ -175,57 +175,59 @@ Create `skills/natural-language-report-writer/assets/report.md` with this source
 {{open_items}}
 ~~~
 
-- [ ] **Step 12: Declare only the capability's permitted effects**
+- [x] **Step 12: Declare only the capability's permitted effects**
 
 Modify `AGENTS.md` and `tests/scenarios/README.md` to distinguish this capability's expressly requested single local report file with readback from read-only foundation context/preflight. Retain all unrelated permission boundaries; the scenario itself must name its allowed effects.
 
-- [ ] **Step 13: Run GREEN case RPT-01 with the skill**
+- [x] **Step 13: Run GREEN case RPT-01 with the skill**
 
 Repeat the exact `RPT-01` request/facts and tool restrictions in a fresh supported context, now providing `skills/natural-language-report-writer/SKILL.md` and its accessible local resources. Record actual behavior and assertions in `tests/skills/natural_language_report_writer/evaluations/standalone.md` under `RPT-01/green`. Expected: all stated assertions hold. Record manual following or unavailable variants accurately; neither is silently relabeled as independent loaded-skill success.
 
-- [ ] **Step 14: Run GREEN case RPT-02 with the skill**
+- [x] **Step 14: Run GREEN case RPT-02 with the skill**
 
 Repeat the exact `RPT-02` request/facts and tool restrictions in a fresh supported context, now providing `skills/natural-language-report-writer/SKILL.md` and its accessible local resources. Record actual behavior and assertions in `tests/skills/natural_language_report_writer/evaluations/standalone.md` under `RPT-02/green`. Expected: all stated assertions hold. Record manual following or unavailable variants accurately; neither is silently relabeled as independent loaded-skill success.
 
-- [ ] **Step 15: Run GREEN case RPT-03 with the skill**
+- [x] **Step 15: Run GREEN case RPT-03 with the skill**
 
 Repeat the exact `RPT-03` request/facts and tool restrictions in a fresh supported context, now providing `skills/natural-language-report-writer/SKILL.md` and its accessible local resources. Record actual behavior and assertions in `tests/skills/natural_language_report_writer/evaluations/standalone.md` under `RPT-03/green`. Expected: all stated assertions hold. Record manual following or unavailable variants accurately; neither is silently relabeled as independent loaded-skill success.
 
-- [ ] **Step 16: Run GREEN case RPT-04 with the skill**
+- [x] **Step 16: Run GREEN case RPT-04 with the skill**
 
 Repeat the exact `RPT-04` request/facts and tool restrictions in a fresh supported context, now providing `skills/natural-language-report-writer/SKILL.md` and its accessible local resources. Record actual behavior and assertions in `tests/skills/natural_language_report_writer/evaluations/standalone.md` under `RPT-04/green`. Expected: all stated assertions hold. Record manual following or unavailable variants accurately; neither is silently relabeled as independent loaded-skill success.
 
-- [ ] **Step 17: Run GREEN case RPT-05 with the skill**
+- [x] **Step 17: Run GREEN case RPT-05 with the skill**
 
 Repeat the exact `RPT-05` request/facts and tool restrictions in a fresh supported context, now providing `skills/natural-language-report-writer/SKILL.md` and its accessible local resources. Record actual behavior and assertions in `tests/skills/natural_language_report_writer/evaluations/standalone.md` under `RPT-05/green`. Expected: all stated assertions hold. Record manual following or unavailable variants accurately; neither is silently relabeled as independent loaded-skill success.
 
-- [ ] **Step 18: Refine only a demonstrated behavioral gap**
+- [x] **Step 18: Refine only a demonstrated behavioral gap**
 
 If a GREEN assertion fails, adjust only the responsible instruction/resource and state the observed reason in `tests/skills/natural_language_report_writer/evaluations/standalone.md`. If no gap remains, record no change. Do not add unrelated policy or alter an expected assertion merely to turn a result green.
 
-- [ ] **Step 19: Recheck the affected cases after refinement**
+- [x] **Step 19: Recheck the affected cases after refinement**
 
 Run only affected `RPT-01`, `RPT-02`, `RPT-03`, `RPT-04`, `RPT-05` cases, plus an earlier passing case when the changed instruction can affect it. Expected: the recorded gap is fixed without losing a required behavior. An unrun material case remains an unmet availability gate.
 
-- [ ] **Step 20: Publish the verified standalone catalog entry**
+**Result:** The five GREEN cases passed without a demonstrated gap, so no instruction refinement or follow-up case run was needed.
+
+- [x] **Step 20: Publish the verified standalone catalog entry**
 
 Only after principal behavioral cases are verified, modify the `natural-language-report-writer` entry in `catalog.json` to `status: available` and keep `requires: []`. Preserve all other statuses. Until that evidence exists this task is incomplete; do not commit a discoverable skill together with a planned-placeholder violation.
 
-- [ ] **Step 21: Update standalone availability documentation**
+- [x] **Step 21: Update standalone availability documentation**
 
 Modify `README.md`, `docs/architecture.md`, `docs/installation.md`, `docs/compatibility.md` to describe this standalone capability, its observed limits and its empty hard dependency list. Derive counts from the current catalog. Do not rewrite the historical foundation delivery count or advertise the entry route before Task 2.
 
-- [ ] **Step 22: Run the existing automated suite**
+- [x] **Step 22: Run the existing automated suite**
 
 Run: `python -m unittest discover -s tests -p "test_*.py" -v` from the selected worktree with an actual Python 3.11+ interpreter.
 Expected: discovered tests pass, with observed environmental skips reported explicitly. This is structural/fixture regression evidence, not proof of the new skill's behavior.
 
-- [ ] **Step 23: Run repository validation**
+- [x] **Step 23: Run repository validation**
 
 Run: `python scripts/validate_repository.py --root .`.
 Expected: `Repository catalog is valid.` and exit 0. Fix source/catalog/resource disagreements before committing.
 
-- [ ] **Step 24: Check the standalone diff**
+- [x] **Step 24: Check the standalone diff**
 
 Run: `git diff --check`.
 Expected: exit 0 and no whitespace errors. Inspect that only Task 1 files and the named availability updates are changed.
