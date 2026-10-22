@@ -425,6 +425,7 @@ def _strip_markdown_container_prefix(
     line = _expand_tabs(line)
     index = 0
     blockquotes = 0
+    recorded_list_quotes: set[int] = set()
     while index < len(line):
         spaces = 0
         while index + spaces < len(line) and line[index + spaces] == " ":
@@ -457,18 +458,32 @@ def _strip_markdown_container_prefix(
             break
         if list_contexts is not None and blockquotes:
             quote_depth = base_blockquotes + blockquotes
-            marker_indent = spaces
             marker_width = marker.end() - cursor
-            content_indent = marker_indent + marker_width + whitespace_columns
+            local_content_indent = spaces + marker_width + whitespace_columns
             while list_contexts and list_contexts[-1][0] > quote_depth:
                 list_contexts.pop()
-            while (
-                list_contexts
-                and list_contexts[-1][0] == quote_depth
-                and list_contexts[-1][1] >= marker_indent
-            ):
-                list_contexts.pop()
+            if quote_depth in recorded_list_quotes:
+                # Multiple list markers after the same quote prefix on one
+                # physical line are nested. Keep each level and express its
+                # indentation relative to the preceding list item's content.
+                parent_content_indent = next(
+                    context[2]
+                    for context in reversed(list_contexts)
+                    if context[0] == quote_depth
+                )
+                marker_indent = parent_content_indent + spaces
+                content_indent = parent_content_indent + local_content_indent
+            else:
+                marker_indent = spaces
+                content_indent = local_content_indent
+                while (
+                    list_contexts
+                    and list_contexts[-1][0] == quote_depth
+                    and list_contexts[-1][1] >= marker_indent
+                ):
+                    list_contexts.pop()
             list_contexts.append((quote_depth, marker_indent, content_indent))
+            recorded_list_quotes.add(quote_depth)
     return line[index:], blockquotes
 
 
