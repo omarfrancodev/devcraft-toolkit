@@ -416,8 +416,12 @@ def _expand_tabs(line: str) -> str:
     return "".join(expanded)
 
 
-def _strip_markdown_container_prefix(line: str) -> tuple[str, int]:
-    """Strip simple blockquote/list prefixes for block-level Markdown checks."""
+def _strip_markdown_container_prefix(
+    line: str,
+    list_contexts: list[tuple[int, int, int]] | None = None,
+    base_blockquotes: int = 0,
+) -> tuple[str, int]:
+    """Strip simple containers, tracking quoted lists when a context is supplied."""
     line = _expand_tabs(line)
     index = 0
     blockquotes = 0
@@ -445,11 +449,26 @@ def _strip_markdown_container_prefix(line: str) -> tuple[str, int]:
             index += 1
         if index == whitespace_start:
             break
-        if line[whitespace_start:index].count(" ") > 4 or "\t" in line[whitespace_start:index]:
+        whitespace_columns = index - whitespace_start
+        if whitespace_columns > 4:
             # Leave excess indentation visible so an indented code block is not
             # mistaken for a fence or a reference definition.
             index = whitespace_start + 1
             break
+        if list_contexts is not None and blockquotes:
+            quote_depth = base_blockquotes + blockquotes
+            marker_indent = spaces
+            marker_width = marker.end() - cursor
+            content_indent = marker_indent + marker_width + whitespace_columns
+            while list_contexts and list_contexts[-1][0] > quote_depth:
+                list_contexts.pop()
+            while (
+                list_contexts
+                and list_contexts[-1][0] == quote_depth
+                and list_contexts[-1][1] >= marker_indent
+            ):
+                list_contexts.pop()
+            list_contexts.append((quote_depth, marker_indent, content_indent))
     return line[index:], blockquotes
 
 
@@ -572,6 +591,51 @@ def _strip_active_list_indent(
     if _leading_spaces(line) < base_indent:
         return line, False
     return line[base_indent:], True
+
+
+def _strip_fence_container_prefix(
+    line: str,
+    opening_list_blockquotes: int,
+    opening_blockquotes: int,
+    list_contexts: list[tuple[int, int, int]],
+) -> tuple[str, bool, bool]:
+    """Strip each enclosing list and quote prefix before checking a fence."""
+    line, quote_depth = _strip_blockquote_prefixes(line, opening_list_blockquotes)
+    if quote_depth < opening_list_blockquotes:
+        return line, False, False
+
+    list_quote_depths = sorted({
+        context_quotes
+        for context_quotes, _, _ in list_contexts
+        if opening_list_blockquotes <= context_quotes <= opening_blockquotes
+    })
+    for list_quote_depth in list_quote_depths:
+        if list_quote_depth > quote_depth:
+            line, added_quotes = _strip_blockquote_prefixes(
+                line, list_quote_depth - quote_depth,
+            )
+            if added_quotes < list_quote_depth - quote_depth:
+                return line, False, False
+            quote_depth += added_quotes
+
+        line, inside_list = _strip_active_list_indent(
+            line, list_quote_depth, list_contexts,
+        )
+        if not inside_list:
+            return line, False, False
+
+    if quote_depth < opening_blockquotes:
+        line, added_quotes = _strip_blockquote_prefixes(
+            line, opening_blockquotes - quote_depth,
+        )
+        if added_quotes < opening_blockquotes - quote_depth:
+            return line, False, False
+        quote_depth += added_quotes
+
+    nested_line, nested_quotes = _strip_blockquote_prefix(line)
+    if nested_quotes:
+        return nested_line, True, True
+    return line, True, False
 
 
 def _remove_reference_definitions(body: str) -> tuple[str, dict[str, str | None]]:
@@ -755,7 +819,9 @@ def _remove_fenced_code(body: str) -> str:
         raw_line = lines[index].rstrip("\r\n")
         quoted, blockquotes = _strip_blockquote_prefix(raw_line)
         continued = _normalize_list_continuation(quoted, blockquotes, list_contexts)
-        line, nested_blockquotes = _strip_markdown_container_prefix(continued)
+        line, nested_blockquotes = _strip_markdown_container_prefix(
+            continued, list_contexts=list_contexts, base_blockquotes=blockquotes,
+        )
         opening_list_blockquotes = blockquotes
         opening_blockquotes = blockquotes + nested_blockquotes
         opening = _FENCE_OPEN.match(line)
@@ -774,24 +840,16 @@ def _remove_fenced_code(body: str) -> str:
         block_end = len(body)
         while index < len(lines):
             raw_closing_line = lines[index].rstrip("\r\n")
-            list_line, closing_list_blockquotes = _strip_blockquote_prefixes(
-                raw_closing_line, opening_list_blockquotes,
+            closing_line, inside_containers, nested_quotes = _strip_fence_container_prefix(
+                raw_closing_line,
+                opening_list_blockquotes,
+                opening_blockquotes,
+                opening_list_contexts,
             )
-            if closing_list_blockquotes < opening_list_blockquotes:
+            if not inside_containers:
                 block_end = offset
                 break
-            list_line, inside_list = _strip_active_list_indent(
-                list_line, opening_list_blockquotes, opening_list_contexts,
-            )
-            if not inside_list:
-                block_end = offset
-                break
-            closing_line, nested_closing_blockquotes = _strip_blockquote_prefix(list_line)
-            closing_blockquotes = closing_list_blockquotes + nested_closing_blockquotes
-            if closing_blockquotes < opening_blockquotes:
-                block_end = offset
-                break
-            if closing_blockquotes > opening_blockquotes:
+            if nested_quotes:
                 offset += len(lines[index])
                 index += 1
                 continue
