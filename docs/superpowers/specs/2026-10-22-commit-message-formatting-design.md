@@ -1,31 +1,41 @@
 # Commit Message Formatting Design
 
 Date: 2026-10-22
-Status: Proposed; product implementation has not started.
+Status: Draft for written-spec review.
 Capability: conventional-commits-style
 
-## Product goal
+## Goal
 
 Produce clear commit messages from supplied change intent and repository conventions without inspecting or modifying Git unless a separate requested operation supplies that context.
 
-This increment is independently deliverable. It extends the current seventeen-capability catalog without changing any other planned capability into an available implementation.
+## Scope and non-goals
 
-## Global constraints
+Deliver one independently usable instruction-first capability. Keep requires=[]; the toolkit entry is an optional consumer, not a prerequisite. Do not implement another planned capability or change catalog availability by writing this design.
 
-- Source instructions, documentation, examples and default templates are English; user-facing output uses explicit user preference, then request language, then English when indeterminate.
-- Technical identifiers, schema keys, command syntax and supplied data identifiers remain unchanged by translation.
-- Tests, fixtures, scenarios and retained evaluations live under tests/skills/<normalized_skill_name>/; root tests/integration/ is only for multiple named skills.
-- Installed skills use only their bundled resources and explicitly declared skill dependencies; repository tooling and catalog.json are development resources.
-- Implementation must be understandable from repository-local requirements and accessible official technical references, without private conversations, personal paths or unavailable files.
-- Catalog status stays planned until structural checks and actual behavioral evaluation justify available; record unexecuted cases as limitations.
-- No new coordinator, CCR/Jira integration, plugin manifest, installer, release automation or runtime orchestration engine is included.
-- Use Python 3.11+ and the existing PyYAML>=6.0,<7.0 development setup; add no dependencies or helpers without a demonstrated need.
+The capability's persistence and execution boundaries are stated below. CCR/Jira, coordinators, native plugin packaging and releases are outside scope.
 
-## Architecture and dependencies
+## Approaches considered
 
-Use instruction-first SKILL.md content, with only the local reference or asset files listed below. The skill has requires=[] and must work independently of the toolkit entry. Reuse the language resolved by a caller, or resolve it using the project precedence when invoked alone.
+| Approach | Tradeoff and decision |
+| --- | --- |
+| Fixed language and fixed vocabulary | Small surface, but fails user-language requirements and project-specific conventions. |
+| Executable formatter and parser | Useful for strict machine enforcement, but adds a runtime and cannot infer functional intent from supplied facts alone. |
+| Instruction-first formatting with explicit input boundaries | Selected: supports independent proposals, project conventions and ambiguity without becoming a commit executor. |
 
-Existing repository context and evidence may be consumed when provided; they are not required Git or platform dependencies. No new callable runtime API, schema version, installed root catalog dependency or orchestration service is introduced.
+## Architecture and components
+
+| Component | Responsibility |
+| --- | --- |
+| SKILL.md | Trigger, language resolution, formatting sequence and no-write boundary. |
+| references/message-format.md | Subject/body/footer decisions, ticket conventions, breaking changes and ambiguity handling. |
+
+Installed resources are local to skills/conventional-commits-style/. Tests and fixtures are owned by tests/skills/conventional_commits_style/. Root validation tooling is not an installed runtime dependency.
+
+## Data flow and contracts
+
+Supplied change intent and conventions -> resolve language and confirmed references -> choose type/scope -> compose subject/body/footers -> expose unresolved decisions -> return a proposal. No stage invokes Git or creates a commit.
+
+The interfaces are request/evidence/result records interpreted by the assistant; no callable runtime API or persisted state schema is introduced. The implementation plan supplies exact test packets, source paths and execution checks.
 
 ## Inputs and output
 
@@ -49,31 +59,108 @@ The skill has no required skill dependencies and works without a Git repository.
 
 Behavioral cases cover English/Spanish/another language, explicit override, indeterminate language, meaningful/omitted scope, a project-specific type, confirmed versus ambiguous references, a later reference correction, unsupported breaking claims, mixed unrelated changes and quote-bearing text. Check semantics and side effects rather than exact prose. Do not infer a type-to-version release outcome as an executed release.
 
-## Files and test ownership
+## Error handling and authorization
+
+Missing change intent requires the missing fact. Competing applicable references require selection; a later explicit correction updates the proposal. An unsupported breaking claim is omitted or identified as unresolved. No repository is an acceptable input condition, not an error.
+
+No progress status, formatting result, drafted report or discovered command is authorization for another operation. Preserve unknown facts, unresolved choices and limitations. Do not mutate unrelated files or claim work was executed without evidence.
+
+## Testing strategy and acceptance criteria
+
+Use the following exact request/evidence packets as behavioral cases. The baseline evaluator sees only the request, supplied facts and actual permitted tools, without the candidate skill or expected answer. A separate assessment compares the observed behavior with the assertions below. The same inputs and tool restrictions are used for GREEN with the candidate skill supplied.
+
+Use a fresh supported evaluation context when available; record whether execution was independent, manual or limited. Missing evaluation capability is a limitation, not invented independence. An absent skill is not a RED result. If the baseline meets all cases, inspect the unproven requirement or necessity of the capability; do not force a failure by changing expectations after seeing results.
+
+### FMT-01: ambiguous_reference_then_correction
+
+- Request: Prepare a commit for the parser fix. Relevant issues may be TASK-12 or TASK-13. Do not choose one for me.
+- Supplied evidence: The parser rejects an empty name with a clear error. Later response: Use TASK-13.
+- Assertions:
+  - Initial output asks which applicable issue to use and invents neither selection nor extra issue.
+  - After the explicit response, only TASK-13 is referenced and the decision is updated.
+
+### FMT-02: project_specific_type_scope_and_body
+
+- Request: Our project uses maintenance for internal cleanup. Draft a maintenance(parser) commit with a body.
+- Supplied evidence: Consolidated duplicate parser checks; no user-visible behavior changed.
+- Assertions:
+  - Use the supplied maintenance type and parser scope; do not force feat or fix.
+  - The body describes the supplied cleanup without a fabricated functional change or test result.
+
+### FMT-03: breaking_marker_requires_evidence
+
+- Request: Draft a commit; add a breaking marker only if justified.
+- Supplied evidence: An error message was clarified; no public input/output contract changed.
+- Assertions:
+  - No ! marker or BREAKING CHANGE footer is invented.
+  - Return a proposal without running Git.
+
+### FMT-04: quoted_subject_is_data
+
+- Request: Propose a subject that mentions the literal strings "ready", $HOME and $(touch marker). Do not execute anything.
+- Supplied evidence: Logging preserves these literal values.
+- Assertions:
+  - Preserve the supplied literals as data; no shell command or file named marker is created.
+  - Do not drop useful wording merely to fit a future command-line quoting style.
+
+### FMT-05: language_without_repository
+
+- Request: Redacta un commit para corregir la validación de nombres vacíos; no hay repositorio disponible.
+- Supplied evidence: The input rejects empty names. Repeat with an English request and with: Answer in French.
+- Assertions:
+  - Natural-language subject follows Spanish, English and the explicit French override respectively.
+  - Technical Conventional Commit tokens remain intact; no Git repository, ticket or validation result is invented.
+
+### FMT-06: missing_intent
+
+- Request: Write the commit.
+- Supplied evidence: No change description, repository or evidence was provided.
+- Assertions:
+  - Ask for the change intent instead of producing a generic unsupported completion claim.
+
+Capture actual observations and assertion outcomes in tests/skills/conventional_commits_style/evaluations/standalone.md. Where a required evaluation could not run, record the limitation and leave the availability decision open. No new script is required merely to turn prose into keyword tests.
+
+## File structure
 
 - skills/conventional-commits-style/SKILL.md
 - skills/conventional-commits-style/references/message-format.md
 - tests/skills/conventional_commits_style/scenarios/formatting.md
-- tests/skills/conventional_commits_style/evaluations/<run>.md when explicitly retained
+- tests/skills/conventional_commits_style/evaluations/standalone.md
 
-Tests use the canonical owner conventional-commits-style; the Python-compatible test package is conventional_commits_style. Introduce unit/integration test code only for a real executable contract, not to check whether instructions contain a chosen sentence. Scenario fixtures and evidence remain outside the installed skill folder.
+Create optional directories only when an actual file needs them. Python packages normalize hyphens to underscores, while scenario ownership retains the canonical skill name.
 
-## Catalog, routing and documentation
+## Catalog and composition
 
-After actual verification, mark only conventional-commits-style available and leave requires=[] in catalog.json. Add its installed-capability route to using-devcraft-toolkit without widening the entry's hard dependency group. Route only when the skill is actually installed; a missing optional capability remains a visible limitation.
+After principal behavior and structural validation succeed, change only conventional-commits-style to available with requires=[] in the same complete standalone delivery. Update its availability documentation from the actual catalog counts. The other independently delivered capabilities may or may not already be available.
 
-Update README.md, docs/architecture.md, docs/composition.md, docs/installation.md, docs/compatibility.md and docs/roadmap.md to match observed availability. Derive current counts from catalog.json instead of assuming that other increments have already landed. Keep the foundation spec's historical three-skill delivery record intact.
+A separate complete task adds the optional installed-capability route to using-devcraft-toolkit and verifies direct, composed and absent-installation cases. It does not widen the entry's hard dependency group or emulate an absent skill. Standalone capability failure and entry-composition failure remain separate results.
 
-Foundation context/preflight stay read-only. If this capability allows explicit file output or check execution, document those effects precisely in AGENTS.md and the scenario protocol; do not change the permissions of unrelated skills.
+Preserve the read-only foundation context/preflight contracts. A report's explicit file output or a requested validation execution needs its exact side-effect policy in AGENTS.md and tests/scenarios/README.md; that exception does not grant writes to other skills.
 
-## Acceptance and evidence
+## Global Constraints
 
-Run the existing repository suite and structural validator. Execute the owned behavioral scenarios on the actual available harness; use the common protocol and record executed/limited outcomes. Structural success alone is not a behavioral pass. A manually followed skill is recorded as a self-evaluation, not a dynamically loaded or independent evaluation.
+- Source instructions, documentation, examples and default templates are English; user-facing output uses explicit user preference, then request language, then English when indeterminate.
+- Technical identifiers, schema keys, command syntax and supplied data identifiers remain unchanged by translation.
+- Tests, fixtures, scenarios and retained evaluations live under tests/skills/<normalized_skill_name>/; root tests/integration/ is only for multiple named skills.
+- Installed skills use only their bundled resources and explicitly declared skill dependencies; repository tooling and catalog.json are development resources.
+- Implementation must be understandable from repository-local requirements and accessible official technical references, without private conversations, personal paths or unavailable files.
+- Catalog status stays planned until structural checks and actual behavioral evaluation justify available; record unexecuted cases as limitations.
+- No new coordinator, CCR/Jira integration, plugin manifest, installer, release automation or runtime orchestration engine is included.
+- Use Python 3.11+ and the existing PyYAML>=6.0,<7.0 development setup; add no dependencies or helpers without a demonstrated need.
+- Behavioral RED means an observed baseline violation without the candidate skill; a missing SKILL.md or planned catalog entry is not a failing behavior test.
 
-No network connection, unrelated source tree or tool absent from the environment is needed to understand the requirements. A limited scenario remains limited and must not become a blanket compatibility claim. Leave future coordinators planned.
+## Risks and review focus
+
+1. FMT-01: competing references and a later correction preserve the actual user decision.
+2. FMT-02: project-specific types, optional scope and requested bodies remain usable.
+3. FMT-03: breaking syntax is never inferred from a request alone.
+4. FMT-04: shell-looking message data is preserved without execution.
+5. FMT-05: no repository and language changes do not alter the requested formatting scope.
+
+The implementation plan maps every item above to a named case and a concrete task. Source/content checks do not replace observed behavior. Limited harness coverage remains explicitly limited.
 
 ## References
 
 - [Conventional Commits 1.0.0](https://www.conventionalcommits.org/en/v1.0.0/): message structure, optional scope/body/footers and breaking markers.
 
-The maintained implementation requirements are fully stated above. References explain standards or existing project contracts; they do not substitute for missing product decisions.
+Project requirements are stated in this document; links provide accessible standards or in-repository contracts. Review this spec before treating its companion plan as ready for execution.
