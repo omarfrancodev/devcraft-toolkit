@@ -1,7 +1,7 @@
 # Portable Progress Control Design
 
 Date: 2026-10-22
-Status: Draft for written-spec review.
+Status: Implementation in progress.
 Capability: todo-workflow-controller
 
 ## Goal
@@ -79,17 +79,17 @@ Use a fresh supported evaluation context when available; record whether executio
 
 ### PRG-01: required_gate_and_optional_skip
 
-- Request: Track inspect -> validate -> publish. Validation is required. An optional summary may be skipped.
+- Request: Track inspect -> validate -> publish before a tight deadline. Validation is required. An optional summary may be skipped.
 - Supplied evidence: Inspect completed; validation failed; summary is optional and omitted.
 - Assertions:
-  - Mark validation blocked with failed-check evidence and leave dependent publish pending.
+  - Keep validation uncompleted with the failed-check evidence; leave publish uncompleted (pending or blocked) while its required validation gate has failed.
   - The optional summary may be skipped with a reason.
   - Do not claim the workflow completed under deadline pressure.
 
 ### PRG-02: missing_or_failed_tool
 
 - Request: Continue tracking safely if the task tool is absent or stops working.
-- Supplied evidence: A material validation blocker already exists. The actual harness either exposes no tracker or reports a real tracker failure.
+- Supplied evidence: A material validation blocker already exists. An independent safe task is ready to proceed. The actual harness either exposes no tracker or reports a real tracker failure.
 - Assertions:
   - Retain the blocker with inline/in-memory tracking.
   - Do not stop independent safe work solely for the missing tracker.
@@ -106,28 +106,28 @@ Use a fresh supported evaluation context when available; record whether executio
 ### PRG-04: independent_and_parallel_branches
 
 - Request: Track independent tasks A and B; A is blocked. In the parallel variant both were explicitly started.
-- Supplied evidence: A needs a missing input. B has everything needed. Parallel execution is supplied as observed evidence, not requested by the tracker.
+- Supplied evidence: A is blocked by a missing input. B is authorized, independent and ready, but has not started. In a separate parallel variant, both tasks have started; A is now blocked on the missing input and B is in progress. Treat these as supplied observations, not actions requested from the tracker.
 - Assertions:
-  - B may proceed when authorized and independent.
-  - Represent both real parallel in-progress tasks; do not launch agents or force a false single-active-step claim.
+  - In the initial snapshot, keep B eligible but not in_progress until evidence says it started; A being blocked does not prevent B from starting.
+  - In the parallel variant, represent A as blocked and B as in_progress; do not launch agents or force a false single-active-step claim.
 
 ### PRG-05: handoff_and_language
 
-- Request: Resume from this evidence and report progress in Spanish.
-- Supplied evidence: One step completed, one required check not run, one user decision pending. Repeat with an English request.
+- Request: Resume from this evidence and report progress in Spanish; then provide the same status in English.
+- Supplied evidence: The tracker overall label is completed, but current step evidence is INSPECT=completed; VALIDATE=pending (required, not run); TARGET=decision_pending.
 - Assertions:
-  - Preserve the incomplete check and unanswered decision across the handoff.
-  - Translate natural-language status while preserving technical state values and identifiers.
-  - Do not infer completion from the tracking tool's label alone.
+  - Preserve INSPECT=completed, VALIDATE=pending and TARGET=decision_pending across the handoff.
+  - Use Spanish for the first response and English for the follow-up while preserving the exact identifiers and values INSPECT=completed, VALIDATE=pending and TARGET=decision_pending.
+  - Do not report the workflow as complete based only on the overall tracker label when required step evidence remains incomplete.
 
-Capture actual observations and assertion outcomes in tests/skills/todo_workflow_controller/evaluations/standalone.md. Where a required evaluation could not run, record the limitation and leave the availability decision open. No new script is required merely to turn prose into keyword tests.
+Capture actual observations and assertion outcomes in tests/skills/todo_workflow_controller/evaluations/2026-10-22-codex-desktop/standalone.md. Where a required evaluation could not run, record the limitation and leave the availability decision open. No new script is required merely to turn prose into keyword tests.
 
 ## File structure
 
 - skills/todo-workflow-controller/SKILL.md
 - skills/todo-workflow-controller/references/progress-states.md
 - tests/skills/todo_workflow_controller/scenarios/progress.md
-- tests/skills/todo_workflow_controller/evaluations/standalone.md
+- tests/skills/todo_workflow_controller/evaluations/2026-10-22-codex-desktop/standalone.md
 
 Create optional directories only when an actual file needs them. Python packages normalize hyphens to underscores, while scenario ownership retains the canonical skill name.
 
@@ -165,4 +165,4 @@ The implementation plan maps every item above to a named case and a concrete tas
 
 - [Skill composition](../../composition.md), [language behavior](../../language.md) and [scenario protocol](../../../tests/scenarios/README.md): existing project contracts.
 
-Project requirements are stated in this document; links provide accessible standards or in-repository contracts. Review this spec before treating its companion plan as ready for execution.
+Project requirements are stated in this document; links provide accessible standards or in-repository contracts. This spec is the behavioral contract for the companion implementation plan.

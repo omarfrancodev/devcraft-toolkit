@@ -1,11 +1,11 @@
 # Devcraft Toolkit
 
-A modular toolkit of composable skills for repository context, read-only Git preflight, and standalone Conventional Commit message drafting. Compatibility is recorded only for harnesses actually exercised.
+A modular toolkit of composable skills for repository context, read-only Git preflight, standalone Conventional Commit drafting, and portable progress tracking. Compatibility is recorded only for harnesses actually exercised.
 
-The distribution currently includes four available skills: `using-devcraft-toolkit`, `git-working-directory-policy`, `git-safety-check`, and `conventional-commits-style`. Commit coordination, publication coordination, and activity reporting are planned capabilities, not usable skills in this distribution. CCR integration is outside the current scope.
+The distribution currently includes five available skills: `using-devcraft-toolkit`, `git-working-directory-policy`, `git-safety-check`, `conventional-commits-style`, and `todo-workflow-controller`. Commit coordination, publication coordination, activity reporting, natural-language report writing, and validation discovery are planned capabilities, not usable skills in this distribution. CCR integration is outside the current scope.
 
 Skill definitions and default templates use English. User-facing content follows an explicit language preference or the language of the user's request, defaulting to English when neither can be determined. Tests are maintained outside individual skill directories, grouped by the owning skill and then by test scope; repository infrastructure and cross-skill coverage have separate shared groups.
 
-The [catalog](catalog.json) records all seventeen target capabilities and marks each as `available` or `planned`. See [installation](docs/installation.md), [architecture](docs/architecture.md), [language behavior](docs/language.md), and [compatibility evidence](docs/compatibility.md).
+The [catalog](catalog.json) records all seventeen target capabilities and marks each as `available` or `planned`. Five are available and twelve remain planned. See [installation](docs/installation.md), [architecture](docs/architecture.md), [language behavior](docs/language.md), and [compatibility evidence](docs/compatibility.md).
 
 The [capability roadmap](docs/roadmap.md) links the self-contained designs and plans for upcoming increments.

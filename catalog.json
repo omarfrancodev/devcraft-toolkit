@@ -18,6 +18,6 @@
     {"name": "conventional-commits-style", "role": "support", "status": "available", "path": "skills/conventional-commits-style", "requires": []},
     {"name": "validation-discovery", "role": "support", "status": "planned", "path": "skills/validation-discovery", "requires": []},
     {"name": "natural-language-report-writer", "role": "support", "status": "planned", "path": "skills/natural-language-report-writer", "requires": []},
-    {"name": "todo-workflow-controller", "role": "support", "status": "planned", "path": "skills/todo-workflow-controller", "requires": []}
+    {"name": "todo-workflow-controller", "role": "support", "status": "available", "path": "skills/todo-workflow-controller", "requires": []}
   ]
 }
