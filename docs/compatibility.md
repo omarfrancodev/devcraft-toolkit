@@ -6,13 +6,12 @@ The available skills use Markdown instructions, YAML frontmatter, relative resou
 
 ## Observed in this implementation task
 
-- Harness: Codex desktop task, 2026-10-17. The app did not expose a way to dynamically activate repository-local skills in this task, so the authored instructions were followed directly and recorded as self-evaluations.
+- Harness: Codex desktop, 2026-10-22. Fresh agent contexts evaluated behavior without the candidate skill, followed by fresh contexts manually following repository instructions for GREEN. A separate context assessed baseline results. This environment did not expose native activation of repository-local skills, so the results do not verify native skill discovery or loading.
+- Conventional Commit standalone behavior: eight named cases covered ambiguity and correction, project-specific type/scope/body, breaking markers, shell-looking text, language changes without a repository, missing intent, and ticket placement. All final GREEN assertions passed under manual following; no Git or ticket tools were used.
 - Python: 3.14.3; PyYAML: 6.0.3; Git for Windows: 2.45.0.windows.1.
-- The final suite ran from a worktree virtual environment with system site packages. PyYAML was available from the base Python; isolated package installation could not be confirmed because PyPI DNS/network access was unavailable.
-- Automated fixtures exercised normal, unborn, linked-worktree, detached, dirty, staged, conflicted, and missing-identity Git states.
+- The automated suite discovered 57 tests and passed with one environmental skip. The Windows symlink escape fixture was skipped because the OS denied the required symlink privilege. The validator includes containment checks, but that symlink case was not dynamically exercised here.
 - Read-only context/preflight queries preserved refs, HEAD, index bytes, Git metadata outside the object database, and working-file contents and modes in the fixture suites.
-- The Windows symlink escape fixture was skipped because the OS denied the required symlink privilege. The validator includes containment checks, but that symlink case was not dynamically exercised here.
 
 ## Limits
 
-The recorded skill evaluations are self-evaluations in the implementation task, not independent model-behavior evaluations. The submodule scenario, isolated missing-Git executable, external standalone installation, and unanswered-decision interaction were not dynamically exercised. No other harness or plugin installation has been validated. Structural tests prove repository checks and fixture state, not language quality or instruction following.
+The skill behavior evaluations are manual instruction-following assessments in fresh agent contexts, not native skill-loader tests. Isolated package installation could not be confirmed because PyPI DNS/network access was unavailable. The submodule scenario, isolated missing-Git executable, external standalone installation, and unanswered-decision interaction were not dynamically exercised. No other harness or plugin installation has been validated. Structural tests prove repository checks and fixture state, not language quality or instruction following.
