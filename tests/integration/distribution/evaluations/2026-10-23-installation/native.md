@@ -11,7 +11,7 @@ All sixteen primary cells were initially not_run, except the unsupported Kiro pr
 | Target | Delivery | Scope | Native state | Observed evidence and missing gates |
 | --- | --- | --- | --- | --- |
 | Codex CLI 0.162.0 | native suite | user | limited | Local marketplace add, plugin add/list/remove passed. No authenticated invocation/resource read or cross-project activation test. |
-| Codex CLI 0.162.0 | native suite | project | blocked | Trusted-project enablement/session unavailable in the isolated authenticated environment. User install is not a project-scope pass. |
+| Codex CLI 0.162.0 | native suite | project | limited | Registry regression verified user-disabled/project-enabled precedence and a disabled control project. Authenticated session activation, resources and lifecycle remain blocked. |
 | Codex CLI 0.162.0 | standalone | user | blocked | Folder/resource copying passed separately; authenticated direct invocation and scope visibility pending. |
 | Codex CLI 0.162.0 | standalone | project | blocked | Same missing native checks; no native-loader substitution from manual following. |
 | Copilot in VS Code | native suite | user | blocked | No isolated authenticated Copilot session; VS Code host inventory alone is insufficient. |
@@ -45,9 +45,17 @@ Claude auth status returned loggedIn=false/authMethod=none. No credentials were 
 ## Remaining execution
 
 - NATIVE-01/02: authenticated standalone and owned-entry invocation, actual discovered identifiers, one bundled reference/template read and English/Spanish output per applicable row.
-- NATIVE-03: actual selected/control sessions, trusted Codex project enablement, project-disabled global installation where supported, and standalone visibility.
+- NATIVE-03: actual selected/control sessions, Codex activation with the verified project enablement, project-disabled global installation where supported, and standalone visibility.
 - NATIVE-04: repeated native install, real updated source/version and resource verification, scoped removal with unrelated native plugins/settings and another scope present, plus required reload observations.
 - Copilot: record the actual extension/harness version in the isolated session and test the inventory interface used for installation.
 - Kiro: install/observe the IDE and test the user Power plus independent workspace skill-set fallback. CLI placement remains a different evidence level.
 
 Task 4's native execution step remains incomplete/blocked. The implementation and documentation can be reviewed with these limitations; no all-four-harness compatibility claim, release, tag or public listing follows from this evidence.
+
+## Codex project enablement regression
+
+The final branch reviewer found that installing at user scope and adding project enabled=true leaves inherited user enablement active elsewhere. A real Codex CLI 0.162.0 probe in another disposable container reproduced the defect before the guide fix: plugin list reported selected=true and control=true. With only this plugin disabled in user config and enabled in the selected trusted project's config, it reported selected=true and control=false. The control sentinel survived; both owned fixture projects were explicitly trusted through normal trust-level configuration, without disabling global trust/approval protections.
+
+[Raw RED-to-GREEN results](codex-project-scope-results.json) and [runner](codex-project-scope.mjs) retain settings and command outputs. Package files are the 72e190f snapshot, unchanged in 14bead6; the source field 14bead6 identifies the recipe revision being reproduced. The guide now separates global and project-only enablement and preserves unrelated preferences. An explicit enablement in another project remains that project's independent choice.
+
+This adds registry precedence evidence only. Actual authenticated selected/control sessions and skill resource reads are still incomplete; the project native row is limited, not passed. The full automated suite was rerun after the documentation correction.

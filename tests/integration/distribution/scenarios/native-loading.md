@@ -25,3 +25,7 @@ Use blocked for missing authentication, client or verified isolation; not_run fo
 ## Matrix
 
 Four targets × native suite/selected standalone × project/user = sixteen primary rows. Add a distinct Kiro project skill-set fallback row. Initialize not_run except the Kiro project Power exception. Track structural acceptance, filesystem evidence, native discovery/resource/routing, scope and lifecycle independently. A row is passed only when all applicable native assertions ran and passed.
+
+## REGISTRY-CODEX-01: project-only recipe regression
+
+In a disposable Codex user, register/install the local package, enable it in one owned trusted project and list it from that project plus a trusted control. The incomplete recipe's project-only expectation (control disabled) must first fail while user enablement is still true. Disable only this plugin in user config, preserve the selected project override, and repeat: selected enabled=true, control enabled=false, unrelated sentinel unchanged. Record the actual commands/configuration and separate this registry check from authenticated NATIVE-03 sessions.

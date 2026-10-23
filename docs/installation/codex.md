@@ -21,14 +21,36 @@ codex plugin list
 
 The supported plugin browser is an alternative. These operations change your user plugin configuration/cache and must run only when you choose that installation. A release-based marketplace registration can use a verified ref containing these manifests; the old source-only preview is not such a ref.
 
-For a trusted project, native plugin enablement can be configured in its `.codex/config.toml`:
+### User/global enablement
+
+The add command above enables the plugin at user scope. Inspect its configuration and `codex plugin list`; a user-enabled plugin can be inherited by every project. The user configuration is `~/.codex/config.toml` by default, or the config under the chosen CODEX_HOME. Preserve existing configuration and merge only the selected plugin's entry:
 
 ```toml
 [plugins."devcraft-toolkit@devcraft-toolkit"]
 enabled = true
 ```
 
-This is project activation, not a separate physical project cache. A globally enabled copy can remain visible elsewhere; inspect and test that independently in a control project. Disabling a plugin is distinct from removing it. Use the installed client's configuration/plugin UI for enablement and `codex plugin remove devcraft-toolkit@devcraft-toolkit` for native uninstall. `codex plugin marketplace upgrade devcraft-toolkit` applies to Git marketplaces; the observed local-directory registration rejects that command. For local development update the selected source checkout and restart/reload as directed by the client, then verify the active version and resources. A Git catalog refresh is not proof of an installed-plugin update. The guide does not claim native activation passed merely because metadata validates.
+### Project-only enablement
+
+Registration and shared installation are prerequisites, but the add command's user enablement must not remain active for a project-only setup. Before starting a session that uses the suite, merge the following value into that same **user** configuration, preserving all other preferences and plugin registrations:
+
+```toml
+[plugins."devcraft-toolkit@devcraft-toolkit"]
+enabled = false
+```
+
+Then enable the suite only in the selected trusted project's `.codex/config.toml`:
+
+```toml
+[plugins."devcraft-toolkit@devcraft-toolkit"]
+enabled = true
+```
+
+Use Codex's ordinary trust flow for the chosen project; do not disable trust protections. Check `codex plugin list --json` from both the selected project and an unrelated control project before invoking the suite: the selected installation should be enabled in the former and disabled in the latter. Other projects with their own explicit enablement remain independent choices; do not remove their settings to manufacture isolation. If the client cannot establish project-only activation, use the project seven-folder skill selection below rather than treating a globally enabled plugin as project-only.
+
+The [registry scope regression](../../tests/integration/distribution/evaluations/2026-10-23-installation/native.md#codex-project-enablement-regression) reproduced both-project enablement before the user-disable step and selected-only enablement afterward. This checks registry/configuration precedence, not skill activation in authenticated sessions.
+
+This is project activation, not a separate physical project cache. Leaving user enablement active would expose it to projects inheriting that setting; the project-only route above explicitly disables it first. Disabling a plugin is distinct from removing it. Use the installed client's configuration/plugin UI for enablement and `codex plugin remove devcraft-toolkit@devcraft-toolkit` for native uninstall. `codex plugin marketplace upgrade devcraft-toolkit` applies to Git marketplaces; the observed local-directory registration rejects that command. For local development update the selected source checkout and restart/reload as directed by the client, then verify the active version and resources. A Git catalog refresh is not proof of an installed-plugin update. The guide does not claim native activation passed merely because metadata validates.
 
 
 ## Selected skills: project and user scope
