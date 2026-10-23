@@ -9,3 +9,7 @@ Skill definitions and default templates use English. User-facing content follows
 The [catalog](catalog.json) records all seventeen target capabilities and marks each as `available` or `planned`. Seven are available and ten remain planned. See [installation](docs/installation.md), [architecture](docs/architecture.md), [language behavior](docs/language.md), and [compatibility evidence](docs/compatibility.md).
 
 The [capability roadmap](docs/roadmap.md) links the self-contained designs and plans for upcoming increments.
+
+## Preview release
+
+[v0.1.0-preview.1](https://github.com/omarfrancodev/devcraft-toolkit/releases/tag/v0.1.0-preview.1) is the first experimental distribution. See the [changelog](CHANGELOG.md) and [installation guide](docs/installation.md) for its scope and installation steps. Native skill loading and compatibility with other harnesses have not been verified.

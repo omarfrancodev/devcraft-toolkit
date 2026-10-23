@@ -46,3 +46,11 @@ Use the same finalized description whether submitting through a web interface, C
 Specifications and plans describe product behavior, contracts, decisions and acceptance criteria. They must stand on the maintained repository content and accessible official technical references. Include the necessary requirements directly instead of referring readers to a conversation, a personal file, an untracked artifact or an unavailable project.
 
 Use the [capability roadmap](docs/roadmap.md) to place an increment in the product scope. Record actual evidence and relevant limitations; distinguish development notes from user-facing behavior.
+
+## Changelog
+
+Organize [CHANGELOG.md](CHANGELOG.md) by release, category, then functional scope: H2 for the version, H3 for the category, H4 for the scope, followed by change bullets. Keep versions in descending order. Mark pending entries as `unreleased`; when publishing, record the verified GitHub publication date in `America/Mexico_City`. Do not infer publication dates from commits or invent historical releases.
+
+Use categories in this order, omitting empty ones: `Added`, `Changed`, `Fixed`, `Deprecated`, `Removed`, `Security`. Use stable functional scopes that describe the toolkit, rather than creating one scope per file or PR. Describe each outcome once, consolidate successive corrections, and preserve relevant compatibility limits. Use the same category and scope structure in release notes.
+
+Keep changelog prose in English. A pre-release label does not establish compatibility or authorize publication; verify the release commit, package contents, checks, and documented limitations before publishing.

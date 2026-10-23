@@ -1,5 +1,13 @@
 # Installation
 
+## Preview distribution
+
+Download `devcraft-toolkit-v0.1.0-preview.1.zip` and `SHA256SUMS.txt` from the [v0.1.0-preview.1 release](https://github.com/omarfrancodev/devcraft-toolkit/releases/tag/v0.1.0-preview.1). Verify the ZIP's SHA-256 against that file before extracting it.
+
+The ZIP contains the versioned source repository under `devcraft-toolkit-v0.1.0-preview.1/`. Install only the selected complete folders under `skills/`, including their `references/` and `assets/` directories when present, and include all required skill dependencies listed below. The repository's development scripts and tests do not need to be installed with a skill.
+
+This is an experimental pre-release. Package integrity and resource containment checks do not verify a harness's native skill discovery or loading. See [compatibility evidence and limits](compatibility.md).
+
 ## Available skills
 
 This distribution contains seven usable skills:
@@ -16,7 +24,7 @@ For the composed entry, install the full dependency group: `using-devcraft-toolk
 
 Select `validation-discovery` directly in the target harness to discover or run project checks, or install it alongside the entry to enable optional routing. Its `references/` folder is part of the standalone installation. It may be installed without the toolkit entry or any other skill; it is not a hard entry dependency.
 
-Copy the chosen complete skill folder, including its local `references/`, into the skill location supported by the target harness. Consult that harness's current documentation for its skill discovery location. The repository catalog does not install or resolve dependencies, and the entry skill does not require the repository root at runtime.
+Copy the chosen complete skill folder, including its local `references/` and `assets/` when present, into the skill location supported by the target harness. Consult that harness's current documentation for its skill discovery location. The repository catalog does not install or resolve dependencies, and the entry skill does not require the repository root at runtime.
 
 No automatic installer or native plugin manifest is included. Standalone installation must include the declared dependency closure. Compatibility with a harness is documented only when that harness and its version have actually been exercised; see [compatibility](compatibility.md).
 
