@@ -16,7 +16,7 @@ Install Devcraft Toolkit directly from GitHub through your client's native plugi
 
 Choose [Codex](docs/installation/codex.md), [Copilot in VS Code](docs/installation/copilot-vscode.md), [Claude Code](docs/installation/claude-code.md), or [Kiro IDE](docs/installation/kiro.md). The [installation overview](docs/installation.md) explains scope and the Kiro project fallback.
 
-Default-branch recipes apply after the package is integrated. Until then, the [pinned remote preview](docs/installation/preview.md) identifies an existing source containing the candidate. Native activation remains partially validated; no official catalog listing or new release is claimed.
+Default-branch recipes apply after the package is integrated. Until then, the [remote preview sources](docs/installation/preview.md) identifies an existing source containing the candidate. Native activation remains partially validated; no official catalog listing or new release is claimed.
 
 Need selected capabilities instead? Use [individual skill installation](docs/installation/individual-skills.md). Package contributors and manual-copy users can use [local development/reference](docs/installation/development.md).
 

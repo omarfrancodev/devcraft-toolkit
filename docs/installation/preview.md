@@ -1,6 +1,6 @@
-# Pinned remote preview
+# Remote preview sources
 
-Before package metadata is integrated into the default branch, normal repository-source recipes cannot install it from that branch. Use the existing public source revision `b05a8c4367dc02e33ac9d19a8eb98e0bdb31c04e` where the client supports refs. It contains both marketplaces and the seven-skill candidate; it is not a release tag or the source-only published preview.1.
+Before package metadata is integrated into the default branch, normal repository-source recipes cannot install it from that branch. Codex and applicable filesystem recipes use the existing public source revision `b05a8c4367dc02e33ac9d19a8eb98e0bdb31c04e` where the client supports refs. It contains both marketplaces and the seven-skill candidate; it is not a release tag or the source-only published preview.1.
 
 ## Codex
 
@@ -14,11 +14,11 @@ Then follow the [Codex scope guide](codex.md). This registration remains pinned 
 ## Claude Code
 
 ```sh
-claude plugin marketplace add https://github.com/omarfrancodev/devcraft-toolkit.git#b05a8c4367dc02e33ac9d19a8eb98e0bdb31c04e
+claude plugin marketplace add https://github.com/omarfrancodev/devcraft-toolkit.git#docs/distribution-installation
 claude plugin install devcraft-toolkit@devcraft-toolkit --scope user
 ```
 
-Use `--scope project` for the selected project instead. See [Claude scope and lifecycle](claude-code.md).
+Claude Code 2.1.300 clones a branch/tag here; passing a commit SHA failed. This preview branch is mutable, not an immutable pin. Its resolved revision is recorded in the remote evaluation. After integration use the normal repository source. Use `--scope project` for the selected project instead. See [Claude scope and lifecycle](claude-code.md).
 
 ## Copilot in VS Code
 

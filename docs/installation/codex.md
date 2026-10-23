@@ -2,7 +2,7 @@
 
 ## Install the complete remote suite
 
-The default-source recipe applies [after integration](../installation.md); use the [pinned preview](preview.md#codex) before then. Run in the installed Codex CLI:
+The default-source recipe applies [after integration](../installation.md); use the [remote preview](preview.md#codex) before then. Run in the installed Codex CLI:
 
 ```sh
 codex plugin marketplace add omarfrancodev/devcraft-toolkit

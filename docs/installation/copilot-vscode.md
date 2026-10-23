@@ -2,7 +2,7 @@
 
 ## Install the complete remote suite
 
-Use a **Copilot** harness session in VS Code. The default-source recipe applies [after integration](../installation.md); the [pinned preview](preview.md#copilot-in-vs-code) identifies a source already containing the package.
+Use a **Copilot** harness session in VS Code. The default-source recipe applies [after integration](../installation.md); the [remote preview](preview.md#copilot-in-vs-code) identifies a source already containing the package.
 
 1. In VS Code Settings, add `omarfrancodev/devcraft-toolkit` to `chat.plugins.marketplaces`. Preserve existing entries; this setting is currently experimental.
 2. Open Agent Customizations > Plugins, or the Agent Plugins view.

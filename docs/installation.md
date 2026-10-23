@@ -2,7 +2,7 @@
 
 Install **Devcraft Toolkit as a complete native suite**. It contains all seven available skills and their required resources; you do not select individual folders or manage a local clone.
 
-The remote default-branch recipes below apply once the package metadata is integrated into that branch. While this change is under review, use the [pinned remote preview](installation/preview.md) where supported. The published `v0.1.0-preview.1` is source-only and cannot serve as a native plugin source. Candidate metadata `0.1.0-preview.2` does not mean a release has been published.
+The remote default-branch recipes below apply once the package metadata is integrated into that branch. While this change is under review, use the [remote preview sources](installation/preview.md) where supported. The published `v0.1.0-preview.1` is source-only and cannot serve as a native plugin source. Candidate metadata `0.1.0-preview.2` does not mean a release has been published.
 
 ## Install the complete suite
 
