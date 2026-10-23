@@ -10,7 +10,7 @@ The shared-capability sequence delivered progress control, evidence-based natura
 
 ## Git coordinators
 
-Commit construction, activity reporting, and publication are separate increments. Their designs must define inputs, evidence, state changes, authorization boundaries, and acceptance criteria before implementation. Planned capabilities have no discoverable skill placeholders and are not emulated by the entry.
+Git commit construction, Git-history activity reporting, and publication are separate increments. Their designs must define inputs, evidence, state changes, authorization boundaries, and acceptance criteria before implementation. Planned capabilities have no discoverable skill placeholders and are not emulated by the entry.
 
 ## Deferred capabilities
 

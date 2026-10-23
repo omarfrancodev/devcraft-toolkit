@@ -19,7 +19,7 @@ Expected evidence: the same scope decision is applied regardless of language; on
 
 - A repository-context request can use `git-working-directory-policy` when that skill is installed.
 - A Git preflight request can use `git-safety-check` and its declared `git-working-directory-policy` dependency.
-- Commit, publish, and activity-report requests must clearly state that the target capability is planned or not installed in this distribution. Do not emulate a missing coordinator or claim completion.
+- Git commit-creation, publication, and Git-history activity-report coordinator requests must clearly state that the target capability is planned or not installed in this distribution. Do not emulate a missing coordinator or claim completion.
 - An unrelated request, such as explaining a Python expression, must not auto-load the toolkit entry.
 - When an individual skill is installed without the repository checkout, it must not try to open the development-only `catalog.json` or root documentation.
 
@@ -124,15 +124,15 @@ cases:
       - "The owned behavior is preserved; no development catalog or root docs are required at runtime."
   - id: REPORTING-ENTRY-02
     name: optional_entry_route
-    request: "Use Devcraft Toolkit for the natural-language reporting request in the first owned scenario."
-    facts: "The entry, its foundation dependencies and natural-language-report-writer are actually installed."
+    request: "Use Devcraft Toolkit to write an activity report from these supplied facts. Return it here in Spanish."
+    facts: "Date: 2026-10-20. Empty-name validation was added. A clear error for missing names was added. Search rendering is pending. Twelve fixture cases passed. The entry, its foundation dependencies and natural-language-report-writer are actually installed."
     assertions:
-      - "Route the requested operation to natural-language-report-writer without running an unrelated Git preflight or another coordinator."
-      - "Language and permission boundaries remain those of the owned scenario."
+      - "Route the supplied-facts report request to natural-language-report-writer without running an unrelated Git preflight or another coordinator."
+      - "Do not describe supplied-facts reporting as unavailable when natural-language-report-writer is installed; return a Spanish report from only the supplied facts, preserving the date, count, and pending status, with no Git inspection or file write."
   - id: REPORTING-ENTRY-03
     name: optional_skill_absent
-    request: "Use Devcraft Toolkit for the same natural-language reporting request."
-    facts: "The entry and foundation group are installed, but natural-language-report-writer is not."
+    request: "Use Devcraft Toolkit to write an activity report from these supplied facts. Return it here in Spanish."
+    facts: "Date: 2026-10-20. Empty-name validation was added. A clear error for missing names was added. Search rendering is pending. Twelve fixture cases passed. The entry and foundation group are installed, but natural-language-report-writer is not."
     assertions:
-      - "Report the missing capability honestly without emulation, automatic installation or an invented completed result."
+      - "Report natural-language-report-writer as unavailable without drafting the report, imitating it, or installing it automatically."
 ```

@@ -20,6 +20,8 @@ The entry depends on both supporting skills. `git-safety-check` depends on `git-
 
 Progress tracking preserves workflow state; it does not execute tracked steps, create files or schedules as a fallback, or grant permission for side effects. A step named `publish` does not by itself request Git publication or a Git preflight.
 
+`natural-language-report-writer` has no required skill dependencies. Install it alone for evidence-based activity reports, progress updates, or summaries from supplied facts, or alongside the entry for optional routing. The entry does not require it. When installed, route supplied-facts report requests to it; when absent, report the missing capability without drafting the report, imitating the skill, or installing it automatically. It returns content in the conversation by default; writing a local report requires an explicitly selected destination.
+
 `validation-discovery` has no required skill dependencies. Install it alone for project-check discovery and explicitly requested local validation, or alongside the entry for optional routing. The entry does not require it. When installed, route matching requests to it and let its evidence-based rules select applicable commands; do not impose a fixed command-name allowlist or run an unrelated Git preflight. Its default discovery mode does not execute commands. When absent, report the capability as unavailable without imitation or automatic installation.
 
 ## Result boundaries
@@ -30,4 +32,4 @@ The preflight outcomes `ready`, `no_op`, `blocked`, `needs_decision`, and `limit
 
 `conventional-commits-style` uses supplied facts and conventions to return a message proposal. It needs no repository or Git preflight and performs no Git operation. Preserve its resolved language and its clarification decisions when composing the response.
 
-Commit creation and coordination, publication coordination, and activity reporting are planned in this distribution. Do not replace those missing workflows with manual imitation or a similarly named capability from another project.
+Commit creation and coordination, publication coordination, and the `git-activity-report` coordinator for reports derived from commit history are planned in this distribution. Do not replace those missing workflows with manual imitation or another capability. The installed `natural-language-report-writer` handles supplied-facts reports and does not inspect Git history.
