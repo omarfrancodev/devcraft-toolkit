@@ -22,14 +22,14 @@ Claude Code 2.1.300 clones a branch/tag here; passing a commit SHA failed. This 
 
 ## Copilot CLI
 
-Register the existing immutable package payload:
+Register the existing published preview branch:
 
 ```sh
-copilot plugin marketplace add omarfrancodev/devcraft-toolkit#b05a8c4367dc02e33ac9d19a8eb98e0bdb31c04e
+copilot plugin marketplace add omarfrancodev/devcraft-toolkit#docs/distribution-installation
 copilot plugin install devcraft-toolkit@devcraft-toolkit
 ```
 
-For repository-declared installation, the GitHub source object in [the CLI guide](copilot-cli.md#user-and-repository-scope) also needs `"ref": "b05a8c4367dc02e33ac9d19a8eb98e0bdb31c04e"` before integration. Ref syntax and actual acceptance are client/version-specific; see [expanded evidence](../../tests/integration/distribution/evaluations/2026-10-23-client-expansion/clients.md).
+For repository-declared installation, the GitHub source object in [the CLI guide](copilot-cli.md#user-and-repository-scope) also needs `"ref": "docs/distribution-installation"` before integration. Copilot CLI 1.0.91 rejected a commit SHA because it clones a branch/tag. This source is mutable; verify the resolved revision on each run. Ref syntax and actual acceptance are client/version-specific; see [expanded evidence](../../tests/integration/distribution/evaluations/2026-10-23-client-expansion/clients.md).
 
 ## Copilot in VS Code
 

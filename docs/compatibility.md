@@ -39,6 +39,34 @@ Claude 2.1.300 rejected a commit SHA in the marketplace clone URL. The working p
 
 No authenticated native invocation, model-driven resource read, full version-changing lifecycle, Copilot session or Kiro IDE session passed. Existing native gates remain open; remote acquisition/resource hashes do not close them.
 
+## Seven local clients
+
+The approved extension documents Codex, Copilot CLI, Copilot in VS Code,
+Claude Code, Kiro CLI V3, Kiro IDE and Kiro Crew independently. The same seven
+canonical skills and existing manifests are reused; there is no new Crew
+template, App, crewmate or runtime installer.
+
+[Expanded client evidence](../tests/integration/distribution/evaluations/2026-10-23-client-expansion/clients.md)
+records the Copilot CLI 1.0.91 remote probe: 20 successful corrected commands,
+all seven installed resource sets matching the immutable payload, repeated
+install, user enable/disable, same-ref refresh/update and selected removal with
+sentinels preserved. The original rejected SHA is retained; the working preview
+uses a verified mutable branch. This is limited registration/filesystem evidence,
+not authenticated invocation or repository auto-install/active-session scope.
+
+Kiro CLI 2.28.0 version/help was inspected without installing into its real user.
+The V3 shared IDE-Power route and catalog/local management are documented; the
+CLI-only full remote set is a separate delivery. Crew uses its own native GitHub
+skill snapshot importer and trusted-project route; it does not inherit a proven
+Power installation. The existing default agent needs no toolkit template, while
+restricted agent mappings remain user-controlled.
+
+The [expanded matrix](../tests/integration/distribution/evaluations/2026-10-23-client-expansion/matrix.md)
+keeps 28 native client/delivery/scope rows and three distinct Kiro full-set
+fallback rows. Copilot VS Code crossover, Kiro CLI/IDE activation, Crew imports,
+resource reads, trust, scope and lifecycle remain blocked/unrun. Historical
+four-client observations are retained; Task 4 Step 3 remains open.
+
 ## Limits
 
 The skill behavior evaluations are manual instruction-following assessments in fresh agent contexts, not native skill-loader tests. The earlier Python dependency-installation attempt was blocked by PyPI DNS/network access; the later isolated Skills CLI filesystem evaluation above is a separate, observed operation. The submodule scenario, isolated missing-Git executable, authenticated native skill loading, other harness sessions, and mid-run progress-tracker failure were not dynamically exercised. Native registration observations above do not establish full compatibility with any target harness; blocked activation rows remain open. Structural tests prove repository checks and fixture state, not language quality or instruction following.

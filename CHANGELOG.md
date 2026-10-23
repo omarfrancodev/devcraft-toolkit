@@ -10,7 +10,9 @@ Release dates use the GitHub publication date in America/Mexico_City. Pre-releas
 
 - Add portable and compatibility plugin manifests and two root-relative marketplace adapters for the seven available skills.
 - Add offline distribution validation and regression tests for metadata, versions, source containment and inventory.
-- Document complete remote native suite installation as the primary route and selective skills as an alternative for Codex, Copilot in VS Code, Claude Code, and Kiro IDE, with explicit dependency closures, user/project scope, complete-folder copying, collisions and lifecycle procedures.
+- Document complete remote suite adoption as the primary route and selective skills as an alternative for Codex, Copilot CLI, Copilot in VS Code, Claude Code, Kiro CLI V3, Kiro IDE, and Kiro Crew, with explicit dependency closures, user/project scope, complete-folder copying, collisions and lifecycle procedures.
+- Document Crew's complete native snapshot import without a new template or App; distinguish it from shared Kiro IDE/CLI Powers and CLI-only full skill-set fallback.
+- Verify Copilot CLI remote registration/resources and same-ref lifecycle with 20 corrected commands; retain the rejected SHA attempt and explicit mutable branch recipe. Authenticated invocation, repository auto-install and VS Code crossover remain unverified.
 - Verify remote Git acquisition and native managed package resources for Codex/Claude, plus selected remote folder copies; retain the version-specific Claude ref failure and corrected branch recipe.
 - Retain 128 filesystem installation cases, eight CLI lifecycle cases and separate limited native registration evidence. Authenticated activation and IDE compatibility remain unverified.
 
