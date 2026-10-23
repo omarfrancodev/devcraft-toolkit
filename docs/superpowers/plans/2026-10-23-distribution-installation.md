@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Package the seven available skills as one native suite and provide verified selective installation instructions for user and project scope across four initial harnesses.
+**Goal:** Make the complete remote native suite the main installation path; retain individual skills as an alternative and local installation as development/reference documentation across four initial harnesses.
 
 **Architecture:** Keep the existing skill tree canonical. Add portable and Claude metadata plus two marketplace adapters; validate the adapters offline and test real installations separately. Use established native clients and the optional pinned Skills CLI rather than building an installer.
 
@@ -21,6 +21,8 @@
 - No custom runtime installer, automatic dependency resolution, MCP server, hooks, new skills, CCR integration, license, release automation, or publication.
 - Kiro means IDE; CLI V3 results are optional separate evidence. A project-only Power install is `not_supported` unless a documented, reviewed interface establishes it; the project skill-set fallback is a separate delivery mode.
 - Real user/global installations require a safely isolated client environment. Mock loaders, metadata checks, folder copies, or manual instruction following do not establish native compatibility.
+- Remote checks use existing public revision b05a8c4367dc02e33ac9d19a8eb98e0bdb31c04e; default-source recipes apply after integration. No fabricated release ref or official listing.
+- README/target quickstarts require no user-managed clone or Skills CLI; separate optional skills and developer routes.
 - Before Git writes inspect repository-local identity. Stage only the current task's explicit files.
 
 ## Review Focus
@@ -223,6 +225,37 @@ Run `python -B -m unittest discover -s tests -p "test_*.py" -v`, `python -B scri
 
 Inspect the staged paths and commit only Task 4's scenarios, records and updated docs. Suggested message: `test: registrar instalación y límites de compatibilidad del toolkit`.
 
+### Task 5: Remote-first documentation
+
+**Files:** Modify README.md, docs/installation.md, docs/installation/{codex,copilot-vscode,claude-code,kiro}.md. Create docs/installation/{individual-skills,development,preview}.md.
+
+**Interfaces:** Consume the unchanged seven-skill package and remote source policy in the revised spec. Produce native remote quickstarts, one optional individual/dependency guide and a separate local/developer guide. No runtime API changes.
+
+- [ ] **Step 1: Record the current onboarding gap.** Inspect the current README/overview: their first examples require a local checkout and source-path variable. Record this prose baseline without a synthetic text-presence test.
+- [ ] **Step 2: Rewrite the consumer entry points.** Lead with the complete remote suite, four native target routes, a short default-branch availability note and a link to the pinned preview route. Put all Node/Skills CLI, explicit selections and manual/local procedures in their owning guides. Preserve scope/lifecycle/collision rules and resource completeness.
+- [ ] **Step 3: Check and commit.** Run both validators, check all local Markdown links and git diff --check. Expected: exit 0; the selection table remains complete and all seven names remain unchanged. Commit only this documentation task.
+
+### Task 6: Real remote installation evidence
+
+**Files:** Create tests/integration/distribution/scenarios/remote-installation.md and tests/integration/distribution/evaluations/2026-10-23-remote-suite/{remote.md,results.json,runner.mjs,toolchain-lock.json}.
+
+**Interfaces:** Consume Task 5's exact pinned source and native CLI procedures. Produce separate remote registration/filesystem observations; do not replace the existing local matrix or claim authenticated activation.
+
+- [ ] **Step 1: Define packets before execution.** REMOTE-FS-01: Git fetch pinned source in an owned container and verify manifests/seven canonical folders. REMOTE-NATIVE-01/02: Codex/Claude remote marketplace registration and complete suite installation, list/inventory and resource-byte checks. REMOTE-ALT-01: remote independent skill and complete-seven fallback via Skills CLI 1.7.4 with explicit target/scope. REMOTE-LIMIT-01: record pre-integration default branch, missing IDE/auth and unsupported Kiro ref interface honestly.
+- [ ] **Step 2: Obtain isolated tools.** Use an actual disposable Linux user/container, public Git without credentials, Codex 0.162.0, Claude 2.1.300 and Skills CLI 1.7.4. Record versions/locks. Do not mount personal homes or authentication, loosen trust/approval protections, or run a remote model.
+- [ ] **Step 3: Execute the exact remote commands.** Verify requested ref, installed metadata, seven available names and complete resources against that remote source. Optional copies use explicit dependencies. Preserve failures/blocks and observed inventories; remote registration is only limited native evidence.
+- [ ] **Step 4: Retain and commit sanitized evidence.** Read every result, retain source/commands/exit codes/hashes and summarize limitations. Expected: remote supported operations pass or have an exact recorded blocker; no result claims full native activation.
+
+### Task 7: Reconcile, verify and update the existing PR
+
+**Files:** Modify docs/compatibility.md, docs/architecture.md, docs/roadmap.md, CHANGELOG.md and this plan's execution status. Update PR #4's description with the repository template.
+
+**Interfaces:** Consume Task 5 procedures and Task 6 observations. Produce consistent consumer/maintainer documentation and truthful remote evidence on the existing branch.
+
+- [ ] **Step 1: Reconcile claims.** Link the remote evaluation; retain local evidence and Task 4 Step 3 as incomplete. Distinguish post-integration default source, pinned preview and unpublished candidate metadata.
+- [ ] **Step 2: Run final checks.** Run python -B -m unittest discover -s tests -p "test_*.py" -v; both validators; local link checks; git diff --check. Expected: all applicable tests pass with environmental skips explicit.
+- [ ] **Step 3: Review and update.** Perform the required one fresh-context branch review, address material findings with relevant verification, commit explicit files, push the existing branch and update PR #4. Preserve the worktree and publish no release or merge.
+
 ## Acceptance traceability and self-review
 
 | Spec criterion | Owning task |
@@ -238,9 +271,11 @@ Inspect the staged paths and commit only Task 4's scenarios, records and updated
 
 Self-review: all declared production signatures have an owning task; later tasks consume those interfaces without renaming them. Each Review Focus item has explicit assertions in its owning task. Real installation and native activation remain separate from unit tests; missing environments cannot manufacture compatibility. The plan contains no duplicated skill implementation or custom installer body.
 
+Remote-first coverage: REMOTE-01/02/05 belong to Task 5; REMOTE-03/04 belong to Tasks 6-7. Existing Tasks 1-4 remain historical implementation/evidence and must not be re-executed merely because onboarding changes.
+
 ## Execution status
 
-Tasks 1-3 are implemented and verified. Task 4 delivers scenarios, limited native observations and compatibility documentation. Its Step 3 remains incomplete/blocked for authenticated invocation, full scope/lifecycle checks and IDE sessions; see the [native matrix](../../../tests/integration/distribution/evaluations/2026-10-23-installation/native.md). This is partial validation, not a successful four-client compatibility claim.
+Tasks 1-3 are implemented and verified. Tasks 5-7 implement the approved remote-first revision. Task 4 delivers scenarios, limited native observations and compatibility documentation. Its Step 3 remains incomplete/blocked for authenticated invocation, full scope/lifecycle checks and IDE sessions; see the [native matrix](../../../tests/integration/distribution/evaluations/2026-10-23-installation/native.md). This is partial validation, not a successful four-client compatibility claim.
 
 ## Handoff
 

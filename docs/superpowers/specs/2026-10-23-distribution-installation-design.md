@@ -1,20 +1,22 @@
 # Suite and Selective Skill Installation Design
 
 **Date:** 2026-10-23
-**Status:** Proposed design; installation implementation and compatibility validation are not executed.
+**Status:** Approved remote-first revision; metadata and local evidence implemented, native activation remains partially validated.
 **Scope:** Codex local clients, GitHub Copilot in VS Code, Claude Code local clients, and Kiro IDE.
 **Related implementation plan:** [Installation plan](../plans/2026-10-23-distribution-installation.md).
 
 ## Intent and current state
 
-Provide one maintained suite that users can adopt as a native plugin or as individually selected skills. Selection, harness, and scope are independent choices. A user must be able to install a usable set for one project or for their user account without installing planned capabilities.
+Make remote installation of the complete native suite the primary adoption path. Installing individual skills is an alternative; local checkout installation is a development/reference path. Harness and scope remain explicit choices. A user must be able to install a usable set for one project or for their user account without installing planned capabilities.
 
-The repository currently distributes seven available skills as complete folders and records ten planned capabilities. The first preview provides a source ZIP and manual copying guidance. It has no native plugin metadata or verified native installation matrix. This design does not describe those missing pieces as already shipped.
+The candidate contains seven available skills, native metadata, four guides and retained local installation evidence; ten capabilities remain planned. The published first preview is source-only. Native authenticated invocation and IDE sessions are not fully verified. The revision replaces checkout-first onboarding without changing skill behavior or declaring a new release.
 
 ## Goals and non-goals
 
 - Keep one canonical copy of each skill under `skills/<canonical-name>/`.
-- Offer one native suite, `devcraft-toolkit`, plus selective installation with explicit dependency closures.
+- Lead with remote installation of one complete native suite, `devcraft-toolkit`; offer selective installation with explicit dependency closures separately.
+- Require no user-managed clone, source-path variable, Node.js or Skills CLI for the normal native suite route. Client-managed Git/cache storage is expected.
+- Keep first-use instructions short; place scope detail, local development, manual copies and developer validation behind named links.
 - Document user/global and project/workspace scope for every target, distinguishing installation storage from enablement.
 - Verify resource integrity, discovery, routing, scope boundaries, and lifecycle operations without changing existing personal installations.
 - Keep instructions, examples, templates, and documentation in English; invoked skills retain the user's resolved language.
@@ -24,10 +26,10 @@ New Git coordinators, CCR integration, external business integrations, release a
 ## Approaches and selected direction
 
 1. Manual copying and selective CLI installation only: smallest change, but leaves the suite without native plugin discovery.
-2. One shared skill tree with portable metadata, a Claude compatibility manifest, and small marketplace adapters: supports the requested adoption paths without duplicating instructions. This is the selected direction.
+2. Remote-first native suite over one shared skill tree, portable metadata, a Claude compatibility manifest and small marketplace adapters: short consumer onboarding with selective and local routes kept separately. This is the selected direction.
 3. Independent packages or repositories per harness: creates synchronization and maintenance costs without changing the skill contracts.
 
-The suite/individual direction was selected before this design. Metadata names, candidate version, file layout, and the fallback for unsupported native project scope are design proposals, not claims of prior implementation.
+The selected direction preserves both suite and individual adoption. It adds no custom installer, separate marketplace repository, official-directory listing requirement, lifecycle hook or automatic bootstrap. The same repository serves source and marketplace metadata.
 
 ## Fixed package identity and file map
 
@@ -48,7 +50,10 @@ Planned files and responsibilities:
 | `scripts/validate_distribution.py` | Offline development validation of this distribution contract |
 | `tests/repository/test_distribution_validation.py` | Metadata/inventory regression tests |
 | `tests/integration/distribution/` | Installation scenarios and retained cross-skill evidence |
-| `docs/installation.md` | Scope/selection overview, dependency table, manual fallback |
+| `docs/installation.md` | Consumer overview: complete remote suite first, alternative skill installation second |
+| `docs/installation/individual-skills.md` | Optional remote selective recipes, dependency table, destinations and collisions |
+| `docs/installation/development.md` | Local checkout recipes, manual copying, source-only ZIPs and developer checks |
+| `docs/installation/preview.md` | Concrete pinned remote source for pre-integration validation |
 | `docs/installation/{codex,copilot-vscode,claude-code,kiro}.md` | Target-specific native and standalone procedures |
 
 Do not create `.codex-plugin/`, `POWER.md`, copied skill trees, or a second package unless a separately reviewed compatibility finding requires one. The consulted interfaces support a root portable manifest for Codex, Copilot, and Kiro; Claude has an explicit compatibility manifest.
@@ -64,6 +69,18 @@ The Codex marketplace contains `name`, `interface.displayName` (`Devcraft Toolki
 The Claude/Copilot marketplace contains `name`, `owner: {"name":"omarfrancodev"}`, and one `plugins` entry with `name: devcraft-toolkit`, `source: ./`, and the package description. Do not redeclare components or duplicate the package version there.
 
 Both adapters target this same repository root. Adapter equality is semantic, not byte equality. No marketplace entry installs a planned capability or fetches custom catalog dependencies.
+
+## Remote source and documentation contract
+
+Use the public Git repository https://github.com/omarfrancodev/devcraft-toolkit.git. Normal post-integration recipes use its default branch through the native client; no official catalog listing is claimed. This revision does not merge the branch, create a release/tag or publish a separate marketplace.
+
+Until the metadata is integrated into the default branch, label default-source recipes as post-integration. Use existing immutable revision b05a8c4367dc02e33ac9d19a8eb98e0bdb31c04e for actual remote pre-integration checks: it is already published, contains both marketplaces and the seven-skill package, and is not a release tag. Do not silently test a local copy and call the remote route passed.
+
+Codex supports remote marketplace registration with an explicit --ref. Claude accepts a Git URL suffixed with #ref. Copilot's marketplace configuration accepts owner/repo#ref; use its marketplace UI for enablement rather than mixing inventories or imposing direct-install scope promises. Kiro documents repository URL import but the reviewed interface does not establish a pinned-ref import; keep that row unverified until IDE evidence exists. Do not invent ref flags for Kiro. Its documented default-source Power recipe applies after integration.
+
+README and the overview lead with the complete suite and link four concise target guides. Each target guide starts with native remote install, then essential scope/lifecycle information and links the alternative individual guide. The individual guide owns Node/npm prerequisites, explicit dependency sets, complete-set fallback and destination differences. Development owns user-managed clones, local source variables, manual folder copying and validation commands.
+
+No quickstart promises immediate authenticated activation, identical scopes across clients, or installation from the source-only preview. Retain evidence references without requiring users to execute the test matrix to install.
 
 ## Selection and dependency contract
 
@@ -98,7 +115,7 @@ The Kiro selector is the third-party installer's identifier; it is not evidence 
 
 The optional Vercel Skills CLI route requires Node.js/npm. At implementation time inspect and record an exact CLI version, then pin commands as `npx skills@<tested-version> add <source> --skill <explicit-selection> --agent <selector> --copy`. Add `--global` for user scope and run project-scoped commands from the selected project. Replace all tokens in published examples with tested values; never publish an unresolved token as an executable recipe.
 
-Use a verified release Git ref for released instructions. Local implementation checks use a local package source; do not claim that adding metadata changes the existing preview. Avoid `--all` because it can select every detected harness. Prefer copies initially to avoid requiring symlink privileges on Windows. Document source refs, copy update behavior, removal, and the external CLI's lock files after observing them.
+Use a verified release Git ref for released instructions and the existing immutable source revision above for pre-integration checks. Local implementation checks remain separate from remote tests; do not claim that adding metadata changes the existing preview. Avoid `--all` because it can select every detected harness. Prefer copies initially to avoid requiring symlink privileges on Windows. Document source refs, copy update behavior, removal, and the external CLI's lock files after observing them.
 
 Manual complete-folder copying is a first-class fallback with the same destinations and dependency sets. No Node dependency is imposed on manual installation or installed skill execution.
 
@@ -145,11 +162,19 @@ For each available mode/scope/target cell, record client and installer versions,
 - `DIST-03`: Direct skill use and entry routing work with discovered package-qualified identifiers; missing capabilities and ambiguous duplicate ownership preserve the existing boundaries.
 - `DIST-04`: Native user/project scope is verified against a second project wherever documented; the Kiro project Power exception is explicit and its skill-set fallback is verified independently.
 - `DIST-05`: Native and standalone update/removal preserve unrelated files and registrations; repeated installation is observed rather than assumed idempotent; copies and symlinks are not conflated.
-- `DIST-06`: Each target has concrete installation, discovery, invocation, update, removal, collision, dependency, and scope instructions. Unsupported cells and unrun checks are visible.
+- `DIST-06`: README and each target lead with complete remote native installation; optional skills and local/developer procedures have separate linked guides. Each target retains concrete discovery, invocation, update, removal, collision, dependency, and scope instructions. Unsupported cells and unrun checks are visible.
 - `DIST-07`: The existing skills, catalog schema, and available/planned statuses remain unchanged except for the entry's package-identifier routing clarification, if implemented as specified.
 - `DIST-08`: No compatibility claim or new release is made merely because metadata tests pass. Publication and public marketplace submission are separate actions.
 
 The implementation can deliver metadata and documentation with native cells still blocked, but it must remain explicitly partially validated. No all-four-harness compatibility claim is acceptable until the relevant native rows pass.
+
+## Remote-first acceptance
+
+- REMOTE-01: A consumer can identify the complete native suite route without first selecting skill names, providing a checkout path or installing the external Skills CLI.
+- REMOTE-02: All four target guides separate normal remote installation, user/project semantics and the explicit alternative skill route. Kiro's project Power exception remains visible.
+- REMOTE-03: Actual remote Codex and Claude registration/install operations use the published immutable revision, retain exact command/results and verify all seven available names/resources. Optional Skills CLI checks use a remote source and explicit selections.
+- REMOTE-04: Default-branch availability, pinned test source and published releases are distinct. Pre-integration caveats and blocked IDE/authenticated checks are visible.
+- REMOTE-05: No skill/catalog/runtime change, extra repository, custom installer or automatic hook is introduced merely to simplify onboarding.
 
 ## Development interfaces and checks
 
