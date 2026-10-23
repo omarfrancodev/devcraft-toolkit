@@ -13,6 +13,14 @@ Resolve the response language once per execution: use an explicit user preferenc
 
 Determine the requested scope and the capabilities actually installed in the current harness. Use its skill discovery mechanism when available. `catalog.json` is a development inventory, not an installed runtime dependency. Do not try to open it or root documentation when only an individual skill is installed.
 
+## Resolve the selected installation
+
+A canonical skill name identifies a capability, not its owning installation or invocation identifier. Resolve it against the active harness's discovery metadata and the installation selected for this request. Use the discovered identifier exactly, including any namespace, only when ownership identifies that installation or the user explicitly selected that standalone copy.
+
+For a plugin entry, use capabilities owned by that entry's package installation. An explicitly selected standalone set can supply its available capabilities. A foreign plugin with the same canonical name is not an available capability of the selected installation. Do not infer ownership by stripping a namespace or matching a suffix, silently substitute another installation, or modify either copy.
+
+When duplicate copies have materially unresolved ownership or selection, ask one focused installation-choice question before the dependent invocation. Preserve both copies and continue only independent work. A capability missing from the selected installation follows the unavailable-capability rules below even if another installation exposes it.
+
 ## Route available requests
 
 - Conventional Commit message drafting or review: use `conventional-commits-style` when installed. It returns a proposal from supplied facts and conventions; it does not need repository context or a Git preflight. If it is absent, report that capability as unavailable. Do not emulate it or install it automatically.
