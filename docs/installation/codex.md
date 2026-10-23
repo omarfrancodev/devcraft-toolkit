@@ -28,7 +28,7 @@ For a trusted project, native plugin enablement can be configured in its `.codex
 enabled = true
 ```
 
-This is project activation, not a separate physical project cache. A globally enabled copy can remain visible elsewhere; inspect and test that independently in a control project. Disabling a plugin is distinct from removing it. Use the installed client's configuration/plugin UI for enablement, `codex plugin marketplace upgrade devcraft-toolkit` for catalog refresh, and `codex plugin remove devcraft-toolkit@devcraft-toolkit` for native uninstall. Inspect current help before treating refresh as an installed-version update. The guide does not claim native activation passed merely because metadata validates.
+This is project activation, not a separate physical project cache. A globally enabled copy can remain visible elsewhere; inspect and test that independently in a control project. Disabling a plugin is distinct from removing it. Use the installed client's configuration/plugin UI for enablement and `codex plugin remove devcraft-toolkit@devcraft-toolkit` for native uninstall. `codex plugin marketplace upgrade devcraft-toolkit` applies to Git marketplaces; the observed local-directory registration rejects that command. For local development update the selected source checkout and restart/reload as directed by the client, then verify the active version and resources. A Git catalog refresh is not proof of an installed-plugin update. The guide does not claim native activation passed merely because metadata validates.
 
 
 ## Selected skills: project and user scope
@@ -95,3 +95,5 @@ For the user installation, add `--global`. The remove operation may also affect 
 ## Validation status
 
 See [filesystem evidence](../../tests/integration/distribution/evaluations/2026-10-23-installation/filesystem.md) and [compatibility limits](../compatibility.md). CLI and manual-copy results establish file placement/resources only. Native discovery, activation, control-project visibility, and native lifecycle results require a real isolated Codex session; a blocked or unrun case remains explicit.
+
+[Per-scope native results and remaining gates](../../tests/integration/distribution/evaluations/2026-10-23-installation/native.md) distinguish registry observations from authenticated activation.

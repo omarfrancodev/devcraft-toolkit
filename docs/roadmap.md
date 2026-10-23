@@ -10,7 +10,7 @@ The shared-capability sequence delivered progress control, evidence-based natura
 
 ## Installation and distribution
 
-The next increment defines one shared native package and selective skill installation for Codex, Copilot in VS Code, Claude Code, and Kiro IDE, covering user/global and project/workspace scope. See the [installation design](superpowers/specs/2026-10-23-distribution-installation-design.md) and [implementation plan](superpowers/plans/2026-10-23-distribution-installation.md). These documents do not make native packaging or harness compatibility available before implementation and validation.
+The current candidate delivers one shared native package and selective skill installation for Codex, Copilot in VS Code, Claude Code, and Kiro IDE, covering user/global and project/workspace scope. See the [installation design](superpowers/specs/2026-10-23-distribution-installation-design.md) and [implementation plan](superpowers/plans/2026-10-23-distribution-installation.md). Root and compatibility manifests, both marketplace adapters, offline validation, four installation guides and installation-aware entry routing are implemented. The [installation evidence](../tests/integration/distribution/evaluations/2026-10-23-installation/filesystem.md) records 128 filesystem cases and eight CLI lifecycle cases. [Native validation](../tests/integration/distribution/evaluations/2026-10-23-installation/native.md) is partial: Codex/Claude registration was observed, while authenticated invocation, complete scope/lifecycle checks and IDE sessions remain pending. Task 4's native execution step remains incomplete. No new version has been published.
 
 Project-scoped native plugin activation is distinct from project-local installation storage. Kiro's project suite fallback uses workspace skills; no isolated project Power installation is claimed. Target-specific discovery and actual validation status must remain explicit.
 
@@ -20,7 +20,7 @@ Git commit construction, Git-history activity reporting, and publication are sep
 
 ## Deferred capabilities
 
-CCR integration, a custom automatic installer, CI distribution, release automation, and public directory submission remain deferred. Native package metadata and selective installation are covered by the installation design above, not implemented by this documentation increment. No license is selected by this increment.
+CCR integration, a custom automatic installer, CI distribution, release automation, and public directory submission remain deferred. Native activation across the four target clients remains a validation gate before broader compatibility claims; it must not be inferred from delivered metadata. No license is selected by this increment.
 
 ## Shared-capability designs
 

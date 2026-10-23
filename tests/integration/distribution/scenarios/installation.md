@@ -15,23 +15,23 @@ Targets: codex, github-copilot, claude-code, kiro-cli. Scopes: project and user/
 - validation-discovery: itself
 - full: all seven names above
 
-## FS-01 â€” Independent copy and scope
+## FS-01 — Independent copy and scope
 
 Create a selected project and a control project with unrelated sentinel files. Install natural-language-report-writer, including references/report-quality.md and assets/report.md, into the selected target/scope. Assert byte equality, actual destination, no symlink in copy mode, preserved sentinels, and absence of writes in the other scope. Shared target discovery roots are not an isolation guarantee.
 
-## FS-02 â€” Required dependency closure
+## FS-02 — Required dependency closure
 
 Install the explicitly selected entry trio and preflight pair. Assert each selected directory exists and contains all source resources. No custom catalog dependency resolution is inferred. Also inspect a direct bare entry selection to characterize the external CLI: report missing dependencies rather than pretending they were resolved.
 
-## FS-03 â€” Seven selections and full suite
+## FS-03 — Seven selections and full suite
 
 For every target and both scopes, exercise each complete individual closure and the full set in a fresh case. Compare installed directory names and file bytes, reject all ten planned names, and record canonical storage and lock artifacts. Repeat with complete-folder manual copying, clearly labeled as filesystem-only evidence.
 
-## FS-04 â€” Existing personal content
+## FS-04 — Existing personal content
 
 Create a same-name skill with different content plus an unrelated skill/sentinel in a disposable home/project. Inspect collisions before any replacement. Without replacement authorization, stop this packet's install and assert both existing contents remain unchanged. Do not use --yes to pretend that the external tool protects collisions automatically.
 
-## FS-05 â€” Lifecycle
+## FS-05 — Lifecycle
 
 After explicit replacement authorization in the disposable case, reinstall the selected skill and observe the result. Update the local source fixture and explicitly add it again with the same target/scope; verify the changed copy, unchanged unrelated files and other scope. Remove only the named skill with explicit target/scope. Record the exact CLI arguments, exit codes, lock changes, and any shared-store effect. Copy updates are not automatic symlink refreshes.
 

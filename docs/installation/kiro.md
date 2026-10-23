@@ -87,3 +87,7 @@ For the user installation, add `--global`. The remove operation may also affect 
 ## Validation status
 
 See [filesystem evidence](../../tests/integration/distribution/evaluations/2026-10-23-installation/filesystem.md) and [compatibility limits](../compatibility.md). CLI and manual-copy results establish file placement/resources only. Native discovery, activation, control-project visibility, and native lifecycle results require a real isolated Kiro IDE session; a blocked or unrun case remains explicit.
+
+Official procedures: [Power installation](https://kiro.dev/docs/powers/installation/) and [skill discovery roots](https://kiro.dev/docs/skills/). The IDE rows remain blocked pending an isolated Kiro IDE session.
+
+[Per-scope native results and remaining gates](../../tests/integration/distribution/evaluations/2026-10-23-installation/native.md) distinguish registry observations from authenticated activation.

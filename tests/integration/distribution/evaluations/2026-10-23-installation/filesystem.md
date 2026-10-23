@@ -2,7 +2,7 @@
 
 Status: passed for file placement and resources; native discovery/activation is not established by this evaluation.
 
-Source and tools: [environment](environment.md). Packets: [FS-01â€“05](../../scenarios/installation.md). Retained observations: [JSON](filesystem-results.json) and [runner](filesystem-matrix.mjs).
+Source and tools: [environment](environment.md). Packets: [FS-01–05](../../scenarios/installation.md). Retained observations: [JSON](filesystem-results.json) and [runner](filesystem-matrix.mjs).
 
 | Method | Targets | Scopes | Selections per combination | Passed |
 | --- | --- | --- | --- | --- |

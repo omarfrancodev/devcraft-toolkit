@@ -11,3 +11,7 @@ Date: 2026-10-23. Package source: e4965443613f1407ce4b18100564e810e39d227b (loca
 - Native clients observed on host: Codex CLI 0.162.0, Claude Code 2.1.300, VS Code 1.143.0. No Kiro executable found. These versions are inventory, not activation evidence.
 
 The retained [runner](filesystem-matrix.mjs) expects /source (package snapshot), /tool (pinned CLI npm prefix), and writable /output mounts. Run only inside a disposable container: it resets its container-owned /root skill directories and writes case fixtures. Do not execute it against a real user's home. Its stdout reports matrix totals; [raw results](filesystem-results.json) retain commands, byte inventories and effects.
+
+Native probe source: 72e190f0cceed4f42d70fca95213660fcb8fd9aa. npm packages @openai/codex 0.162.0 and @anthropic-ai/claude-code 2.1.300 were acquired inside a disposable Linux container with scripts disabled. [Exact dependency lock and integrities](native-tools-package-lock.json) are retained. Native musl Claude binary was invoked directly from the installed optional package; no postinstall script or real-user installation ran. The same pinned Linux image was used; network was disabled during observations. Native authentication was not provisioned.
+
+Host Copilot extension version and Kiro IDE version were not established in an isolated session. VS Code core inventory does not substitute for either harness version. See [native matrix](native.md).

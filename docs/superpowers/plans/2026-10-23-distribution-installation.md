@@ -53,7 +53,7 @@ The four tasks below are ordered by their interfaces. Tasks 1 and 2 deliver a us
 - CLI: `python -B -m scripts.validate_distribution --root .`, exit 0 when valid, exit 1 for distribution contract violations. Reads only local files and emits a result or relative-path diagnostics.
 - Diagnostic codes: `distribution-metadata` (missing/malformed/schema/name/description/author/shape), `distribution-version` (invalid or inconsistent versions), `distribution-source` (missing, escaping, or non-root adapter source), `distribution-inventory` (missing, duplicated, or planned discovered skills; invalid dependency closure).
 
-- [ ] **Step 1: Add the failing regression cases.**
+- [x] **Step 1: Add the failing regression cases.**
 
 Create `DistributionValidationTests` with `make_root(self) -> Path`, an owned temporary fixture containing the catalog, available skill directories, and candidate metadata. Do not copy Git state, distributions, or private profiles. Add:
 `test_valid_distribution`, `test_manifest_identity_must_match`, `test_manifest_versions_must_match`, `test_malformed_metadata_is_reported`, `test_marketplace_source_resolves_repository_root`, `test_marketplace_source_cannot_escape`, `test_duplicate_marketplace_plugin_is_reported`, `test_missing_available_skill_is_reported`, `test_planned_skill_is_not_discoverable`, `test_duplicate_skill_copy_is_reported`, and `test_dependency_closure_rejects_missing_or_planned_dependency`.
@@ -70,23 +70,23 @@ self.assertIn("distribution-version", {item.code for item in validate_distributi
 
 Check exact metadata fields and source values from the spec. Mutation cases must reach their intended guard rather than fail because another fixture component is missing.
 
-- [ ] **Step 2: Confirm the intended RED result.**
+- [x] **Step 2: Confirm the intended RED result.**
 
 Run `python -B -m unittest tests.repository.test_distribution_validation -v`. Expected: failure because `scripts.validate_distribution` is absent. Record the result; do not count setup/dependency failures as the intended assertion evidence.
 
-- [ ] **Step 3: Implement the metadata and finite offline validator.**
+- [x] **Step 3: Implement the metadata and finite offline validator.**
 
 Write the four exact manifest/marketplace shapes from the spec. Treat portable paths and the seven existing folders as canonical; add no skills override to the Claude manifest. Use the root manifest as the canonical version, verify SemVer-shaped version text and exact mirror equality, and resolve both marketplace sources against the repository root with containment checks. Compare discovered skill names and resources with available catalog entries; reject additional copies and planned skill folders. Reuse the repository validator for existing catalog/resource constraints rather than duplicating its Markdown parser.
 
 Implement the two declared functions in `scripts/validate_distribution.py`. Keep import/CLI execution compatible with `python -m scripts.validate_distribution`. Do not fetch remote schemas or claim full external schema validation.
 
-- [ ] **Step 4: Verify the deliverable and document the check.**
+- [x] **Step 4: Verify the deliverable and document the check.**
 
 Run the targeted tests and the new CLI; expect all cases pass and CLI exit 0. Run the existing repository validator and full unittest suite. Update `CONTRIBUTING.md` with the new check and explain the distinction between contract validation and native loading. If the Claude CLI is available in the isolated environment, separately run its documented plugin validator; otherwise record it unrun.
 
-- [ ] **Step 5: Commit the explicit Task 1 files.**
+- [x] **Step 5: Commit the explicit Task 1 files.**
 
-Suggested message: `feat: agregar metadatos de distribuciÃ³n del toolkit`. Review the staged diff and verify that no install was performed and no real profile was touched.
+Suggested message: `feat: agregar metadatos de distribución del toolkit`. Review the staged diff and verify that no install was performed and no real profile was touched.
 
 ### Task 2: Selective installation and the four target guides
 
@@ -101,7 +101,7 @@ Suggested message: `feat: agregar metadatos de distribuciÃ³n del toolkit`. Rev
 - Produces: concrete native and standalone procedures, a recorded exact Skills CLI version if used, and filesystem evidence keyed by `target / delivery / scope / selection`.
 - No new installer function or runtime dependency is introduced.
 
-- [ ] **Step 1: Write explicit scenario packets before executing installations.**
+- [x] **Step 1: Write explicit scenario packets before executing installations.**
 
 In `installation.md` define `FS-01` through `FS-05`:
 - `FS-01`: each of four targets and both scopes; select one independent skill, then check bytes, local resources and destination.
@@ -112,19 +112,19 @@ In `installation.md` define `FS-01` through `FS-05`:
 
 Each packet specifies selected names, target, scope, source ref, exact allowed destination and expected artifacts. Initial evidence is `not_run`. Manual copying and the external CLI have separately identified results. Use disposable homes/projects; do not call them native loader tests.
 
-- [ ] **Step 2: Observe the existing gap, inspect the external CLI, and select the test environment.**
+- [x] **Step 2: Observe the existing gap, inspect the external CLI, and select the test environment.**
 
 Record that the current guide lacks target-specific tested commands rather than inventing a failing runtime test for prose. If using the Skills CLI, inspect the available published version and package/help, record its exact numeric version and supported selectors, then pin it. Obtain it only in the isolated tool environment; this install is an explicit installation test, not an ordinary validation command.
 
 Confirm safe homes/profiles and a project plus control project. If unavailable, record the affected packets `blocked` and retain concrete manual recipes; do not use the real maintainer account as a fallback.
 
-- [ ] **Step 3: Execute and record the filesystem matrix.**
+- [x] **Step 3: Execute and record the filesystem matrix.**
 
 Use a local copy of Task 1's package to avoid relying on an unpublished tag. Run the pinned CLI with explicit `--skill` values, one `--agent` selector, `--copy`, and the chosen scope; verify actual files and resource bytes against the source. Record shared discovery roots: a target selector is not cross-harness access control, and a shared .agents/skills path can be seen by both Codex and Copilot. Do not use `--all`. Exercise all seven requested closures and the full set for each target/scope. Independently exercise manual complete-folder copying.
 
 For Kiro, `kiro-cli` identifies the CLI writer; its output directories must be checked against Kiro IDE's documented paths. Do not count this as IDE discovery. For each expected artifact, record its destination and observed contents, including CLI locks or canonical shared storage outside the displayed target directory. Unexpected effects pause that packet and are preserved.
 
-- [ ] **Step 4: Write the overview and four concrete target guides.**
+- [x] **Step 4: Write the overview and four concrete target guides.**
 
 Include source/ref selection; requirements; exact tested CLI commands and their recorded version; manual copying; every dependency set; native suite route; user/project scope semantics; invocation/discovery; update/removal; collisions; and evidence links. Give a full-suite and individual-skill example in both scopes per target. Use the dependency table for the remaining individual choices instead of duplicating dozens of equivalent commands.
 
@@ -132,9 +132,9 @@ Codex guide distinguishes shared cache from project enablement. Copilot guide di
 
 Use actual local source commands during development. Released examples may name only a Git ref that actually exists and was verified. Do not present candidate `v0.1.0-preview.2` as already published.
 
-- [ ] **Step 5: Verify and commit the Task 2 deliverable.**
+- [x] **Step 5: Verify and commit the Task 2 deliverable.**
 
-Check all local Markdown links, completeness of the selection/scope table, and recorded before/after inventories. Run both development validators and `git diff --check`. Confirm default templates and skill resources have not been rewritten by installation. Commit the explicit overview, guides, scenarios and retained non-private evidence. Suggested message: `docs: documentar instalaciÃ³n selectiva por harness y alcance`.
+Check all local Markdown links, completeness of the selection/scope table, and recorded before/after inventories. Run both development validators and `git diff --check`. Confirm default templates and skill resources have not been rewritten by installation. Commit the explicit overview, guides, scenarios and retained non-private evidence. Suggested message: `docs: documentar instalación selectiva por harness y alcance`.
 
 ### Task 3: Ownership-aware entry routing
 
@@ -148,7 +148,7 @@ Check all local Markdown links, completeness of the selection/scope table, and r
 - Consumes: canonical catalog names and actual harness discovery metadata, including package ownership and user-selected installation.
 - Produces: instruction-level canonical-to-discovered invocation mapping for this package. No string-only namespace stripping, runtime registry, or persisted resolver.
 
-- [ ] **Step 1: Add four behavioral packets.**
+- [x] **Step 1: Add four behavioral packets.**
 
 `ROUTE-INSTALL-01`: this package owns an installed namespaced formatter; ask the entry to draft a commit message from supplied facts. Expect invocation through the discovered identifier, correct request language and no Git preflight.
 
@@ -158,21 +158,21 @@ Check all local Markdown links, completeness of the selection/scope table, and r
 
 `ROUTE-INSTALL-04`: the user selected one available installation and another exists. Expect that exact installation used; a missing optional capability is still reported absent. Do not treat another installed copy as implicit permission to substitute.
 
-- [ ] **Step 2: Evaluate the unchanged entry against the packets.**
+- [x] **Step 2: Evaluate the unchanged entry against the packets.**
 
 Record actual baseline behavior using fresh contexts. Distinguish manual instruction-following from native skill activation. A baseline pass is a pass, not a fabricated RED. Test fixtures represent ownership facts; they cannot prove a real client exposes that metadata.
 
-- [ ] **Step 3: Add the explicit discovery/ownership contract to entry instructions and reference.**
+- [x] **Step 3: Add the explicit discovery/ownership contract to entry instructions and reference.**
 
 Use the harness's discovered identifier when its metadata identifies the selected installation. Preserve canonical resource paths, existing dependency groups, language behavior, and absent-capability boundaries. Require a focused user choice for materially ambiguous duplicate ownership. Do not infer ownership from suffix matching or introduce a dependency on root manifests/catalog at runtime.
 
-- [ ] **Step 4: Verify the four packets with the resulting instructions.**
+- [x] **Step 4: Verify the four packets with the resulting instructions.**
 
 Use fresh contexts for direct and routed usage, record invoked identifiers and effects. Re-run the existing entry scenarios affected by the instruction change. Run the repository/distribution validators and full suite. Native ownership/discovery evidence remains Task 4's separate responsibility.
 
-- [ ] **Step 5: Commit only Task 3's instructions, scenarios, evidence and composition documentation.**
+- [x] **Step 5: Commit only Task 3's instructions, scenarios, evidence and composition documentation.**
 
-Suggested message: `feat: resolver rutas del toolkit segÃºn la instalaciÃ³n seleccionada`. Check that no public skill name or catalog status changed.
+Suggested message: `feat: resolver rutas del toolkit según la instalación seleccionada`. Check that no public skill name or catalog status changed.
 
 ### Task 4: Native matrix and lifecycle evidence
 
@@ -185,7 +185,7 @@ Suggested message: `feat: resolver rutas del toolkit segÃºn la instalaciÃ³n 
 - Consumes: Task 1's package, Task 2's procedures and environment records, and Task 3's ownership-aware entry.
 - Produces: a matrix of `target / delivery / scope` with separately reported structural, filesystem and native evidence. States are `passed`, `failed`, `blocked`, `not_run`, `limited`, or `not_supported`.
 
-- [ ] **Step 1: Write native packets and the initial unrun matrix.**
+- [x] **Step 1: Write native packets and the initial unrun matrix.**
 
 `NATIVE-01` checks direct skill discovery, reference/template reads, request language and no unrelated side effects.
 
@@ -199,7 +199,7 @@ Suggested message: `feat: resolver rutas del toolkit segÃºn la instalaciÃ³n 
 
 Create all sixteen target/delivery/scope rows. Initialize documented-but-unrun routes as `not_run`, the Kiro native project Power row as `not_supported`, and add a separate Kiro project skill-set fallback row. Namespaced identifiers come from actual discovery rather than hardcoded cross-client assumptions.
 
-- [ ] **Step 2: Inspect actual clients and authorize only the disposable installation effects.**
+- [x] **Step 2: Inspect actual clients and authorize only the disposable installation effects.**
 
 Record exact application, extension, OS and external CLI versions and verify the relevant current official instructions. Use verified client profile controls or a disposable user/container. If interactive auth cannot be completed without exposing private credentials or altering the real profile, record `blocked` and continue independent structural work.
 
@@ -211,17 +211,17 @@ For Codex register its marketplace, install via a supported client and exercise 
 
 For each supported row invoke a skill that reads a bundled reference/template, then test entry routing where that delivery includes the entry dependency trio. Compare the control project before and after. Run lifecycle checks only in the selected disposable scope. Retain non-private observed evidence; do not relabel manual following or the CLI's file copy as native activation.
 
-- [ ] **Step 4: Reconcile claims and document only observed support.**
+- [x] **Step 4: Reconcile claims and document only observed support.**
 
 Update target guides and compatibility with per-row status, versions, source ref and evidence. Explain the project activation/cache distinction and Kiro exception. Document blocked rows and exact next evidence needed. Keep the work explicitly partially validated if required native rows did not pass; their execution steps stay incomplete or blocked rather than checked off as successes.
 
 Update architecture/roadmap to distinguish shipped metadata from verified harness support, and add an `unreleased` changelog entry for actual delivered outcomes. No tag, release, compatibility badge, or marketplace-directory submission is authorized by this plan.
 
-- [ ] **Step 5: Run final checks and commit the evidence/documentation.**
+- [x] **Step 5: Run final checks and commit the evidence/documentation.**
 
 Run `python -B -m unittest discover -s tests -p "test_*.py" -v`, `python -B scripts/validate_repository.py --root .`, `python -B -m scripts.validate_distribution --root .`, and `git diff --check`. Verify skill-only tests remain under their owner and cross-skill installation evidence under the integration subtree. Explicitly report environmental skips.
 
-Inspect the staged paths and commit only Task 4's scenarios, records and updated docs. Suggested message: `test: registrar instalaciÃ³n y lÃ­mites de compatibilidad del toolkit`.
+Inspect the staged paths and commit only Task 4's scenarios, records and updated docs. Suggested message: `test: registrar instalación y límites de compatibilidad del toolkit`.
 
 ## Acceptance traceability and self-review
 
@@ -238,6 +238,10 @@ Inspect the staged paths and commit only Task 4's scenarios, records and updated
 
 Self-review: all declared production signatures have an owning task; later tasks consume those interfaces without renaming them. Each Review Focus item has explicit assertions in its owning task. Real installation and native activation remain separate from unit tests; missing environments cannot manufacture compatibility. The plan contains no duplicated skill implementation or custom installer body.
 
+## Execution status
+
+Tasks 1-3 are implemented and verified. Task 4 delivers scenarios, limited native observations and compatibility documentation. Its Step 3 remains incomplete/blocked for authenticated invocation, full scope/lifecycle checks and IDE sessions; see the [native matrix](../../../tests/integration/distribution/evaluations/2026-10-23-installation/native.md). This is partial validation, not a successful four-client compatibility claim.
+
 ## Handoff
 
-This document is ready for maintainer review, not executed. Review the linked design and the Kiro project-scope fallback before installation implementation. The prior request authorized preparation of these documents only; choose native or subagent-driven execution when authorizing implementation.
+The candidate is prepared for review with the recorded native gates still open. No publication or merge is part of this implementation.

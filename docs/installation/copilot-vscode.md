@@ -11,18 +11,21 @@ CLI recipes use Node.js >=22.20.0, npm and pinned Skills CLI 1.7.4. In a non-Pow
 
 ## Native suite
 
-In VS Code with the Copilot harness selected:
+For an existing local checkout, use the documented experimental `chat.pluginLocations` setting. In VS Code Settings JSON at the chosen user or workspace scope, merge an entry mapping the selected absolute checkout path to `true`. Generate the fragment from the already selected path:
 
-1. Open Agent Customizations > Plugins.
-2. Choose Install Plugin from Source (also available through the command palette).
-3. Select the local plugin checkout if supported by that client, or a Git source that actually contains these manifests. Do not point at the old source-only preview.
-4. Alternatively add the repository marketplace through `/plugin marketplace add` after the manifests are integrated, then install `devcraft-toolkit@devcraft-toolkit`.
-5. Review the installed skills and bundled resources before invoking them.
+```powershell
+@{ 'chat.pluginLocations' = @{ $toolkitSource = $true } } | ConvertTo-Json -Depth 3
+```
 
-Use the plugin's context menu or Agent Customizations to choose global or workspace enablement. Workspace enablement/recommendations and physical installation are distinct. Recommendations through `.github/copilot/settings.json` do not download the plugin for collaborators; each collaborator installs it.
+Preserve other registered locations. Set that entry to `false` to disable it; remove only that registration to stop using the local checkout. Source changes and reload behavior must be checked in the actual session.
 
-Use `/plugin list` to inspect, `/plugin update devcraft-toolkit@devcraft-toolkit` to request an installed-plugin update, and `/plugin uninstall devcraft-toolkit@devcraft-toolkit` to remove it. UI/command availability is client-version-dependent. Record that version and observe the actual selected scope. No native Copilot session was validated by filesystem copying.
+For a marketplace installation, configure `chat.plugins.marketplaces` with a file URI to the locally cloned marketplace repository, then browse its plugin in Agent Customizations or the Agent Plugins view. For a published Git source choose a verified revision containing these manifests. The Install Plugin from Source command accepts a Git repository URL; it is not the local-folder recipe.
 
+Marketplace plugins can be enabled or disabled globally or for a workspace. Recommendations in `.github/copilot/settings.json` do not download the plugin for collaborators. Physical storage, enablement and recommendations are distinct.
+
+The Copilot harness also offers `/plugin marketplace add`, `/plugin install`, `/plugin list`, `/plugin update` and `/plugin uninstall`. Its slash-command inventory and Agent Customizations currently differ: manage a plugin in the interface that installed it. A direct Git install in that slash-command inventory cannot be toggled enabled/disabled; uninstall it to stop using it. Do not apply marketplace scope promises to that route.
+
+See [VS Code's official plugin instructions](https://code.visualstudio.com/docs/agent-customization/agent-plugins). These are documented procedures, not observed native activation in this evaluation.
 
 ## Selected skills: project and user scope
 
@@ -90,3 +93,5 @@ For the user installation, add `--global`. The remove operation may also affect 
 ## Validation status
 
 See [filesystem evidence](../../tests/integration/distribution/evaluations/2026-10-23-installation/filesystem.md) and [compatibility limits](../compatibility.md). CLI and manual-copy results establish file placement/resources only. Native discovery, activation, control-project visibility, and native lifecycle results require a real isolated GitHub Copilot in VS Code session; a blocked or unrun case remains explicit.
+
+[Per-scope native results and remaining gates](../../tests/integration/distribution/evaluations/2026-10-23-installation/native.md) distinguish registry observations from authenticated activation.

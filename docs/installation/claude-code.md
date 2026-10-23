@@ -31,7 +31,7 @@ Project scope records enablement in `.claude/settings.json`; it is not a substit
 
 For metadata-only checks, use `claude plugin validate .claude-plugin/plugin.json --json` and `claude plugin validate .claude-plugin/marketplace.json --json` from the source checkout. Acceptance is not native skill activation.
 
-Refresh marketplace metadata through the client's marketplace update command/UI. Update the installed plugin through `claude plugin update devcraft-toolkit@devcraft-toolkit --scope user` or `--scope project` after verifying current help. Remove with `claude plugin uninstall devcraft-toolkit@devcraft-toolkit --scope user` or the matching project scope. Never remove a different scope just to make a control project appear clean.
+A local-directory install was observed to read directly from its source folder. Its update command reported nothing to update; edits take effect at the next session start or `/reload-plugins`. Keep that source folder available. For Git marketplaces refresh metadata through the client's marketplace update command/UI. Update the installed plugin through `claude plugin update devcraft-toolkit@devcraft-toolkit --scope user` or `--scope project` after verifying current help. Remove with `claude plugin uninstall devcraft-toolkit@devcraft-toolkit --scope user` or the matching project scope. Never remove a different scope just to make a control project appear clean.
 
 
 ## Selected skills: project and user scope
@@ -98,3 +98,5 @@ For the user installation, add `--global`. The remove operation may also affect 
 ## Validation status
 
 See [filesystem evidence](../../tests/integration/distribution/evaluations/2026-10-23-installation/filesystem.md) and [compatibility limits](../compatibility.md). CLI and manual-copy results establish file placement/resources only. Native discovery, activation, control-project visibility, and native lifecycle results require a real isolated Claude Code session; a blocked or unrun case remains explicit.
+
+[Per-scope native results and remaining gates](../../tests/integration/distribution/evaluations/2026-10-23-installation/native.md) distinguish registry observations from authenticated activation.
