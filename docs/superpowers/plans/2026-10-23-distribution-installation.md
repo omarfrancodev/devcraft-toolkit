@@ -284,7 +284,7 @@ Inspect the staged paths and commit only Task 4's scenarios, records and updated
 **Interfaces:** Consume Tasks 8-9 and the unchanged package. Produce the same open PR updated with seven-client scope and precise validation limits.
 
 - [x] **Step 1: Review the whole branch in one fresh context.** Supply the spec, plan, Review Focus, ledger rulings and review package. Grade findings by user effect; address material findings with relevant RED/GREEN checks and the suite, preserve declined judgments as rulings. Expected: no unresolved blocking findings.
-- [ ] **Step 2: Finalize and publish the PR revision.** Mark only the implemented expansion steps complete; keep Task 4 Step 3 open. Verify validators, links and git diff --check after any administrative edits. Commit, push this branch and update PR #4 using its template. Verify remote HEAD/title/body and clean worktree. Preserve worktree; no merge, release or template creation.
+- [x] **Step 2: Finalize and publish the PR revision.** Mark only the implemented expansion steps complete; keep Task 4 Step 3 open. Verify validators, links and git diff --check after any administrative edits. Commit, push this branch and update PR #4 using its template. Verify remote HEAD/title/body and clean worktree. Preserve worktree; no merge, release or template creation.
 
 ## Acceptance traceability and self-review
 
@@ -307,7 +307,7 @@ Remote-first coverage: REMOTE-01/02/05 belong to Task 5; REMOTE-03/04 belong to 
 
 ## Execution status
 
-Seven-client expansion: Tasks 8-10 implement CLIENT-01 through CLIENT-06 in order. User approved Proposal A and implementation together; the no-template Crew route uses native complete skill import, without claiming Power inheritance. Earlier completed tasks are historical and are not repeated.
+Seven-client expansion: Tasks 8-10 completed CLIENT-01 through CLIENT-06 and updated the existing PR #4. The independent review correction and native limitations are retained in the client-expansion evaluation. User approved Proposal A and implementation together; the no-template Crew route uses native complete skill import, without claiming Power inheritance. Earlier completed tasks are historical and are not repeated.
 
 
 Tasks 1-3 are implemented and verified. Tasks 5-7 delivered the approved remote-first guides, real remote acquisition/resource evidence, reconciled documentation and the updated existing PR. The remote-first revision's independent review found no blocking or minor findings; its record remains historical. Task 4 delivers scenarios, limited native observations and compatibility documentation. Its Step 3 remains incomplete/blocked for authenticated invocation, full scope/lifecycle checks and IDE sessions; see the [native matrix](../../../tests/integration/distribution/evaluations/2026-10-23-installation/native.md). This is partial validation, not a successful four-client compatibility claim.

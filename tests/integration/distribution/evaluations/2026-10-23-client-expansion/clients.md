@@ -76,5 +76,5 @@ catalog, manifests and scripts are unchanged from 218aea8. These checks do not
 close native session gates.
 
 After the reviewed matrix correction, the complete suite again passed (74 / one
-Windows symlink skip); both validators, 186 local links/anchors and diff check
+Windows symlink skip); both validators, 187 local links/anchors and diff check
 passed. See the [independent review and correction](final-review.md).
