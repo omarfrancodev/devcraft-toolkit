@@ -254,7 +254,7 @@ Inspect the staged paths and commit only Task 4's scenarios, records and updated
 
 - [x] **Step 1: Reconcile claims.** Link the remote evaluation; retain local evidence and Task 4 Step 3 as incomplete. Distinguish post-integration default source, fixed and branch-tracking preview sources, and unpublished candidate metadata.
 - [x] **Step 2: Run final checks.** Run python -B -m unittest discover -s tests -p "test_*.py" -v; both validators; local link checks; git diff --check. Expected: all applicable tests pass with environmental skips explicit.
-- [ ] **Step 3: Review and update.** Perform the required one fresh-context branch review, address material findings with relevant verification, commit explicit files, push the existing branch and update PR #4. Preserve the worktree and publish no release or merge.
+- [x] **Step 3: Review and update.** Perform the required one fresh-context branch review, address material findings with relevant verification, commit explicit files, push the existing branch and update PR #4. Preserve the worktree and publish no release or merge.
 
 ## Acceptance traceability and self-review
 
@@ -275,7 +275,7 @@ Remote-first coverage: REMOTE-01/02/05 belong to Task 5; REMOTE-03/04 belong to 
 
 ## Execution status
 
-Tasks 1-3 are implemented and verified. Tasks 5-6 delivered the approved remote-first guides and real remote acquisition/resource evidence; Task 7 reconciles and verifies the existing PR. Task 4 delivers scenarios, limited native observations and compatibility documentation. Its Step 3 remains incomplete/blocked for authenticated invocation, full scope/lifecycle checks and IDE sessions; see the [native matrix](../../../tests/integration/distribution/evaluations/2026-10-23-installation/native.md). This is partial validation, not a successful four-client compatibility claim.
+Tasks 1-3 are implemented and verified. Tasks 5-7 delivered the approved remote-first guides, real remote acquisition/resource evidence, reconciled documentation and the updated existing PR. Independent whole-branch review found no blocking or minor findings; see the retained review record. Task 4 delivers scenarios, limited native observations and compatibility documentation. Its Step 3 remains incomplete/blocked for authenticated invocation, full scope/lifecycle checks and IDE sessions; see the [native matrix](../../../tests/integration/distribution/evaluations/2026-10-23-installation/native.md). This is partial validation, not a successful four-client compatibility claim.
 
 Remote-first checks do not complete Task 4 Step 3. The default-branch source becomes usable after integration; no merge or release is performed by this revision.
 
