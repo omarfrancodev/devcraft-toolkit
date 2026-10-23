@@ -10,13 +10,15 @@ Release dates use the GitHub publication date in America/Mexico_City. Pre-releas
 
 - Add portable and compatibility plugin manifests and two root-relative marketplace adapters for the seven available skills.
 - Add offline distribution validation and regression tests for metadata, versions, source containment and inventory.
-- Document native suite and selective skill installation for Codex, Copilot in VS Code, Claude Code, and Kiro IDE, with explicit dependency closures, user/project scope, complete-folder copying, collisions and lifecycle procedures.
+- Document complete remote native suite installation as the primary route and selective skills as an alternative for Codex, Copilot in VS Code, Claude Code, and Kiro IDE, with explicit dependency closures, user/project scope, complete-folder copying, collisions and lifecycle procedures.
+- Verify remote Git acquisition and native managed package resources for Codex/Claude, plus selected remote folder copies; retain the version-specific Claude ref failure and corrected branch recipe.
 - Retain 128 filesystem installation cases, eight CLI lifecycle cases and separate limited native registration evidence. Authenticated activation and IDE compatibility remain unverified.
 
 ### Changed
 
 #### Distribution and documentation
 
+- Separate consumer quickstarts, optional individual/dependency instructions and local development/reference procedures.
 - Route toolkit capabilities through the selected installation's discovered identifiers and ownership; ask before resolving materially ambiguous duplicate copies.
 - Narrow the documented integration scope and retain CCR as a deferred capability.
 

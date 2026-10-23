@@ -27,11 +27,11 @@
 
 ## Review Focus
 
-1. Project-only setup with another project open must not silently expose a globally enabled installation; Task 4 checks a control project.
-2. A suite and standalone installation with identical skill names must not cause a foreign or ambiguous package to satisfy dependencies; Task 3 exercises ownership and user-selected installation.
-3. The external CLI does not read custom catalog dependencies; Task 2 checks the entry trio, preflight pair, and five independent selections explicitly.
-4. Marketplace-relative `./` must resolve from the repository root rather than from either metadata directory; Task 1 tests root resolution and path escape.
-5. Missing clients, authentication, or safe profile isolation must remain `blocked`/`not_run` and never become a successful compatibility claim; Task 4 checks and records these outcomes.
+1. Before integration the default branch lacks metadata: current preview recipes must use actual published sources, without claiming that the source-only preview or default source can already install the plugin.
+2. Client ref semantics differ: Codex's fixed SHA, Claude's mutable preview branch and unverified Kiro ref import must not be advertised as one universal immutable pin.
+3. Project-only setup must not inherit unwanted user enablement; a control project and the Kiro project skill-set exception remain explicit even in short quickstarts.
+4. The native suite must contain all seven resources without manual selection, while the optional route preserves explicit dependency closures and does not promise automatic resolution or exclusive discovery.
+5. Missing authentication/IDE sessions and file-only evidence must remain limited/blocked; neither remote acquisition nor the reorganized documentation establishes full compatibility.
 
 ## Prerequisites and file responsibilities
 
@@ -231,9 +231,9 @@ Inspect the staged paths and commit only Task 4's scenarios, records and updated
 
 **Interfaces:** Consume the unchanged seven-skill package and remote source policy in the revised spec. Produce native remote quickstarts, one optional individual/dependency guide and a separate local/developer guide. No runtime API changes.
 
-- [ ] **Step 1: Record the current onboarding gap.** Inspect the current README/overview: their first examples require a local checkout and source-path variable. Record this prose baseline without a synthetic text-presence test.
-- [ ] **Step 2: Rewrite the consumer entry points.** Lead with the complete remote suite, four native target routes, a short default-branch availability note and a link to the pinned preview route. Put all Node/Skills CLI, explicit selections and manual/local procedures in their owning guides. Preserve scope/lifecycle/collision rules and resource completeness.
-- [ ] **Step 3: Check and commit.** Run both validators, check all local Markdown links and git diff --check. Expected: exit 0; the selection table remains complete and all seven names remain unchanged. Commit only this documentation task.
+- [x] **Step 1: Record the current onboarding gap.** Inspect the current README/overview: their first examples require a local checkout and source-path variable. Record this prose baseline without a synthetic text-presence test.
+- [x] **Step 2: Rewrite the consumer entry points.** Lead with the complete remote suite, four native target routes, a short default-branch availability note and a link to the client-specific preview route. Put all Node/Skills CLI, explicit selections and manual/local procedures in their owning guides. Preserve scope/lifecycle/collision rules and resource completeness.
+- [x] **Step 3: Check and commit.** Run both validators, check all local Markdown links and git diff --check. Expected: exit 0; the selection table remains complete and all seven names remain unchanged. Commit only this documentation task.
 
 ### Task 6: Real remote installation evidence
 
@@ -241,10 +241,10 @@ Inspect the staged paths and commit only Task 4's scenarios, records and updated
 
 **Interfaces:** Consume Task 5's exact pinned source and native CLI procedures (Claude uses the existing preview branch and verifies its resolved HEAD). Produce separate remote registration/filesystem observations; do not replace the existing local matrix or claim authenticated activation.
 
-- [ ] **Step 1: Define packets before execution.** REMOTE-FS-01: Git fetch pinned source in an owned container and verify manifests/seven canonical folders. REMOTE-NATIVE-01/02: Codex/Claude branch-based remote marketplace registration and complete suite installation, list/inventory and resource-byte checks. REMOTE-ALT-01: remote independent skill and complete-seven fallback via Skills CLI 1.7.4 with explicit target/scope. REMOTE-LIMIT-01: record pre-integration default branch, missing IDE/auth and unsupported Kiro ref interface honestly.
-- [ ] **Step 2: Obtain isolated tools.** Use an actual disposable Linux user/container, public Git without credentials, Codex 0.162.0, Claude 2.1.300 and Skills CLI 1.7.4. Record versions/locks. Do not mount personal homes or authentication, loosen trust/approval protections, or run a remote model.
-- [ ] **Step 3: Execute the exact remote commands.** Verify requested ref, installed metadata, seven available names and complete resources against that remote source. Optional copies use explicit dependencies. Preserve failures/blocks and observed inventories; remote registration is only limited native evidence.
-- [ ] **Step 4: Retain and commit sanitized evidence.** Read every result, retain source/commands/exit codes/hashes and summarize limitations. Expected: remote supported operations pass or have an exact recorded blocker; no result claims full native activation.
+- [x] **Step 1: Define packets before execution.** REMOTE-FS-01: Git fetch pinned source in an owned container and verify manifests/seven canonical folders. REMOTE-NATIVE-01/02: Codex/Claude branch-based remote marketplace registration and complete suite installation, list/inventory and resource-byte checks. REMOTE-ALT-01: remote independent skill and complete-seven fallback via Skills CLI 1.7.4 with explicit target/scope. REMOTE-LIMIT-01: record pre-integration default branch, missing IDE/auth and unsupported Kiro ref interface honestly.
+- [x] **Step 2: Obtain isolated tools.** Use an actual disposable Linux user/container, public Git without credentials, Codex 0.162.0, Claude 2.1.300 and Skills CLI 1.7.4. Record versions/locks. Do not mount personal homes or authentication, loosen trust/approval protections, or run a remote model.
+- [x] **Step 3: Execute the exact remote commands.** Verify requested ref, installed metadata, seven available names and complete resources against that remote source. Optional copies use explicit dependencies. Preserve failures/blocks and observed inventories; remote registration is only limited native evidence.
+- [x] **Step 4: Retain and commit sanitized evidence.** Read every result, retain source/commands/exit codes/hashes and summarize limitations. Expected: remote supported operations pass or have an exact recorded blocker; no result claims full native activation.
 
 ### Task 7: Reconcile, verify and update the existing PR
 
@@ -252,8 +252,8 @@ Inspect the staged paths and commit only Task 4's scenarios, records and updated
 
 **Interfaces:** Consume Task 5 procedures and Task 6 observations. Produce consistent consumer/maintainer documentation and truthful remote evidence on the existing branch.
 
-- [ ] **Step 1: Reconcile claims.** Link the remote evaluation; retain local evidence and Task 4 Step 3 as incomplete. Distinguish post-integration default source, pinned preview and unpublished candidate metadata.
-- [ ] **Step 2: Run final checks.** Run python -B -m unittest discover -s tests -p "test_*.py" -v; both validators; local link checks; git diff --check. Expected: all applicable tests pass with environmental skips explicit.
+- [x] **Step 1: Reconcile claims.** Link the remote evaluation; retain local evidence and Task 4 Step 3 as incomplete. Distinguish post-integration default source, fixed and branch-tracking preview sources, and unpublished candidate metadata.
+- [x] **Step 2: Run final checks.** Run python -B -m unittest discover -s tests -p "test_*.py" -v; both validators; local link checks; git diff --check. Expected: all applicable tests pass with environmental skips explicit.
 - [ ] **Step 3: Review and update.** Perform the required one fresh-context branch review, address material findings with relevant verification, commit explicit files, push the existing branch and update PR #4. Preserve the worktree and publish no release or merge.
 
 ## Acceptance traceability and self-review
@@ -275,7 +275,9 @@ Remote-first coverage: REMOTE-01/02/05 belong to Task 5; REMOTE-03/04 belong to 
 
 ## Execution status
 
-Tasks 1-3 are implemented and verified. Tasks 5-7 implement the approved remote-first revision. Task 4 delivers scenarios, limited native observations and compatibility documentation. Its Step 3 remains incomplete/blocked for authenticated invocation, full scope/lifecycle checks and IDE sessions; see the [native matrix](../../../tests/integration/distribution/evaluations/2026-10-23-installation/native.md). This is partial validation, not a successful four-client compatibility claim.
+Tasks 1-3 are implemented and verified. Tasks 5-6 delivered the approved remote-first guides and real remote acquisition/resource evidence; Task 7 reconciles and verifies the existing PR. Task 4 delivers scenarios, limited native observations and compatibility documentation. Its Step 3 remains incomplete/blocked for authenticated invocation, full scope/lifecycle checks and IDE sessions; see the [native matrix](../../../tests/integration/distribution/evaluations/2026-10-23-installation/native.md). This is partial validation, not a successful four-client compatibility claim.
+
+Remote-first checks do not complete Task 4 Step 3. The default-branch source becomes usable after integration; no merge or release is performed by this revision.
 
 ## Handoff
 

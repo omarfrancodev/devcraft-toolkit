@@ -29,6 +29,16 @@ The unpublished candidate 0.1.0-preview.2 adds native package metadata and expli
 
 Current automated checks: 75 tests discovered, 74 passed and one Windows symlink privilege skip. Both repository and distribution validators pass. Structural tests do not establish client activation or model instruction following.
 
+## Remote-first suite validation
+
+The consumer path now starts with the complete native suite from the public repository. [Individual skills](installation/individual-skills.md) are an alternative; [local/developer installation](installation/development.md) is separate. Default-source recipes apply after metadata integration, with [client-specific preview sources](installation/preview.md) before then.
+
+The [remote evaluation](../tests/integration/distribution/evaluations/2026-10-23-remote-suite/remote.md) fetched public reference b05a8c4367dc02e33ac9d19a8eb98e0bdb31c04e, installed the suite through Codex and Claude's actual remote marketplace flows, and compared every installed skill resource against that source. It also copied an independent formatter for Codex and the complete project fallback for Kiro through the pinned external CLI. The corrected run's 29 commands exited 0; its native outcomes remain limited.
+
+Claude 2.1.300 rejected a commit SHA in the marketplace clone URL. The working preview uses a mutable existing branch whose resolved HEAD was recorded and verified. Codex accepted the immutable SHA. The failed attempt is retained. This is a version-specific observed difference, not a claim that all clients accept the same ref syntax.
+
+No authenticated native invocation, model-driven resource read, full version-changing lifecycle, Copilot session or Kiro IDE session passed. Existing native gates remain open; remote acquisition/resource hashes do not close them.
+
 ## Limits
 
 The skill behavior evaluations are manual instruction-following assessments in fresh agent contexts, not native skill-loader tests. The earlier Python dependency-installation attempt was blocked by PyPI DNS/network access; the later isolated Skills CLI filesystem evaluation above is a separate, observed operation. The submodule scenario, isolated missing-Git executable, authenticated native skill loading, other harness sessions, and mid-run progress-tracker failure were not dynamically exercised. Native registration observations above do not establish full compatibility with any target harness; blocked activation rows remain open. Structural tests prove repository checks and fixture state, not language quality or instruction following.
