@@ -41,3 +41,8 @@ Match the validation claims to the evidence. For documentation-only changes, a c
 Keep the description focused on the change. Exclude local absolute paths, credentials, private logs, artifacts from unrelated projects, and internal agent details. References should help reviewers without duplicating the linked content.
 
 Use the same finalized description whether submitting through a web interface, CLI, API, or an agent. Provide the body explicitly instead of assuming the submission tool will fill it in, then verify that the published description matches. The template organizes the explanation; it does not validate claims or authorize publication, approval, or merging. Follow the authorization rules for each action.
+## Design records
+
+Specifications and plans describe product behavior, contracts, decisions and acceptance criteria. They must stand on the maintained repository content and accessible official technical references. Include the necessary requirements directly instead of referring readers to a conversation, a personal file, an untracked artifact or an unavailable project.
+
+Use the [capability roadmap](docs/roadmap.md) to place an increment in the product scope. Record actual evidence and relevant limitations; distinguish development notes from user-facing behavior.

@@ -1,0 +1,1 @@
+{"scripts":{"check":"python check.py pass","fail":"python check.py fail","lint":"python check.py pass","prelint":"python check.py unexpected-write","composite":"python check.py pass && python check.py pass"}}

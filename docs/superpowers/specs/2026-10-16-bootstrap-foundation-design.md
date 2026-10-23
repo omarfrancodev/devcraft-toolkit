@@ -1,27 +1,27 @@
 # Devcraft Toolkit Foundation Design
 
 Date: 2026-10-16
-Updated: 2026-10-17
-Status: Proposed for review; this document authorizes no implementation or release.
+Updated: 2026-10-22
+Status: Foundation design record; the implemented behavior and observed evidence are documented in architecture.md and compatibility.md.
 Scope: Milestone 1, the repository foundation and three usable entry/context/safety skills.
 
-## Intent and approved direction
+## Product intent and scope
 
 Devcraft Toolkit is a single maintained collection of composable capabilities for Git operations, code review, and activity reporting across coding harnesses. Users can invoke an individual capability or a coordinator. Platform-specific business integrations such as Jira remain outside the core.
 
-The human has approved the suite identity, the seventeen-skill target inventory, the three coordinator names, language behavior, and centralized tests. The present request is to prepare a spec and implementation plan in an isolated worktree, starting with the basics. It is not an instruction to implement all seventeen skills, migrate CCR, or archive its repository now.
+The suite defines seventeen target capabilities, including three Git coordinators, with language-aware output and centralized tests. The foundation increment delivers the catalog, repository validation and three usable entry/context/safety skills. Other capabilities remain separate increments.
 
-This is architectural work. The design and plan are prepared together at the human's explicit request; both remain reviewable drafts before implementation begins.
+The design specifies the foundation interfaces and acceptance criteria. The companion implementation plan is stored in this repository.
 
 ## Baseline
 
 The repository initially contains README.md and .gitignore only. Main includes the initial README and the published ignore change. There is no application, dependency manifest, test runner, skill directory, or plugin manifest to validate yet.
 
-The local repository identity is omarfrancodev <fofe2803@gmail.com>. The global work identity must remain unchanged. The planning checkout is .worktrees/bootstrap-foundation on feat/bootstrap-foundation; /.worktrees/ is ignored by the main checkout.
+Development uses an isolated Git worktree under the ignored /.worktrees/ directory. Inspect the effective repository-local identity before writes; never modify global identity as part of development setup.
 
 ## Alternatives and selected increment
 
-1. Implement all seventeen skills immediately: broad scope, coupled migrations, and no established validation boundary.
+1. Implement all seventeen skills immediately: broad scope and no established validation boundary.
 2. Add seventeen empty skill folders: misleading discoverability and no usable outcome.
 3. Establish a small usable foundation, then extend it: selected.
 
@@ -80,7 +80,7 @@ Milestone 1 declared dependencies:
 - git-working-directory-policy has no skill dependencies.
 - Planned entries have empty dependency lists until their own designs define and validate them.
 
-CCR continues to evolve in its own project and is excluded from this project's active inventory and roadmap. Reconsider its integration only after the owner selects a stable version and authorizes a separate design. Archive the original repository only after that later integration has been completed and verified; no archival is scheduled now.
+CCR is outside the active inventory, dependencies and delivery scope. A future integration requires its own design and acceptance criteria.
 
 ## Repository layout after implementation
 
@@ -98,7 +98,7 @@ devcraft-toolkit/
     composition.md
     language.md
     compatibility.md
-    migration.md
+    roadmap.md
     superpowers/specs/2026-10-16-bootstrap-foundation-design.md
     superpowers/plans/2026-10-16-bootstrap-foundation.md
   skills/
@@ -227,11 +227,11 @@ Validation reports source problems without modifying files, fetching URLs or loa
 
 Each increment gets its own bounded design/plan as needed. This spec is a target map and a foundation implementation contract, not a hidden seventeen-skill implementation plan.
 
-## Sources and review notes
+## References and verification notes
 
-- Human decisions in the current Devcraft Toolkit conversation through 2026-10-17, including CCR exclusion and per-skill test ownership.
+- The target inventory, constraints and test-ownership contract defined in this document.
 - https://agentskills.io/specification (consulted 2026-10-16): SKILL.md metadata, resource structure and relative references.
 - Existing README.md and .gitignore at the repository baseline.
-- Existing Git helper skills and original agents informed the compatibility corrections; they are not runtime dependencies.
+- Current maintained skill instructions, local references and evaluation records under skills/ and tests/.
 
 Self-review: seventeen active names exclude CCR; tests are external and grouped by skill and scope; Spanish-only rules are removed; clean-publication and unborn-commit cases are distinct; no global identity mutation, empty skill advertisement, automatic dependency installation or unverified harness compatibility is promised.
