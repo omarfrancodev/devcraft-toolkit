@@ -13,7 +13,7 @@ use the client-expansion record. No row claims authenticated invocation.
 | Copilot CLI | complete | user | limited | Remote registration/resources and same-ref lifecycle observed; no authenticated activation. |
 | Copilot CLI | complete | project | blocked | Repository declarations documented; auto-install and selected/control active-session isolation not run. |
 | Copilot CLI | individual | user | blocked | No isolated authenticated client/session; discovery, resources, scope and lifecycle remain open. |
-| Copilot CLI | individual | project | blocked | Repository declarations documented; auto-install and selected/control active-session isolation not run. |
+| Copilot CLI | individual | project | blocked | Selected complete folders under .agents/skills/ with explicit dependencies; native discovery/resource reads, selected/control scope and copy lifecycle unverified. |
 | Copilot VS Code | complete | user | blocked | No isolated authenticated client/session; discovery, resources, scope and lifecycle remain open. |
 | Copilot VS Code | complete | project | blocked | No isolated authenticated client/session; discovery, resources, scope and lifecycle remain open. |
 | Copilot VS Code | individual | user | blocked | No isolated authenticated client/session; discovery, resources, scope and lifecycle remain open. |
@@ -31,9 +31,9 @@ use the client-expansion record. No row claims authenticated invocation.
 | Kiro IDE | individual | user | blocked | No isolated authenticated client/session; discovery, resources, scope and lifecycle remain open. |
 | Kiro IDE | individual | project | blocked | No isolated authenticated client/session; discovery, resources, scope and lifecycle remain open. |
 | Kiro Crew | complete | user | blocked | Own native skill snapshot import (complete or selected set); no isolated Crew instance. Project route also needs enablement/trust. |
-| Kiro Crew | complete | project | blocked | Own native skill snapshot import (complete or selected set); no isolated Crew instance. Project route also needs enablement/trust. |
+| Kiro Crew | complete | project | blocked | All seven complete folders under the active project's .kiro/skills/; project enablement/trust, discovery/resource reads, control isolation and folder lifecycle unverified. |
 | Kiro Crew | individual | user | blocked | Own native skill snapshot import (complete or selected set); no isolated Crew instance. Project route also needs enablement/trust. |
-| Kiro Crew | individual | project | blocked | Own native skill snapshot import (complete or selected set); no isolated Crew instance. Project route also needs enablement/trust. |
+| Kiro Crew | individual | project | blocked | Selected complete folders with explicit dependency closure under the active project's .kiro/skills/; project enablement/trust, discovery/resource reads, control isolation and folder lifecycle unverified. |
 | Kiro CLI V3 | complete skill-set fallback | user | blocked | Shared-folder resource copying has separate historical evidence; native session not passed. |
 | Kiro CLI V3 | complete skill-set fallback | project | blocked | Shared-folder resource copying has separate historical evidence; native session not passed. |
 | Kiro IDE | complete skill-set fallback | project | blocked | Shared-folder resource copying has separate historical evidence; native session not passed. |

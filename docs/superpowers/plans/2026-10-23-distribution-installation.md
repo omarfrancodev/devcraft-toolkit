@@ -283,7 +283,7 @@ Inspect the staged paths and commit only Task 4's scenarios, records and updated
 
 **Interfaces:** Consume Tasks 8-9 and the unchanged package. Produce the same open PR updated with seven-client scope and precise validation limits.
 
-- [ ] **Step 1: Review the whole branch in one fresh context.** Supply the spec, plan, Review Focus, ledger rulings and review package. Grade findings by user effect; address material findings with relevant RED/GREEN checks and the suite, preserve declined judgments as rulings. Expected: no unresolved blocking findings.
+- [x] **Step 1: Review the whole branch in one fresh context.** Supply the spec, plan, Review Focus, ledger rulings and review package. Grade findings by user effect; address material findings with relevant RED/GREEN checks and the suite, preserve declined judgments as rulings. Expected: no unresolved blocking findings.
 - [ ] **Step 2: Finalize and publish the PR revision.** Mark only the implemented expansion steps complete; keep Task 4 Step 3 open. Verify validators, links and git diff --check after any administrative edits. Commit, push this branch and update PR #4 using its template. Verify remote HEAD/title/body and clean worktree. Preserve worktree; no merge, release or template creation.
 
 ## Acceptance traceability and self-review
