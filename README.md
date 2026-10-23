@@ -12,9 +12,9 @@ The [capability roadmap](docs/roadmap.md) links the self-contained designs and p
 
 ## Install the complete suite
 
-Install Devcraft Toolkit directly from GitHub through your client's native plugin manager. The complete suite includes all seven available skills; no manual clone or individual selection is needed.
+Install the complete toolkit directly from GitHub using your client's documented route. Native plugins/Powers deliver all seven skills; Crew imports the complete skill set. Kiro CLI without an IDE has an explicit full-set alternative. No user-managed clone is needed.
 
-Choose [Codex](docs/installation/codex.md), [Copilot in VS Code](docs/installation/copilot-vscode.md), [Claude Code](docs/installation/claude-code.md), or [Kiro IDE](docs/installation/kiro.md). The [installation overview](docs/installation.md) explains scope and the Kiro project fallback.
+Choose [Codex](docs/installation/codex.md), [Copilot CLI](docs/installation/copilot-cli.md), [Copilot in VS Code](docs/installation/copilot-vscode.md), [Claude Code](docs/installation/claude-code.md), [Kiro CLI V3](docs/installation/kiro-cli.md), [Kiro IDE](docs/installation/kiro.md), or [Kiro Crew](docs/installation/kiro-crew.md). The [installation overview](docs/installation.md) explains scope and the Kiro project fallback.
 
 Default-branch recipes apply after the package is integrated. Until then, the [remote preview sources](docs/installation/preview.md) identify existing sources containing the candidate. Native activation remains partially validated; no official catalog listing or new release is claimed.
 

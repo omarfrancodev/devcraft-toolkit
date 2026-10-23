@@ -20,6 +20,17 @@ claude plugin install devcraft-toolkit@devcraft-toolkit --scope user
 
 Claude Code 2.1.300 clones a branch/tag here; passing a commit SHA failed. This preview branch is mutable, not an immutable pin. Its resolved revision is recorded in the remote evaluation. After integration use the normal repository source. Use `--scope project` for the selected project instead. See [Claude scope and lifecycle](claude-code.md).
 
+## Copilot CLI
+
+Register the existing immutable package payload:
+
+```sh
+copilot plugin marketplace add omarfrancodev/devcraft-toolkit#b05a8c4367dc02e33ac9d19a8eb98e0bdb31c04e
+copilot plugin install devcraft-toolkit@devcraft-toolkit
+```
+
+For repository-declared installation, the GitHub source object in [the CLI guide](copilot-cli.md#user-and-repository-scope) also needs `"ref": "b05a8c4367dc02e33ac9d19a8eb98e0bdb31c04e"` before integration. Ref syntax and actual acceptance are client/version-specific; see [expanded evidence](../../tests/integration/distribution/evaluations/2026-10-23-client-expansion/clients.md).
+
 ## Copilot in VS Code
 
 Add `omarfrancodev/devcraft-toolkit#b05a8c4367dc02e33ac9d19a8eb98e0bdb31c04e` to `chat.plugins.marketplaces`, preserving existing entries, then install through the marketplace UI described in [the target guide](copilot-vscode.md). Its isolated native session remains unverified.
@@ -27,6 +38,14 @@ Add `omarfrancodev/devcraft-toolkit#b05a8c4367dc02e33ac9d19a8eb98e0bdb31c04e` to
 ## Kiro IDE
 
 The reviewed GitHub import UI does not establish pinned-ref syntax. Do not assume this source can be imported as a branch/tree URL. The default-source native Power recipe applies after integration; for pre-integration project use select the remote complete skill set below. IDE activation remains unverified.
+
+## Kiro CLI V3
+
+The [CLI guide](kiro-cli.md) can use a Power already imported by the IDE, but the IDE's pinned-ref import remains unverified. For CLI-only pre-integration use the complete explicit remote skill set below. Do not pass the GitHub tree URL to powers install and assume it is supported.
+
+## Kiro Crew
+
+In native Discover use `omarfrancodev/devcraft-toolkit@b05a8c4367dc02e33ac9d19a8eb98e0bdb31c04e` and import every available skill. For one skill append `:skills/natural-language-report-writer`. Crew documents branch/tag/commit syntax; actual imports and resource reads remain unverified in an isolated Crew session. This is a skill snapshot, not a pinned Power import or an existing release tag.
 
 ## Individual skills and project fallback
 

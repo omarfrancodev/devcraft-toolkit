@@ -258,18 +258,18 @@ Inspect the staged paths and commit only Task 4's scenarios, records and updated
 
 ### Task 8: Seven-client complete-suite guides
 
-**Files:** Modify README.md, docs/installation.md, docs/installation/{copilot-vscode,kiro,individual-skills,development,preview}.md. Create docs/installation/{copilot-cli,kiro-cli,kiro-crew}.md and tests/integration/distribution/scenarios/client-expansion.md.
+**Files:** Modify README.md, docs/installation.md, docs/installation/{copilot-vscode,kiro,individual-skills,development,preview}.md. Create docs/installation/{copilot-cli,kiro-cli,kiro-crew}.md and tests/integration/distribution/scenarios/client-expansion.md; initialize tests/integration/distribution/evaluations/2026-10-23-client-expansion/clients.md.
 
 **Interfaces:** Consume CLIENT-01 through CLIENT-06 and the unchanged seven-skill package. Produce concrete complete-suite, user/project, preview, discovery and lifecycle routes for seven clients. Crew imports a complete skill set into its own source store; no agent template or App is produced.
 
-- [ ] **Step 1: Record the baseline and source interfaces.** Observe the four-guide overview, IDE-only Kiro statement and VS Code settings wording. Inspect official source and installed client version/help; distinguish documentation from native verification. Expected: exact gaps recorded, no synthetic text-presence test.
-- [ ] **Step 2: Write client scenarios before revising guides.** CLIENT-COPILOT covers remote marketplace registration/install, seven-resource inventory, user/repository activation and VS Code crossover separately. CLIENT-KIRO covers V3 shared IDE Power, local/catalog help and CLI-only seven-folder fallback. CLIENT-CREW covers remote full import, source-specific resource paths, default versus restricted existing agents, explicit dependency closures, snapshot re-import and trusted project/control isolation. Missing clients/auth remain blocked.
-- [ ] **Step 3: Revise the guides and overview.** Add seven named links, CLI recipes and lifecycle, Crew dashboard full import and no-template decision. Preserve old kiro.md links, explicit ref availability, shared-root caveats and individual alternatives. Do not change skills, catalog or metadata.
-- [ ] **Step 4: Verify and commit.** Run both Python validators, a local Markdown file/anchor link check and git diff --check. Expected: exit 0, no broken links, same seven canonical resources. Commit explicit documentation/scenario paths.
+- [x] **Step 1: Record the baseline and source interfaces.** Observe the four-guide overview, IDE-only Kiro statement and VS Code settings wording. Inspect official source and installed client version/help; distinguish documentation from native verification. Expected: exact gaps recorded, no synthetic text-presence test.
+- [x] **Step 2: Write client scenarios before revising guides.** CLIENT-COPILOT covers remote marketplace registration/install, seven-resource inventory, user/repository activation and VS Code crossover separately. CLIENT-KIRO covers V3 shared IDE Power, local/catalog help and CLI-only seven-folder fallback. CLIENT-CREW covers remote full import, source-specific resource paths, default versus restricted existing agents, explicit dependency closures, snapshot re-import and trusted project/control isolation. Missing clients/auth remain blocked.
+- [x] **Step 3: Revise the guides and overview.** Add seven named links, CLI recipes and lifecycle, Crew dashboard full import and no-template decision. Preserve old kiro.md links, explicit ref availability, shared-root caveats and individual alternatives. Do not change skills, catalog or metadata.
+- [x] **Step 4: Verify and commit.** Run both Python validators, a local Markdown file/anchor link check and git diff --check. Expected: exit 0, no broken links, same seven canonical resources. Commit explicit documentation/scenario paths.
 
 ### Task 9: Client-specific probes and evidence
 
-**Files:** Create tests/integration/distribution/evaluations/2026-10-23-client-expansion/{clients.md,results.json,runner.mjs,run.sh,toolchain-lock.json} as actual available probes warrant; modify docs/compatibility.md, docs/architecture.md, docs/roadmap.md, CHANGELOG.md and this plan.
+**Files:** Modify tests/integration/distribution/evaluations/2026-10-23-client-expansion/clients.md; create sibling {results.json,runner.mjs,run.sh,toolchain-lock.json} as actual available probes warrant; modify docs/compatibility.md, docs/architecture.md, docs/roadmap.md, CHANGELOG.md and this plan.
 
 **Interfaces:** Consume Task 8's recipes and public immutable reference b05a8c4367dc02e33ac9d19a8eb98e0bdb31c04e. Produce distinct historical/expanded client matrices and sanitized observations. No existing native gate is closed by a file-only check.
 

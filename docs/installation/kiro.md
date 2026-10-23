@@ -13,6 +13,10 @@ Kiro's Agent Plugins format uses the root manifest and the canonical `skills/` t
 
 The reviewed import interface does not establish how to pin a Git ref. Before integration, do not assume a branch/tree URL works: the [preview source note](preview.md#kiro-ide) keeps this native check unverified.
 
+## CLI and Crew are separate clients
+
+[Kiro CLI V3](kiro-cli.md) documents pickup of IDE-installed Powers under the same user. Verify discovery/invocation in each session separately. [Kiro Crew](kiro-crew.md) uses its own complete skill import; inheritance of this Power into Crew is not established. No toolkit agent template is needed for the documented Crew default-agent route.
+
 ## Project use
 
 A project-only native Power installation is `not_supported` under the approved interface. For the complete suite's capabilities in one project, use the [complete project skill-set fallback](individual-skills.md#complete-skill-set-fallback), which copies all seven folders to `.kiro/skills/`. This is a separately labeled skill-set route, not native Power isolation.

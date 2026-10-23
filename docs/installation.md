@@ -1,6 +1,6 @@
 # Installation
 
-Install **Devcraft Toolkit as a complete native suite**. It contains all seven available skills and their required resources; you do not select individual folders or manage a local clone.
+Install **Devcraft Toolkit as a complete suite** using the route for your client. Native plugins/Powers include all seven available skills and resources. Crew imports the complete set through its own dashboard; CLI-only Kiro has a full-set alternative. These routes need no user-managed clone.
 
 The remote default-branch recipes below apply once the package metadata is integrated into that branch. While this change is under review, use the [remote preview sources](installation/preview.md) where supported. The published `v0.1.0-preview.1` is source-only and cannot serve as a native plugin source. Candidate metadata `0.1.0-preview.2` does not mean a release has been published.
 
@@ -11,11 +11,14 @@ Choose your installed client:
 | Client | Native remote route | Scope |
 | --- | --- | --- |
 | [Codex](installation/codex.md) | Register the GitHub marketplace and install the suite | User enablement or trusted-project enablement |
+| [Copilot CLI](installation/copilot-cli.md) | Register the GitHub marketplace and install the same suite | User install or repository declarative activation |
 | [Copilot in VS Code](installation/copilot-vscode.md) | Add the GitHub marketplace and install through the plugin UI | User/workspace enablement |
 | [Claude Code](installation/claude-code.md) | Register the GitHub marketplace and install the suite | Explicit user or project scope |
+| [Kiro CLI V3](installation/kiro-cli.md) | Pick up the IDE-installed Power; full remote skill set without IDE | Shared Power; separate user/project skill sets |
 | [Kiro IDE](installation/kiro.md) | Import the GitHub repository as a Power | User Power; separate project skill-set fallback |
+| [Kiro Crew](installation/kiro-crew.md) | Import all seven skills from GitHub with the native importer | Own user snapshots or trusted project skill set |
 
-You need the client, network access and Git where its remote installer requires it. The suite route does not require Node.js, the third-party Skills CLI, or a user-managed checkout. Each client manages its own download/cache. This repository is the marketplace source; no official catalog listing is claimed.
+You need the client, network access and Git where its remote installer requires it. Native plugin/Power routes and Crew's importer do not require the third-party Skills CLI or a user-managed checkout. CLI-only Kiro's complete-set fallback uses Node/npm and the pinned external Skills CLI. Each client manages its own download/cache. This repository is the marketplace/source; no official catalog listing is claimed. A complete imported/copied skill set has a different lifecycle from a native plugin or Power. No Crew template or App is delivered.
 
 Start/reload the client as directed, inspect its discovered skills and invoke `using-devcraft-toolkit` for a supported request. Installing the suite does not authorize Git writes or unrelated actions.
 

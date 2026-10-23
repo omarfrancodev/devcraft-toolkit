@@ -13,9 +13,13 @@ The editor downloads the complete suite; you do not clone the repository or sele
 
 ## User and workspace enablement
 
-Use the installed marketplace plugin's context menu or customization controls to choose global or workspace enablement. Physical storage, activation and recommendations are separate. Recommendations in `.github/copilot/settings.json` do not download the package for collaborators.
+Use the installed marketplace plugin's context menu or customization controls to choose global or workspace enablement. Physical storage, activation and recommendations are separate. Copilot CLI's `.github/copilot/settings.json` can declare acquisition and activation; it is not merely a VS Code recommendation. Keep those [CLI scope rules](copilot-cli.md#user-and-repository-scope) separate from the editor's enablement.
 
 A globally enabled installation can remain active elsewhere. Verify the selected workspace against a control workspace. Do not assume one client's discovery proves another harness hosted in VS Code works.
+
+## Reuse a Copilot CLI installation
+
+VS Code documents discovery of plugins installed by [Copilot CLI](copilot-cli.md) under the same user's Copilot store. Inspect Agent Plugins - Installed and actual Copilot skill discovery before adding another installation. Verify workspace enablement and a control workspace independently; CLI registration does not pass VS Code activation checks. Manage each installation from its owning interface.
 
 ## Update and remove
 

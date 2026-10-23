@@ -6,14 +6,16 @@ Use this route only when you want selected capabilities instead of the native su
 
 The default remote source applies after package integration. Before then, use the [pinned preview source](preview.md#individual-skills-and-project-fallback). CLI examples use Node.js >=22.20.0, npm and Skills CLI 1.7.4. Complete-folder manual copying is available in [development/reference](development.md#manual-complete-folder-copying).
 
+Crew uses its [native individual/full importer](kiro-crew.md), not an assumed external installer selector. Its default user store is `~/.kiro/crew/skills/`; active-project `.kiro/skills/` requires Crew's project-skill enablement and trust. Use exact imported paths and dependencies.
+
 Run from the selected project's root. This PowerShell example selects Codex; choose the documented selector for your client:
 
 | Client | Selector | Project folder | Manual user folder |
 | --- | --- | --- | --- |
 | Codex | `codex` | `.agents/skills/` | `~/.agents/skills/` |
-| Copilot in VS Code | `github-copilot` | `.agents/skills/` | `~/.copilot/skills/` |
+| Copilot CLI and VS Code | `github-copilot` | `.agents/skills/` | `~/.copilot/skills/` |
 | Claude Code | `claude-code` | `.claude/skills/` | `~/.claude/skills/` |
-| Kiro IDE | `kiro-cli` | `.kiro/skills/` | `~/.kiro/skills/` |
+| Kiro CLI V3 and IDE | `kiro-cli` | `.kiro/skills/` | `~/.kiro/skills/` |
 
 ```powershell
 $toolkitSource = 'https://github.com/omarfrancodev/devcraft-toolkit'
@@ -52,7 +54,7 @@ $toolkitSkills = @('using-devcraft-toolkit', 'git-working-directory-policy', 'gi
 npx --yes skills@1.7.4 add "$toolkitSource" --skill $toolkitSkills --agent "$toolkitAgent" --copy
 ```
 
-For Kiro set `$toolkitAgent = 'kiro-cli'` before this command; the project destination is `.kiro/skills/`. Add `--global` for a user skill set. This delivers folders, not a native plugin/Power registration.
+For Kiro CLI V3/IDE set `$toolkitAgent = 'kiro-cli'` before this command; the project destination is `.kiro/skills/`. Crew can use those project folders only after enabling/trusting the active project; this does not install into Crew's own user store. Add `--global` for a user skill set. This delivers folders, not a native plugin/Power registration.
 
 ## Discovery, collisions and lifecycle
 

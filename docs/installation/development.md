@@ -15,7 +15,10 @@ It must contain root `plugin.json`, both marketplace adapters and the complete `
 - Codex: `codex plugin marketplace add "$toolkitSource"`, then `codex plugin add devcraft-toolkit@devcraft-toolkit`. Follow the target guide's user/project enablement rules. Git marketplace upgrade rejects a local-directory source; update the selected source and restart/reload as directed, then verify resources.
 - Claude: `claude plugin marketplace add "$toolkitSource"`, then install the qualified plugin with explicit `--scope user` or `--scope project`. The observed client reads directly from the folder: updates report nothing to fetch and edits take effect at session start or `/reload-plugins`.
 - Copilot in VS Code: merge the selected absolute directory into experimental `chat.pluginLocations` with value `true`. Preserve other entries; `false` disables that registration. Generate a fragment with `@{ 'chat.pluginLocations' = @{ $toolkitSource = $true } } | ConvertTo-Json -Depth 3`.
+- Copilot CLI: `copilot plugin marketplace add "$toolkitSource"` then install the qualified suite. Use a disposable user/container; see [CLI scope and lifecycle](copilot-cli.md).
 - Kiro IDE: Powers > Add Custom Power > Import power from a folder; choose the package root. Do not infer project-only isolation.
+- Kiro CLI V3: `kiro-cli powers install "$toolkitSource"` accepts a local Power directory in the inspected interface; verify actual V3 discovery separately. This local route does not establish arbitrary GitHub URL support.
+- Kiro Crew: copy complete chosen folders into an owned Crew store or selected trusted project, then inspect existing-agent discovery. A local Power directory is not a Crew import. See [Crew source/scope rules](kiro-crew.md).
 
 For local selective testing, the optional Skills CLI accepts the same `$toolkitSource` with the [explicit selections and target/scope](individual-skills.md). Local-source observations do not prove remote acquisition.
 
