@@ -1,102 +1,36 @@
 # Claude Code installation
 
-This guide targets the unreleased development checkout with native package metadata. Select a checkout that contains `plugin.json`; `v0.1.0-preview.1` does not. Run standalone commands from your chosen project's root. For native registration, the source variable still identifies the toolkit checkout.
+## Install the complete remote suite
 
-```powershell
-$toolkitSource = (Resolve-Path -LiteralPath (Read-Host 'Path to the Devcraft Toolkit checkout')).Path
-$toolkitSkills = @('using-devcraft-toolkit', 'git-working-directory-policy', 'git-safety-check', 'conventional-commits-style', 'todo-workflow-controller', 'natural-language-report-writer', 'validation-discovery')
-```
+The default-source recipe applies [after integration](../installation.md); use the [pinned preview](preview.md#claude-code) before then. Register this repository from your shell:
 
-CLI recipes use Node.js >=22.20.0, npm and pinned Skills CLI 1.7.4. In a non-PowerShell shell use the equivalent source path and argument list. Manual copying requires neither Node nor npm. Read the [selection/dependency table](../installation.md#individual-skill-dependencies) before selecting an entry or preflight skill.
-
-## Native suite
-
-Claude Code 2.1.300 accepts the compatibility manifest and marketplace. Register the selected local checkout first:
-
-```powershell
-claude plugin marketplace add "$toolkitSource"
-```
-
-Choose exactly one installation scope:
-
-```powershell
+```sh
+claude plugin marketplace add omarfrancodev/devcraft-toolkit
 claude plugin install devcraft-toolkit@devcraft-toolkit --scope user
 ```
 
-```powershell
+This installs all seven skills and bundled resources without a manual clone or the third-party Skills CLI. Marketplace registration is normally a one-time step. Review the marketplace trust prompt when using the interactive plugin UI.
+
+## Project scope
+
+To install for a selected project, run from that project's root and use project scope instead of user scope:
+
+```sh
 claude plugin install devcraft-toolkit@devcraft-toolkit --scope project
 ```
 
-Project scope records enablement in `.claude/settings.json`; it is not a substitute for each collaborator downloading the plugin. User scope applies across local projects. Local-only project scope also exists but is outside the two primary recipes here. Inspect `claude plugin list` and start/reload a session as directed by the installed client before testing commands.
+Project enablement is recorded in `.claude/settings.json`; collaborators still download the plugin on their own machines. User and project scope may share managed cache storage. Preserve unrelated settings and compare `claude plugin list` in this project and a control project.
 
-For metadata-only checks, use `claude plugin validate .claude-plugin/plugin.json --json` and `claude plugin validate .claude-plugin/marketplace.json --json` from the source checkout. Acceptance is not native skill activation.
+Start a new session or use the client's normal `/reload-plugins` flow. Inspect the skills actually discovered under the plugin, then invoke the entry using the identifier shown by the client. Claude Code 2.1.300 accepted the package and enumerated its seven components; authenticated invocation and resource reads remain [unverified](../compatibility.md).
 
-A local-directory install was observed to read directly from its source folder. Its update command reported nothing to update; edits take effect at the next session start or `/reload-plugins`. Keep that source folder available. For Git marketplaces refresh metadata through the client's marketplace update command/UI. Update the installed plugin through `claude plugin update devcraft-toolkit@devcraft-toolkit --scope user` or `--scope project` after verifying current help. Remove with `claude plugin uninstall devcraft-toolkit@devcraft-toolkit --scope user` or the matching project scope. Never remove a different scope just to make a control project appear clean.
+## Update and remove
 
+Refresh the Git marketplace with `claude plugin marketplace update devcraft-toolkit`; request an installed update with `claude plugin update devcraft-toolkit@devcraft-toolkit --scope user` (or `--scope project`). Check the actual version/resources and reload instructions. A pinned source does not automatically advance to another revision.
 
-## Selected skills: project and user scope
+Remove only the chosen scope with `claude plugin uninstall devcraft-toolkit@devcraft-toolkit --scope user`, or the matching project scope. Preserve the other scope and unrelated plugins.
 
-Inspect existing selected directories before confirming any installation. The leading npm `--yes` only obtains the CLI; Skills remains interactive. Use `--copy` so updates are explicit and Windows symlink privileges are not required.
+## Optional routes
 
-One independent skill in the selected project:
+[Individual skills](individual-skills.md) use selector `claude-code`. [Local development](development.md) is separate: local-folder updates do not use the Git marketplace refresh path.
 
-```powershell
-npx --yes skills@1.7.4 add "$toolkitSource" --skill natural-language-report-writer --agent claude-code --copy
-```
-
-The same skill for your user account:
-
-```powershell
-npx --yes skills@1.7.4 add "$toolkitSource" --skill natural-language-report-writer --agent claude-code --copy --global
-```
-
-The complete available skill set in this project:
-
-```powershell
-npx --yes skills@1.7.4 add "$toolkitSource" --skill $toolkitSkills --agent claude-code --copy
-```
-
-The same set for your user account:
-
-```powershell
-npx --yes skills@1.7.4 add "$toolkitSource" --skill $toolkitSkills --agent claude-code --copy --global
-```
-
-For the entry alone select `using-devcraft-toolkit git-working-directory-policy git-safety-check` explicitly; for preflight select `git-safety-check git-working-directory-policy`. The installer does not resolve these custom dependencies.
-
-## Manual copying and destinations
-
-| Scope | Complete-folder destination |
-| --- | --- |
-| Project | `.claude/skills/<skill-name>/` under the selected project |
-| User/global | `~/.claude/skills/<skill-name>/` |
-
-Copy each selected `skills/<skill-name>/` folder, including all local `references/` and `assets/`. Inspect every destination before copying, stop on collisions, and obtain replacement authorization before changing existing content. Preserve unrelated directories.
-
-Shared roots can be discovered by another client. Selecting `--agent claude-code` does not guarantee exclusive visibility. Check the actual target directory, the CLI's canonical store if present, and its project/user lock files.
-
-## Verify discovery and scope
-
-Inspect / and the installed plugin list. Standalone skills use their discovered canonical identifiers; plugin skills normally appear as /devcraft-toolkit:<skill>. Route using actual ownership metadata, and do not replace another installation merely because its suffix matches.
-
-Test project scope against a second unrelated project and test user scope across both. Inspect resource reads and the invoked installation's identity, not just the existence of folders. Existing personal and project copies may have different precedence in different clients; ask for an installation choice if ownership is ambiguous. Installation grants no extra workflow permissions.
-
-## Standalone update and removal
-
-For a local source, explicitly re-run the selected install command after inspecting changes and authorizing replacement. Verify that copied resources changed and unrelated files did not. Do not assume copied skills track source edits.
-
-For remote tracked sources, inspect `npx --yes skills@1.7.4 update --help` and the recorded lock/source before updating. Automatic remote updating was not substituted for local-source replacement in the filesystem evaluation.
-
-Remove only the named project installation:
-
-```powershell
-npx --yes skills@1.7.4 remove natural-language-report-writer --agent claude-code
-```
-
-For the user installation, add `--global`. The remove operation may also affect its canonical store and lock entry; inspect those observed effects, preserve unrelated skills, and do not manually delete internal caches.
-
-## Validation status
-
-See [filesystem evidence](../../tests/integration/distribution/evaluations/2026-10-23-installation/filesystem.md) and [compatibility limits](../compatibility.md). CLI and manual-copy results establish file placement/resources only. Native discovery, activation, control-project visibility, and native lifecycle results require a real isolated Claude Code session; a blocked or unrun case remains explicit.
-
-[Per-scope native results and remaining gates](../../tests/integration/distribution/evaluations/2026-10-23-installation/native.md) distinguish registry observations from authenticated activation.
+See the [official installation and scope reference](https://code.claude.com/docs/en/discover-plugins).

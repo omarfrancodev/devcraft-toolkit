@@ -10,27 +10,15 @@ The [catalog](catalog.json) records all seventeen target capabilities and marks 
 
 The [capability roadmap](docs/roadmap.md) links the self-contained designs and plans for upcoming increments.
 
-## Install from this checkout
+## Install the complete suite
 
-The unreleased candidate includes native plugin metadata and the same seven independently selectable skill folders. Native installation and selective installation both support documented user/project routes; native activation remains subject to the evidence matrix.
+Install Devcraft Toolkit directly from GitHub through your client's native plugin manager. The complete suite includes all seven available skills; no manual clone or individual selection is needed.
 
-Choose a target: [Codex](docs/installation/codex.md), [Copilot in VS Code](docs/installation/copilot-vscode.md), [Claude Code](docs/installation/claude-code.md), or [Kiro IDE](docs/installation/kiro.md). The [installation overview](docs/installation.md) explains dependency selections, complete-folder copying, collisions and updates.
+Choose [Codex](docs/installation/codex.md), [Copilot in VS Code](docs/installation/copilot-vscode.md), [Claude Code](docs/installation/claude-code.md), or [Kiro IDE](docs/installation/kiro.md). The [installation overview](docs/installation.md) explains scope and the Kiro project fallback.
 
-For Claude Code, after choosing a local checkout containing the new manifests:
+Default-branch recipes apply after the package is integrated. Until then, the [pinned remote preview](docs/installation/preview.md) identifies an existing source containing the candidate. Native activation remains partially validated; no official catalog listing or new release is claimed.
 
-```powershell
-$toolkitSource = (Resolve-Path -LiteralPath (Read-Host 'Path to the Devcraft Toolkit checkout')).Path
-claude plugin marketplace add "$toolkitSource"
-claude plugin install devcraft-toolkit@devcraft-toolkit --scope user
-```
-
-For one independent skill in a project, with Node.js >=22.20.0 and npm:
-
-```powershell
-npx --yes skills@1.7.4 add "$toolkitSource" --skill natural-language-report-writer --agent claude-code --copy
-```
-
-Inspect existing destinations before confirming. This example does not install the entry or resolve dependencies automatically. Follow the target guide for global scope or the full selection.
+Need selected capabilities instead? Use [individual skill installation](docs/installation/individual-skills.md). Package contributors and manual-copy users can use [local development/reference](docs/installation/development.md).
 
 ## Preview release
 
