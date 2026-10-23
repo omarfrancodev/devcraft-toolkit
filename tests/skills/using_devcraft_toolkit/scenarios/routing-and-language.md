@@ -52,6 +52,35 @@ cases:
       - "Report the missing capability honestly without emulation, automatic installation or an invented completed result."
 ```
 
+## validation-discovery composition cases
+
+Canonical composed capability: `validation-discovery`.
+
+The direct and installed-route variants use the first standalone discovery packet: “Discover validation commands; do not run them.” Supplied evidence: `package.json` contains `scripts.check = "python check.py pass"`. The absent variant has the same request and evidence, with the capability installation state changed as specified below. This packet is read-only; no project command may run.
+
+```yaml
+cases:
+  - id: VALIDATION-ENTRY-01
+    name: direct_call
+    request: "Invoke validation-discovery directly with its first owned scenario."
+    facts: "The new standalone capability is installed; no repository root is supplied to the installed skill."
+    assertions:
+      - "The owned behavior is preserved; no development catalog or root docs are required at runtime."
+  - id: VALIDATION-ENTRY-02
+    name: optional_entry_route
+    request: "Use Devcraft Toolkit for the project validation discovery request in the first owned scenario."
+    facts: "The entry, its foundation dependencies and validation-discovery are actually installed."
+    assertions:
+      - "Route the requested operation to validation-discovery without running an unrelated Git preflight or another coordinator."
+      - "Language and permission boundaries remain those of the owned scenario."
+  - id: VALIDATION-ENTRY-03
+    name: optional_skill_absent
+    request: "Use Devcraft Toolkit for the same project validation discovery request."
+    facts: "The entry and foundation group are installed, but validation-discovery is not."
+    assertions:
+      - "Report the missing capability honestly without emulation, automatic installation or an invented completed result."
+```
+
 ## todo-workflow-controller composition cases
 
 Canonical composed capability: `todo-workflow-controller`.

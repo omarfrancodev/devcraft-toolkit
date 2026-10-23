@@ -2,7 +2,7 @@
 
 ## Current foundation
 
-The distribution provides repository context, read-only Git preflight, a composition entry, standalone Conventional Commit message formatting, portable progress tracking, and evidence-based report writing. The catalog records seventeen target capabilities, with six available and eleven planned. All three optional capabilities can be installed alone or alongside the entry; none adds a hard skill dependency. The entry routes commit-message, progress-control, and natural-language-reporting requests to the matching optional skill when installed, and reports unavailable capabilities honestly when absent.
+The distribution provides repository context, read-only Git preflight, a composition entry, standalone Conventional Commit message formatting, portable progress tracking, evidence-based report writing, and project validation discovery. The catalog records seventeen target capabilities, with seven available and ten planned. Optional capabilities can be installed alone or alongside the entry; none adds a hard skill dependency. The entry routes commit-message, progress-control, natural-language-reporting, and project-validation requests to the matching optional skill when installed, and reports unavailable capabilities honestly when absent.
 
 ## Shared capabilities
 

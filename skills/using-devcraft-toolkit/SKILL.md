@@ -1,6 +1,6 @@
 ---
 name: using-devcraft-toolkit
-description: Route repository, Git, and shared workflow requests to installed Devcraft Toolkit skills and compose their results in the user's language.
+description: Route repository, Git, project validation, and shared workflow requests to installed Devcraft Toolkit skills and compose their results in the user's language.
 ---
 
 # Using Devcraft Toolkit
@@ -19,6 +19,7 @@ Determine the requested scope and the capabilities actually installed in the cur
 - Portable progress tracking, required gates, blockers, decisions, or handoffs: use `todo-workflow-controller` when installed. It tracks the workflow but does not execute its steps or grant permission for side effects. If the skill is absent, report that capability as unavailable; do not imitate it or install it automatically. A workflow step named `publish` does not itself request Git publication, so do not run a Git preflight or publication workflow solely because that step appears in the task.
 - Repository location, worktree, branch, or identity context: use `git-working-directory-policy` when installed.
 - Read-only Git safety preflight for a request to inspect repository safety or assess readiness for a Git operation: use `git-safety-check` when installed, with its declared `git-working-directory-policy` dependency. A request to draft or review commit-message text alone does not request this preflight.
+- Project validation discovery or explicitly requested local checks: use `validation-discovery` when installed. Let that skill select and assess commands from project evidence; do not impose a fixed command-name allowlist or run a Git preflight solely to discover checks. Its default discovery mode does not execute commands. If it is absent, report that capability as unavailable; do not emulate it or install it automatically.
 - Commit creation and coordination, publication coordination, and activity reporting: these capabilities are planned and not available in this foundation distribution. State that clearly. Do not silently emulate the missing capability, route to an unrelated skill, claim completion, or modify another installation. Conventional Commit formatting does not create a commit.
 - Any request outside toolkit scope: handle it without loading this entry.
 

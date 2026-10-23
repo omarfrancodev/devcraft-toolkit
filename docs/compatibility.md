@@ -17,6 +17,8 @@ The available skills use Markdown instructions, YAML frontmatter, relative resou
 - The automated suite discovered 57 tests and passed with one environmental skip. The Windows symlink escape fixture was skipped because the OS denied the required symlink privilege. The validator includes containment checks, but that symlink case was not dynamically exercised here.
 - Read-only context/preflight queries preserved refs, HEAD, index bytes, Git metadata outside the object database, and working-file contents and modes in the fixture suites.
 
+- Project validation composition: direct use, optional entry routing and absent-installation cases were evaluated. Baseline entry evaluation found no explicit route and one absent-skill response falsely described a route as existing; the entry now routes to the standalone capability only when installed and reports it unavailable when absent. Fresh contexts manually followed the entry and standalone instructions; native skill activation was unavailable.
+
 ## Limits
 
 The skill behavior evaluations are manual instruction-following assessments in fresh agent contexts, not native skill-loader tests. Isolated package installation could not be confirmed because PyPI DNS/network access was unavailable. The submodule scenario, isolated missing-Git executable, external standalone installation, native skill loading, other harnesses, and mid-run progress-tracker failure were not dynamically exercised. No other harness or plugin installation has been validated. Structural tests prove repository checks and fixture state, not language quality or instruction following.

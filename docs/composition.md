@@ -16,6 +16,8 @@ Message formatting returns a proposal from supplied facts and conventions. It ne
 
 `natural-language-report-writer` is a standalone capability for turning supplied facts into activity reports, progress updates, or summaries. The entry routes matching requests to it when installed and reports it unavailable when absent. Direct use needs no repository context; local output still requires a user-selected destination.
 
+`validation-discovery` has no skill dependencies. Install it alone for project-check discovery and explicitly requested local validation, or alongside the entry for optional routing. When installed, the entry routes matching requests to it; its own evidence-based rules decide which commands apply, without an entry-side naming allowlist or unrelated Git preflight. Discovery does not execute commands. When absent, the entry reports the capability unavailable without imitation or automatic installation.
+
 ## Data flow and boundaries
 
 `git-working-directory-policy` discovers and reports context for the user-selected repository. `git-safety-check` refreshes volatile Git state and evaluates only the requested read-only intent. The entry composes those results without repeating stable discovery, while refreshing branch, HEAD, index, conflict, identity, and working-tree facts when they could have changed.
