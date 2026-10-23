@@ -8,13 +8,19 @@ The distribution provides repository context, read-only Git preflight, a composi
 
 The shared-capability sequence delivered progress control, evidence-based natural-language reporting, and project validation discovery. Each capability has an independent contract and tests grouped by its canonical skill owner. Conventional Commit formatting is available and is not a runtime dependency of the other shared capabilities.
 
+## Installation and distribution
+
+The next increment defines one shared native package and selective skill installation for Codex, Copilot in VS Code, Claude Code, and Kiro IDE, covering user/global and project/workspace scope. See the [installation design](superpowers/specs/2026-10-23-distribution-installation-design.md) and [implementation plan](superpowers/plans/2026-10-23-distribution-installation.md). These documents do not make native packaging or harness compatibility available before implementation and validation.
+
+Project-scoped native plugin activation is distinct from project-local installation storage. Kiro's project suite fallback uses workspace skills; no isolated project Power installation is claimed. Target-specific discovery and actual validation status must remain explicit.
+
 ## Git coordinators
 
 Git commit construction, Git-history activity reporting, and publication are separate increments. Their designs must define inputs, evidence, state changes, authorization boundaries, and acceptance criteria before implementation. Planned capabilities have no discoverable skill placeholders and are not emulated by the entry.
 
 ## Deferred capabilities
 
-CCR and Jira integration, plugin packaging, automated installation, CI distribution, and release automation are outside the current scope. A later design must establish the applicable interfaces and checks before introducing any of them. No license is selected by this increment.
+CCR integration, a custom automatic installer, CI distribution, release automation, and public directory submission remain deferred. Native package metadata and selective installation are covered by the installation design above, not implemented by this documentation increment. No license is selected by this increment.
 
 ## Shared-capability designs
 

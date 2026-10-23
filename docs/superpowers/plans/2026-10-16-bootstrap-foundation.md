@@ -35,7 +35,7 @@
 - Milestone 1 performs no product Git writes, network operations or credential changes through its skills.
 - Development tooling uses Python 3.11+ with PyYAML>=6.0,<7.0; unittest is the test runner.
 - Git is required for Git-specific skills and integration fixtures, not for merely reading their instructions.
-- Jira and CCR integration are outside the current scope; CCR has no catalog entry, dependency, routing hook, test folder or migration task in this project.
+- CCR integration is outside the current scope; CCR has no catalog entry, dependency, routing hook, test folder or migration task in this project.
 - Full coordinators, installable plugin manifests and release automation are deferred.
 
 ## Review Focus
@@ -172,7 +172,7 @@ Stage exact owned files only. Before any commit inspect the repository-local ide
 python -m unittest discover -s tests -p "test_*.py" -v
 python scripts/validate_repository.py --root .
 ~~~
-- [ ] **Step 2: Document selective installation and planned scope.** CCR is outside the active inventory and delivery scope. It has no catalog entry, routing hook, dependency or test subtree. No license choice, empty future SKILL.md files, GitHub/GitLab/Jira credentials or generated vendor manifests enter this milestone.
+- [ ] **Step 2: Document selective installation and planned scope.** CCR is outside the active inventory and delivery scope. It has no catalog entry, routing hook, dependency or test subtree. No license choice, empty future SKILL.md files, Git hosting credentials or generated vendor manifests enter this milestone.
 - [ ] **Step 3: Run acceptance from a clean environment and confirm discovery actually finds the nested test suites.** Root, repository, skills, each Python skill package, its integration package and shared support __init__.py files make discovery/imports explicit on Python 3.11. Hyphens in canonical skill names map to underscores in test package names. Zero discovered tests is not a passing suite.
 - [ ] **Step 4: Run repository validation, inspect git diff --check and review all retained behavioral results/limitations.** Confirm seventeen catalog entries, only three actual skills, all tests outside skill folders and assigned by skill/scope or explicitly shared ownership, and no false full-suite or cross-harness claims.
 - [ ] **Step 5: Request final branch review under the chosen execution method, resolve material issues and commit the exact documentation files.** Suggested subject docs: document the verified toolkit foundation. Publish a branch or create a PR only when authorized; never merge or release as an implied documentation step.
@@ -187,7 +187,7 @@ python scripts/validate_repository.py --root .
 | Intent-sensitive preflight and unchanged repository state | 4 |
 | Language precedence, honest routing, missing optional tools | 4, 5 |
 | Actual compatibility evidence and selective installation | 3, 5, 6 |
-| Excluded CCR/Jira; deferred plugin packaging and releases | 1, 5, 6 |
+| Excluded CCR; deferred plugin packaging and releases | 1, 5, 6 |
 
 Self-review: all tasks have named files, inputs/outputs and observable checks. Test helpers remain test-only. Automated validator/fixture tests are separated from behavioral evaluation. All seventeen active names are fixed by the spec and exclude CCR; no task implements a deferred coordinator. Skill tests and evidence have explicit owners, with shared helpers and cross-skill coverage kept separate. No step in this planning request has executed product code, installed dependencies or claimed tests passing.
 

@@ -2,6 +2,20 @@
 
 Release dates use the GitHub publication date in America/Mexico_City. Pre-releases are experimental snapshots; interfaces and behavior may change before a stable release.
 
+## unreleased
+
+### Added
+
+#### Distribution and documentation
+
+- Define native suite and selective skill installation for Codex, Copilot in VS Code, Claude Code, and Kiro IDE, with user/project scope, dependency closures, client-specific limitations, and separate structural and native acceptance checks.
+
+### Changed
+
+#### Distribution and documentation
+
+- Narrow the documented integration scope and retain CCR as a deferred capability.
+
 ## 0.1.0-preview.1 — 2026-10-23
 
 ### Added
