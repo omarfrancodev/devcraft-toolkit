@@ -2,11 +2,11 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Make the complete remote native suite the main installation path; retain individual skills as an alternative and local installation as development/reference documentation across four initial harnesses.
+**Goal:** Make the complete remote native suite the main installation path; retain individual skills as an alternative and local installation as development/reference documentation across seven local clients.
 
 **Architecture:** Keep the existing skill tree canonical. Add portable and Claude metadata plus two marketplace adapters; validate the adapters offline and test real installations separately. Use established native clients and the optional pinned Skills CLI rather than building an installer.
 
-**Tech Stack:** Markdown, JSON, Python 3.11+, existing PyYAML>=6.0,<7.0 development dependency, unittest, and the actual Codex, VS Code/Copilot, Claude Code, Kiro IDE and optional Node.js/npm Skills CLI versions recorded during execution.
+**Tech Stack:** Markdown, JSON, Python 3.11+, existing PyYAML>=6.0,<7.0 development dependency, unittest, and the actual Codex, Copilot CLI, VS Code/Copilot, Claude Code, Kiro CLI V3, Kiro IDE, Crew and optional Node.js/npm Skills CLI versions recorded during execution.
 
 **Spec:** [Suite and selective skill installation design](../specs/2026-10-23-distribution-installation-design.md).
 
@@ -19,10 +19,10 @@
 - All maintained instructions, examples, default templates, and documentation use English; invoked output follows the user's resolved language.
 - Tests, fixtures, scenarios, and retained evaluations stay under root `tests/`, grouped by owning skill or shared integration scope.
 - No custom runtime installer, automatic dependency resolution, MCP server, hooks, new skills, CCR integration, license, release automation, or publication.
-- Kiro means IDE; CLI V3 results are optional separate evidence. A project-only Power install is `not_supported` unless a documented, reviewed interface establishes it; the project skill-set fallback is a separate delivery mode.
+- Kiro CLI V3, Kiro IDE and Crew are separate clients with separate evidence; Crew gets full native skill import, no new template or App. A project-only Power install is `not_supported` unless a documented, reviewed interface establishes it; the project skill-set fallback is a separate delivery mode.
 - Real user/global installations require a safely isolated client environment. Mock loaders, metadata checks, folder copies, or manual instruction following do not establish native compatibility.
 - Remote checks use existing public revision b05a8c4367dc02e33ac9d19a8eb98e0bdb31c04e; default-source recipes apply after integration. No fabricated release ref or official listing.
-- README/target quickstarts require no user-managed clone or Skills CLI; separate optional skills and developer routes.
+- README/target quickstarts require no user-managed clone; native plugins need no Skills CLI. Label Kiro CLI-only full-set fallback and Crew snapshot import explicitly.
 - Before Git writes inspect repository-local identity. Stage only the current task's explicit files.
 
 ## Review Focus
@@ -31,7 +31,7 @@
 2. Client ref semantics differ: Codex's fixed SHA, Claude's mutable preview branch and unverified Kiro ref import must not be advertised as one universal immutable pin.
 3. Project-only setup must not inherit unwanted user enablement; a control project and the Kiro project skill-set exception remain explicit even in short quickstarts.
 4. The native suite must contain all seven resources without manual selection, while the optional route preserves explicit dependency closures and does not promise automatic resolution or exclusive discovery.
-5. Missing authentication/IDE sessions and file-only evidence must remain limited/blocked; neither remote acquisition nor the reorganized documentation establishes full compatibility.
+5. Missing authentication/IDE/Crew sessions and file-only evidence must remain limited/blocked. Crew must use its own source store and existing-agent mappings; no template or Power inheritance can be assumed.
 
 ## Prerequisites and file responsibilities
 
@@ -256,6 +256,36 @@ Inspect the staged paths and commit only Task 4's scenarios, records and updated
 - [x] **Step 2: Run final checks.** Run python -B -m unittest discover -s tests -p "test_*.py" -v; both validators; local link checks; git diff --check. Expected: all applicable tests pass with environmental skips explicit.
 - [x] **Step 3: Review and update.** Perform the required one fresh-context branch review, address material findings with relevant verification, commit explicit files, push the existing branch and update PR #4. Preserve the worktree and publish no release or merge.
 
+### Task 8: Seven-client complete-suite guides
+
+**Files:** Modify README.md, docs/installation.md, docs/installation/{copilot-vscode,kiro,individual-skills,development,preview}.md. Create docs/installation/{copilot-cli,kiro-cli,kiro-crew}.md and tests/integration/distribution/scenarios/client-expansion.md.
+
+**Interfaces:** Consume CLIENT-01 through CLIENT-06 and the unchanged seven-skill package. Produce concrete complete-suite, user/project, preview, discovery and lifecycle routes for seven clients. Crew imports a complete skill set into its own source store; no agent template or App is produced.
+
+- [ ] **Step 1: Record the baseline and source interfaces.** Observe the four-guide overview, IDE-only Kiro statement and VS Code settings wording. Inspect official source and installed client version/help; distinguish documentation from native verification. Expected: exact gaps recorded, no synthetic text-presence test.
+- [ ] **Step 2: Write client scenarios before revising guides.** CLIENT-COPILOT covers remote marketplace registration/install, seven-resource inventory, user/repository activation and VS Code crossover separately. CLIENT-KIRO covers V3 shared IDE Power, local/catalog help and CLI-only seven-folder fallback. CLIENT-CREW covers remote full import, source-specific resource paths, default versus restricted existing agents, explicit dependency closures, snapshot re-import and trusted project/control isolation. Missing clients/auth remain blocked.
+- [ ] **Step 3: Revise the guides and overview.** Add seven named links, CLI recipes and lifecycle, Crew dashboard full import and no-template decision. Preserve old kiro.md links, explicit ref availability, shared-root caveats and individual alternatives. Do not change skills, catalog or metadata.
+- [ ] **Step 4: Verify and commit.** Run both Python validators, a local Markdown file/anchor link check and git diff --check. Expected: exit 0, no broken links, same seven canonical resources. Commit explicit documentation/scenario paths.
+
+### Task 9: Client-specific probes and evidence
+
+**Files:** Create tests/integration/distribution/evaluations/2026-10-23-client-expansion/{clients.md,results.json,runner.mjs,run.sh,toolchain-lock.json} as actual available probes warrant; modify docs/compatibility.md, docs/architecture.md, docs/roadmap.md, CHANGELOG.md and this plan.
+
+**Interfaces:** Consume Task 8's recipes and public immutable reference b05a8c4367dc02e33ac9d19a8eb98e0bdb31c04e. Produce distinct historical/expanded client matrices and sanitized observations. No existing native gate is closed by a file-only check.
+
+- [ ] **Step 1: Probe remote Copilot in an owned container.** Pin its package after inspecting the installed 1.0.91 help/version and acquire tools only in the disposable container. Fetch the public reference, register/install/list through actual CLI, compare all seven skill resources, then exercise selected native lifecycle operations with unrelated sentinels. Preserve failed attempts or blockers. Do not use host credentials or run a model. Expected: observed supported commands exit 0 or retain an exact blocker.
+- [ ] **Step 2: Record each client separately.** Retain client versions, source refs, commands and scope limitations. Kiro CLI 2.28.0 help is interface evidence only; no IDE/CLI activation or Crew installation is fabricated. Add selected/control scenarios and truthful per-delivery status rows. Expected: documentation-only supported routes remain not_run/blocked rather than passed.
+- [ ] **Step 3: Reconcile and verify.** Update compatibility, architecture, roadmap and unreleased changelog. Run python -B -m unittest discover -s tests -p "test_*.py" -v; both validators, links and git diff --check. Expected: all applicable tests pass with environmental skips explicit; skills/catalog/manifests unchanged from Task 8 base. Commit explicit evidence/docs.
+
+### Task 10: Review and update the existing PR
+
+**Files:** This plan's execution status, retained final review under the client-expansion evidence directory, PR #4 title/body.
+
+**Interfaces:** Consume Tasks 8-9 and the unchanged package. Produce the same open PR updated with seven-client scope and precise validation limits.
+
+- [ ] **Step 1: Review the whole branch in one fresh context.** Supply the spec, plan, Review Focus, ledger rulings and review package. Grade findings by user effect; address material findings with relevant RED/GREEN checks and the suite, preserve declined judgments as rulings. Expected: no unresolved blocking findings.
+- [ ] **Step 2: Finalize and publish the PR revision.** Mark only the implemented expansion steps complete; keep Task 4 Step 3 open. Verify validators, links and git diff --check after any administrative edits. Commit, push this branch and update PR #4 using its template. Verify remote HEAD/title/body and clean worktree. Preserve worktree; no merge, release or template creation.
+
 ## Acceptance traceability and self-review
 
 | Spec criterion | Owning task |
@@ -271,9 +301,14 @@ Inspect the staged paths and commit only Task 4's scenarios, records and updated
 
 Self-review: all declared production signatures have an owning task; later tasks consume those interfaces without renaming them. Each Review Focus item has explicit assertions in its owning task. Real installation and native activation remain separate from unit tests; missing environments cannot manufacture compatibility. The plan contains no duplicated skill implementation or custom installer body.
 
+Client-expansion coverage: CLIENT-01 through CLIENT-04 belong to Task 8; CLIENT-05 belongs to Tasks 8-10; CLIENT-06 applies to all three. Spec and plan self-review found no new runtime interface or duplicated skill implementation.
+
 Remote-first coverage: REMOTE-01/02/05 belong to Task 5; REMOTE-03/04 belong to Tasks 6-7. Existing Tasks 1-4 remain historical implementation/evidence and must not be re-executed merely because onboarding changes.
 
 ## Execution status
+
+Seven-client expansion: Tasks 8-10 implement CLIENT-01 through CLIENT-06 in order. User approved Proposal A and implementation together; the no-template Crew route uses native complete skill import, without claiming Power inheritance. Earlier completed tasks are historical and are not repeated.
+
 
 Tasks 1-3 are implemented and verified. Tasks 5-7 delivered the approved remote-first guides, real remote acquisition/resource evidence, reconciled documentation and the updated existing PR. Independent whole-branch review found no blocking or minor findings; see the retained review record. Task 4 delivers scenarios, limited native observations and compatibility documentation. Its Step 3 remains incomplete/blocked for authenticated invocation, full scope/lifecycle checks and IDE sessions; see the [native matrix](../../../tests/integration/distribution/evaluations/2026-10-23-installation/native.md). This is partial validation, not a successful four-client compatibility claim.
 
