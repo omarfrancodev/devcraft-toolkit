@@ -93,3 +93,7 @@ A fresh builder check precedes the plan; implement staging completely before the
 - [Git apply](https://git-scm.com/docs/git-apply): cached/check/reverse patch behavior.
 - [Git commit](https://git-scm.com/docs/git-commit): index-based commits and message input.
 - [Git hooks](https://git-scm.com/docs/githooks): hook execution and failure effects.
+
+## Release integration amendment — 2026-10-24
+
+The implementation record above retains its original development-candidate scope. After the approving review of `38d376648fdbb067721f12eea5ced1eb835825d2`, publication of `v0.1.0-preview.4` is authorized through PR #6. Changelog and consumer release preparation are included in that PR before merging. The release tag and verified ZIP/checksum assets must use its exact merge commit; no subsequent source-preparation commit is required. Native activation gates remain open, and this amendment adds no runtime behavior or release automation.

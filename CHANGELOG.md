@@ -4,6 +4,10 @@ Release dates use the GitHub publication date in America/Mexico_City. Pre-releas
 
 ## unreleased
 
+## 0.1.0-preview.4 — 2026-10-24
+
+Experimental exact staging and local commit construction. Eleven skills are available; native activation remains partially validated.
+
 ### Added
 
 - Add `git-stage-changes` for explicitly authorized exact index transformations, preserving excluded worktree/index content and checking complete target manifests.
@@ -13,7 +17,7 @@ Release dates use the GitHub publication date in America/Mexico_City. Pre-releas
 
 ### Changed
 
-- Set both manifests to unpublished development candidate `0.1.0-preview.4`; published preview.3 retains its nine-skill payload.
+- Align both manifests and version-pinned consumer guidance on `0.1.0-preview.4`. Prepare the changelog and release documentation in PR #6 for publication from its exact merge commit; preview.3 retains its nine-skill payload.
 - Document bounded Git-write exceptions, exact validation scope and preserved failure state; no implicit branch creation or publication.
 - Gate index-write hooks and helpers before every mutation, including staging and commit preparation; block out-of-contract effects without bypass.
 

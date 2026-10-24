@@ -104,3 +104,7 @@ The user requested spec, plan and then sequential implementation in one task. Us
 ## Self-review
 
 Contracts match across Tasks 1–3; all five Review Focus classes have owner-scoped recipe/application coverage. Preview.4 is development metadata only. The design is the authority for edge conditions, not a guarantee of atomicity or native compatibility.
+
+## Release integration amendment — 2026-10-24
+
+The implementation record above retains its original development-candidate scope. After the approving review of `38d376648fdbb067721f12eea5ced1eb835825d2`, publication of `v0.1.0-preview.4` is authorized through PR #6. Changelog and consumer release preparation are included in that PR before merging. The release tag and verified ZIP/checksum assets must use its exact merge commit; no subsequent source-preparation commit is required. Native activation gates remain open, and this amendment adds no runtime behavior or release automation.

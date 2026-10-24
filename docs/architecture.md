@@ -24,6 +24,6 @@ Published `0.1.0-preview.3` contains nine skills; published preview.2 and its na
 
 ## Explicit index writes and commit construction
 
-The unpublished preview.4 candidate adds staging (analyzer+safety/context closure) and a commit coordinator (planner, stage, safety, validation, progress and their analyzer/context/formatter closure). The standalone builder closure has nine skills; entry/report writing are optional additions.
+The `0.1.0-preview.4` release adds staging (analyzer+safety/context closure) and a commit coordinator (planner, stage, safety, validation, progress and their analyzer/context/formatter closure). The standalone builder closure has nine skills; entry/report writing are optional additions.
 
 These instruction-first capabilities perform writes only within explicit operation authorization and exact target manifests. Whole-index and protected-state verification bound each operation; hooks, signing, effective identities and validation scope are explicit gates. Failures preserve actual commits and residual state instead of rolling back automatically. Available entry routes retain installed ownership and add no new foundation dependency.

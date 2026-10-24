@@ -4,7 +4,7 @@ Use this route only when you want selected capabilities instead of the native su
 
 ## Remote source and requirements
 
-The default remote source uses the integrated package. For a fixed version use the [release-pinned source](../releases/v0.1.0-preview.3.md#version-pinned-sources). CLI examples use Node.js >=22.20.0, npm and Skills CLI 1.7.4. Complete-folder manual copying is available in [development/reference](development.md#manual-complete-folder-copying).
+The default remote source uses the integrated package. For a fixed version use the [release-pinned source](../releases/v0.1.0-preview.4.md#version-pinned-sources). CLI examples use Node.js >=22.20.0, npm and Skills CLI 1.7.4. Complete-folder manual copying is available in [development/reference](development.md#manual-complete-folder-copying).
 
 Crew uses its [native individual/full importer](kiro-crew.md), not an assumed external installer selector. Its default user store is `~/.kiro/crew/skills/`; active-project `.kiro/skills/` requires Crew's project-skill enablement and trust. Use exact imported paths and dependencies.
 
@@ -33,7 +33,7 @@ The leading npm `--yes` permits acquisition of the pinned CLI; Skills remains in
 
 ## Source inventory and dependency selection
 
-The current checkout is an unpublished eleven-skill `0.1.0-preview.4` candidate, including staging and commit construction. Those additions require a source revision containing this increment. Published preview.3 contains nine skills: its full-set selection omits `git-stage-changes` and `git-commit-builder`. Preview.2 contains seven and also lacks analysis/planning. The table and eleven-name command below describe this checkout, not retroactive additions to old tags.
+Version `0.1.0-preview.4` contains eleven skills, including staging and commit construction. Select this tag or a later revision containing these capabilities for the table and eleven-name command below. Preview.3 contains nine skills: its full-set selection omits `git-stage-changes` and `git-commit-builder`. Preview.2 contains seven and also lacks analysis/planning. Old tags retain their original inventories.
 
 ## Explicit dependency selection
 
