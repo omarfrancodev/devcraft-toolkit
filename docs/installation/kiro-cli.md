@@ -14,6 +14,8 @@ the seven toolkit skills and their resources before invoking the entry. Kiro
 documents pickup of IDE-installed Powers by CLI V3; CLI and IDE activation
 still require independent checks.
 
+The [root keywords contract](kiro.md#activation-keywords-and-native-validation) also applies to this Power. Correct metadata is not proof of CLI activation; old pinned registration probes predate the correction.
+
 CLI 2.25.0 introduced `kiro-cli powers install <name|path>` and uninstall for
 catalog names/local directories. The inspected 2.28.0 help retains that
 interface. Devcraft Toolkit is not claimed to be in the curated catalog.

@@ -37,6 +37,8 @@ Add `omarfrancodev/devcraft-toolkit#b05a8c4367dc02e33ac9d19a8eb98e0bdb31c04e` to
 
 ## Kiro IDE
 
+The fixed b05a8c4 payload used by historical probes predates the [activation keywords correction](kiro.md#activation-keywords-and-native-validation). It is not evidence of the corrected Power's compatibility. Use a source containing the correction when executing future native checks; no new release/tag is implied.
+
 The reviewed GitHub import UI does not establish pinned-ref syntax. Do not assume this source can be imported as a branch/tree URL. The default-source native Power recipe applies after integration; for pre-integration project use select the remote complete skill set below. IDE activation remains unverified.
 
 ## Kiro CLI V3

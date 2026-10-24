@@ -99,6 +99,13 @@ def validate_distribution(root: Path) -> list[ValidationIssue]:
         expected = {**identity, "version": value.get("version")}
         if portable:
             expected["$schema"] = _SCHEMA
+            expected["keywords"] = value.get("keywords")
+            keywords = value.get("keywords")
+            if (not isinstance(keywords, list) or not keywords
+                    or any(not isinstance(item, str) or not item.strip() for item in keywords)):
+                issues.append(ValidationIssue(
+                    "distribution-keywords", relative,
+                    "Expected a non-empty array of non-empty activation keyword strings."))
         if value != expected:
             issues.append(ValidationIssue("distribution-metadata", relative, "Manifest identity, schema, or fields differ from the package contract."))
         version = value.get("version")

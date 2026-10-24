@@ -60,7 +60,9 @@ Do not create `.codex-plugin/`, `POWER.md`, copied skill trees, or a second pack
 
 ## Manifest and marketplace contract
 
-Root `plugin.json` contains exactly the initial fields `$schema`, `name`, `version`, `description`, and `author`. The schema URI is `https://agent-plugins.org/schemas/1.0.0/plugin.schema.json`. Description is `Composable Git and development skills for coding agents.` Author is `{"name": "omarfrancodev"}`. Standard root `skills/` discovery exposes only available skills. Do not add empty connector configuration.
+Root `plugin.json` contains exactly `$schema`, `name`, `version`, `description`, `author`, and `keywords`. The schema URI is `https://agent-plugins.org/schemas/1.0.0/plugin.schema.json`. Description is `Composable Git and development skills for coding agents.` Author is `{"name": "omarfrancodev"}`. The initial activation keywords are `git`, `commit`, `report`, and `validation`. The portable schema makes keywords optional, but Kiro's Power authoring guide lists them as required. This package therefore requires a non-empty array of non-empty strings in the portable manifest; the minimal Claude compatibility manifest keeps its common identity fields without a keywords requirement. Native trigger matching/loading remains a separate validation gate.
+
+Standard root `skills/` discovery exposes only available skills. Do not add empty connector configuration.
 
 The Claude manifest contains `name`, `version`, `description`, and `author` with identical values. Omit a `skills` override because the standard directory already exists; adding the same directory again can duplicate component loading.
 
@@ -89,7 +91,7 @@ No quickstart promises immediate authenticated activation, identical scopes acro
 - CLIENT-03: Crew's default agent can consume imported skills without a new template. Use the native importer for the complete available set; inspect exact installed source paths, resources and dependencies. Do not infer Crew Power inheritance from Kiro CLI/IDE sharing. Existing restricted agent mappings remain user-controlled.
 - CLIENT-04: Crew user imports are commit snapshots with explicit re-import updates; project skills require active-project enablement/trust. Neither the Kiro global skill store nor a Power cache proves Crew availability. Reading with skill_fetch is not installation and does not supply sibling resources.
 - CLIENT-05: Add client-specific scenarios and an expanded evidence matrix; preserve historical four-client results unchanged. CLI registration, metadata and resource inventories remain limited evidence without authenticated invocation. No personal profile installation or security bypass.
-- CLIENT-06: Keep all seven available skills, ten planned entries, runtime instructions, manifests and catalog unchanged. This expansion delivers documentation and real probes, not new skills, templates, Apps or release publication.
+- CLIENT-06: Keep all seven available skills, ten planned entries, runtime instructions and catalog unchanged. The seven-client expansion initially preserved manifests; the F001 correction below adds only portable activation metadata. This expansion delivers documentation and real probes, not new skills, templates, Apps or release publication.
 
 ## Selection and dependency contract
 
@@ -190,6 +192,20 @@ The implementation can deliver metadata and documentation with native cells stil
 - REMOTE-03: Actual remote Codex and Claude registration/install operations use the published immutable revision, retain exact command/results and verify all seven available names/resources. Optional Skills CLI checks use a remote source and explicit selections.
 - REMOTE-04: Default-branch availability, pinned test source and published releases are distinct. Pre-integration caveats and blocked IDE/authenticated checks are visible.
 - REMOTE-05: No skill/catalog/runtime change, extra repository, custom installer or automatic hook is introduced merely to simplify onboarding.
+
+## F001: Kiro activation metadata correction
+
+The PR review identified a gap between Kiro's required-fields guidance and the
+initially minimal portable contract. Adopt keywords in root plugin.json and let
+the offline validator accept non-empty string arrays while rejecting missing,
+empty or malformed activation metadata. Preserve common identity/version,
+marketplace roots, the minimal Claude manifest and all skill resources.
+This changes metadata, not an instruction or authorization boundary.
+
+Historical remote checks against b05a8c4/218aea8 predate this correction and do not
+verify the new manifest. Keep their observations intact and mark Kiro native
+import/activation as pending until actually exercised in an isolated client.
+Do not use the metadata correction to close Task 4 Step 3 or publish a release.
 
 ## Development interfaces and checks
 

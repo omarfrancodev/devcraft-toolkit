@@ -27,7 +27,7 @@ The unpublished candidate 0.1.0-preview.2 adds native package metadata and expli
 
 [Native evidence](../tests/integration/distribution/evaluations/2026-10-23-installation/native.md) separates registration, file placement, discovery, invocation, scope and lifecycle. Codex CLI 0.162.0 registered, installed/listed and removed the local package; a separate RED-to-GREEN registry probe confirmed user-disabled/project-enabled precedence against a control project. This is configuration evidence, not active-session isolation. Claude Code 2.1.300 accepted metadata, registered and installed the suite in user/project scopes, and reported the project installation disabled in the control project. Local-directory update semantics differed from a Git marketplace. Authenticated skill invocation/resource reads and complete native lifecycle remain pending; Copilot and Kiro IDE sessions were not available in an isolated authenticated environment. The matrix is explicitly partial, not all-four-harness compatibility.
 
-Current automated checks: 75 tests discovered, 74 passed and one Windows symlink privilege skip. Both repository and distribution validators pass. Structural tests do not establish client activation or model instruction following.
+Current automated checks: 78 tests discovered, 77 passed and one Windows symlink privilege skip. Both repository and distribution validators pass. Structural tests do not establish client activation or model instruction following.
 
 ## Remote-first suite validation
 
@@ -66,6 +66,20 @@ keeps 28 native client/delivery/scope rows and three distinct Kiro full-set
 fallback rows. Copilot VS Code crossover, Kiro CLI/IDE activation, Crew imports,
 resource reads, trust, scope and lifecycle remain blocked/unrun. Historical
 four-client observations are retained; Task 4 Step 3 remains open.
+
+## Kiro keywords correction F001
+
+Root plugin.json now includes activation keywords to follow Kiro's authoring
+guidance, although the portable schema makes them optional. The local contract
+requires a non-empty string array and keeps the minimal Claude metadata
+unchanged. [F001 evidence](../tests/integration/distribution/evaluations/2026-10-23-kiro-keywords/keywords.md)
+records the validator regression and correction.
+
+Earlier b05a8c4/218aea8 acquisition/resource observations describe the previous
+manifest. They remain historical and must not be presented as acceptance of the
+corrected root metadata. Canonical skills/resources, common identity/version
+and marketplace sources are unchanged. No isolated Kiro IDE/CLI activation was
+performed for this correction; Task 4 Step 3 remains open.
 
 ## Limits
 

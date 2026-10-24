@@ -11,6 +11,24 @@ The repository's default branch must contain `plugin.json`; this recipe applies 
 
 Kiro's Agent Plugins format uses the root manifest and the canonical `skills/` tree. There is no manual clone, extra POWER.md or third-party Skills CLI in this normal route.
 
+## Activation keywords and native validation
+
+The root manifest includes `keywords`: `git`, `commit`, `report` and
+`validation`. The [portable schema](https://agent-plugins.org/schemas/1.0.0/plugin.schema.json)
+makes this field optional, while [Kiro's Power authoring guide](https://kiro.dev/docs/powers/create/)
+lists it as required for activation. This package follows Kiro's guidance; its
+offline validator requires a non-empty array of non-empty strings. Consumers
+do not need to edit the downloaded manifest. The Claude compatibility manifest
+keeps its minimal common metadata.
+
+The historical b05a8c4 payload predates this correction and omits these keywords.
+Its earlier registration/resource checks do not validate the new manifest.
+Keywords alone do not prove import or trigger matching. Native validation must
+still import the corrected Power in an isolated Kiro IDE, observe its skill
+inventory and activate it with a relevant request that reads bundled resources;
+compare an unrelated control project. These checks remain pending under
+[compatibility](../compatibility.md#kiro-keywords-correction-f001).
+
 The reviewed import interface does not establish how to pin a Git ref. Before integration, do not assume a branch/tree URL works: the [preview source note](preview.md#kiro-ide) keeps this native check unverified.
 
 ## CLI and Crew are separate clients

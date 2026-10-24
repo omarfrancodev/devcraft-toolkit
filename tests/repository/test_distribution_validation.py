@@ -47,6 +47,7 @@ class DistributionValidationTests(unittest.TestCase):
         self.write_json(root / "plugin.json", {
             "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
             **identity,
+            "keywords": ["git", "commit", "report", "validation"],
         })
         self.write_json(root / ".claude-plugin/plugin.json", identity)
         self.write_json(root / ".agents/plugins/marketplace.json", {
@@ -81,6 +82,23 @@ class DistributionValidationTests(unittest.TestCase):
 
     def test_valid_distribution(self):
         self.assertEqual([], self.validate(self.make_root()))
+
+    def test_portable_activation_keywords_are_accepted(self):
+        root = self.make_root()
+        self.edit(root, "plugin.json", lambda v: v.update(keywords=["git", "report"]))
+        self.assertEqual([], self.validate(root))
+
+    def test_missing_portable_activation_keywords_are_reported(self):
+        root = self.make_root()
+        self.edit(root, "plugin.json", lambda v: v.pop("keywords"))
+        self.assertIn("distribution-keywords", self.codes(root))
+
+    def test_empty_or_malformed_portable_keywords_are_reported(self):
+        root = self.make_root()
+        for bad in (None, [], "git", {}, [17], [""], ["  "], ["git", None]):
+            with self.subTest(keywords=bad):
+                self.edit(root, "plugin.json", lambda v: v.update(keywords=bad))
+                self.assertIn("distribution-keywords", self.codes(root))
 
     def test_manifest_identity_must_match(self):
         root = self.make_root()

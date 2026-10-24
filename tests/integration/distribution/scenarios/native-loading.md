@@ -29,3 +29,15 @@ Four targets × native suite/selected standalone × project/user = sixteen prima
 ## REGISTRY-CODEX-01: project-only recipe regression
 
 In a disposable Codex user, register/install the local package, enable it in one owned trusted project and list it from that project plus a trusted control. The incomplete recipe's project-only expectation (control disabled) must first fail while user enablement is still true. Disable only this plugin in user config, preserve the selected project override, and repeat: selected enabled=true, control enabled=false, unrelated sentinel unchanged. Record the actual commands/configuration and separate this registry check from authenticated NATIVE-03 sessions.
+
+## NATIVE-KIRO-KEYWORDS: corrected Power activation
+
+Use a source containing the F001 root keywords correction, not the historical
+b05a8c4 package. In an isolated Kiro IDE user import the Power and confirm its
+root metadata plus all seven skills. Start a fresh session, request a supported
+Git/report/validation task using relevant keyword wording, observe actual Power
+activation, owned skill discovery and a bundled reference/template read.
+Record language, identifiers, client version and exact source; keep selected and
+control project observations separate. Repeat actual discovery/invocation in CLI
+V3 when using the shared Power. File/schema acceptance alone does not pass this
+packet. Missing safe isolation or authentication is blocked, not passed.

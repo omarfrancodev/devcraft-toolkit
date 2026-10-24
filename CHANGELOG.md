@@ -20,6 +20,7 @@ Release dates use the GitHub publication date in America/Mexico_City. Pre-releas
 
 #### Distribution and documentation
 
+- Add portable activation keywords for Kiro Powers and validate their non-empty string-array contract; retain pending native activation and distinguish historical probes of the earlier manifest.
 - Separate consumer quickstarts, optional individual/dependency instructions and local development/reference procedures.
 - Route toolkit capabilities through the selected installation's discovered identifiers and ownership; ask before resolving materially ambiguous duplicate copies.
 - Narrow the documented integration scope and retain CCR as a deferred capability.

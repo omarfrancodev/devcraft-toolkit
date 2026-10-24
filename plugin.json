@@ -5,5 +5,11 @@
   "description": "Composable Git and development skills for coding agents.",
   "author": {
     "name": "omarfrancodev"
-  }
+  },
+  "keywords": [
+    "git",
+    "commit",
+    "report",
+    "validation"
+  ]
 }
