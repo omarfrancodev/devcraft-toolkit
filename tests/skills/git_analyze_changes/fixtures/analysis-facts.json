@@ -1,0 +1,95 @@
+{
+  "request": "Analiza mis cambios locales sin modificar el repositorio.",
+  "repository": {
+    "root": "/workspace/sample",
+    "branch_state": "named",
+    "branch": "feature/rounding",
+    "HEAD": "1111111111111111111111111111111111111111",
+    "identity": "unknown"
+  },
+  "scope": {
+    "paths": "all",
+    "layers": [
+      "staged",
+      "unstaged",
+      "untracked"
+    ]
+  },
+  "observations": {
+    "started": "2026-10-24T18:00:00Z",
+    "ended": "2026-10-24T18:00:01Z",
+    "HEAD_before": "1111111111111111111111111111111111111111",
+    "HEAD_after": "1111111111111111111111111111111111111111",
+    "index_before": "index-A",
+    "index_after": "index-A",
+    "content_guards": "all bounded inputs identical before and after",
+    "status_before": [
+      [
+        "MM",
+        "src/total calc.py"
+      ],
+      [
+        "A ",
+        "tests/test_total.py"
+      ],
+      [
+        "??",
+        "notes.txt"
+      ],
+      [
+        "??",
+        "sample.bin"
+      ]
+    ],
+    "status_after": "identical",
+    "active_operations": [],
+    "configured_clean_process_filters": [],
+    "helpers_disabled": true,
+    "lazy_fetch_disabled": true,
+    "nul_paths_preserved": true
+  },
+  "evidence": [
+    {
+      "path": "src/total calc.py",
+      "layer": "staged",
+      "kind": "modified",
+      "observed": "Replace float rounding with Decimal rounding in total().",
+      "coverage": "complete bounded patch"
+    },
+    {
+      "path": "src/total calc.py",
+      "layer": "unstaged",
+      "kind": "modified",
+      "observed": "Add a debug print unrelated to rounding.",
+      "coverage": "complete bounded patch"
+    },
+    {
+      "path": "tests/test_total.py",
+      "layer": "staged",
+      "kind": "added",
+      "observed": "Assert precise decimal totals.",
+      "coverage": "complete bounded patch"
+    },
+    {
+      "path": "notes.txt",
+      "layer": "untracked",
+      "kind": "added",
+      "observed": "Name only; content not read.",
+      "coverage": "metadata only"
+    },
+    {
+      "path": "sample.bin",
+      "layer": "untracked",
+      "kind": "binary",
+      "observed": "32 bytes; binary content not interpreted.",
+      "coverage": "metadata only"
+    }
+  ],
+  "constraints": [
+    "Partial staging in src/total calc.py",
+    "No validations executed",
+    "No current author identity established; inspection only"
+  ],
+  "tools": "Replay only; no live repository is attached. Supplied observations are the complete evidence for this sample."
+}
+

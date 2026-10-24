@@ -53,15 +53,15 @@ The design builder check reported “nothing important left”. The user request
 - Consumes: current `git-working-directory-policy` repository context.
 - Produces: conversation analysis record with `outcome`, `repository`, `scope`, `snapshot`, `changes`, `constraints`, `unknowns`. Evidence entries have stable local IDs, exact paths, layer, kind, facts and coverage.
 
-- [ ] **Step 1: Define scenarios and baseline replay facts before skill authoring.**
+- [x] **Step 1: Define scenarios and baseline replay facts before skill authoring.**
   Cover mixed layers, content guard mutation with unchanged status, helper/filter safety, special paths/rename/deletion/binary/symlink/submodule, unborn/detached/conflict/missing identity and absent context dependency. Five fresh no-guidance replay controls establish the record-shaping baseline; retain verbatim outputs and failures without turning baseline successes into failures.
-- [ ] **Step 2: Write/run real Git fixture recipe tests.**
+- [x] **Step 2: Write/run real Git fixture recipe tests.**
   In `test_inspection_recipes.py`, assert index/worktree evidence differs for a partially staged file, NUL names/rename pairs survive, disabling helpers leaves sentinels absent, content guard changes despite unchanged status, and full repository snapshots match before/after read recipes. Run `python -B -m unittest tests.skills.git_analyze_changes.integration.test_inspection_recipes -v`. These are command-semantic controls; they may already pass and must not be called missing-skill RED tests.
-- [ ] **Step 3: Author the minimal skill/reference from observed gaps and the specified contract.**
+- [x] **Step 3: Author the minimal skill/reference from observed gaps and the specified contract.**
   Description starts `Use when...`; main instructions stay concise. Add the conservative filter gate, safe local Git prefix, NUL/literal path handling, bounded content coverage and before/after guards. Mark only the analyzer available, requiring repository context.
-- [ ] **Step 4: Repeat five fresh replay samples with full skill/local reference and test edge/gap scenarios.**
+- [x] **Step 4: Repeat five fresh replay samples with full skill/local reference and test edge/gap scenarios.**
   Expected: complete or explicitly limited contract, layers and exact names preserved, freshness/support constraints explicit; no claim of native loading. Record actual deviations and rerun affected cases after necessary corrections.
-- [ ] **Step 5: Validate and commit the completed analyzer.**
+- [x] **Step 5: Validate and commit the completed analyzer.**
   Run the Task 1 unittest command, `python -B scripts/validate_repository.py --root .`, and `git diff --check`. Expected: success. Commit `feat: add read-only Git change analysis` with owner-scoped tests/evidence.
 
 ### Task 2: Plan commits from evidence
