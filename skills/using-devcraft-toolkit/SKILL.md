@@ -1,6 +1,6 @@
 ---
 name: using-devcraft-toolkit
-description: Route repository, Git, project validation, and shared workflow requests to installed Devcraft Toolkit skills and compose their results in the user's language.
+description: Use when a request concerns an installed Devcraft Toolkit capability, local Git preparation, repository context, project validation, or shared development support.
 ---
 
 # Using Devcraft Toolkit
@@ -29,6 +29,8 @@ When duplicate copies have materially unresolved ownership or selection, ask one
 - Read-only Git safety preflight for a request to inspect repository safety or assess readiness for a Git operation: use `git-safety-check` when installed, with its declared `git-working-directory-policy` dependency. A request to draft or review commit-message text alone does not request this preflight.
 - Project validation discovery or explicitly requested local checks: use `validation-discovery` when installed. Let that skill select and assess commands from project evidence; do not impose a fixed command-name allowlist or run a Git preflight solely to discover checks. Its default discovery mode does not execute commands. If it is absent, report that capability as unavailable; do not emulate it or install it automatically.
 - Evidence-based report writing from user-supplied facts: use `natural-language-report-writer` when installed. It writes in the resolved user language and returns report content in the conversation by default; local output requires an explicitly selected destination. If the skill is absent, report it as unavailable without imitation or automatic installation.
+- Local Git change explanation or evidence gathering: use `git-analyze-changes` when installed with `git-working-directory-policy`. Preserve staged/unstaged/untracked layers and its coverage/freshness limits; do not substitute context or preflight for actual change analysis.
+- Proposed commit grouping or sequence: use `git-plan-commits` when installed with `git-analyze-changes`, its context dependency, and `conventional-commits-style`. It returns a proposal preserving the existing staged selection and delegates message formatting; it does not create commits or need a mutation preflight. Missing required dependencies make the requested capability unavailable; do not emulate, install or use a foreign copy.
 - Git activity reporting from commit history: the `git-activity-report` coordinator is planned and unavailable in this distribution. Do not substitute evidence-based report writing for Git-history inspection or claim a history report was produced.
 - Commit creation and coordination and publication coordination are planned and unavailable in this distribution. State that clearly; do not silently emulate missing coordinators or modify another installation. Conventional Commit formatting does not create a commit.
 - Any request outside toolkit scope: handle it without loading this entry.

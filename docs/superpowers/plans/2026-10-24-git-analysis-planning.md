@@ -97,13 +97,13 @@ The design builder check reported “nothing important left”. The user request
 - Consumes: both available capabilities and declared dependency closures from Tasks 1–2.
 - Produces: optional ownership-aware routes, nine available/eight planned entries, matching unpublished manifest version `0.1.0-preview.3`, current installation instructions and roadmap gates.
 
-- [ ] **Step 1: Run entry composition baseline scenarios before changing instructions.**
+- [x] **Step 1: Run entry composition baseline scenarios before changing instructions.**
   Cases: analysis installed in selected suite, planner absent despite foreign namespaced copy, required dependency missing, explicit standalone closure and unrelated formatter-only request. Expected missing new routing is retained as baseline evidence.
-- [ ] **Step 2: Add optional routes and their dependency/result boundaries.**
+- [x] **Step 2: Add optional routes and their dependency/result boundaries.**
   Preserve ownership-qualified identifiers and unavailable behavior; the foundation hard closure stays unchanged. Re-run fresh-context composition scenarios with both English and Spanish requests.
-- [ ] **Step 3: Synchronize current documentation and candidate metadata.**
+- [x] **Step 3: Synchronize current documentation and candidate metadata.**
   Update inventory and explicit individual/full-set installation closures, scope/status of the new evidence, `Unreleased` changelog, and staged roadmap. Preserve preview.2's seven-skill historical evidence and release URLs. Leave authenticated native invocation gates open.
-- [ ] **Step 4: Run complete verification.**
+- [x] **Step 4: Run complete verification.**
   Run `python -B -m unittest discover -s tests -p "test_*.py" -v`, `python -B scripts/validate_repository.py --root .`, `python -B -m scripts.validate_distribution --root .`, and `git diff --check`.
   Expected: all runnable tests pass (existing Windows symlink privilege skip is disclosed), both validators succeed, no whitespace errors.
 - [ ] **Step 5: Commit and perform one fresh whole-branch review.**

@@ -12,7 +12,7 @@ copilot plugin install devcraft-toolkit@devcraft-toolkit
 copilot plugin list
 ```
 
-Review the source and trust prompts. Inspect the seven installed skills and
+Review the source and trust prompts. Inspect all skills installed from the selected revision and
 resources, then use the toolkit entry in a Copilot session. A successful plugin
 list does not prove a model loaded the entry or read its bundled resources.
 

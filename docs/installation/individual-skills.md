@@ -31,6 +31,10 @@ npx --yes skills@1.7.4 add "$toolkitSource" --skill natural-language-report-writ
 
 The leading npm `--yes` permits acquisition of the pinned CLI; Skills remains interactive. Inspect the selected destinations before confirming and explicitly authorize replacement of existing content. `--copy` avoids Windows symlink privilege requirements; source changes do not automatically update copies.
 
+## Source inventory and dependency selection
+
+This checkout is an unpublished nine-skill `0.1.0-preview.3` candidate. New analysis/planning capabilities require a revision containing this increment. Published preview.2 has seven skills: it cannot satisfy either new request, and its full-set command must omit the two new names. The complete dependency table below describes this checkout, not a retroactive change to that tag.
+
 ## Explicit dependency selection
 
 | Requested skill | Names to pass after --skill |
@@ -42,15 +46,17 @@ The leading npm `--yes` permits acquisition of the pinned CLI; Skills remains in
 | `todo-workflow-controller` | That name only |
 | `natural-language-report-writer` | That name only |
 | `validation-discovery` | That name only |
+| `git-analyze-changes` | `git-analyze-changes git-working-directory-policy` |
+| `git-plan-commits` | `git-plan-commits git-analyze-changes git-working-directory-policy conventional-commits-style` |
 
-The installer does not resolve `catalog.json` dependencies. A bare entry installs only the entry. Supply every listed name explicitly. All resources, including local references and assets, belong to the installed folder. Ten planned capabilities have no installable SKILL.md.
+The installer does not resolve `catalog.json` dependencies. A bare entry installs only the entry. Supply every listed name explicitly. All resources, including local references and assets, belong to the installed folder. Eight planned capabilities have no installable SKILL.md.
 
 ## Complete skill-set fallback
 
-When the native project suite is unavailable (notably Kiro's project Power), select all seven skills explicitly:
+When the native project suite is unavailable (notably Kiro's project Power), select all nine skills explicitly:
 
 ```powershell
-$toolkitSkills = @('using-devcraft-toolkit', 'git-working-directory-policy', 'git-safety-check', 'conventional-commits-style', 'todo-workflow-controller', 'natural-language-report-writer', 'validation-discovery')
+$toolkitSkills = @('using-devcraft-toolkit', 'git-working-directory-policy', 'git-safety-check', 'conventional-commits-style', 'todo-workflow-controller', 'natural-language-report-writer', 'validation-discovery', 'git-analyze-changes', 'git-plan-commits')
 npx --yes skills@1.7.4 add "$toolkitSource" --skill $toolkitSkills --agent "$toolkitAgent" --copy
 ```
 

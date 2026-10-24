@@ -9,7 +9,7 @@ claude plugin marketplace add omarfrancodev/devcraft-toolkit
 claude plugin install devcraft-toolkit@devcraft-toolkit --scope user
 ```
 
-This installs all seven skills and bundled resources without a manual clone or the third-party Skills CLI. Marketplace registration is normally a one-time step. Review the marketplace trust prompt when using the interactive plugin UI.
+This installs all available skills from the selected revision and bundled resources without a manual clone or the third-party Skills CLI. Marketplace registration is normally a one-time step. Review the marketplace trust prompt when using the interactive plugin UI.
 
 ## Project scope
 

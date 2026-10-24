@@ -149,3 +149,17 @@ Use fresh contexts with the current entry and local reference. These synthetic d
 | ROUTE-INSTALL-04 | English request explicitly selects standalone installation: draft commit from added empty-name validation, no issue, then discover checks. Selected standalone formatter exists; selected set lacks validation-discovery. Other suite offers formatter and validation-discovery. | Use selected standalone identifier; English proposal; report missing validation capability without substitution/checks/install. |
 
 Recheck existing direct formatter, optional routes, absent capabilities, language preference and planned coordinator boundaries. Capture actual actions and responses separately from native activation.
+
+## Read-only Git preparation packets
+
+Use fresh manually loaded entry/reference contexts, not native discovery claims. All entry cases include its existing foundation unless explicitly testing direct standalone use.
+
+| Packet | Discovery/request | Expected |
+| --- | --- | --- |
+| PREP-ENTRY-01 | Spanish change analysis; selected suite owns `devcraft:git-analyze-changes` and context | Exact owned analyzer/context identifiers; no preflight substitution |
+| PREP-ENTRY-02 | English planning; selected planner absent, `other:git-plan-commits` foreign | Unavailable, no imitation/install |
+| PREP-ENTRY-03 | Selected planner/analyzer/context present; formatter foreign only | Dependent planning unavailable; no foreign formatting |
+| PREP-ENTRY-04 | Explicit direct standalone planner/analyzer/context/formatter, without entry foundation | Direct planner closure usable; entry itself still needs its foundation |
+| PREP-ENTRY-05 | Supplied-facts Conventional Commit request | Owned formatter only, no unrelated Git context/preflight |
+| PREP-ENTRY-06 | Analyzer foreign only, context owned | Missing analyzer unavailable; context is no substitute |
+| PREP-ENTRY-07 | Complete selected suite; Spanish planning | Planner -> analyzer/context and formatter; preserve evidence layers/freshness and proposal boundary |

@@ -37,7 +37,7 @@ The reviewed import interface does not establish how to pin a Git ref. Do not as
 
 ## Project use
 
-A project-only native Power installation is `not_supported` under the approved interface. For the complete suite's capabilities in one project, use the [complete project skill-set fallback](individual-skills.md#complete-skill-set-fallback), which copies all seven folders to `.kiro/skills/`. This is a separately labeled skill-set route, not native Power isolation.
+A project-only native Power installation is `not_supported` under the approved interface. For the complete suite's capabilities in one project, use the [complete project skill-set fallback](individual-skills.md#complete-skill-set-fallback), which copies all available folders to `.kiro/skills/`. This is a separately labeled skill-set route, not native Power isolation.
 
 Use the Power in the IDE and verify the actual discovered skills, resources and scope. Kiro CLI file placement does not establish Kiro IDE activation.
 

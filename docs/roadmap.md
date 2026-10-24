@@ -2,7 +2,7 @@
 
 ## Current foundation
 
-The distribution provides repository context, read-only Git preflight, a composition entry, standalone Conventional Commit message formatting, portable progress tracking, evidence-based report writing, and project validation discovery. The catalog records seventeen target capabilities, with seven available and ten planned. Optional capabilities can be installed alone or alongside the entry; none adds a hard skill dependency. The entry routes commit-message, progress-control, natural-language-reporting, and project-validation requests to the matching optional skill when installed, and reports unavailable capabilities honestly when absent.
+The development catalog provides nine available skills and eight planned entries across seventeen target capabilities. The foundation, formatter, progress controller, report writer and validation discovery are joined by read-only change analysis and commit planning. The analyzer requires repository context; the planner requires the analyzer and formatter. Optional entry routes add no hard dependency to the entry itself and report unavailable capabilities honestly.
 
 ## Shared capabilities
 
@@ -39,7 +39,7 @@ The table reflects catalog availability. Planned designs do not create installab
 
 ## Next increments and acceptance gates
 
-1. **Read-only analysis and commit planning — in progress.** Deliver `git-analyze-changes` and `git-plan-commits`, preserving staged/unstaged boundaries and freshness. See the [design](superpowers/specs/2026-10-24-git-analysis-planning-design.md) and [plan](superpowers/plans/2026-10-24-git-analysis-planning.md). Completion requires owner-scoped behavioral evidence, real Git fixture safety checks and dependency-aware optional entry routes.
+1. **Read-only analysis and commit planning — available.** Deliver `git-analyze-changes` and `git-plan-commits`, preserving staged/unstaged boundaries and freshness. See the [design](superpowers/specs/2026-10-24-git-analysis-planning-design.md) and [plan](superpowers/plans/2026-10-24-git-analysis-planning.md). Owner-scoped replay/edge evidence, real Git fixture safety checks and dependency-aware optional entry routes are implemented. Native invocation of the new capabilities remains unverified.
 2. **Staging and commit construction — planned.** Design `git-stage-changes` and `git-commit-builder` next. Define explicit selection and mutation authorization, fresh preflight/identity, partial staging, scoped validation and commit failures before enabling writes. Branch creation is not implied by commit construction.
 3. **Git-history activity reporting — planned.** Design `git-activity-report` with verified history, author/date/timezone filters, evidence limits, report-writer reuse and an explicit output destination when saving.
 4. **Remote publication — planned.** Design `git-sync-branch`, `git-publish-changes`, `git-manage-pull-request` and `git-promote` before composing `git-publish-work`. Define independent synchronization, publication, review/promotion and authorization boundaries; no automatic remote mutation from an inspection request.
