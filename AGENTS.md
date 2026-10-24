@@ -11,3 +11,8 @@
 - Do not add plugin manifests, release automation, CCR integration, or a license without a separate approved design.
 - Keep specifications, plans and skill instructions self-contained: define behavior, inputs, outputs, decisions and evidence without depending on conversations, personal paths, untracked material or unavailable projects.
 - Describe capabilities through their current requirements and observable behavior. Use repository-local references and accessible official technical references; include all information needed to execute the design.
+
+- `git-stage-changes` may perform only explicitly authorized exact index transformations and necessary Git-object writes after fresh evidence/preflight; preserve excluded worktree/index content, HEAD/refs and configuration. No implicit staging permission comes from a plan or ready preflight.
+- `git-commit-builder`, when available, may additionally create explicitly requested normal new commits through its bounded workflow, inspected local checks and known approved effects. Preserve actual state on failure; no automatic branch creation, reset, cleanup, amend, history rewrite, network, publication or identity/credential changes.
+
+- Inspect effective index-write hooks and referenced helpers before staging, deferral/restoration or commit-related index writes; unknown or unauthorized effects block before mutation. Never bypass hooks to force an operation.

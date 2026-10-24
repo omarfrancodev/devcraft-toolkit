@@ -31,7 +31,7 @@ Preview.2 automated checks: 78 tests discovered, 77 passed and one Windows symli
 
 ## Remote-first suite validation
 
-The consumer path now starts with the complete native suite from the public repository. [Individual skills](installation/individual-skills.md) are an alternative; [local/developer installation](installation/development.md) is separate. Default-source recipes use integrated metadata; [release-pinned sources](releases/v0.1.0-preview.3.md#version-pinned-sources) are separate from [historical pre-integration sources](installation/preview.md).
+The consumer path now starts with the complete native suite from the public repository. [Individual skills](installation/individual-skills.md) are an alternative; [local/developer installation](installation/development.md) is separate. Default-source recipes use integrated metadata; [release-pinned sources](releases/v0.1.0-preview.4.md#version-pinned-sources) are separate from [historical pre-integration sources](installation/preview.md).
 
 The [remote evaluation](../tests/integration/distribution/evaluations/2026-10-23-remote-suite/remote.md) fetched public reference b05a8c4367dc02e33ac9d19a8eb98e0bdb31c04e, installed the suite through Codex and Claude's actual remote marketplace flows, and compared every installed skill resource against that source. It also copied an independent formatter for Codex and the complete project fallback for Kiro through the pinned external CLI. The corrected run's 29 commands exited 0; its native outcomes remain limited.
 
@@ -92,3 +92,13 @@ The `0.1.0-preview.3` release adds `git-analyze-changes` and `git-plan-commits`,
 Five fresh no-guidance samples and five complete-instruction samples per new capability were manually assessed; baseline judgment successes are retained. New command fixtures cover partial staging, freshness, exact paths and helper/filter boundaries. Neither these replays nor structural checks establish native activation or authenticated resource reads. Existing seven-skill preview.2 registration/resource/lifecycle results above remain historical; do not apply them to the release's two added skills.
 
 Preview.3 preparation verification: 89 tests discovered, 88 passed, one existing Windows symlink privilege skip; repository and finite distribution validators pass. Git for Windows 2.45.0.windows.1 was used for the added fixture controls. This does not close native invocation gates.
+
+## Scoped staging and commit construction preview.4: 2026-10-24
+
+The `0.1.0-preview.4` release adds `git-stage-changes` and `git-commit-builder`, bringing the inventory to eleven available/six planned. [Staging evidence](../tests/skills/git_stage_changes/evaluations/2026-10-24.md) and [coordinator evidence](../tests/skills/git_commit_builder/evaluations/2026-10-24.md) retain baseline/candidate records, precision failures and corrections, edge/gap cases and independent parent verification.
+
+One owned live fixture performed exact partial staging; another created one requested commit while preserving excluded working content. Both manually loaded the local source skills and dependency closure; neither establishes native discovery. Disposable Git controls additionally cover literal transport, stale patches, initial commits, effective identity overrides, hooks and partial multi-commit failure. Native client invocation/lifecycle gates remain open.
+
+Implementation verification: 100 tests discovered, 99 passed and one existing Windows symlink privilege skip; both validators and complete-base whitespace checks pass. The first full run retained two stale planned-status fixture assumptions; explicit fixture setup corrected them without changing validator rejection assertions.
+
+The independent branch review found an index-write hook gate omission. The fix now inspects post-index-change before staging/deferral/restore or commit preparation; a pinned pre-fix live actor reproduced an excluded-file rewrite, while the corrected actor blocked before mutation with unchanged guards. Default/custom hook recipe controls and nine-folder-only closure evidence retain their exact procedure limitations in the owner evaluations.

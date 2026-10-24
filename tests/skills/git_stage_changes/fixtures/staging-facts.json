@@ -1,0 +1,88 @@
+{
+  "request": "Informa en español del staging a partir de los resultados suministrados; no ejecutes operaciones adicionales.",
+  "selected_installation": "explicit standalone analyzer/context/safety set",
+  "authorization": "Stage only the approved rounding hunk in src/total.py. Preserve keep.txt and the later debug edit.",
+  "repository": {
+    "root": "/sample",
+    "branch": "feature/rounding",
+    "HEAD": "H1",
+    "identity": "unknown"
+  },
+  "selection": {
+    "id": "S1",
+    "path": "src/total.py",
+    "layer": "unstaged",
+    "hunk": "approved rounding correction only",
+    "excluded": [
+      "later debug in src/total.py",
+      "keep.txt already staged"
+    ]
+  },
+  "before": {
+    "index": [
+      [
+        "src/total.py",
+        "100644",
+        "BASE"
+      ],
+      [
+        "keep.txt",
+        "100644",
+        "KEEP"
+      ]
+    ],
+    "HEAD": "H1",
+    "worktree": "base + rounding correction + debug"
+  },
+  "expected_index": [
+    [
+      "src/total.py",
+      "100644",
+      "ROUND"
+    ],
+    [
+      "keep.txt",
+      "100644",
+      "KEEP"
+    ]
+  ],
+  "observed_execution": {
+    "source": "supplied executor transcript, not a live repository",
+    "snapshot": "HEAD/index/content/inventory guards stable immediately before operation",
+    "checks": "no conflicts/active operations/helpers/filters, exact patch paths/target verified",
+    "commands": [
+      {
+        "command": "git apply --cached --check --whitespace=nowarn -",
+        "exit": 0,
+        "output": ""
+      },
+      {
+        "command": "git apply --cached --whitespace=nowarn -",
+        "exit": 0,
+        "output": ""
+      }
+    ],
+    "after": {
+      "index": [
+        [
+          "src/total.py",
+          "100644",
+          "ROUND"
+        ],
+        [
+          "keep.txt",
+          "100644",
+          "KEEP"
+        ]
+      ],
+      "HEAD": "H1",
+      "refs": "unchanged",
+      "worktree": "unchanged",
+      "configuration": "unchanged"
+    }
+  },
+  "limits": [
+    "No author identity established; index-only operation",
+    "No live repository attached, no native invocation observed"
+  ]
+}

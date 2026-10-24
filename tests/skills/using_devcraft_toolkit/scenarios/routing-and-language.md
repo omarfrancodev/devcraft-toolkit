@@ -163,3 +163,17 @@ Use fresh manually loaded entry/reference contexts, not native discovery claims.
 | PREP-ENTRY-05 | Supplied-facts Conventional Commit request | Owned formatter only, no unrelated Git context/preflight |
 | PREP-ENTRY-06 | Analyzer foreign only, context owned | Missing analyzer unavailable; context is no substitute |
 | PREP-ENTRY-07 | Complete selected suite; Spanish planning | Planner -> analyzer/context and formatter; preserve evidence layers/freshness and proposal boundary |
+
+## Staging and commit-construction packets
+
+Synthetic discovery/manual entry loading; no native activation claim.
+
+| ID | Request/discovery | Expected |
+| --- | --- | --- |
+| WRITE-ENTRY-01 | Spanish exact stage request; owned stage/analyzer/safety/context | Exact stage identifier, delegated authorization/target checks |
+| WRITE-ENTRY-02 | Explicit commit request; owned builder complete closure | Builder coordinates selected local writes; no publication/branch permission |
+| WRITE-ENTRY-03 | Requested stage absent, foreign copy exists | Unavailable, no imitation or substitution |
+| WRITE-ENTRY-04 | Builder present, selected validation dependency absent | Closure unavailable; foreign copy does not fill it |
+| WRITE-ENTRY-05 | Supplied-facts message only | Owned formatter only, no Git context/preflight |
+| WRITE-ENTRY-06 | Complete direct standalone builder closure, no entry/reportwriter | Direct capability usable; entry itself still needs foundation |
+| WRITE-ENTRY-07 | Bare builder invocation/proposal | Default plan, no write permission inferred |

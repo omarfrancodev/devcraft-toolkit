@@ -2,7 +2,7 @@
 
 Install **Devcraft Toolkit as a complete suite** using the route for your client. Native plugins/Powers include all available skills and resources from the selected revision. Crew imports the complete set through its own dashboard; CLI-only Kiro has a full-set alternative. These routes need no user-managed clone.
 
-The default-branch recipes below use the integrated remote package. [v0.1.0-preview.3 release details](releases/v0.1.0-preview.3.md) provide version-pinned source options and download verification. The earlier `v0.1.0-preview.1` is source-only and cannot serve as a native plugin source. [Historical pre-integration sources](installation/preview.md) describe earlier probes, not the current release's native acceptance.
+The default-branch recipes below use the integrated remote package. [v0.1.0-preview.4 release details](releases/v0.1.0-preview.4.md) provide version-pinned source options and download verification. The earlier `v0.1.0-preview.1` is source-only and cannot serve as a native plugin source. [Historical pre-integration sources](installation/preview.md) describe earlier probes, not the current release's native acceptance.
 
 ## Install the complete suite
 
@@ -32,4 +32,4 @@ For updates and removal use the selected client's guide and the same installatio
 
 ## Source inventory
 
-Version `0.1.0-preview.3` contains nine skills. Published `v0.1.0-preview.2` contains seven: it does not include `git-analyze-changes` or `git-plan-commits`. Select a revision containing this increment for those capabilities. All client routes use the canonical folders at their selected source revision; historical activation/resource evidence remains version-specific.
+Version `0.1.0-preview.4` contains eleven skills, including `git-stage-changes` and `git-commit-builder`. Preview.3 has nine and cannot supply either addition. Preview.2 has seven and also lacks `git-analyze-changes` and `git-plan-commits`. Use preview.4 or a later revision containing these capabilities for the current complete/individual selections. All client routes use canonical folders at their selected source revision; older tags and native activation/resource evidence remain version-specific. Installation does not authorize a runtime write.

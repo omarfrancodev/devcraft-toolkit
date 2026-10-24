@@ -30,7 +30,7 @@ Message formatting returns a proposal from supplied facts and conventions. It ne
 
 The preflight result `ready` is not authorization to perform a Git write. Missing tools do not grant new capabilities. Unanswered material decisions remain unresolved until the user answers.
 
-Git commit creation and coordination, publication coordination, and the `git-activity-report` coordinator remain planned in this distribution. Do not replace those workflows with manual imitation. Evidence-based report writing from supplied facts is a separate available capability when installed; it does not inspect Git history.
+Publication coordination and the `git-activity-report` coordinator remain planned in this distribution. Do not replace those workflows with manual imitation. Evidence-based report writing from supplied facts is a separate available capability when installed; it does not inspect Git history.
 
 ## Read-only Git preparation
 
@@ -38,6 +38,16 @@ Git commit creation and coordination, publication coordination, and the `git-act
 
 The analyzer returns repository/scope, a guarded observation snapshot, layer-specific evidence IDs, constraints and unknowns, with analyzed/no_op/needs_decision/limited/blocked outcomes. Keep those IDs and staged/unstaged/untracked boundaries when passing evidence to the planner. The planner verifies freshness through the analyzer, applies the explicit selection or staged-first default, and returns intent groups, exact selections/order, formatter-produced messages, exclusions, decisions and limits. Planned/no_op/needs_decision/limited/blocked describe proposals, never execution.
 
-Missing identity is not a blocker for read-only analysis/planning. A conflict can be completely observed while blocking a complete plan. Supplied/offline evidence stays conditional when live guards cannot be verified. Neither capability performs staging, commits, branch creation, validation execution or publication. Later coordinators remain planned.
+Missing identity is not a blocker for read-only analysis/planning. A conflict can be completely observed while blocking a complete plan. Supplied/offline evidence stays conditional when live guards cannot be verified. Neither capability performs staging, commits, branch creation, validation execution or publication. Local staging/commit construction is separately available when installed; publication/activity coordinators remain planned.
 
 An explicitly selected standalone planner closure can be invoked directly without the entry or safety-check skill; using the entry itself still requires its existing foundation group.
+
+## Explicit local writes
+
+`git-stage-changes` requires analyzer and safety, including context. It returns an exact approved whole-index transformation, checked effects and preserved/deferred selections. A bare invocation previews; explicit stage permission covers only the selected transformation. Missing identity does not block index-only staging, and successful staging does not authorize a commit.
+
+`git-commit-builder` requires planner, stage, safety, validation and progress; its full standalone closure also includes analyzer, context and formatter. It coordinates the selected workflow with actual ownership-qualified identifiers. Default planning performs no writes; explicit commit requests cover exact staging and inspected ordinary local checks. Required checks/identity/hooks/signing and material partition decisions remain gates.
+
+Retain actual result fields and per-check scope/cwd/exit evidence. Never infer selected-index validation from dirty-worktree checks. Actual earlier commits remain recorded if a later step fails; do not retry/reset/clean or silently restore deferred state. Neither new capability implies branch creation, history rewrite, network or publication.
+
+These optional routes do not change the entry's hard foundation. A standalone builder closure can be invoked directly without installing the entry or report writer.
