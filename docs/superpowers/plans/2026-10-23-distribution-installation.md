@@ -294,7 +294,7 @@ Inspect the staged paths and commit only Task 4's scenarios, records and updated
 
 - [x] **Step 1: Reproduce with regression tests.** Add a non-empty portable keywords fixture and tests for acceptance, missing metadata and empty/malformed arrays. Run focused tests against the unchanged validator. Expected: legitimate keywords rejected and missing keywords accepted, reproducing F001.
 - [x] **Step 2: Correct the finite contract and documentation.** Add root keywords git/commit/report/validation; require non-empty strings in a non-empty array, keeping unknown/component fields rejected. Leave the Claude mirror minimal. Explain portable optional versus Kiro-required metadata, and that previous pinned probes predate this change. Expected: focused tests and both validators pass, skills/catalog unchanged.
-- [ ] **Step 3: Verify and update the same PR.** Run full unittest suite, local links and diff check. Retain RED/GREEN counts/limits, mark only this correction complete, commit/push with local identity and update the existing PR description. Do not reply to reviewers, resolve review submissions, merge, publish or claim native activation.
+- [x] **Step 3: Verify and update the same PR.** Run full unittest suite, local links and diff check. Retain RED/GREEN counts/limits, mark only this correction complete, commit/push with local identity and update the existing PR description. Do not reply to reviewers, resolve review submissions, merge, publish or claim native activation.
 
 ## Acceptance traceability and self-review
 
@@ -317,7 +317,7 @@ Remote-first coverage: REMOTE-01/02/05 belong to Task 5; REMOTE-03/04 belong to 
 
 ## Execution status
 
-Task 11 addresses F001 through a portable keywords metadata/validator correction; native Kiro activation remains a separate open gate.
+Task 11 completed the F001 portable keywords metadata/validator correction, regression checks and existing PR update; native Kiro activation remains a separate open gate.
 
 Seven-client expansion: Tasks 8-10 completed CLIENT-01 through CLIENT-06 and updated the existing PR #4. The independent review correction and native limitations are retained in the client-expansion evaluation. User approved Proposal A and implementation together; the no-template Crew route uses native complete skill import, without claiming Power inheritance. Earlier completed tasks are historical and are not repeated.
 
