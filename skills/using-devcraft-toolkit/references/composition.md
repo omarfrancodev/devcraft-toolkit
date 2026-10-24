@@ -2,6 +2,14 @@
 
 The entry routes only after checking the user's requested scope and the skills actually installed in the active harness. The maintained repository `catalog.json` describes this source tree; it is not copied into every individual skill installation and does not install dependencies.
 
+## Discovery and ownership
+
+Keep a small in-memory mapping from canonical capability to the selected installation's discovered invocation identifier and ownership evidence. Harness metadata or explicit user selection establishes the installation; spelling alone does not. A discovered identifier such as `devcraft-toolkit:conventional-commits-style` is an example, not a universal namespace convention.
+
+Use the harness-provided identifier exactly. Plugin ownership must match the active entry's installation; an explicitly selected standalone set uses its own discovered identifiers. A same-named skill from a foreign or unselected installation does not fill a missing optional capability. Do not read root manifests or a development catalog to guess runtime ownership.
+
+If multiple copies cannot be disambiguated from actual discovery or the user's selection, ask one focused question before dependent routing. Do not change, remove or reinstall copies to resolve the ambiguity. Skill-local references remain relative to the invoked skill folder; qualified invocation names do not rewrite resource paths.
+
 ## Available dependency group
 
 The foundation group is:

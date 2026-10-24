@@ -136,3 +136,16 @@ cases:
     assertions:
       - "Report natural-language-report-writer as unavailable without drafting the report, imitating it, or installing it automatically."
 ```
+
+## Installation ownership packets
+
+Use fresh contexts with the current entry and local reference. These synthetic discovery facts test instructions, not native metadata.
+
+| Packet | Request and discovery facts | Assertions |
+| --- | --- | --- |
+| ROUTE-INSTALL-01 | Spanish commit proposal from added empty-name validation, no issue. Entry/foundation and formatter belong to suite-A, package devcraft-toolkit. Formatter invocation: devcraft-toolkit:conventional-commits-style. | Use that owned discovered identifier; Spanish proposal; no Git preflight. |
+| ROUTE-INSTALL-02 | Same request. Entry/foundation belong to suite-A. Only formatter is foreign-tools:conventional-commits-style, owned by foreign-tools B. B is not selected. | Report formatter unavailable in selected installation; no foreign invocation, imitation or install. |
+| ROUTE-INSTALL-03 | Same request. Two formatters: devcraft-toolkit:conventional-commits-style and standalone conventional-commits-style. Provenance and active entry ownership unresolved; no user selection. | Ask one focused installation choice before dependent invocation; preserve both. |
+| ROUTE-INSTALL-04 | English request explicitly selects standalone installation: draft commit from added empty-name validation, no issue, then discover checks. Selected standalone formatter exists; selected set lacks validation-discovery. Other suite offers formatter and validation-discovery. | Use selected standalone identifier; English proposal; report missing validation capability without substitution/checks/install. |
+
+Recheck existing direct formatter, optional routes, absent capabilities, language preference and planned coordinator boundaries. Capture actual actions and responses separately from native activation.

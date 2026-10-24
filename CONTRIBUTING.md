@@ -19,8 +19,11 @@ Run commands from the repository root with an explicit terminal working director
 ```sh
 python -m unittest discover -s tests -p "test_*.py" -v
 python scripts/validate_repository.py --root .
+python -B -m scripts.validate_distribution --root .
 git diff --check
 ```
+
+The distribution check validates the maintained local package contract without installing anything or fetching schemas. It does not prove native client loading or scope isolation; those require separately recorded installation evaluations.
 
 Tests stay under `tests/`, grouped by skill and scope. Python test package names replace canonical skill-name hyphens with underscores. Keep fixtures local to the tests that own them unless multiple suites genuinely share them.
 

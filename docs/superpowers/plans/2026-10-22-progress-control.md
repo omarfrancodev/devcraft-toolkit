@@ -18,7 +18,7 @@
 - Installed skills use only their bundled resources and explicitly declared skill dependencies; repository tooling and catalog.json are development resources.
 - Implementation must be understandable from repository-local requirements and accessible official technical references, without private conversations, personal paths or unavailable files.
 - Catalog status stays planned until structural checks and actual behavioral evaluation justify available; record unexecuted cases as limitations.
-- No new coordinator, CCR/Jira integration, plugin manifest, installer, release automation or runtime orchestration engine is included.
+- No new coordinator, CCR integration, plugin manifest, installer, release automation or runtime orchestration engine is included.
 - Use Python 3.11+ and the existing PyYAML>=6.0,<7.0 development setup; add no dependencies or helpers without a demonstrated need.
 - Behavioral RED means an observed baseline violation without the candidate skill; a missing SKILL.md or planned catalog entry is not a failing behavior test.
 
@@ -282,7 +282,7 @@ Expected: exit 0 and `Repository catalog is valid.`. The catalog still has seven
 - [ ] **Step 10: Inspect the composition diff**
 
 Run: `git diff --check`.
-Expected: exit 0. Confirm no unimplemented coordinator, CCR/Jira integration, plugin or extra runtime was introduced.
+Expected: exit 0. Confirm no unimplemented coordinator, CCR integration, plugin or extra runtime was introduced.
 
 - [ ] **Step 11: Commit the complete composition delivery**
 

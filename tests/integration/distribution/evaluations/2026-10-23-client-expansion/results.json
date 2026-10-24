@@ -1,0 +1,405 @@
+{
+  "status": "limited",
+  "ref": "b05a8c4367dc02e33ac9d19a8eb98e0bdb31c04e",
+  "previewBranch": "docs/distribution-installation",
+  "previewHead": "218aea8d180a17f2cb6d321c9141f2979191b8e0",
+  "repository": "https://github.com/omarfrancodev/devcraft-toolkit.git",
+  "node": "v24.22.1",
+  "commands": [
+    {
+      "argv": [
+        "git",
+        "init",
+        "/reference"
+      ],
+      "cwd": "/",
+      "exit": 0,
+      "stdout": "Initialized empty Git repository in /reference/.git/\n",
+      "stderr": "hint: Using 'master' as the name for the initial branch. This default branch name\nhint: will change to \"main\" in Git 3.0. To configure the initial branch name\nhint: to use in all of your new repositories, which will suppress this warning,\nhint: call:\nhint:\nhint: \tgit config --global init.defaultBranch <name>\nhint:\nhint: Names commonly chosen instead of 'master' are 'main', 'trunk' and\nhint: 'development'. The just-created branch can be renamed via this command:\nhint:\nhint: \tgit branch -m <name>\nhint:\nhint: Disable this message with \"git config set advice.defaultBranchName false\"\n"
+    },
+    {
+      "argv": [
+        "git",
+        "fetch",
+        "--depth",
+        "1",
+        "https://github.com/omarfrancodev/devcraft-toolkit.git",
+        "b05a8c4367dc02e33ac9d19a8eb98e0bdb31c04e"
+      ],
+      "cwd": "/reference",
+      "exit": 0,
+      "stdout": "",
+      "stderr": "From https://github.com/omarfrancodev/devcraft-toolkit\n * branch            b05a8c4367dc02e33ac9d19a8eb98e0bdb31c04e -> FETCH_HEAD\n"
+    },
+    {
+      "argv": [
+        "git",
+        "checkout",
+        "--detach",
+        "FETCH_HEAD"
+      ],
+      "cwd": "/reference",
+      "exit": 0,
+      "stdout": "",
+      "stderr": "HEAD is now at b05a8c4 docs: corregir habilitación de Codex por proyecto\n"
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/reference",
+      "exit": 0,
+      "stdout": "b05a8c4367dc02e33ac9d19a8eb98e0bdb31c04e\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "node",
+        "--version"
+      ],
+      "cwd": "/projects/selected",
+      "exit": 0,
+      "stdout": "v24.22.1\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "--version"
+      ],
+      "cwd": "/projects/selected",
+      "exit": 0,
+      "stdout": "git version 2.54.0\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/tool/node_modules/.bin/copilot",
+        "--version"
+      ],
+      "cwd": "/projects/selected",
+      "exit": 0,
+      "stdout": "GitHub Copilot CLI 1.0.91.\nRun 'copilot update' to check for updates.\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/tool/node_modules/.bin/copilot",
+        "plugin",
+        "marketplace",
+        "add",
+        "omarfrancodev/devcraft-toolkit#docs/distribution-installation"
+      ],
+      "cwd": "/projects/selected",
+      "exit": 0,
+      "stdout": "Marketplace \"devcraft-toolkit\" added successfully.\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/root/.copilot/.cache/copilot/marketplaces/omarfrancodev-devcraft-toolkit",
+      "exit": 0,
+      "stdout": "218aea8d180a17f2cb6d321c9141f2979191b8e0\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/tool/node_modules/.bin/copilot",
+        "plugin",
+        "marketplace",
+        "browse",
+        "devcraft-toolkit"
+      ],
+      "cwd": "/projects/selected",
+      "exit": 0,
+      "stdout": "Plugins in \"devcraft-toolkit\":\n  • devcraft-toolkit - Composable Git and development skills for coding agents.\n\nInstall with: copilot plugin install <plugin-name>@devcraft-toolkit\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/tool/node_modules/.bin/copilot",
+        "plugin",
+        "install",
+        "devcraft-toolkit@devcraft-toolkit"
+      ],
+      "cwd": "/projects/selected",
+      "exit": 0,
+      "stdout": "Plugin \"devcraft-toolkit\" installed successfully. Installed 7 skills.\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/tool/node_modules/.bin/copilot",
+        "plugin",
+        "list",
+        "--json"
+      ],
+      "cwd": "/projects/selected",
+      "exit": 0,
+      "stdout": "[\n  {\n    \"name\": \"devcraft-toolkit\",\n    \"marketplace\": \"devcraft-toolkit\",\n    \"version\": \"0.1.0-preview.2\",\n    \"enabled\": true,\n    \"source\": \"installed\"\n  }\n]\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/tool/node_modules/.bin/copilot",
+        "plugin",
+        "install",
+        "devcraft-toolkit@devcraft-toolkit"
+      ],
+      "cwd": "/projects/selected",
+      "exit": 0,
+      "stdout": "Plugin \"devcraft-toolkit\" installed successfully. Installed 7 skills.\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/tool/node_modules/.bin/copilot",
+        "plugin",
+        "disable",
+        "devcraft-toolkit@devcraft-toolkit"
+      ],
+      "cwd": "/projects/selected",
+      "exit": 0,
+      "stdout": "Disabled plugin \"devcraft-toolkit@devcraft-toolkit\".\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/tool/node_modules/.bin/copilot",
+        "plugin",
+        "list",
+        "--json"
+      ],
+      "cwd": "/projects/selected",
+      "exit": 0,
+      "stdout": "[\n  {\n    \"name\": \"devcraft-toolkit\",\n    \"marketplace\": \"devcraft-toolkit\",\n    \"version\": \"0.1.0-preview.2\",\n    \"enabled\": false,\n    \"source\": \"installed\"\n  }\n]\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/tool/node_modules/.bin/copilot",
+        "plugin",
+        "enable",
+        "devcraft-toolkit@devcraft-toolkit"
+      ],
+      "cwd": "/projects/selected",
+      "exit": 0,
+      "stdout": "Enabled plugin \"devcraft-toolkit@devcraft-toolkit\".\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/tool/node_modules/.bin/copilot",
+        "plugin",
+        "marketplace",
+        "update",
+        "devcraft-toolkit"
+      ],
+      "cwd": "/projects/selected",
+      "exit": 0,
+      "stdout": "Updating marketplace \"devcraft-toolkit\"...\nMarketplace \"devcraft-toolkit\" updated successfully.\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/tool/node_modules/.bin/copilot",
+        "plugin",
+        "update",
+        "devcraft-toolkit@devcraft-toolkit"
+      ],
+      "cwd": "/projects/selected",
+      "exit": 0,
+      "stdout": "Plugin \"devcraft-toolkit@devcraft-toolkit\" updated successfully (v0.1.0-preview.2, already at latest). Updated 7 skills.\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/tool/node_modules/.bin/copilot",
+        "plugin",
+        "uninstall",
+        "devcraft-toolkit@devcraft-toolkit"
+      ],
+      "cwd": "/projects/selected",
+      "exit": 0,
+      "stdout": "Plugin \"devcraft-toolkit@devcraft-toolkit\" uninstalled successfully.\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/tool/node_modules/.bin/copilot",
+        "plugin",
+        "list",
+        "--json"
+      ],
+      "cwd": "/projects/selected",
+      "exit": 0,
+      "stdout": "[]\n",
+      "stderr": ""
+    }
+  ],
+  "checks": [
+    {
+      "packet": "CLIENT-COPILOT-01",
+      "status": "limited",
+      "registration": "passed",
+      "resources": {
+        "root": "/root/.copilot/installed-plugins/devcraft-toolkit/devcraft-toolkit",
+        "names": [
+          "conventional-commits-style",
+          "git-safety-check",
+          "git-working-directory-policy",
+          "natural-language-report-writer",
+          "todo-workflow-controller",
+          "using-devcraft-toolkit",
+          "validation-discovery"
+        ],
+        "resources": {
+          "conventional-commits-style": {
+            "SKILL.md": "18aeeed200e956718013270c2f6eb788fded9bc986f5bef9fa1e61c38ed9afbc",
+            "references/message-format.md": "e8c5bc9c4aa4ddb6918ba2af4d0bb271e253c05d5498ccf0602e3738d5ceb197"
+          },
+          "git-safety-check": {
+            "SKILL.md": "eb8112bf18a805fee0096f07ac43b58e66db3a48c9cea93efc39a9a2f9d60ed5",
+            "references/preflight.md": "9b82573c5e141179413a3dc2f376b6d1992498a57b4cef2542820ee87f661802"
+          },
+          "git-working-directory-policy": {
+            "SKILL.md": "b6c30c4ca57b9ab1e887adeaf423551394980479d2bd0510e66c211aaeaf7e75",
+            "references/context.md": "a9e4e1464b02c31abdb1af04f10bdee6b4cbc1a682cbe0087ea63a902cf188dc"
+          },
+          "natural-language-report-writer": {
+            "SKILL.md": "973c89ca70dfee3686321055e5776f3f988a0f7e6be7033563a20230a941f54f",
+            "assets/report.md": "0a235d281c06e14c81e15bb29189da18ca8d3ae66613ecc07d1b4b762b7504e7",
+            "references/report-quality.md": "5d2fc58ff847149af11f232eab113e8e823d1c5cbc6c093dc3633a9c964f0264"
+          },
+          "todo-workflow-controller": {
+            "SKILL.md": "cd29618cd0ebddf640dfc0dad741eb38bda549d71ae18d7916482e8cef46624d",
+            "references/progress-states.md": "23709f00ff1b90d8c63c7102ed36b8973a1df9bfdf84953f4346e51586c50c22"
+          },
+          "using-devcraft-toolkit": {
+            "SKILL.md": "0675e9a6c3cdccc03ad09725e07527cbc93ce716c416e7b218b7646f0ff9ccc7",
+            "references/composition.md": "6bb6f8965bcc3f3994a35ec0782608608b6cf296b620a3c856a62e7cbcc7a8c0"
+          },
+          "validation-discovery": {
+            "SKILL.md": "62d74181da3983e0115e96a1d1878a880bd672039e2d62528f1848c31ba3b6fd",
+            "references/check-selection.md": "ef76afdae8a78b75fe7b616dc673d72a8864de68180d7da27126e9ced2ba51f9"
+          }
+        }
+      },
+      "activation": "blocked: no authenticated model session"
+    },
+    {
+      "packet": "repeat-install",
+      "exit": 0,
+      "resourcesPreserved": {
+        "root": "/root/.copilot/installed-plugins/devcraft-toolkit/devcraft-toolkit",
+        "names": [
+          "conventional-commits-style",
+          "git-safety-check",
+          "git-working-directory-policy",
+          "natural-language-report-writer",
+          "todo-workflow-controller",
+          "using-devcraft-toolkit",
+          "validation-discovery"
+        ],
+        "resources": {
+          "conventional-commits-style": {
+            "SKILL.md": "18aeeed200e956718013270c2f6eb788fded9bc986f5bef9fa1e61c38ed9afbc",
+            "references/message-format.md": "e8c5bc9c4aa4ddb6918ba2af4d0bb271e253c05d5498ccf0602e3738d5ceb197"
+          },
+          "git-safety-check": {
+            "SKILL.md": "eb8112bf18a805fee0096f07ac43b58e66db3a48c9cea93efc39a9a2f9d60ed5",
+            "references/preflight.md": "9b82573c5e141179413a3dc2f376b6d1992498a57b4cef2542820ee87f661802"
+          },
+          "git-working-directory-policy": {
+            "SKILL.md": "b6c30c4ca57b9ab1e887adeaf423551394980479d2bd0510e66c211aaeaf7e75",
+            "references/context.md": "a9e4e1464b02c31abdb1af04f10bdee6b4cbc1a682cbe0087ea63a902cf188dc"
+          },
+          "natural-language-report-writer": {
+            "SKILL.md": "973c89ca70dfee3686321055e5776f3f988a0f7e6be7033563a20230a941f54f",
+            "assets/report.md": "0a235d281c06e14c81e15bb29189da18ca8d3ae66613ecc07d1b4b762b7504e7",
+            "references/report-quality.md": "5d2fc58ff847149af11f232eab113e8e823d1c5cbc6c093dc3633a9c964f0264"
+          },
+          "todo-workflow-controller": {
+            "SKILL.md": "cd29618cd0ebddf640dfc0dad741eb38bda549d71ae18d7916482e8cef46624d",
+            "references/progress-states.md": "23709f00ff1b90d8c63c7102ed36b8973a1df9bfdf84953f4346e51586c50c22"
+          },
+          "using-devcraft-toolkit": {
+            "SKILL.md": "0675e9a6c3cdccc03ad09725e07527cbc93ce716c416e7b218b7646f0ff9ccc7",
+            "references/composition.md": "6bb6f8965bcc3f3994a35ec0782608608b6cf296b620a3c856a62e7cbcc7a8c0"
+          },
+          "validation-discovery": {
+            "SKILL.md": "62d74181da3983e0115e96a1d1878a880bd672039e2d62528f1848c31ba3b6fd",
+            "references/check-selection.md": "ef76afdae8a78b75fe7b616dc673d72a8864de68180d7da27126e9ced2ba51f9"
+          }
+        }
+      }
+    },
+    {
+      "packet": "same-ref-refresh-update",
+      "status": "limited",
+      "resources": {
+        "root": "/root/.copilot/installed-plugins/devcraft-toolkit/devcraft-toolkit",
+        "names": [
+          "conventional-commits-style",
+          "git-safety-check",
+          "git-working-directory-policy",
+          "natural-language-report-writer",
+          "todo-workflow-controller",
+          "using-devcraft-toolkit",
+          "validation-discovery"
+        ],
+        "resources": {
+          "conventional-commits-style": {
+            "SKILL.md": "18aeeed200e956718013270c2f6eb788fded9bc986f5bef9fa1e61c38ed9afbc",
+            "references/message-format.md": "e8c5bc9c4aa4ddb6918ba2af4d0bb271e253c05d5498ccf0602e3738d5ceb197"
+          },
+          "git-safety-check": {
+            "SKILL.md": "eb8112bf18a805fee0096f07ac43b58e66db3a48c9cea93efc39a9a2f9d60ed5",
+            "references/preflight.md": "9b82573c5e141179413a3dc2f376b6d1992498a57b4cef2542820ee87f661802"
+          },
+          "git-working-directory-policy": {
+            "SKILL.md": "b6c30c4ca57b9ab1e887adeaf423551394980479d2bd0510e66c211aaeaf7e75",
+            "references/context.md": "a9e4e1464b02c31abdb1af04f10bdee6b4cbc1a682cbe0087ea63a902cf188dc"
+          },
+          "natural-language-report-writer": {
+            "SKILL.md": "973c89ca70dfee3686321055e5776f3f988a0f7e6be7033563a20230a941f54f",
+            "assets/report.md": "0a235d281c06e14c81e15bb29189da18ca8d3ae66613ecc07d1b4b762b7504e7",
+            "references/report-quality.md": "5d2fc58ff847149af11f232eab113e8e823d1c5cbc6c093dc3633a9c964f0264"
+          },
+          "todo-workflow-controller": {
+            "SKILL.md": "cd29618cd0ebddf640dfc0dad741eb38bda549d71ae18d7916482e8cef46624d",
+            "references/progress-states.md": "23709f00ff1b90d8c63c7102ed36b8973a1df9bfdf84953f4346e51586c50c22"
+          },
+          "using-devcraft-toolkit": {
+            "SKILL.md": "0675e9a6c3cdccc03ad09725e07527cbc93ce716c416e7b218b7646f0ff9ccc7",
+            "references/composition.md": "6bb6f8965bcc3f3994a35ec0782608608b6cf296b620a3c856a62e7cbcc7a8c0"
+          },
+          "validation-discovery": {
+            "SKILL.md": "62d74181da3983e0115e96a1d1878a880bd672039e2d62528f1848c31ba3b6fd",
+            "references/check-selection.md": "ef76afdae8a78b75fe7b616dc673d72a8864de68180d7da27126e9ced2ba51f9"
+          }
+        }
+      },
+      "note": "No version change or active-session invocation was exercised."
+    },
+    {
+      "packet": "selected-removal-sentinels",
+      "status": "passed",
+      "control": "preserved",
+      "unrelatedSkill": "preserved"
+    }
+  ],
+  "unverified": [
+    "Authenticated activation/model resource reads",
+    "Repository auto-install and active-session isolation",
+    "CLI to VS Code crossover",
+    "Kiro CLI V3/IDE/Crew sessions",
+    "Version-changing update"
+  ]
+}

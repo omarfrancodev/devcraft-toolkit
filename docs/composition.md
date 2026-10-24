@@ -2,9 +2,15 @@
 
 The toolkit entry routes requests to skills that are actually installed in the active harness. Its repository `catalog.json` is a maintained development inventory, not a runtime loader, installer, permission source, or dependency resolver.
 
+## Installation-aware routing
+
+Canonical catalog names describe capabilities. The entry invokes the discovered identifier of the selected installation, including any client namespace, only when actual ownership metadata or explicit standalone selection establishes that choice. It does not strip prefixes to guess ownership. A plugin entry uses its package's skills; an explicitly selected standalone set can be used directly.
+
+Duplicate copies with unresolved ownership require one focused installation choice before dependent invocation. Both copies stay intact. A foreign/unselected copy does not silently supply a capability absent from the selected set. Skill-local resource paths are unchanged, and no root catalog or manifest is needed by installed skills.
+
 ## Foundation group
 
-The available foundation group contains `using-devcraft-toolkit`, `git-working-directory-policy`, and `git-safety-check`. The entry requires both supporting skills; `git-safety-check` requires `git-working-directory-policy`. A standalone installation must include that dependency closure and select the skills explicitly. No tested plugin installation is claimed.
+The available foundation group contains `using-devcraft-toolkit`, `git-working-directory-policy`, and `git-safety-check`. The entry requires both supporting skills; `git-safety-check` requires `git-working-directory-policy`. A standalone installation must include that dependency closure and select the skills explicitly. Native package metadata and file-placement evidence are separate from native activation evidence.
 
 ## Optional standalone capabilities
 

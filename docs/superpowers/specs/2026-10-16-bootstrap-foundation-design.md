@@ -7,7 +7,7 @@ Scope: Milestone 1, the repository foundation and three usable entry/context/saf
 
 ## Product intent and scope
 
-Devcraft Toolkit is a single maintained collection of composable capabilities for Git operations, code review, and activity reporting across coding harnesses. Users can invoke an individual capability or a coordinator. Platform-specific business integrations such as Jira remain outside the core.
+Devcraft Toolkit is a single maintained collection of composable capabilities for Git operations, code review, and activity reporting across coding harnesses. Users can invoke an individual capability or a coordinator. Platform-specific business integrations remain outside the core.
 
 The suite defines seventeen target capabilities, including three Git coordinators, with language-aware output and centralized tests. The foundation increment delivers the catalog, repository validation and three usable entry/context/safety skills. Other capabilities remain separate increments.
 
@@ -47,7 +47,7 @@ Milestone 1 creates three real skills, a catalog that distinguishes available an
 - Milestone 1 performs no product Git writes, network operations or credential changes through its skills.
 - Development tooling uses Python 3.11+ with PyYAML>=6.0,<7.0; unittest is the test runner.
 - Git is required for Git-specific skills and integration fixtures, not for merely reading their instructions.
-- Jira and CCR integration are outside the current scope; CCR has no catalog entry, dependency, routing hook, test folder or migration task in this project.
+- CCR integration is outside the current scope; CCR has no catalog entry, dependency, routing hook, test folder or migration task in this project.
 - Full coordinators, installable plugin manifests and release automation are deferred.
 
 ## Target capability inventory

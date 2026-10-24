@@ -12,7 +12,7 @@ Find project-defined validation commands, assess their effects, and execute only
 
 Deliver one independently usable instruction-first capability. Keep requires=[]; the toolkit entry is an optional consumer, not a prerequisite. Do not implement another planned capability or change catalog availability by writing this design.
 
-Only explicitly requested, inspected local checks may run. CCR/Jira, coordinators, native plugin packaging and releases are outside scope.
+Only explicitly requested, inspected local checks may run. CCR, coordinators, native plugin packaging and releases are outside scope.
 
 ## Approaches considered
 
@@ -152,7 +152,7 @@ Preserve the read-only foundation context/preflight contracts. A report's explic
 - Installed skills use only their bundled resources and explicitly declared skill dependencies; repository tooling and catalog.json are development resources.
 - Implementation must be understandable from repository-local requirements and accessible official technical references, without private conversations, personal paths or unavailable files.
 - Catalog status stays planned until structural checks and actual behavioral evaluation justify available; record unexecuted cases as limitations.
-- No new coordinator, CCR/Jira integration, plugin manifest, installer, release automation or runtime orchestration engine is included.
+- No new coordinator, CCR integration, plugin manifest, installer, release automation or runtime orchestration engine is included.
 - Use Python 3.11+ and the existing PyYAML>=6.0,<7.0 development setup; add no dependencies or helpers without a demonstrated need.
 - Behavioral RED means an observed baseline violation without the candidate skill; a missing SKILL.md or planned catalog entry is not a failing behavior test.
 

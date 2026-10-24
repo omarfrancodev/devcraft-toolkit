@@ -1,0 +1,54 @@
+[
+  {
+    "args": [
+      "plugin",
+      "details",
+      "--help"
+    ],
+    "exit": 0,
+    "stdout": "Usage: claude plugin details [options] <name>\n\nShow a plugin's component inventory and projected token cost\n\nOptions:\n  -h, --help  Display help for command\n",
+    "stderr": ""
+  },
+  {
+    "args": [
+      "plugin",
+      "marketplace",
+      "add",
+      "/source"
+    ],
+    "exit": 0,
+    "stdout": "Adding marketplace…✔ Successfully added marketplace: devcraft-toolkit (declared in user settings)\n",
+    "stderr": ""
+  },
+  {
+    "args": [
+      "plugin",
+      "install",
+      "devcraft-toolkit@devcraft-toolkit",
+      "--scope",
+      "user"
+    ],
+    "exit": 0,
+    "stdout": "Installing plugin \"devcraft-toolkit@devcraft-toolkit\"...✔ Successfully installed plugin: devcraft-toolkit@devcraft-toolkit (scope: user)\n",
+    "stderr": ""
+  },
+  {
+    "args": [
+      "plugin",
+      "details",
+      "devcraft-toolkit@devcraft-toolkit"
+    ],
+    "exit": 0,
+    "stdout": "devcraft-toolkit 0.1.0-preview.2\n  Description: Composable Git and development skills for coding agents.\n  Source: devcraft-toolkit@devcraft-toolkit\n\nComponent inventory\n  Skills (7)  conventional-commits-style, git-safety-check, git-working-directory-policy, natural-language-report-writer, todo-workflow-controller, using-devcraft-toolkit, validation-discovery\n  Agents (0)\n  Hooks (0)\n  MCP servers (0)\n  LSP servers (0)\n\nProjected token cost\n  Always-on:   ~324 tok   added to every session\n\nPer-component (rounded)\n  component                       always-on  on-invoke\n  conventional-commits-style            ~40       ~300\n  git-safety-check                      ~40       ~770\n  git-working-directory-policy          ~40       ~840\n  natural-language-report-writer        ~60       ~520\n  todo-workflow-controller              ~50       ~650\n  using-devcraft-toolkit                ~50      ~1.5k\n  validation-discovery                  ~40       ~700\n\n  On-invoke cost is paid each time a skill or agent fires.\n  Token counts are estimates and may differ from actual usage.\n",
+    "stderr": ""
+  },
+  {
+    "args": [
+      "auth",
+      "status"
+    ],
+    "exit": 1,
+    "stdout": "{\n  \"loggedIn\": false,\n  \"authMethod\": \"none\",\n  \"apiProvider\": \"firstParty\",\n  \"analyticsDisabled\": true,\n  \"projectsDirectory\": \"/root/.claude/projects\",\n  \"configDirectory\": \"/root/.claude\"\n}\n",
+    "stderr": ""
+  }
+]
