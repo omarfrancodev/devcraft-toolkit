@@ -16,16 +16,14 @@ Install the complete toolkit directly from GitHub using your client's documented
 
 Choose [Codex](docs/installation/codex.md), [Copilot CLI](docs/installation/copilot-cli.md), [Copilot in VS Code](docs/installation/copilot-vscode.md), [Claude Code](docs/installation/claude-code.md), [Kiro CLI V3](docs/installation/kiro-cli.md), [Kiro IDE](docs/installation/kiro.md), or [Kiro Crew](docs/installation/kiro-crew.md). The [installation overview](docs/installation.md) explains scope and the Kiro project fallback.
 
-The default-branch recipes use the integrated package. See [preview.2 release details](docs/releases/v0.1.0-preview.2.md) for version-pinned source options; [earlier preview sources](docs/installation/preview.md) are historical evidence. Native activation remains partially validated; no official catalog listing is claimed.
+The default-branch recipes use the integrated package. See [preview.3 release details](docs/releases/v0.1.0-preview.3.md) for version-pinned source options; [earlier preview sources](docs/installation/preview.md) are historical evidence. Native activation remains partially validated; no official catalog listing is claimed.
 
 Need selected capabilities instead? Use [individual skill installation](docs/installation/individual-skills.md). Package contributors and manual-copy users can use [local development/reference](docs/installation/development.md).
 
 ## Preview release
 
-[v0.1.0-preview.2](https://github.com/omarfrancodev/devcraft-toolkit/releases/tag/v0.1.0-preview.2) adds remote suite packaging and installation guidance for seven local clients. See the [changelog](CHANGELOG.md), [release details](docs/releases/v0.1.0-preview.2.md) and [installation guide](docs/installation.md). Native compatibility remains partial; preview.1 is the earlier source-only distribution.
+[v0.1.0-preview.3](https://github.com/omarfrancodev/devcraft-toolkit/releases/tag/v0.1.0-preview.3) adds read-only change analysis and commit planning to the complete nine-skill suite. See the [changelog](CHANGELOG.md), [release details](docs/releases/v0.1.0-preview.3.md) and [installation guide](docs/installation.md). Native compatibility remains partial.
 
-## Development candidate
+`git-analyze-changes` returns guarded, layer-specific local evidence; `git-plan-commits` proposes intent groups and messages while preserving staged selection and requested paths. Staging and commit execution remain planned. [Their design](docs/superpowers/specs/2026-10-24-git-analysis-planning-design.md) and [the roadmap](docs/roadmap.md#next-increments-and-acceptance-gates) describe the boundaries.
 
-The current checkout is the unpublished `0.1.0-preview.3` candidate. `git-analyze-changes` returns guarded, layer-specific local evidence; `git-plan-commits` proposes intent groups and messages while preserving the staged selection. Both are read-only; staging and commit execution remain planned. [Their design and acceptance gates](docs/superpowers/specs/2026-10-24-git-analysis-planning-design.md) and [the remaining sequence](docs/roadmap.md#next-increments-and-acceptance-gates) describe the boundaries.
-
-Published `v0.1.0-preview.2` still contains seven skills and does not include these two capabilities. New capabilities require a source revision containing this increment; no preview.3 release or native activation is claimed.
+Earlier [preview.2](docs/releases/v0.1.0-preview.2.md) contains seven skills and lacks the two new capabilities; preview.1 is the earlier source-only distribution. Historical native registration/resource evidence does not establish activation of the added skills.

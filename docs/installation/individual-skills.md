@@ -4,7 +4,7 @@ Use this route only when you want selected capabilities instead of the native su
 
 ## Remote source and requirements
 
-The default remote source uses the integrated package. For a fixed version use the [release-pinned source](../releases/v0.1.0-preview.2.md#version-pinned-sources). CLI examples use Node.js >=22.20.0, npm and Skills CLI 1.7.4. Complete-folder manual copying is available in [development/reference](development.md#manual-complete-folder-copying).
+The default remote source uses the integrated package. For a fixed version use the [release-pinned source](../releases/v0.1.0-preview.3.md#version-pinned-sources). CLI examples use Node.js >=22.20.0, npm and Skills CLI 1.7.4. Complete-folder manual copying is available in [development/reference](development.md#manual-complete-folder-copying).
 
 Crew uses its [native individual/full importer](kiro-crew.md), not an assumed external installer selector. Its default user store is `~/.kiro/crew/skills/`; active-project `.kiro/skills/` requires Crew's project-skill enablement and trust. Use exact imported paths and dependencies.
 
@@ -33,7 +33,7 @@ The leading npm `--yes` permits acquisition of the pinned CLI; Skills remains in
 
 ## Source inventory and dependency selection
 
-This checkout is an unpublished nine-skill `0.1.0-preview.3` candidate. New analysis/planning capabilities require a revision containing this increment. Published preview.2 has seven skills: it cannot satisfy either new request, and its full-set command must omit the two new names. The complete dependency table below describes this checkout, not a retroactive change to that tag.
+Version `0.1.0-preview.3` contains nine skills, including analysis and planning. Select this tag or a later source containing those capabilities. Published preview.2 has seven skills: it cannot satisfy either new request, and its full-set command must omit the two new names. The complete dependency table below describes this checkout, not a retroactive change to that tag.
 
 ## Explicit dependency selection
 

@@ -2,7 +2,7 @@
 
 ## Current foundation
 
-The development catalog provides nine available skills and eight planned entries across seventeen target capabilities. The foundation, formatter, progress controller, report writer and validation discovery are joined by read-only change analysis and commit planning. The analyzer requires repository context; the planner requires the analyzer and formatter. Optional entry routes add no hard dependency to the entry itself and report unavailable capabilities honestly.
+The current preview catalog provides nine available skills and eight planned entries across seventeen target capabilities. The foundation, formatter, progress controller, report writer and validation discovery are joined by read-only change analysis and commit planning. The analyzer requires repository context; the planner requires the analyzer and formatter. Optional entry routes add no hard dependency to the entry itself and report unavailable capabilities honestly.
 
 ## Shared capabilities
 
@@ -46,3 +46,7 @@ The table reflects catalog availability. Planned designs do not create installab
 5. **Native validation — ongoing.** Start with a small authenticated Codex invocation of the published preview, then Copilot CLI and VS Code, followed by Claude Code and Kiro CLI V3/IDE/Crew. Verify resource reads, user/project scope and version-changing lifecycle per client. Keep unobserved rows open; this track does not block building the read-only capabilities.
 
 CCR, a custom installer, release automation and public directory submission remain deferred. Catalog availability is the current product inventory; old spec/plan checkboxes retain historical execution records and do not establish native validation. In particular, the earlier installation plan's authenticated execution gate remains open.
+
+## Read-only preparation release
+
+[Preview.3](releases/v0.1.0-preview.3.md) delivers analysis and planning as a nine-skill suite. Its changelog and release preparation belong to PR #5; the tag/assets target that PR's exact merge commit. Staging and commit construction remain the next product increment, while native invocation continues as a separate validation track.

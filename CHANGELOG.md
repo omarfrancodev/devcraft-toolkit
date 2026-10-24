@@ -4,6 +4,10 @@ Release dates use the GitHub publication date in America/Mexico_City. Pre-releas
 
 ## unreleased
 
+## 0.1.0-preview.3 — 2026-10-24
+
+Experimental read-only Git preparation. Nine skills are available; native activation remains partially validated.
+
 ### Added
 
 - Add read-only `git-analyze-changes` with layer-specific evidence, bounded coverage, safe local inspection and HEAD/index/content freshness guards.
@@ -13,7 +17,7 @@ Release dates use the GitHub publication date in America/Mexico_City. Pre-releas
 
 ### Changed
 
-- Set both package manifests to unpublished development candidate `0.1.0-preview.3`; published preview.2 and its seven-skill historical evidence remain unchanged. No release or native activation is claimed by these checks.
+- Align both package manifests and version-pinned installation guidance on `0.1.0-preview.3`. Prepare the changelog, release notes and packaging procedure in PR #5 for publication from its merge commit; preserve preview.2 and its seven-skill historical evidence.
 
 ## 0.1.0-preview.2 — 2026-10-24
 

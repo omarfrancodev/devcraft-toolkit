@@ -3,7 +3,7 @@
 ## Install the complete remote suite
 
 Use the existing marketplace; no separate Copilot package is needed. The normal
-source uses the integrated package. [Release details](../releases/v0.1.0-preview.2.md#version-pinned-sources)
+source uses the integrated package. [Release details](../releases/v0.1.0-preview.3.md#version-pinned-sources)
 describe a version-pinned marketplace source.
 
 ```sh

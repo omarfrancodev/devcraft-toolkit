@@ -96,3 +96,7 @@ A fresh design builder check precedes the plan. Execute the plan sequentially, c
 - [Git global no-lazy-fetch, literal-pathspecs and optional-lock controls](https://git-scm.com/docs/git)
 
 These references support command semantics. The contracts and conservative filter fallback above define the toolkit's narrower behavior.
+
+## Release integration amendment — 2026-10-24
+
+Prepare `v0.1.0-preview.3` in PR #5 after the approved implementation review: date its changelog, align consumer/version-pinned documentation and define ZIP/checksum publication from the exact merge commit. The original candidate and evaluation labels describe their reviewed implementation snapshot. This amendment changes release documentation only; the skill contracts and pending native validation remain unchanged. Publish the tag/assets after merging, without a follow-up release-preparation commit on main. See [release details](../../releases/v0.1.0-preview.3.md) for the procedure.

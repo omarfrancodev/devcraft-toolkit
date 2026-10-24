@@ -116,3 +116,7 @@ All spec sections map to Tasks 1–3. Record contracts are identical at producer
 ## Final verification adjustment
 
 Use `git diff --check <merge-base>` before the final commit and `git diff --check <merge-base>..HEAD` afterward: an unqualified check after commits does not inspect the feature range. A path-only request narrows files before the planner applies explicit layers or the staged-first default inside that scope. The PLAN-09 application regression reproduced and corrected the prior ambiguity; retain its actual RED/GREEN evidence with the planner.
+
+## Release integration amendment — 2026-10-24
+
+Prepare `v0.1.0-preview.3` in PR #5 after the approved implementation review: date its changelog, align consumer/version-pinned documentation and define ZIP/checksum publication from the exact merge commit. The original candidate and evaluation labels describe their reviewed implementation snapshot. This amendment changes release documentation only; the skill contracts and pending native validation remain unchanged. Publish the tag/assets after merging, without a follow-up release-preparation commit on main. See [release details](../../releases/v0.1.0-preview.3.md) for the procedure.

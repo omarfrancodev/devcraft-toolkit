@@ -20,4 +20,4 @@ See the [capability roadmap](roadmap.md) for the sequence of product increments.
 
 The analyzer depends on repository context and returns scoped layer-specific evidence with HEAD/index/content guards. The planner depends on that analyzer and the formatter, selecting the existing index by default, preserving partial staging, and returning intent groups and pending decisions. Optional entry routing adds no foundation dependency. Both capabilities are instruction-first and have no runtime collector or Python requirement.
 
-The development candidate version is `0.1.0-preview.3`; published preview.2 and its native resource evidence remain the original seven-skill snapshot. Owner-scoped replay and Git fixture evidence for the new capabilities does not establish native client activation.
+The current preview version is `0.1.0-preview.3`; published preview.2 and its native resource evidence remain the original seven-skill snapshot. Owner-scoped replay and Git fixture evidence for the new capabilities does not establish native client activation.
