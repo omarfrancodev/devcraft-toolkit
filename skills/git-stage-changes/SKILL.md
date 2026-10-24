@@ -15,7 +15,7 @@ Use explicit language preference, then request language, then English. Preserve 
 
 A bare invocation or proposed staging request is preview-only. An explicit stage request authorizes its exact selection without redundant confirmation. A plan or ready preflight alone grants no write permission. Ask one focused question for a material scope or partition decision.
 
-Read the local [index operations reference](references/index-operations.md) before execution. Apply its protective setup during dependency reads too. Use current analysis and inspect preflight; missing identity does not block index-only staging. Conflicts/active operations block writes.
+Read the local [index operations reference](references/index-operations.md) before execution. Apply its protective setup during dependency reads too. Use current analysis and inspect preflight; missing identity does not block index-only staging. Conflicts/active operations block writes. Inspect index-write hooks before each mutation; unknown or unauthorized effects block execution.
 
 ## Establish the exact target
 

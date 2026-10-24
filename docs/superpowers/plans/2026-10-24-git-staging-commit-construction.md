@@ -55,7 +55,7 @@ The user requested spec, plan and then sequential implementation in one task. Us
 - [x] **Step 1: Define scenarios and run five fresh baseline record/application controls without candidate instructions.**
   Fixture: selected text hunk, existing partial staging, excluded debug and unrelated staged entry, explicit stage authorization, complete current target manifest and no active helpers. Cover preview/authorization gaps, stale content, foreign dependencies, identity absence, unsupported flags and literal paths. Retain actual responses; score factual successes separately from missing result fields.
 - [x] **Step 2: Write and run Git recipe fixture controls.**
-  `IndexOperationTests` methods: `test_cached_patch_stages_only_selected_hunk`, `test_stale_patch_check_writes_nothing`, `test_literal_paths_deletion_and_unborn_stage`, `test_authorized_reverse_patch_defers_only_selected_index_hunk`. Assert complete index manifests, excluded file/index guards and no HEAD/worktree/config changes. Run `python -B -m unittest tests.skills.git_stage_changes.integration.test_index_operations -v`. These command-semantic controls may pass before skill authoring; do not label that as behavioral RED.
+  `IndexOperationTests` methods: `test_cached_patch_stages_only_selected_hunk`, `test_stale_patch_check_writes_nothing`, `test_literal_paths_deletion_and_unborn_stage`, `test_authorized_reverse_patch_defers_only_selected_index_hunk`, `test_index_write_hook_can_mutate_excluded_worktree`. Assert complete index manifests, excluded file/index guards and no HEAD/worktree/config changes. Run `python -B -m unittest tests.skills.git_stage_changes.integration.test_index_operations -v`. These command-semantic controls may pass before skill authoring; do not label that as behavioral RED.
 - [x] **Step 3: Implement the skill/reference, catalog dependency and project write boundary.**
   Concise Use-when metadata; preview versus stage mode; exact manifest/hash normalization; cached patch check/apply and scoped approved reverse; before/after verification; no automatic recovery. Available stage requires analyzer+safety. Missing exact target or unsupported effects blocks/limits, not whole-file fallback.
 - [x] **Step 4: Run five fresh candidate samples with complete instructions/dependencies, then independent edge/gap cases.**
@@ -98,7 +98,7 @@ The user requested spec, plan and then sequential implementation in one task. Us
   Explain write exceptions, eleven-skill dependency closures, preview.4 candidate versus published preview.3, roadmap completion and native evidence limits. No change to prior release tags, historical payload counts or native gates.
 - [x] **Step 4: Run full checks and commit integration.**
   Run `python -B -m unittest discover -s tests -p "test_*.py" -v`, repository/distribution validators and `git diff --check <base>` (then `<base>..HEAD` after commit). Expected all runnable tests pass; disclose the existing Windows symlink privilege skip. Commit `feat: compose staging and commit construction capabilities`.
-- [ ] **Step 5: One fresh whole-branch review and bounded fix pass.**
+- [x] **Step 5: One fresh whole-branch review and bounded fix pass.**
   Give reviewer the spec/plan, range, ledger rulings and Review Focus. Re-grade by actual impact, reproduce important findings before fixes and rerun affected/full checks. Preserve branch/worktree and report completion; no PR/merge/release unless subsequently requested.
 
 ## Self-review

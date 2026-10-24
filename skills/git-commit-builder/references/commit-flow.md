@@ -28,6 +28,8 @@ If allowed validation/hook artifacts changed guards, refresh the analyzer and ap
 
 ## Commit effects
 
+Perform this effect gate before staging or any other mutation, not only before the commit command; refresh it again before each write. Explicitly inspect post-index-change and its helpers through effective/default hooksPath: both staging and commit preparation can write the index. The stage capability's pre-write gate also applies to every deferral/restoration. Unknown or out-of-contract effects block before writing; never bypass hooks to proceed.
+
 Inspect effective core.hooksPath (or the resolved default hooks directory) and active commit hooks, including referenced helpers; sample/disabled hooks are not active. Resolve relative hook paths according to Git execution context. Inspect signing/editor settings and user/project conventions. No hook/signing bypass, --no-verify, key setup, configuration writes or network is implicit.
 
 Known bounded local hooks within the request may run with their effects disclosed. Unknown, destructive, external or additional unapproved effects require the relevant decision. An autofixing hook is not automatically authorized just because it is a hook. Required signing/interaction that the harness cannot provide blocks the operation; do not disable it. Effective message transformations must be explicitly accounted for, not silently accepted.

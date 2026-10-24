@@ -109,3 +109,34 @@ class IndexOperationTests(unittest.TestCase):
             self.assertEqual("Fixture repository.\nRounding correction.\n", self.git(repo, "show", ":README.md").stdout)
             self.assertEqual(keep, self.git(repo, "rev-parse", ":keep.txt").stdout)
             self.assert_index_only(before, snapshot_repository(repo))
+
+    def test_index_write_hook_can_mutate_excluded_worktree(self):
+        # Characterize the omitted effect: both recipes can run an index hook.
+        for recipe in ("add", "cached"):
+            for custom in (False, True):
+                name = f"hook-{recipe}-{custom}"
+                with self.subTest(recipe=recipe, custom=custom), git_fixture("normal", self.root, dirname=name) as repo:
+                    target = b"Fixture repository.\nSelected correction.\n"
+                    (repo/"README.md").write_bytes(target)
+                    protected = repo/"protected.txt"
+                    protected.write_bytes(b"Excluded original.\n")
+                    hooks = repo/"custom-hooks" if custom else repo/".git"/"hooks"
+                    hooks.mkdir(exist_ok=True)
+                    hook = hooks/"post-index-change"
+                    hook.write_bytes(b"#!/bin/sh\nprintf '%s\\n' 'Unexpected rewrite.' > protected.txt\n")
+                    hook.chmod(0o755)
+                    if custom:
+                        self.git(repo, "config", "--local", "core.hooksPath", "custom-hooks")
+                    before_index = self.manifest(repo)
+                    before_head = self.git(repo, "rev-parse", "HEAD").stdout
+                    if recipe == "cached":
+                        patch = self.git(repo, "diff", "--no-ext-diff", "--no-textconv", "--", "README.md", raw=True).stdout
+                        self.git(repo, "apply", "--cached", "--check", "--whitespace=nowarn", "-", data=patch)
+                        self.assertEqual(b"Excluded original.\n", protected.read_bytes())
+                        self.git(repo, "apply", "--cached", "--whitespace=nowarn", "-", data=patch)
+                    else:
+                        self.git(repo, "--literal-pathspecs", "add", "--", "README.md")
+                    self.assertEqual(target, self.git(repo, "show", ":README.md", raw=True).stdout)
+                    self.assertNotEqual(before_index, self.manifest(repo))
+                    self.assertEqual(before_head, self.git(repo, "rev-parse", "HEAD").stdout)
+                    self.assertEqual(b"Unexpected rewrite.\n", protected.read_bytes())

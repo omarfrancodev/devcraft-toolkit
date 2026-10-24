@@ -51,7 +51,7 @@ test_schema_version_requires_an_exact_integer (repository.test_repository_valida
 test_skill_body_must_be_substantive (repository.test_repository_validation.RepositoryValidationTests.test_skill_body_must_be_substantive) ... ok
 test_skill_frontmatter_requires_matching_name_and_description (repository.test_repository_validation.RepositoryValidationTests.test_skill_frontmatter_requires_matching_name_and_description) ... ok
 test_skill_name_and_description_limits_are_enforced (repository.test_repository_validation.RepositoryValidationTests.test_skill_name_and_description_limits_are_enforced) ... ok
-test_skill_symlink_cannot_escape_its_root (repository.test_repository_validation.RepositoryValidationTests.test_skill_symlink_cannot_escape_its_root) ... skipped "OS does not permit symlink fixture: [WinError 1314] El cliente no dispone de un privilegio requerido: 'C:\\\\Users\\\\Developer.INSCORSOF2\\\\Documents\\\\Proyectos-Code\\\\omarfrancodev\\\\devcraft-toolkit\\\\.worktrees\\\\git-stage-commit-builder\\\\tests\\\\.tmp\\\\tmp5zy7ec0s\\\\outside.md' -> 'C:\\\\Users\\\\Developer.INSCORSOF2\\\\Documents\\\\Proyectos-Code\\\\omarfrancodev\\\\devcraft-toolkit\\\\.worktrees\\\\git-stage-commit-builder\\\\tests\\\\.tmp\\\\tmp5zy7ec0s\\\\skills\\\\alpha\\\\references\\\\outside.md'"
+test_skill_symlink_cannot_escape_its_root (repository.test_repository_validation.RepositoryValidationTests.test_skill_symlink_cannot_escape_its_root) ... skipped "OS does not permit symlink fixture: [WinError 1314] El cliente no dispone de un privilegio requerido: 'C:\\\\Users\\\\Developer.INSCORSOF2\\\\Documents\\\\Proyectos-Code\\\\omarfrancodev\\\\devcraft-toolkit\\\\.worktrees\\\\git-stage-commit-builder\\\\tests\\\\.tmp\\\\tmpv9tkojxs\\\\outside.md' -> 'C:\\\\Users\\\\Developer.INSCORSOF2\\\\Documents\\\\Proyectos-Code\\\\omarfrancodev\\\\devcraft-toolkit\\\\.worktrees\\\\git-stage-commit-builder\\\\tests\\\\.tmp\\\\tmpv9tkojxs\\\\skills\\\\alpha\\\\references\\\\outside.md'"
 test_uncataloged_skill_is_reported (repository.test_repository_validation.RepositoryValidationTests.test_uncataloged_skill_is_reported) ... ok
 test_unclosed_fence_hides_examples_through_end_of_document (repository.test_repository_validation.RepositoryValidationTests.test_unclosed_fence_hides_examples_through_end_of_document) ... ok
 test_unknown_dependency (repository.test_repository_validation.RepositoryValidationTests.test_unknown_dependency) ... ok
@@ -86,6 +86,7 @@ test_read_only_preflight_queries_preserve_all_fixture_states (skills.git_safety_
 test_staged_fixture_keeps_index_selection (skills.git_safety_check.integration.test_preflight_fixtures.GitPreflightFixtureTests.test_staged_fixture_keeps_index_selection) ... ok
 test_authorized_reverse_patch_defers_only_selected_index_hunk (skills.git_stage_changes.integration.test_index_operations.IndexOperationTests.test_authorized_reverse_patch_defers_only_selected_index_hunk) ... ok
 test_cached_patch_stages_only_selected_hunk (skills.git_stage_changes.integration.test_index_operations.IndexOperationTests.test_cached_patch_stages_only_selected_hunk) ... ok
+test_index_write_hook_can_mutate_excluded_worktree (skills.git_stage_changes.integration.test_index_operations.IndexOperationTests.test_index_write_hook_can_mutate_excluded_worktree) ... ok
 test_literal_paths_deletion_and_unborn_stage (skills.git_stage_changes.integration.test_index_operations.IndexOperationTests.test_literal_paths_deletion_and_unborn_stage) ... ok
 test_stale_patch_check_writes_nothing (skills.git_stage_changes.integration.test_index_operations.IndexOperationTests.test_stale_patch_check_writes_nothing) ... ok
 test_detached_fixture_has_head_without_branch (skills.git_working_directory_policy.integration.test_context_fixtures.RepositoryContextFixtureTests.test_detached_fixture_has_head_without_branch) ... ok
@@ -99,6 +100,6 @@ test_unborn_fixture_has_main_branch_and_untracked_readme (skills.git_working_dir
 test_unicode_linked_worktree_paths_and_index_are_snapshotted (skills.git_working_directory_policy.integration.test_context_fixtures.RepositoryContextFixtureTests.test_unicode_linked_worktree_paths_and_index_are_snapshotted) ... ok
 
 ----------------------------------------------------------------------
-Ran 99 tests in 77.049s
+Ran 100 tests in 80.784s
 
 OK (skipped=1)

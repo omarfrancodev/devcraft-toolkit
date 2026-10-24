@@ -12,3 +12,4 @@ Owner: `git-commit-builder`. Real mutations occur only in explicitly owned dispo
 | COMMIT-06 | First commit verified, second fails | partial with actual first SHA, remaining scope and state; no rollback/retry |
 | COMMIT-07 | Foreign/missing dependency, identity ambiguity, detached strategy, stale record | Block/decision/limited before affected writes |
 | COMMIT-08 | Actual one-group live fixture | Requested index commit, exact tree/message/parent/identity, excluded worktree retained |
+| COMMIT-09 | Index-write hook active before initial staging or later deferral/restoration | Apply effect gate before the first mutation, then refresh before each index/commit write |

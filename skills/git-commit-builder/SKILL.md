@@ -5,7 +5,7 @@ description: Use when local changes need a coordinated commit proposal or explic
 
 # Build Scoped Local Commits
 
-Coordinate installed capabilities; preserve selection and progress. No branch creation, publication, history rewrite or automatic recovery is implied.
+Coordinate capabilities; preserve selection and progress. No branch creation, publication, history rewrite or automatic recovery is implied.
 
 ## Resolve mode and dependencies
 
@@ -13,7 +13,7 @@ Require `git-plan-commits`, `git-stage-changes`, `git-safety-check`, `validation
 
 Use explicit language preference, then request language, then English; preserve technical keys/identifiers/statuses.
 
-Default to planning unless the request explicitly asks to create commits. A skill name, plan or preflight grants no write permission. An explicit commit request covers its exact selected staging and inspected ordinary local checks; disclose expected effects without redundant confirmations. Material scope, partition, identity or additional effects need a focused decision.
+Plan unless the request explicitly asks to create commits. A skill name, plan or preflight grants no write permission. An explicit commit request covers its exact selected staging and inspected ordinary local checks; disclose expected effects without redundant confirmations. Material scope, partition, identity or additional effects need a focused decision.
 
 Read [commit flow](references/commit-flow.md) before execution. Its protected dependency reads, validation scope, hook/signing inspection and postconditions are required.
 
@@ -22,7 +22,7 @@ Read [commit flow](references/commit-flow.md) before execution. Its protected de
 1. Track steps/gates with the progress controller's native or inline mode. Obtain current analysis/context and intent-specific preflight.
 2. Use the planner's evidenced ordered groups/messages. Narrow paths, retain staged-first and exclusions. Do not silently repartition the index.
 3. Delegate discovery and requested checks to validation-discovery. Report each check's actual scope/result. Dirty-worktree success is not proof of different selected content; a required exact-index check must really cover it.
-4. For each authorized group, refresh facts and delegate its exact index transformation to staging. Account for every index entry before committing. Unrelated staged entries require an approved deferral/restore decision, not a path/alternate-index bypass.
+4. Before each authorized group's staging, inspect index/commit effects and refresh facts; delegate the exact index transformation. Account for every index entry before committing. Unrelated staged entries require an approved deferral/restore decision, not a path/alternate-index bypass.
 5. Refresh commit preflight, identity, target and configured effects. Honor inspected hooks/signing; unknown or additional effects block the affected operation. Never force success by bypassing them.
 6. Create only a normal new index-based commit with literal message transport. Capture exit/output once and verify actual SHA, parent/branch, complete tree, message, identity and residual state. Reconcile expected own transitions before the next group.
 

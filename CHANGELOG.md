@@ -15,6 +15,7 @@ Release dates use the GitHub publication date in America/Mexico_City. Pre-releas
 
 - Set both manifests to unpublished development candidate `0.1.0-preview.4`; published preview.3 retains its nine-skill payload.
 - Document bounded Git-write exceptions, exact validation scope and preserved failure state; no implicit branch creation or publication.
+- Gate index-write hooks and helpers before every mutation, including staging and commit preparation; block out-of-contract effects without bypass.
 
 ## 0.1.0-preview.3 — 2026-10-24
 

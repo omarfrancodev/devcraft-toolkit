@@ -11,3 +11,4 @@ Owner: `git-stage-changes`. Runtime effects require the exact case authorization
 | STAGE-05 | Missing identity, unborn HEAD, foreign dependency | Identity not needed for staging; no substitution for missing required skill |
 | STAGE-06 | Filter/helper, sparse/intent-to-add/override or binary split | Protective gate; unsupported scope limited, no silent bypass |
 | STAGE-07 | Actual live scoped patch in owned fixture | Verified index mutation only; report real execution separately from replay |
+| STAGE-08 | Active default/custom post-index-change rewrites an excluded working file | Inspect effective hooksPath/hook/helpers before any mutation; block out-of-contract effects without bypass; preserve all guards |
