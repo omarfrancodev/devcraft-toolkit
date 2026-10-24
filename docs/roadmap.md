@@ -36,3 +36,13 @@ Each capability has its own self-contained spec and implementation plan. The exe
 | validation-discovery | available | [Project validation](superpowers/specs/2026-10-22-project-validation-design.md) | [Implementation](superpowers/plans/2026-10-22-project-validation.md) |
 
 The table reflects catalog availability. Planned designs do not create installable skill placeholders or imply completed behavior.
+
+## Next increments and acceptance gates
+
+1. **Read-only analysis and commit planning — in progress.** Deliver `git-analyze-changes` and `git-plan-commits`, preserving staged/unstaged boundaries and freshness. See the [design](superpowers/specs/2026-10-24-git-analysis-planning-design.md) and [plan](superpowers/plans/2026-10-24-git-analysis-planning.md). Completion requires owner-scoped behavioral evidence, real Git fixture safety checks and dependency-aware optional entry routes.
+2. **Staging and commit construction — planned.** Design `git-stage-changes` and `git-commit-builder` next. Define explicit selection and mutation authorization, fresh preflight/identity, partial staging, scoped validation and commit failures before enabling writes. Branch creation is not implied by commit construction.
+3. **Git-history activity reporting — planned.** Design `git-activity-report` with verified history, author/date/timezone filters, evidence limits, report-writer reuse and an explicit output destination when saving.
+4. **Remote publication — planned.** Design `git-sync-branch`, `git-publish-changes`, `git-manage-pull-request` and `git-promote` before composing `git-publish-work`. Define independent synchronization, publication, review/promotion and authorization boundaries; no automatic remote mutation from an inspection request.
+5. **Native validation — ongoing.** Start with a small authenticated Codex invocation of the published preview, then Copilot CLI and VS Code, followed by Claude Code and Kiro CLI V3/IDE/Crew. Verify resource reads, user/project scope and version-changing lifecycle per client. Keep unobserved rows open; this track does not block building the read-only capabilities.
+
+CCR, a custom installer, release automation and public directory submission remain deferred. Catalog availability is the current product inventory; old spec/plan checkboxes retain historical execution records and do not establish native validation. In particular, the earlier installation plan's authenticated execution gate remains open.
