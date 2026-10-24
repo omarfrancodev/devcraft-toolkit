@@ -3,7 +3,7 @@
 ## Install the complete remote suite
 
 Use the existing marketplace; no separate Copilot package is needed. The normal
-source uses the integrated package. [Release details](../releases/v0.1.0-preview.2.md#version-pinned-sources)
+source uses the integrated package. [Release details](../releases/v0.1.0-preview.3.md#version-pinned-sources)
 describe a version-pinned marketplace source.
 
 ```sh
@@ -12,7 +12,7 @@ copilot plugin install devcraft-toolkit@devcraft-toolkit
 copilot plugin list
 ```
 
-Review the source and trust prompts. Inspect the seven installed skills and
+Review the source and trust prompts. Inspect all skills installed from the selected revision and
 resources, then use the toolkit entry in a Copilot session. A successful plugin
 list does not prove a model loaded the entry or read its bundled resources.
 

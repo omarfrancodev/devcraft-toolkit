@@ -31,3 +31,13 @@ Message formatting returns a proposal from supplied facts and conventions. It ne
 The preflight result `ready` is not authorization to perform a Git write. Missing tools do not grant new capabilities. Unanswered material decisions remain unresolved until the user answers.
 
 Git commit creation and coordination, publication coordination, and the `git-activity-report` coordinator remain planned in this distribution. Do not replace those workflows with manual imitation. Evidence-based report writing from supplied facts is a separate available capability when installed; it does not inspect Git history.
+
+## Read-only Git preparation
+
+`git-analyze-changes` requires `git-working-directory-policy`. `git-plan-commits` requires the analyzer and `conventional-commits-style`; include the analyzer's context dependency in a standalone set. These are optional entry routes, not new hard dependencies of the entry. Resolve every dependency's selected-installation ownership and actual invocation identifier before dependent execution. Missing/foreign dependencies do not authorize imitation or automatic installation.
+
+The analyzer returns repository/scope, a guarded observation snapshot, layer-specific evidence IDs, constraints and unknowns, with analyzed/no_op/needs_decision/limited/blocked outcomes. Keep those IDs and staged/unstaged/untracked boundaries when passing evidence to the planner. The planner verifies freshness through the analyzer, applies the explicit selection or staged-first default, and returns intent groups, exact selections/order, formatter-produced messages, exclusions, decisions and limits. Planned/no_op/needs_decision/limited/blocked describe proposals, never execution.
+
+Missing identity is not a blocker for read-only analysis/planning. A conflict can be completely observed while blocking a complete plan. Supplied/offline evidence stays conditional when live guards cannot be verified. Neither capability performs staging, commits, branch creation, validation execution or publication. Later coordinators remain planned.
+
+An explicitly selected standalone planner closure can be invoked directly without the entry or safety-check skill; using the entry itself still requires its existing foundation group.

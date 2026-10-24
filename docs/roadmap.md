@@ -2,7 +2,7 @@
 
 ## Current foundation
 
-The distribution provides repository context, read-only Git preflight, a composition entry, standalone Conventional Commit message formatting, portable progress tracking, evidence-based report writing, and project validation discovery. The catalog records seventeen target capabilities, with seven available and ten planned. Optional capabilities can be installed alone or alongside the entry; none adds a hard skill dependency. The entry routes commit-message, progress-control, natural-language-reporting, and project-validation requests to the matching optional skill when installed, and reports unavailable capabilities honestly when absent.
+The current preview catalog provides nine available skills and eight planned entries across seventeen target capabilities. The foundation, formatter, progress controller, report writer and validation discovery are joined by read-only change analysis and commit planning. The analyzer requires repository context; the planner requires the analyzer and formatter. Optional entry routes add no hard dependency to the entry itself and report unavailable capabilities honestly.
 
 ## Shared capabilities
 
@@ -36,3 +36,17 @@ Each capability has its own self-contained spec and implementation plan. The exe
 | validation-discovery | available | [Project validation](superpowers/specs/2026-10-22-project-validation-design.md) | [Implementation](superpowers/plans/2026-10-22-project-validation.md) |
 
 The table reflects catalog availability. Planned designs do not create installable skill placeholders or imply completed behavior.
+
+## Next increments and acceptance gates
+
+1. **Read-only analysis and commit planning — available.** Deliver `git-analyze-changes` and `git-plan-commits`, preserving staged/unstaged boundaries and freshness. See the [design](superpowers/specs/2026-10-24-git-analysis-planning-design.md) and [plan](superpowers/plans/2026-10-24-git-analysis-planning.md). Owner-scoped replay/edge evidence, real Git fixture safety checks and dependency-aware optional entry routes are implemented. Native invocation of the new capabilities remains unverified.
+2. **Staging and commit construction — planned.** Design `git-stage-changes` and `git-commit-builder` next. Define explicit selection and mutation authorization, fresh preflight/identity, partial staging, scoped validation and commit failures before enabling writes. Branch creation is not implied by commit construction.
+3. **Git-history activity reporting — planned.** Design `git-activity-report` with verified history, author/date/timezone filters, evidence limits, report-writer reuse and an explicit output destination when saving.
+4. **Remote publication — planned.** Design `git-sync-branch`, `git-publish-changes`, `git-manage-pull-request` and `git-promote` before composing `git-publish-work`. Define independent synchronization, publication, review/promotion and authorization boundaries; no automatic remote mutation from an inspection request.
+5. **Native validation — ongoing.** Start with a small authenticated Codex invocation of the published preview, then Copilot CLI and VS Code, followed by Claude Code and Kiro CLI V3/IDE/Crew. Verify resource reads, user/project scope and version-changing lifecycle per client. Keep unobserved rows open; this track does not block building the read-only capabilities.
+
+CCR, a custom installer, release automation and public directory submission remain deferred. Catalog availability is the current product inventory; old spec/plan checkboxes retain historical execution records and do not establish native validation. In particular, the earlier installation plan's authenticated execution gate remains open.
+
+## Read-only preparation release
+
+[Preview.3](releases/v0.1.0-preview.3.md) delivers analysis and planning as a nine-skill suite. Its changelog and release preparation belong to PR #5; the tag/assets target that PR's exact merge commit. Staging and commit construction remain the next product increment, while native invocation continues as a separate validation track.

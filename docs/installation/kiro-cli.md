@@ -10,7 +10,7 @@ kiro-cli --v3
 ```
 
 Inspect `/powers` and `/config skills` in that session. Confirm discovery of
-the seven toolkit skills and their resources before invoking the entry. Kiro
+the toolkit skills available in the selected revision and their resources before invoking the entry. Kiro
 documents pickup of IDE-installed Powers by CLI V3; CLI and IDE activation
 still require independent checks.
 
@@ -26,7 +26,7 @@ not established by those arguments.
 
 If you use only CLI, use the
 [complete skill-set fallback](individual-skills.md#complete-skill-set-fallback).
-Select all seven names with `--agent kiro-cli`; use `--global` for user scope
+Select all available names for the chosen revision with `--agent kiro-cli`; use `--global` for user scope
 or run in the chosen project for `.kiro/skills/`. This route needs Node/npm and
 the pinned external Skills CLI. It requires no user-managed clone.
 

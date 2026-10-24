@@ -27,11 +27,11 @@ The 0.1.0-preview.2 distribution adds native package metadata and explicit selec
 
 [Native evidence](../tests/integration/distribution/evaluations/2026-10-23-installation/native.md) separates registration, file placement, discovery, invocation, scope and lifecycle. Codex CLI 0.162.0 registered, installed/listed and removed the local package; a separate RED-to-GREEN registry probe confirmed user-disabled/project-enabled precedence against a control project. This is configuration evidence, not active-session isolation. Claude Code 2.1.300 accepted metadata, registered and installed the suite in user/project scopes, and reported the project installation disabled in the control project. Local-directory update semantics differed from a Git marketplace. Authenticated skill invocation/resource reads and complete native lifecycle remain pending; Copilot and Kiro IDE sessions were not available in an isolated authenticated environment. The matrix is explicitly partial, not all-four-harness compatibility.
 
-Current automated checks: 78 tests discovered, 77 passed and one Windows symlink privilege skip. Both repository and distribution validators pass. Structural tests do not establish client activation or model instruction following.
+Preview.2 automated checks: 78 tests discovered, 77 passed and one Windows symlink privilege skip. Both repository and distribution validators pass. Structural tests do not establish client activation or model instruction following.
 
 ## Remote-first suite validation
 
-The consumer path now starts with the complete native suite from the public repository. [Individual skills](installation/individual-skills.md) are an alternative; [local/developer installation](installation/development.md) is separate. Default-source recipes use integrated metadata; [release-pinned sources](releases/v0.1.0-preview.2.md#version-pinned-sources) are separate from [historical pre-integration sources](installation/preview.md).
+The consumer path now starts with the complete native suite from the public repository. [Individual skills](installation/individual-skills.md) are an alternative; [local/developer installation](installation/development.md) is separate. Default-source recipes use integrated metadata; [release-pinned sources](releases/v0.1.0-preview.3.md#version-pinned-sources) are separate from [historical pre-integration sources](installation/preview.md).
 
 The [remote evaluation](../tests/integration/distribution/evaluations/2026-10-23-remote-suite/remote.md) fetched public reference b05a8c4367dc02e33ac9d19a8eb98e0bdb31c04e, installed the suite through Codex and Claude's actual remote marketplace flows, and compared every installed skill resource against that source. It also copied an independent formatter for Codex and the complete project fallback for Kiro through the pinned external CLI. The corrected run's 29 commands exited 0; its native outcomes remain limited.
 
@@ -84,3 +84,11 @@ performed for this correction; Task 4 Step 3 remains open.
 ## Limits
 
 The skill behavior evaluations are manual instruction-following assessments in fresh agent contexts, not native skill-loader tests. The earlier Python dependency-installation attempt was blocked by PyPI DNS/network access; the later isolated Skills CLI filesystem evaluation above is a separate, observed operation. The submodule scenario, isolated missing-Git executable, authenticated native skill loading, other harness sessions, and mid-run progress-tracker failure were not dynamically exercised. Native registration observations above do not establish full compatibility with any target harness; blocked activation rows remain open. Structural tests prove repository checks and fixture state, not language quality or instruction following.
+
+## Read-only preparation preview.3: 2026-10-24
+
+The `0.1.0-preview.3` release adds `git-analyze-changes` and `git-plan-commits`, bringing the inventory to nine available/eight planned. [Analyzer evidence](../tests/skills/git_analyze_changes/evaluations/2026-10-24.md), [planner evidence](../tests/skills/git_plan_commits/evaluations/2026-10-24.md) and [entry composition](../tests/skills/using_devcraft_toolkit/evaluations/git-preparation-composition.md) distinguish supplied-fact instruction following from real disposable Git command controls.
+
+Five fresh no-guidance samples and five complete-instruction samples per new capability were manually assessed; baseline judgment successes are retained. New command fixtures cover partial staging, freshness, exact paths and helper/filter boundaries. Neither these replays nor structural checks establish native activation or authenticated resource reads. Existing seven-skill preview.2 registration/resource/lifecycle results above remain historical; do not apply them to the release's two added skills.
+
+Preview.3 preparation verification: 89 tests discovered, 88 passed, one existing Windows symlink privilege skip; repository and finite distribution validators pass. Git for Windows 2.45.0.windows.1 was used for the added fixture controls. This does not close native invocation gates.

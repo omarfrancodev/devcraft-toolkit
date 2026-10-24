@@ -4,6 +4,21 @@ Release dates use the GitHub publication date in America/Mexico_City. Pre-releas
 
 ## unreleased
 
+## 0.1.0-preview.3 — 2026-10-24
+
+Experimental read-only Git preparation. Nine skills are available; native activation remains partially validated.
+
+### Added
+
+- Add read-only `git-analyze-changes` with layer-specific evidence, bounded coverage, safe local inspection and HEAD/index/content freshness guards.
+- Add `git-plan-commits` with staged-first intent groups, explicit exclusions and decisions, and message proposals through the existing formatter.
+- Route both optional capabilities using selected-installation ownership and explicit dependency closures.
+- Expand the current catalog and installation selections to nine available skills and eight planned capabilities, with owner-scoped behavioral/fixture evidence and a sequenced roadmap.
+
+### Changed
+
+- Align both package manifests and version-pinned installation guidance on `0.1.0-preview.3`. Prepare the changelog, release notes and packaging procedure in PR #5 for publication from its merge commit; preserve preview.2 and its seven-skill historical evidence.
+
 ## 0.1.0-preview.2 — 2026-10-24
 
 Experimental remote-suite distribution. Seven skills are available; native activation and compatibility remain partially validated.
