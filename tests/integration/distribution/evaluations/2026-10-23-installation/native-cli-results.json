@@ -1,0 +1,754 @@
+{
+  "source": "72e190f0cceed4f42d70fca95213660fcb8fd9aa",
+  "node": "v24.22.1",
+  "platform": "linux",
+  "network": "none",
+  "rows": [
+    {
+      "client": "codex",
+      "args": [
+        "--version"
+      ],
+      "cwd": "/projects/selected",
+      "exit": 0,
+      "signal": null,
+      "stdout": "codex-cli 0.162.0\n",
+      "stderr": "",
+      "project": {
+        "control/sentinel.txt": "87db257fe6d9f3f8c442cb523c2c6867f27d632bb7d4aa402b4bfe0521917713"
+      },
+      "home": {
+        ".codex/tmp/arg0/codex-arg0KiLRh4/.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "client": "codex",
+      "args": [
+        "plugin",
+        "--help"
+      ],
+      "cwd": "/projects/selected",
+      "exit": 0,
+      "signal": null,
+      "stdout": "Manage Codex plugins\n\nUsage: codex plugin [OPTIONS] <COMMAND>\n\nCommands:\n  add          Install a plugin from a configured or remote marketplace\n  list         List plugins available from configured and remote marketplaces\n  marketplace  Add, list, upgrade, or remove configured plugin marketplaces\n  remove       Uninstall a plugin and remove its local cache\n  help         Print this message or the help of the given subcommand(s)\n\nOptions:\n  -c, --config <key=value>\n          Override a configuration value that would otherwise be loaded from `~/.codex/config.toml`.\n          Use a dotted path (`foo.bar.baz`) to override nested values. The `value` portion is parsed\n          as TOML. If it fails to parse as TOML, the raw string is used as a literal.\n          \n          Examples: - `-c model=\"o3\"` - `-c 'sandbox_permissions=[\"disk-full-read-access\"]'` - `-c\n          shell_environment_policy.inherit=all`\n\n      --enable <FEATURE>\n          Enable a feature (repeatable). Equivalent to `-c features.<name>=true`\n\n      --disable <FEATURE>\n          Disable a feature (repeatable). Equivalent to `-c features.<name>=false`\n\n  -h, --help\n          Print help (see a summary with '-h')\n",
+      "stderr": "",
+      "project": {
+        "control/sentinel.txt": "87db257fe6d9f3f8c442cb523c2c6867f27d632bb7d4aa402b4bfe0521917713"
+      },
+      "home": {
+        ".codex/tmp/arg0/codex-arg0A0Rfw1/.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "client": "codex",
+      "args": [
+        "plugin",
+        "marketplace",
+        "add",
+        "/source"
+      ],
+      "cwd": "/projects/selected",
+      "exit": 0,
+      "signal": null,
+      "stdout": "Added marketplace `devcraft-toolkit` from /source.\nInstalled marketplace root: /source\n",
+      "stderr": "",
+      "project": {
+        "control/sentinel.txt": "87db257fe6d9f3f8c442cb523c2c6867f27d632bb7d4aa402b4bfe0521917713"
+      },
+      "home": {
+        ".codex/config.toml": "782d751f7bf975292c24605409e18a797e4ec1439ec6cb5920fafe93208de0f6"
+      }
+    },
+    {
+      "client": "codex",
+      "args": [
+        "plugin",
+        "add",
+        "devcraft-toolkit@devcraft-toolkit",
+        "--json"
+      ],
+      "cwd": "/projects/selected",
+      "exit": 0,
+      "signal": null,
+      "stdout": "{\n  \"pluginId\": \"devcraft-toolkit@devcraft-toolkit\",\n  \"name\": \"devcraft-toolkit\",\n  \"marketplaceName\": \"devcraft-toolkit\",\n  \"version\": \"0.1.0-preview.2\",\n  \"installedPath\": \"/root/.codex/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2\",\n  \"authPolicy\": \"ON_INSTALL\"\n}\n",
+      "stderr": "",
+      "project": {
+        "control/sentinel.txt": "87db257fe6d9f3f8c442cb523c2c6867f27d632bb7d4aa402b4bfe0521917713"
+      },
+      "home": {
+        ".codex/config.toml": "5a700dda5d045f5c0d0d560284c8fdb3e3e83b2768e35579167fbc274cac29ce",
+        ".codex/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/plugin.json": "9d9d6f6de0c200af770536e157fed0a807f49c8d3504feeb496c92d38488faa7",
+        ".codex/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/.claude-plugin/marketplace.json": "0c8469798f68ac7d659671d7f6d09aed08da85110d2d29b2c70ad7a23f4e2816",
+        ".codex/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/.claude-plugin/plugin.json": "3c3b7ce434ac8c156df34eb51fa8ad3e74bf03a4ff784a3a02b19d215cc907aa",
+        ".codex/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/.agents/plugins/marketplace.json": "4a2af6eb048fdd24a5bfc9dd557818f7bd04b011dc3a50707c0e22c1b5e35393",
+        ".codex/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/conventional-commits-style/SKILL.md": "705eb5a16f2e18ee61f58a8e947994bd77ba2042cba1b86af4f4022b9e25be14",
+        ".codex/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/git-safety-check/SKILL.md": "113f24b704775c482f51dc9a4c8639261d7e1bde365eb3373f029126f14857aa",
+        ".codex/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/git-working-directory-policy/SKILL.md": "4455a163d999921c00cb304143eb7c3c9de278192ace7b95c200d5ee95477eea",
+        ".codex/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/natural-language-report-writer/SKILL.md": "c704bff74c4873f10df108c7df8fdddb4c613ab582108213d18d55250e9a7c3e",
+        ".codex/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/todo-workflow-controller/SKILL.md": "c51122b245f71c67fc2343fc77905f9a5edc282bb2bd650676d2103970853e18",
+        ".codex/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/using-devcraft-toolkit/SKILL.md": "0675e9a6c3cdccc03ad09725e07527cbc93ce716c416e7b218b7646f0ff9ccc7",
+        ".codex/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/validation-discovery/SKILL.md": "f6005020c3ab999a3225c3f2b80456fd11962cd6161a0402d53ee6601ef963c7",
+        ".codex/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/conventional-commits-style/references/message-format.md": "4ec0e2b58018a91d3a2b709d2c52648e2eb7a6445e1378865fa2f8be597e64ed",
+        ".codex/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/git-safety-check/references/preflight.md": "a6e7803718b6a7e4b7e300ec25f2cfc42fca5ccb8ef62222825d05ef260a5e08",
+        ".codex/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/git-working-directory-policy/references/context.md": "38c9c6ae2fd3485ae550df6b0ed220f0e2eb27d8e04b26f61a1d3407e4ec26fd",
+        ".codex/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/natural-language-report-writer/assets/report.md": "1adefd31d5c74b2d2bd51ce2216eb242d31029f9081fb5ce9015aed9f29e1d41",
+        ".codex/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/natural-language-report-writer/references/report-quality.md": "edf7b2e7578dc8d1b0111b7c133f296399efb763d2a683212e0c1a624da6f8b0",
+        ".codex/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/todo-workflow-controller/references/progress-states.md": "5b42a53606881f67f2f6a00dbd1870d7cda677c558aa72e7b77f5c0c294f0f64",
+        ".codex/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/using-devcraft-toolkit/references/composition.md": "6bb6f8965bcc3f3994a35ec0782608608b6cf296b620a3c856a62e7cbcc7a8c0",
+        ".codex/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/validation-discovery/references/check-selection.md": "8f6a32c500d4626948b939ccd33b5a4d02588a01d73defbc6e862cc27cc17ef1"
+      }
+    },
+    {
+      "client": "codex",
+      "args": [
+        "plugin",
+        "list",
+        "--json"
+      ],
+      "cwd": "/projects/selected",
+      "exit": 0,
+      "signal": null,
+      "stdout": "{\n  \"installed\": [\n    {\n      \"pluginId\": \"devcraft-toolkit@devcraft-toolkit\",\n      \"name\": \"devcraft-toolkit\",\n      \"marketplaceName\": \"devcraft-toolkit\",\n      \"version\": \"0.1.0-preview.2\",\n      \"installed\": true,\n      \"enabled\": true,\n      \"source\": {\n        \"source\": \"local\",\n        \"path\": \"/source\"\n      },\n      \"marketplaceSource\": {\n        \"sourceType\": \"local\",\n        \"source\": \"/source\"\n      },\n      \"installPolicy\": \"AVAILABLE\",\n      \"authPolicy\": \"ON_INSTALL\"\n    }\n  ],\n  \"available\": []\n}\n",
+      "stderr": "",
+      "project": {
+        "control/sentinel.txt": "87db257fe6d9f3f8c442cb523c2c6867f27d632bb7d4aa402b4bfe0521917713"
+      },
+      "home": {
+        ".codex/config.toml": "5a700dda5d045f5c0d0d560284c8fdb3e3e83b2768e35579167fbc274cac29ce",
+        ".codex/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/plugin.json": "9d9d6f6de0c200af770536e157fed0a807f49c8d3504feeb496c92d38488faa7",
+        ".codex/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/.claude-plugin/marketplace.json": "0c8469798f68ac7d659671d7f6d09aed08da85110d2d29b2c70ad7a23f4e2816",
+        ".codex/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/.claude-plugin/plugin.json": "3c3b7ce434ac8c156df34eb51fa8ad3e74bf03a4ff784a3a02b19d215cc907aa",
+        ".codex/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/.agents/plugins/marketplace.json": "4a2af6eb048fdd24a5bfc9dd557818f7bd04b011dc3a50707c0e22c1b5e35393",
+        ".codex/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/conventional-commits-style/SKILL.md": "705eb5a16f2e18ee61f58a8e947994bd77ba2042cba1b86af4f4022b9e25be14",
+        ".codex/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/git-safety-check/SKILL.md": "113f24b704775c482f51dc9a4c8639261d7e1bde365eb3373f029126f14857aa",
+        ".codex/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/git-working-directory-policy/SKILL.md": "4455a163d999921c00cb304143eb7c3c9de278192ace7b95c200d5ee95477eea",
+        ".codex/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/natural-language-report-writer/SKILL.md": "c704bff74c4873f10df108c7df8fdddb4c613ab582108213d18d55250e9a7c3e",
+        ".codex/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/todo-workflow-controller/SKILL.md": "c51122b245f71c67fc2343fc77905f9a5edc282bb2bd650676d2103970853e18",
+        ".codex/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/using-devcraft-toolkit/SKILL.md": "0675e9a6c3cdccc03ad09725e07527cbc93ce716c416e7b218b7646f0ff9ccc7",
+        ".codex/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/validation-discovery/SKILL.md": "f6005020c3ab999a3225c3f2b80456fd11962cd6161a0402d53ee6601ef963c7",
+        ".codex/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/conventional-commits-style/references/message-format.md": "4ec0e2b58018a91d3a2b709d2c52648e2eb7a6445e1378865fa2f8be597e64ed",
+        ".codex/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/git-safety-check/references/preflight.md": "a6e7803718b6a7e4b7e300ec25f2cfc42fca5ccb8ef62222825d05ef260a5e08",
+        ".codex/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/git-working-directory-policy/references/context.md": "38c9c6ae2fd3485ae550df6b0ed220f0e2eb27d8e04b26f61a1d3407e4ec26fd",
+        ".codex/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/natural-language-report-writer/assets/report.md": "1adefd31d5c74b2d2bd51ce2216eb242d31029f9081fb5ce9015aed9f29e1d41",
+        ".codex/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/natural-language-report-writer/references/report-quality.md": "edf7b2e7578dc8d1b0111b7c133f296399efb763d2a683212e0c1a624da6f8b0",
+        ".codex/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/todo-workflow-controller/references/progress-states.md": "5b42a53606881f67f2f6a00dbd1870d7cda677c558aa72e7b77f5c0c294f0f64",
+        ".codex/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/using-devcraft-toolkit/references/composition.md": "6bb6f8965bcc3f3994a35ec0782608608b6cf296b620a3c856a62e7cbcc7a8c0",
+        ".codex/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/validation-discovery/references/check-selection.md": "8f6a32c500d4626948b939ccd33b5a4d02588a01d73defbc6e862cc27cc17ef1"
+      }
+    },
+    {
+      "client": "codex",
+      "args": [
+        "plugin",
+        "marketplace",
+        "upgrade",
+        "devcraft-toolkit"
+      ],
+      "cwd": "/projects/selected",
+      "exit": 1,
+      "signal": null,
+      "stdout": "",
+      "stderr": "Error: marketplace `devcraft-toolkit` is not configured as a Git marketplace\n",
+      "project": {
+        "control/sentinel.txt": "87db257fe6d9f3f8c442cb523c2c6867f27d632bb7d4aa402b4bfe0521917713"
+      },
+      "home": {
+        ".codex/config.toml": "5a700dda5d045f5c0d0d560284c8fdb3e3e83b2768e35579167fbc274cac29ce",
+        ".codex/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/plugin.json": "9d9d6f6de0c200af770536e157fed0a807f49c8d3504feeb496c92d38488faa7",
+        ".codex/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/.claude-plugin/marketplace.json": "0c8469798f68ac7d659671d7f6d09aed08da85110d2d29b2c70ad7a23f4e2816",
+        ".codex/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/.claude-plugin/plugin.json": "3c3b7ce434ac8c156df34eb51fa8ad3e74bf03a4ff784a3a02b19d215cc907aa",
+        ".codex/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/.agents/plugins/marketplace.json": "4a2af6eb048fdd24a5bfc9dd557818f7bd04b011dc3a50707c0e22c1b5e35393",
+        ".codex/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/conventional-commits-style/SKILL.md": "705eb5a16f2e18ee61f58a8e947994bd77ba2042cba1b86af4f4022b9e25be14",
+        ".codex/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/git-safety-check/SKILL.md": "113f24b704775c482f51dc9a4c8639261d7e1bde365eb3373f029126f14857aa",
+        ".codex/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/git-working-directory-policy/SKILL.md": "4455a163d999921c00cb304143eb7c3c9de278192ace7b95c200d5ee95477eea",
+        ".codex/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/natural-language-report-writer/SKILL.md": "c704bff74c4873f10df108c7df8fdddb4c613ab582108213d18d55250e9a7c3e",
+        ".codex/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/todo-workflow-controller/SKILL.md": "c51122b245f71c67fc2343fc77905f9a5edc282bb2bd650676d2103970853e18",
+        ".codex/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/using-devcraft-toolkit/SKILL.md": "0675e9a6c3cdccc03ad09725e07527cbc93ce716c416e7b218b7646f0ff9ccc7",
+        ".codex/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/validation-discovery/SKILL.md": "f6005020c3ab999a3225c3f2b80456fd11962cd6161a0402d53ee6601ef963c7",
+        ".codex/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/conventional-commits-style/references/message-format.md": "4ec0e2b58018a91d3a2b709d2c52648e2eb7a6445e1378865fa2f8be597e64ed",
+        ".codex/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/git-safety-check/references/preflight.md": "a6e7803718b6a7e4b7e300ec25f2cfc42fca5ccb8ef62222825d05ef260a5e08",
+        ".codex/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/git-working-directory-policy/references/context.md": "38c9c6ae2fd3485ae550df6b0ed220f0e2eb27d8e04b26f61a1d3407e4ec26fd",
+        ".codex/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/natural-language-report-writer/assets/report.md": "1adefd31d5c74b2d2bd51ce2216eb242d31029f9081fb5ce9015aed9f29e1d41",
+        ".codex/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/natural-language-report-writer/references/report-quality.md": "edf7b2e7578dc8d1b0111b7c133f296399efb763d2a683212e0c1a624da6f8b0",
+        ".codex/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/todo-workflow-controller/references/progress-states.md": "5b42a53606881f67f2f6a00dbd1870d7cda677c558aa72e7b77f5c0c294f0f64",
+        ".codex/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/using-devcraft-toolkit/references/composition.md": "6bb6f8965bcc3f3994a35ec0782608608b6cf296b620a3c856a62e7cbcc7a8c0",
+        ".codex/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/validation-discovery/references/check-selection.md": "8f6a32c500d4626948b939ccd33b5a4d02588a01d73defbc6e862cc27cc17ef1"
+      }
+    },
+    {
+      "client": "codex",
+      "args": [
+        "plugin",
+        "remove",
+        "devcraft-toolkit@devcraft-toolkit"
+      ],
+      "cwd": "/projects/selected",
+      "exit": 0,
+      "signal": null,
+      "stdout": "Removed plugin `devcraft-toolkit` from marketplace `devcraft-toolkit`.\n",
+      "stderr": "",
+      "project": {
+        "control/sentinel.txt": "87db257fe6d9f3f8c442cb523c2c6867f27d632bb7d4aa402b4bfe0521917713"
+      },
+      "home": {
+        ".codex/config.toml": "782d751f7bf975292c24605409e18a797e4ec1439ec6cb5920fafe93208de0f6"
+      }
+    },
+    {
+      "client": "claude",
+      "args": [
+        "--version"
+      ],
+      "cwd": "/projects/selected",
+      "exit": 0,
+      "signal": null,
+      "stdout": "2.1.300 (Claude Code)\n",
+      "stderr": "",
+      "project": {
+        "control/sentinel.txt": "87db257fe6d9f3f8c442cb523c2c6867f27d632bb7d4aa402b4bfe0521917713"
+      },
+      "home": {
+        ".codex/config.toml": "782d751f7bf975292c24605409e18a797e4ec1439ec6cb5920fafe93208de0f6"
+      }
+    },
+    {
+      "client": "claude",
+      "args": [
+        "plugin",
+        "--help"
+      ],
+      "cwd": "/projects/selected",
+      "exit": 0,
+      "signal": null,
+      "stdout": "Usage: claude plugin|plugins [options] [command]\n\nManage Claude Code plugins\n\nOptions:\n  -h, --help                           Display help for command\n\nCommands:\n  configure [options] <plugin>         Show a plugin's options and which are\n                                       unset, or save values from stdin with\n                                       --values-stdin\n  details [options] <name>             Show a plugin's component inventory and\n                                       projected token cost\n  disable [options] [plugin]           Disable an enabled plugin\n  enable [options] <plugin>            Enable a disabled plugin\n  eval [options] [target]              Run eval cases (<eval dir>/**/case.yaml\n                                       or prompt.md + graders/*.md; the eval dir\n                                       is evals/ unless --eval-dir or the\n                                       manifest says otherwise) against a plugin\n                                       and report scored results. Target is a\n                                       path, a plugin name, or a\n                                       `plugin@marketplace` id — installed and\n                                       skills-dir plugins both resolve (and add\n                                       a no-plugin baseline arm). It loads the\n                                       plugin and runs its eval suite (prompts,\n                                       graders; scaffold scripts and real MCP\n                                       servers only when you opt in) on your\n                                       machine, as you: only evaluate plugins\n                                       you trust — the run's sandboxing limits\n                                       what a malicious plugin can reach but is\n                                       not a guarantee, and a bundled suite\n                                       passing is not a security vetting. The\n                                       first run in an untrusted plugin\n                                       directory asks you to confirm\n                                       (--trust-plugin answers for CI)\n  help [command]                       display help for command\n  init|new [options] <name>            Scaffold a new plugin at\n                                       ~/.claude/skills/<name>/ (auto-loads next\n                                       session as <name>@skills-dir)\n  install|i [options] <plugin>         Install a plugin from available\n                                       marketplaces (use plugin@marketplace for\n                                       specific marketplace)\n  list [options]                       List installed plugins\n  marketplace                          Manage Claude Code marketplaces\n  prune|autoremove [options]           Remove auto-installed dependencies that\n                                       are no longer needed\n  tag [options] [path]                 Create a {name}--v{version} git tag for a\n                                       plugin release, validating that\n                                       plugin.json and any enclosing marketplace\n                                       entry agree\n  test [dir]                           Run a mod's tests\n  uninstall|remove [options] <plugin>  Uninstall an installed plugin\n  update [options] <plugin>            Update a plugin to the latest version\n                                       (restart required to apply)\n  validate [options] <path>            Validate a plugin or marketplace\n                                       manifest, or the skills, agents, and\n                                       commands in a directory\n",
+      "stderr": "",
+      "project": {
+        "control/sentinel.txt": "87db257fe6d9f3f8c442cb523c2c6867f27d632bb7d4aa402b4bfe0521917713"
+      },
+      "home": {
+        ".codex/config.toml": "782d751f7bf975292c24605409e18a797e4ec1439ec6cb5920fafe93208de0f6"
+      }
+    },
+    {
+      "client": "claude",
+      "args": [
+        "plugin",
+        "marketplace",
+        "add",
+        "/source"
+      ],
+      "cwd": "/projects/selected",
+      "exit": 0,
+      "signal": null,
+      "stdout": "Adding marketplace…✔ Successfully added marketplace: devcraft-toolkit (declared in user settings)\n",
+      "stderr": "",
+      "project": {
+        "control/sentinel.txt": "87db257fe6d9f3f8c442cb523c2c6867f27d632bb7d4aa402b4bfe0521917713"
+      },
+      "home": {
+        ".claude.json": "f2d0159bde4cc08cb2f7b32ed3e26d9fd29e47e1a282d080ce69b487c6db2d06",
+        ".claude/settings.json": "3f346ce44073e2e8eff39ce9c21f29c6225895bc9c81c5c5dc24de5ab36b6e48",
+        ".codex/config.toml": "782d751f7bf975292c24605409e18a797e4ec1439ec6cb5920fafe93208de0f6",
+        ".claude/backups/.claude.json.backup.1792778923838": "c1d8e7694d4d1f73ddeb7749d6e5c8b8c700ef313b14b6a1f65b10bf3f83af79",
+        ".claude/plugins/known_marketplaces.json": "f9dba3a44d1d01c03aaaf43ce67b37049e5c8b1c3db01f7c20c39d7dbf8d4b9e"
+      }
+    },
+    {
+      "client": "claude",
+      "args": [
+        "plugin",
+        "validate",
+        "/source/.claude-plugin/plugin.json",
+        "--json"
+      ],
+      "cwd": "/projects/selected",
+      "exit": 0,
+      "signal": null,
+      "stdout": "{\n  \"success\": true,\n  \"strict\": false,\n  \"target\": \"/source/.claude-plugin/plugin.json\",\n  \"manifest\": {\n    \"file\": \"/source/.claude-plugin/plugin.json\",\n    \"type\": \"plugin\",\n    \"errors\": [],\n    \"warnings\": [],\n    \"notes\": [],\n    \"gatingHooks\": []\n  },\n  \"contents\": [],\n  \"advice\": []\n}\n",
+      "stderr": "",
+      "project": {
+        "control/sentinel.txt": "87db257fe6d9f3f8c442cb523c2c6867f27d632bb7d4aa402b4bfe0521917713"
+      },
+      "home": {
+        ".claude.json": "f2d0159bde4cc08cb2f7b32ed3e26d9fd29e47e1a282d080ce69b487c6db2d06",
+        ".claude/settings.json": "3f346ce44073e2e8eff39ce9c21f29c6225895bc9c81c5c5dc24de5ab36b6e48",
+        ".codex/config.toml": "782d751f7bf975292c24605409e18a797e4ec1439ec6cb5920fafe93208de0f6",
+        ".claude/backups/.claude.json.backup.1792778923838": "c1d8e7694d4d1f73ddeb7749d6e5c8b8c700ef313b14b6a1f65b10bf3f83af79",
+        ".claude/plugins/known_marketplaces.json": "f9dba3a44d1d01c03aaaf43ce67b37049e5c8b1c3db01f7c20c39d7dbf8d4b9e"
+      }
+    },
+    {
+      "client": "claude",
+      "args": [
+        "plugin",
+        "validate",
+        "/source/.claude-plugin/marketplace.json",
+        "--json"
+      ],
+      "cwd": "/projects/selected",
+      "exit": 0,
+      "signal": null,
+      "stdout": "{\n  \"success\": true,\n  \"strict\": false,\n  \"target\": \"/source/.claude-plugin/marketplace.json\",\n  \"manifest\": {\n    \"file\": \"/source/.claude-plugin/marketplace.json\",\n    \"type\": \"marketplace\",\n    \"errors\": [],\n    \"warnings\": [\n      {\n        \"path\": \"description\",\n        \"message\": \"No marketplace description provided. Adding a description helps users understand what this marketplace offers\",\n        \"code\": null\n      }\n    ],\n    \"notes\": [],\n    \"gatingHooks\": []\n  },\n  \"contents\": [],\n  \"advice\": []\n}\n",
+      "stderr": "",
+      "project": {
+        "control/sentinel.txt": "87db257fe6d9f3f8c442cb523c2c6867f27d632bb7d4aa402b4bfe0521917713"
+      },
+      "home": {
+        ".claude.json": "f2d0159bde4cc08cb2f7b32ed3e26d9fd29e47e1a282d080ce69b487c6db2d06",
+        ".claude/settings.json": "3f346ce44073e2e8eff39ce9c21f29c6225895bc9c81c5c5dc24de5ab36b6e48",
+        ".codex/config.toml": "782d751f7bf975292c24605409e18a797e4ec1439ec6cb5920fafe93208de0f6",
+        ".claude/backups/.claude.json.backup.1792778923838": "c1d8e7694d4d1f73ddeb7749d6e5c8b8c700ef313b14b6a1f65b10bf3f83af79",
+        ".claude/plugins/known_marketplaces.json": "f9dba3a44d1d01c03aaaf43ce67b37049e5c8b1c3db01f7c20c39d7dbf8d4b9e"
+      }
+    },
+    {
+      "client": "claude",
+      "args": [
+        "plugin",
+        "install",
+        "devcraft-toolkit@devcraft-toolkit",
+        "--scope",
+        "user"
+      ],
+      "cwd": "/projects/selected",
+      "exit": 0,
+      "signal": null,
+      "stdout": "Installing plugin \"devcraft-toolkit@devcraft-toolkit\"...✔ Successfully installed plugin: devcraft-toolkit@devcraft-toolkit (scope: user)\n",
+      "stderr": "",
+      "project": {
+        "control/sentinel.txt": "87db257fe6d9f3f8c442cb523c2c6867f27d632bb7d4aa402b4bfe0521917713"
+      },
+      "home": {
+        ".claude.json": "9e7b07f0cda8b18e3ba407918680b4dcc67cbb726bbf771aaf5669a602f83d6c",
+        ".claude/settings.json": "bed3c8bafaf68379bacbf287b2e8a33608a316c91c13e4e1f4b847c649e7b9a7",
+        ".codex/config.toml": "782d751f7bf975292c24605409e18a797e4ec1439ec6cb5920fafe93208de0f6",
+        ".claude/backups/.claude.json.backup.1792778923838": "c1d8e7694d4d1f73ddeb7749d6e5c8b8c700ef313b14b6a1f65b10bf3f83af79",
+        ".claude/plugins/installed_plugins.json": "1fd7cbd467f15f2e7f11690b416043c7f2b349f36e1d47555eabc43139a878a2",
+        ".claude/plugins/known_marketplaces.json": "f9dba3a44d1d01c03aaaf43ce67b37049e5c8b1c3db01f7c20c39d7dbf8d4b9e",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/plugin.json": "9d9d6f6de0c200af770536e157fed0a807f49c8d3504feeb496c92d38488faa7",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/.claude-plugin/marketplace.json": "0c8469798f68ac7d659671d7f6d09aed08da85110d2d29b2c70ad7a23f4e2816",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/.claude-plugin/plugin.json": "3c3b7ce434ac8c156df34eb51fa8ad3e74bf03a4ff784a3a02b19d215cc907aa",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/.agents/plugins/marketplace.json": "4a2af6eb048fdd24a5bfc9dd557818f7bd04b011dc3a50707c0e22c1b5e35393",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/conventional-commits-style/SKILL.md": "705eb5a16f2e18ee61f58a8e947994bd77ba2042cba1b86af4f4022b9e25be14",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/git-safety-check/SKILL.md": "113f24b704775c482f51dc9a4c8639261d7e1bde365eb3373f029126f14857aa",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/git-working-directory-policy/SKILL.md": "4455a163d999921c00cb304143eb7c3c9de278192ace7b95c200d5ee95477eea",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/natural-language-report-writer/SKILL.md": "c704bff74c4873f10df108c7df8fdddb4c613ab582108213d18d55250e9a7c3e",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/todo-workflow-controller/SKILL.md": "c51122b245f71c67fc2343fc77905f9a5edc282bb2bd650676d2103970853e18",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/using-devcraft-toolkit/SKILL.md": "0675e9a6c3cdccc03ad09725e07527cbc93ce716c416e7b218b7646f0ff9ccc7",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/validation-discovery/SKILL.md": "f6005020c3ab999a3225c3f2b80456fd11962cd6161a0402d53ee6601ef963c7",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/conventional-commits-style/references/message-format.md": "4ec0e2b58018a91d3a2b709d2c52648e2eb7a6445e1378865fa2f8be597e64ed",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/git-safety-check/references/preflight.md": "a6e7803718b6a7e4b7e300ec25f2cfc42fca5ccb8ef62222825d05ef260a5e08",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/git-working-directory-policy/references/context.md": "38c9c6ae2fd3485ae550df6b0ed220f0e2eb27d8e04b26f61a1d3407e4ec26fd",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/natural-language-report-writer/assets/report.md": "1adefd31d5c74b2d2bd51ce2216eb242d31029f9081fb5ce9015aed9f29e1d41",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/natural-language-report-writer/references/report-quality.md": "edf7b2e7578dc8d1b0111b7c133f296399efb763d2a683212e0c1a624da6f8b0",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/todo-workflow-controller/references/progress-states.md": "5b42a53606881f67f2f6a00dbd1870d7cda677c558aa72e7b77f5c0c294f0f64",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/using-devcraft-toolkit/references/composition.md": "6bb6f8965bcc3f3994a35ec0782608608b6cf296b620a3c856a62e7cbcc7a8c0",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/validation-discovery/references/check-selection.md": "8f6a32c500d4626948b939ccd33b5a4d02588a01d73defbc6e862cc27cc17ef1"
+      }
+    },
+    {
+      "client": "claude",
+      "args": [
+        "plugin",
+        "list",
+        "--json"
+      ],
+      "cwd": "/projects/selected",
+      "exit": 0,
+      "signal": null,
+      "stdout": "[\n  {\n    \"id\": \"devcraft-toolkit@devcraft-toolkit\",\n    \"version\": \"0.1.0-preview.2\",\n    \"scope\": \"user\",\n    \"enabled\": true,\n    \"installPath\": \"/root/.claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2\",\n    \"readFromFolder\": \"/source\",\n    \"folderVersion\": \"0.1.0-preview.2\",\n    \"installedAt\": \"2026-10-23T18:08:54.840Z\",\n    \"lastUpdated\": \"2026-10-23T18:08:54.840Z\",\n    \"projectEnabled\": false\n  }\n]\n",
+      "stderr": "",
+      "project": {
+        "control/sentinel.txt": "87db257fe6d9f3f8c442cb523c2c6867f27d632bb7d4aa402b4bfe0521917713"
+      },
+      "home": {
+        ".claude.json": "9e7b07f0cda8b18e3ba407918680b4dcc67cbb726bbf771aaf5669a602f83d6c",
+        ".claude/settings.json": "bed3c8bafaf68379bacbf287b2e8a33608a316c91c13e4e1f4b847c649e7b9a7",
+        ".codex/config.toml": "782d751f7bf975292c24605409e18a797e4ec1439ec6cb5920fafe93208de0f6",
+        ".claude/backups/.claude.json.backup.1792778923838": "c1d8e7694d4d1f73ddeb7749d6e5c8b8c700ef313b14b6a1f65b10bf3f83af79",
+        ".claude/plugins/installed_plugins.json": "1fd7cbd467f15f2e7f11690b416043c7f2b349f36e1d47555eabc43139a878a2",
+        ".claude/plugins/known_marketplaces.json": "f9dba3a44d1d01c03aaaf43ce67b37049e5c8b1c3db01f7c20c39d7dbf8d4b9e",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/plugin.json": "9d9d6f6de0c200af770536e157fed0a807f49c8d3504feeb496c92d38488faa7",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/.claude-plugin/marketplace.json": "0c8469798f68ac7d659671d7f6d09aed08da85110d2d29b2c70ad7a23f4e2816",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/.claude-plugin/plugin.json": "3c3b7ce434ac8c156df34eb51fa8ad3e74bf03a4ff784a3a02b19d215cc907aa",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/.agents/plugins/marketplace.json": "4a2af6eb048fdd24a5bfc9dd557818f7bd04b011dc3a50707c0e22c1b5e35393",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/conventional-commits-style/SKILL.md": "705eb5a16f2e18ee61f58a8e947994bd77ba2042cba1b86af4f4022b9e25be14",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/git-safety-check/SKILL.md": "113f24b704775c482f51dc9a4c8639261d7e1bde365eb3373f029126f14857aa",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/git-working-directory-policy/SKILL.md": "4455a163d999921c00cb304143eb7c3c9de278192ace7b95c200d5ee95477eea",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/natural-language-report-writer/SKILL.md": "c704bff74c4873f10df108c7df8fdddb4c613ab582108213d18d55250e9a7c3e",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/todo-workflow-controller/SKILL.md": "c51122b245f71c67fc2343fc77905f9a5edc282bb2bd650676d2103970853e18",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/using-devcraft-toolkit/SKILL.md": "0675e9a6c3cdccc03ad09725e07527cbc93ce716c416e7b218b7646f0ff9ccc7",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/validation-discovery/SKILL.md": "f6005020c3ab999a3225c3f2b80456fd11962cd6161a0402d53ee6601ef963c7",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/conventional-commits-style/references/message-format.md": "4ec0e2b58018a91d3a2b709d2c52648e2eb7a6445e1378865fa2f8be597e64ed",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/git-safety-check/references/preflight.md": "a6e7803718b6a7e4b7e300ec25f2cfc42fca5ccb8ef62222825d05ef260a5e08",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/git-working-directory-policy/references/context.md": "38c9c6ae2fd3485ae550df6b0ed220f0e2eb27d8e04b26f61a1d3407e4ec26fd",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/natural-language-report-writer/assets/report.md": "1adefd31d5c74b2d2bd51ce2216eb242d31029f9081fb5ce9015aed9f29e1d41",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/natural-language-report-writer/references/report-quality.md": "edf7b2e7578dc8d1b0111b7c133f296399efb763d2a683212e0c1a624da6f8b0",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/todo-workflow-controller/references/progress-states.md": "5b42a53606881f67f2f6a00dbd1870d7cda677c558aa72e7b77f5c0c294f0f64",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/using-devcraft-toolkit/references/composition.md": "6bb6f8965bcc3f3994a35ec0782608608b6cf296b620a3c856a62e7cbcc7a8c0",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/validation-discovery/references/check-selection.md": "8f6a32c500d4626948b939ccd33b5a4d02588a01d73defbc6e862cc27cc17ef1"
+      }
+    },
+    {
+      "client": "claude",
+      "args": [
+        "plugin",
+        "list",
+        "--json"
+      ],
+      "cwd": "/projects/control",
+      "exit": 0,
+      "signal": null,
+      "stdout": "[\n  {\n    \"id\": \"devcraft-toolkit@devcraft-toolkit\",\n    \"version\": \"0.1.0-preview.2\",\n    \"scope\": \"user\",\n    \"enabled\": true,\n    \"installPath\": \"/root/.claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2\",\n    \"readFromFolder\": \"/source\",\n    \"folderVersion\": \"0.1.0-preview.2\",\n    \"installedAt\": \"2026-10-23T18:08:54.840Z\",\n    \"lastUpdated\": \"2026-10-23T18:08:54.840Z\",\n    \"projectEnabled\": false\n  }\n]\n",
+      "stderr": "",
+      "project": {
+        "control/sentinel.txt": "87db257fe6d9f3f8c442cb523c2c6867f27d632bb7d4aa402b4bfe0521917713"
+      },
+      "home": {
+        ".claude.json": "9e7b07f0cda8b18e3ba407918680b4dcc67cbb726bbf771aaf5669a602f83d6c",
+        ".claude/settings.json": "bed3c8bafaf68379bacbf287b2e8a33608a316c91c13e4e1f4b847c649e7b9a7",
+        ".codex/config.toml": "782d751f7bf975292c24605409e18a797e4ec1439ec6cb5920fafe93208de0f6",
+        ".claude/backups/.claude.json.backup.1792778923838": "c1d8e7694d4d1f73ddeb7749d6e5c8b8c700ef313b14b6a1f65b10bf3f83af79",
+        ".claude/plugins/installed_plugins.json": "1fd7cbd467f15f2e7f11690b416043c7f2b349f36e1d47555eabc43139a878a2",
+        ".claude/plugins/known_marketplaces.json": "f9dba3a44d1d01c03aaaf43ce67b37049e5c8b1c3db01f7c20c39d7dbf8d4b9e",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/plugin.json": "9d9d6f6de0c200af770536e157fed0a807f49c8d3504feeb496c92d38488faa7",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/.claude-plugin/marketplace.json": "0c8469798f68ac7d659671d7f6d09aed08da85110d2d29b2c70ad7a23f4e2816",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/.claude-plugin/plugin.json": "3c3b7ce434ac8c156df34eb51fa8ad3e74bf03a4ff784a3a02b19d215cc907aa",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/.agents/plugins/marketplace.json": "4a2af6eb048fdd24a5bfc9dd557818f7bd04b011dc3a50707c0e22c1b5e35393",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/conventional-commits-style/SKILL.md": "705eb5a16f2e18ee61f58a8e947994bd77ba2042cba1b86af4f4022b9e25be14",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/git-safety-check/SKILL.md": "113f24b704775c482f51dc9a4c8639261d7e1bde365eb3373f029126f14857aa",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/git-working-directory-policy/SKILL.md": "4455a163d999921c00cb304143eb7c3c9de278192ace7b95c200d5ee95477eea",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/natural-language-report-writer/SKILL.md": "c704bff74c4873f10df108c7df8fdddb4c613ab582108213d18d55250e9a7c3e",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/todo-workflow-controller/SKILL.md": "c51122b245f71c67fc2343fc77905f9a5edc282bb2bd650676d2103970853e18",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/using-devcraft-toolkit/SKILL.md": "0675e9a6c3cdccc03ad09725e07527cbc93ce716c416e7b218b7646f0ff9ccc7",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/validation-discovery/SKILL.md": "f6005020c3ab999a3225c3f2b80456fd11962cd6161a0402d53ee6601ef963c7",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/conventional-commits-style/references/message-format.md": "4ec0e2b58018a91d3a2b709d2c52648e2eb7a6445e1378865fa2f8be597e64ed",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/git-safety-check/references/preflight.md": "a6e7803718b6a7e4b7e300ec25f2cfc42fca5ccb8ef62222825d05ef260a5e08",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/git-working-directory-policy/references/context.md": "38c9c6ae2fd3485ae550df6b0ed220f0e2eb27d8e04b26f61a1d3407e4ec26fd",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/natural-language-report-writer/assets/report.md": "1adefd31d5c74b2d2bd51ce2216eb242d31029f9081fb5ce9015aed9f29e1d41",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/natural-language-report-writer/references/report-quality.md": "edf7b2e7578dc8d1b0111b7c133f296399efb763d2a683212e0c1a624da6f8b0",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/todo-workflow-controller/references/progress-states.md": "5b42a53606881f67f2f6a00dbd1870d7cda677c558aa72e7b77f5c0c294f0f64",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/using-devcraft-toolkit/references/composition.md": "6bb6f8965bcc3f3994a35ec0782608608b6cf296b620a3c856a62e7cbcc7a8c0",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/validation-discovery/references/check-selection.md": "8f6a32c500d4626948b939ccd33b5a4d02588a01d73defbc6e862cc27cc17ef1"
+      }
+    },
+    {
+      "client": "claude",
+      "args": [
+        "plugin",
+        "update",
+        "devcraft-toolkit@devcraft-toolkit",
+        "--scope",
+        "user"
+      ],
+      "cwd": "/projects/selected",
+      "exit": 0,
+      "signal": null,
+      "stdout": "Checking for updates for plugin \"devcraft-toolkit@devcraft-toolkit\" at user scope…\ndevcraft-toolkit is read from its folder, /source: nothing to update. Edits there take effect at the next session start or /reload-plugins.\n✔ devcraft-toolkit is already at the latest version (0.1.0-preview.2).\n",
+      "stderr": "",
+      "project": {
+        "control/sentinel.txt": "87db257fe6d9f3f8c442cb523c2c6867f27d632bb7d4aa402b4bfe0521917713"
+      },
+      "home": {
+        ".claude.json": "9e7b07f0cda8b18e3ba407918680b4dcc67cbb726bbf771aaf5669a602f83d6c",
+        ".claude/settings.json": "bed3c8bafaf68379bacbf287b2e8a33608a316c91c13e4e1f4b847c649e7b9a7",
+        ".codex/config.toml": "782d751f7bf975292c24605409e18a797e4ec1439ec6cb5920fafe93208de0f6",
+        ".claude/backups/.claude.json.backup.1792778923838": "c1d8e7694d4d1f73ddeb7749d6e5c8b8c700ef313b14b6a1f65b10bf3f83af79",
+        ".claude/plugins/installed_plugins.json": "1fd7cbd467f15f2e7f11690b416043c7f2b349f36e1d47555eabc43139a878a2",
+        ".claude/plugins/known_marketplaces.json": "f9dba3a44d1d01c03aaaf43ce67b37049e5c8b1c3db01f7c20c39d7dbf8d4b9e",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/plugin.json": "9d9d6f6de0c200af770536e157fed0a807f49c8d3504feeb496c92d38488faa7",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/.claude-plugin/marketplace.json": "0c8469798f68ac7d659671d7f6d09aed08da85110d2d29b2c70ad7a23f4e2816",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/.claude-plugin/plugin.json": "3c3b7ce434ac8c156df34eb51fa8ad3e74bf03a4ff784a3a02b19d215cc907aa",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/.agents/plugins/marketplace.json": "4a2af6eb048fdd24a5bfc9dd557818f7bd04b011dc3a50707c0e22c1b5e35393",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/conventional-commits-style/SKILL.md": "705eb5a16f2e18ee61f58a8e947994bd77ba2042cba1b86af4f4022b9e25be14",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/git-safety-check/SKILL.md": "113f24b704775c482f51dc9a4c8639261d7e1bde365eb3373f029126f14857aa",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/git-working-directory-policy/SKILL.md": "4455a163d999921c00cb304143eb7c3c9de278192ace7b95c200d5ee95477eea",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/natural-language-report-writer/SKILL.md": "c704bff74c4873f10df108c7df8fdddb4c613ab582108213d18d55250e9a7c3e",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/todo-workflow-controller/SKILL.md": "c51122b245f71c67fc2343fc77905f9a5edc282bb2bd650676d2103970853e18",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/using-devcraft-toolkit/SKILL.md": "0675e9a6c3cdccc03ad09725e07527cbc93ce716c416e7b218b7646f0ff9ccc7",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/validation-discovery/SKILL.md": "f6005020c3ab999a3225c3f2b80456fd11962cd6161a0402d53ee6601ef963c7",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/conventional-commits-style/references/message-format.md": "4ec0e2b58018a91d3a2b709d2c52648e2eb7a6445e1378865fa2f8be597e64ed",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/git-safety-check/references/preflight.md": "a6e7803718b6a7e4b7e300ec25f2cfc42fca5ccb8ef62222825d05ef260a5e08",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/git-working-directory-policy/references/context.md": "38c9c6ae2fd3485ae550df6b0ed220f0e2eb27d8e04b26f61a1d3407e4ec26fd",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/natural-language-report-writer/assets/report.md": "1adefd31d5c74b2d2bd51ce2216eb242d31029f9081fb5ce9015aed9f29e1d41",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/natural-language-report-writer/references/report-quality.md": "edf7b2e7578dc8d1b0111b7c133f296399efb763d2a683212e0c1a624da6f8b0",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/todo-workflow-controller/references/progress-states.md": "5b42a53606881f67f2f6a00dbd1870d7cda677c558aa72e7b77f5c0c294f0f64",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/using-devcraft-toolkit/references/composition.md": "6bb6f8965bcc3f3994a35ec0782608608b6cf296b620a3c856a62e7cbcc7a8c0",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/validation-discovery/references/check-selection.md": "8f6a32c500d4626948b939ccd33b5a4d02588a01d73defbc6e862cc27cc17ef1"
+      }
+    },
+    {
+      "client": "claude",
+      "args": [
+        "plugin",
+        "uninstall",
+        "devcraft-toolkit@devcraft-toolkit",
+        "--scope",
+        "user"
+      ],
+      "cwd": "/projects/selected",
+      "exit": 0,
+      "signal": null,
+      "stdout": "✔ Successfully uninstalled plugin: devcraft-toolkit (scope: user)\n",
+      "stderr": "",
+      "project": {
+        "control/sentinel.txt": "87db257fe6d9f3f8c442cb523c2c6867f27d632bb7d4aa402b4bfe0521917713"
+      },
+      "home": {
+        ".claude.json": "9e7b07f0cda8b18e3ba407918680b4dcc67cbb726bbf771aaf5669a602f83d6c",
+        ".claude/settings.json": "5840863a04e064b76456a7e39282770e52e9985fcb027c0d846841baaf34f944",
+        ".codex/config.toml": "782d751f7bf975292c24605409e18a797e4ec1439ec6cb5920fafe93208de0f6",
+        ".claude/backups/.claude.json.backup.1792778923838": "c1d8e7694d4d1f73ddeb7749d6e5c8b8c700ef313b14b6a1f65b10bf3f83af79",
+        ".claude/plugins/installed_plugins.json": "230f778f6e70cad02660c5624ac4f4458e5fc271cb3fc87a390b3b7003a6b6bb",
+        ".claude/plugins/known_marketplaces.json": "f9dba3a44d1d01c03aaaf43ce67b37049e5c8b1c3db01f7c20c39d7dbf8d4b9e",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/.orphaned_at": "d7d36e5a61e869f3beb12db595a3a295c2da50b785615d1ad93f3a37d9efdc07",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/plugin.json": "9d9d6f6de0c200af770536e157fed0a807f49c8d3504feeb496c92d38488faa7",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/.claude-plugin/marketplace.json": "0c8469798f68ac7d659671d7f6d09aed08da85110d2d29b2c70ad7a23f4e2816",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/.claude-plugin/plugin.json": "3c3b7ce434ac8c156df34eb51fa8ad3e74bf03a4ff784a3a02b19d215cc907aa",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/.agents/plugins/marketplace.json": "4a2af6eb048fdd24a5bfc9dd557818f7bd04b011dc3a50707c0e22c1b5e35393",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/conventional-commits-style/SKILL.md": "705eb5a16f2e18ee61f58a8e947994bd77ba2042cba1b86af4f4022b9e25be14",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/git-safety-check/SKILL.md": "113f24b704775c482f51dc9a4c8639261d7e1bde365eb3373f029126f14857aa",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/git-working-directory-policy/SKILL.md": "4455a163d999921c00cb304143eb7c3c9de278192ace7b95c200d5ee95477eea",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/natural-language-report-writer/SKILL.md": "c704bff74c4873f10df108c7df8fdddb4c613ab582108213d18d55250e9a7c3e",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/todo-workflow-controller/SKILL.md": "c51122b245f71c67fc2343fc77905f9a5edc282bb2bd650676d2103970853e18",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/using-devcraft-toolkit/SKILL.md": "0675e9a6c3cdccc03ad09725e07527cbc93ce716c416e7b218b7646f0ff9ccc7",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/validation-discovery/SKILL.md": "f6005020c3ab999a3225c3f2b80456fd11962cd6161a0402d53ee6601ef963c7",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/conventional-commits-style/references/message-format.md": "4ec0e2b58018a91d3a2b709d2c52648e2eb7a6445e1378865fa2f8be597e64ed",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/git-safety-check/references/preflight.md": "a6e7803718b6a7e4b7e300ec25f2cfc42fca5ccb8ef62222825d05ef260a5e08",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/git-working-directory-policy/references/context.md": "38c9c6ae2fd3485ae550df6b0ed220f0e2eb27d8e04b26f61a1d3407e4ec26fd",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/natural-language-report-writer/assets/report.md": "1adefd31d5c74b2d2bd51ce2216eb242d31029f9081fb5ce9015aed9f29e1d41",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/natural-language-report-writer/references/report-quality.md": "edf7b2e7578dc8d1b0111b7c133f296399efb763d2a683212e0c1a624da6f8b0",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/todo-workflow-controller/references/progress-states.md": "5b42a53606881f67f2f6a00dbd1870d7cda677c558aa72e7b77f5c0c294f0f64",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/using-devcraft-toolkit/references/composition.md": "6bb6f8965bcc3f3994a35ec0782608608b6cf296b620a3c856a62e7cbcc7a8c0",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/validation-discovery/references/check-selection.md": "8f6a32c500d4626948b939ccd33b5a4d02588a01d73defbc6e862cc27cc17ef1"
+      }
+    },
+    {
+      "client": "claude",
+      "args": [
+        "plugin",
+        "install",
+        "devcraft-toolkit@devcraft-toolkit",
+        "--scope",
+        "project"
+      ],
+      "cwd": "/projects/selected",
+      "exit": 0,
+      "signal": null,
+      "stdout": "Installing plugin \"devcraft-toolkit@devcraft-toolkit\"...✔ Successfully installed plugin: devcraft-toolkit@devcraft-toolkit (scope: project)\n",
+      "stderr": "",
+      "project": {
+        "control/sentinel.txt": "87db257fe6d9f3f8c442cb523c2c6867f27d632bb7d4aa402b4bfe0521917713",
+        "selected/.claude/settings.json": "f0b18e7899b42c5f74fbab30e893ff27b330d7739e9e7c07b6276acb34a78e8b"
+      },
+      "home": {
+        ".claude.json": "9e7b07f0cda8b18e3ba407918680b4dcc67cbb726bbf771aaf5669a602f83d6c",
+        ".claude/settings.json": "5840863a04e064b76456a7e39282770e52e9985fcb027c0d846841baaf34f944",
+        ".codex/config.toml": "782d751f7bf975292c24605409e18a797e4ec1439ec6cb5920fafe93208de0f6",
+        ".claude/backups/.claude.json.backup.1792778923838": "c1d8e7694d4d1f73ddeb7749d6e5c8b8c700ef313b14b6a1f65b10bf3f83af79",
+        ".claude/plugins/installed_plugins.json": "32ecfa94f16780759ec4fffe59750ebb41cdb0e9145553dd4a6f4e10c1ca5757",
+        ".claude/plugins/known_marketplaces.json": "f9dba3a44d1d01c03aaaf43ce67b37049e5c8b1c3db01f7c20c39d7dbf8d4b9e",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/plugin.json": "9d9d6f6de0c200af770536e157fed0a807f49c8d3504feeb496c92d38488faa7",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/.claude-plugin/marketplace.json": "0c8469798f68ac7d659671d7f6d09aed08da85110d2d29b2c70ad7a23f4e2816",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/.claude-plugin/plugin.json": "3c3b7ce434ac8c156df34eb51fa8ad3e74bf03a4ff784a3a02b19d215cc907aa",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/.agents/plugins/marketplace.json": "4a2af6eb048fdd24a5bfc9dd557818f7bd04b011dc3a50707c0e22c1b5e35393",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/conventional-commits-style/SKILL.md": "705eb5a16f2e18ee61f58a8e947994bd77ba2042cba1b86af4f4022b9e25be14",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/git-safety-check/SKILL.md": "113f24b704775c482f51dc9a4c8639261d7e1bde365eb3373f029126f14857aa",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/git-working-directory-policy/SKILL.md": "4455a163d999921c00cb304143eb7c3c9de278192ace7b95c200d5ee95477eea",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/natural-language-report-writer/SKILL.md": "c704bff74c4873f10df108c7df8fdddb4c613ab582108213d18d55250e9a7c3e",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/todo-workflow-controller/SKILL.md": "c51122b245f71c67fc2343fc77905f9a5edc282bb2bd650676d2103970853e18",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/using-devcraft-toolkit/SKILL.md": "0675e9a6c3cdccc03ad09725e07527cbc93ce716c416e7b218b7646f0ff9ccc7",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/validation-discovery/SKILL.md": "f6005020c3ab999a3225c3f2b80456fd11962cd6161a0402d53ee6601ef963c7",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/conventional-commits-style/references/message-format.md": "4ec0e2b58018a91d3a2b709d2c52648e2eb7a6445e1378865fa2f8be597e64ed",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/git-safety-check/references/preflight.md": "a6e7803718b6a7e4b7e300ec25f2cfc42fca5ccb8ef62222825d05ef260a5e08",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/git-working-directory-policy/references/context.md": "38c9c6ae2fd3485ae550df6b0ed220f0e2eb27d8e04b26f61a1d3407e4ec26fd",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/natural-language-report-writer/assets/report.md": "1adefd31d5c74b2d2bd51ce2216eb242d31029f9081fb5ce9015aed9f29e1d41",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/natural-language-report-writer/references/report-quality.md": "edf7b2e7578dc8d1b0111b7c133f296399efb763d2a683212e0c1a624da6f8b0",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/todo-workflow-controller/references/progress-states.md": "5b42a53606881f67f2f6a00dbd1870d7cda677c558aa72e7b77f5c0c294f0f64",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/using-devcraft-toolkit/references/composition.md": "6bb6f8965bcc3f3994a35ec0782608608b6cf296b620a3c856a62e7cbcc7a8c0",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/validation-discovery/references/check-selection.md": "8f6a32c500d4626948b939ccd33b5a4d02588a01d73defbc6e862cc27cc17ef1"
+      }
+    },
+    {
+      "client": "claude",
+      "args": [
+        "plugin",
+        "list",
+        "--json"
+      ],
+      "cwd": "/projects/selected",
+      "exit": 0,
+      "signal": null,
+      "stdout": "[\n  {\n    \"id\": \"devcraft-toolkit@devcraft-toolkit\",\n    \"version\": \"0.1.0-preview.2\",\n    \"scope\": \"project\",\n    \"enabled\": true,\n    \"installPath\": \"/root/.claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2\",\n    \"readFromFolder\": \"/source\",\n    \"folderVersion\": \"0.1.0-preview.2\",\n    \"installedAt\": \"2026-10-23T18:09:19.142Z\",\n    \"lastUpdated\": \"2026-10-23T18:09:19.142Z\",\n    \"projectPath\": \"/projects/selected\",\n    \"projectEnabled\": true\n  }\n]\n",
+      "stderr": "",
+      "project": {
+        "control/sentinel.txt": "87db257fe6d9f3f8c442cb523c2c6867f27d632bb7d4aa402b4bfe0521917713",
+        "selected/.claude/settings.json": "f0b18e7899b42c5f74fbab30e893ff27b330d7739e9e7c07b6276acb34a78e8b"
+      },
+      "home": {
+        ".claude.json": "9e7b07f0cda8b18e3ba407918680b4dcc67cbb726bbf771aaf5669a602f83d6c",
+        ".claude/settings.json": "5840863a04e064b76456a7e39282770e52e9985fcb027c0d846841baaf34f944",
+        ".codex/config.toml": "782d751f7bf975292c24605409e18a797e4ec1439ec6cb5920fafe93208de0f6",
+        ".claude/backups/.claude.json.backup.1792778923838": "c1d8e7694d4d1f73ddeb7749d6e5c8b8c700ef313b14b6a1f65b10bf3f83af79",
+        ".claude/plugins/installed_plugins.json": "32ecfa94f16780759ec4fffe59750ebb41cdb0e9145553dd4a6f4e10c1ca5757",
+        ".claude/plugins/known_marketplaces.json": "f9dba3a44d1d01c03aaaf43ce67b37049e5c8b1c3db01f7c20c39d7dbf8d4b9e",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/plugin.json": "9d9d6f6de0c200af770536e157fed0a807f49c8d3504feeb496c92d38488faa7",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/.claude-plugin/marketplace.json": "0c8469798f68ac7d659671d7f6d09aed08da85110d2d29b2c70ad7a23f4e2816",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/.claude-plugin/plugin.json": "3c3b7ce434ac8c156df34eb51fa8ad3e74bf03a4ff784a3a02b19d215cc907aa",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/.agents/plugins/marketplace.json": "4a2af6eb048fdd24a5bfc9dd557818f7bd04b011dc3a50707c0e22c1b5e35393",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/conventional-commits-style/SKILL.md": "705eb5a16f2e18ee61f58a8e947994bd77ba2042cba1b86af4f4022b9e25be14",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/git-safety-check/SKILL.md": "113f24b704775c482f51dc9a4c8639261d7e1bde365eb3373f029126f14857aa",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/git-working-directory-policy/SKILL.md": "4455a163d999921c00cb304143eb7c3c9de278192ace7b95c200d5ee95477eea",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/natural-language-report-writer/SKILL.md": "c704bff74c4873f10df108c7df8fdddb4c613ab582108213d18d55250e9a7c3e",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/todo-workflow-controller/SKILL.md": "c51122b245f71c67fc2343fc77905f9a5edc282bb2bd650676d2103970853e18",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/using-devcraft-toolkit/SKILL.md": "0675e9a6c3cdccc03ad09725e07527cbc93ce716c416e7b218b7646f0ff9ccc7",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/validation-discovery/SKILL.md": "f6005020c3ab999a3225c3f2b80456fd11962cd6161a0402d53ee6601ef963c7",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/conventional-commits-style/references/message-format.md": "4ec0e2b58018a91d3a2b709d2c52648e2eb7a6445e1378865fa2f8be597e64ed",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/git-safety-check/references/preflight.md": "a6e7803718b6a7e4b7e300ec25f2cfc42fca5ccb8ef62222825d05ef260a5e08",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/git-working-directory-policy/references/context.md": "38c9c6ae2fd3485ae550df6b0ed220f0e2eb27d8e04b26f61a1d3407e4ec26fd",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/natural-language-report-writer/assets/report.md": "1adefd31d5c74b2d2bd51ce2216eb242d31029f9081fb5ce9015aed9f29e1d41",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/natural-language-report-writer/references/report-quality.md": "edf7b2e7578dc8d1b0111b7c133f296399efb763d2a683212e0c1a624da6f8b0",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/todo-workflow-controller/references/progress-states.md": "5b42a53606881f67f2f6a00dbd1870d7cda677c558aa72e7b77f5c0c294f0f64",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/using-devcraft-toolkit/references/composition.md": "6bb6f8965bcc3f3994a35ec0782608608b6cf296b620a3c856a62e7cbcc7a8c0",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/validation-discovery/references/check-selection.md": "8f6a32c500d4626948b939ccd33b5a4d02588a01d73defbc6e862cc27cc17ef1"
+      }
+    },
+    {
+      "client": "claude",
+      "args": [
+        "plugin",
+        "list",
+        "--json"
+      ],
+      "cwd": "/projects/control",
+      "exit": 0,
+      "signal": null,
+      "stdout": "[\n  {\n    \"id\": \"devcraft-toolkit@devcraft-toolkit\",\n    \"version\": \"0.1.0-preview.2\",\n    \"scope\": \"project\",\n    \"enabled\": false,\n    \"installPath\": \"/root/.claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2\",\n    \"readFromFolder\": \"/source\",\n    \"installedAt\": \"2026-10-23T18:09:19.142Z\",\n    \"lastUpdated\": \"2026-10-23T18:09:19.142Z\",\n    \"projectPath\": \"/projects/selected\",\n    \"projectEnabled\": false\n  }\n]\n",
+      "stderr": "",
+      "project": {
+        "control/sentinel.txt": "87db257fe6d9f3f8c442cb523c2c6867f27d632bb7d4aa402b4bfe0521917713",
+        "selected/.claude/settings.json": "f0b18e7899b42c5f74fbab30e893ff27b330d7739e9e7c07b6276acb34a78e8b"
+      },
+      "home": {
+        ".claude.json": "9e7b07f0cda8b18e3ba407918680b4dcc67cbb726bbf771aaf5669a602f83d6c",
+        ".claude/settings.json": "5840863a04e064b76456a7e39282770e52e9985fcb027c0d846841baaf34f944",
+        ".codex/config.toml": "782d751f7bf975292c24605409e18a797e4ec1439ec6cb5920fafe93208de0f6",
+        ".claude/backups/.claude.json.backup.1792778923838": "c1d8e7694d4d1f73ddeb7749d6e5c8b8c700ef313b14b6a1f65b10bf3f83af79",
+        ".claude/plugins/installed_plugins.json": "32ecfa94f16780759ec4fffe59750ebb41cdb0e9145553dd4a6f4e10c1ca5757",
+        ".claude/plugins/known_marketplaces.json": "f9dba3a44d1d01c03aaaf43ce67b37049e5c8b1c3db01f7c20c39d7dbf8d4b9e",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/plugin.json": "9d9d6f6de0c200af770536e157fed0a807f49c8d3504feeb496c92d38488faa7",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/.claude-plugin/marketplace.json": "0c8469798f68ac7d659671d7f6d09aed08da85110d2d29b2c70ad7a23f4e2816",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/.claude-plugin/plugin.json": "3c3b7ce434ac8c156df34eb51fa8ad3e74bf03a4ff784a3a02b19d215cc907aa",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/.agents/plugins/marketplace.json": "4a2af6eb048fdd24a5bfc9dd557818f7bd04b011dc3a50707c0e22c1b5e35393",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/conventional-commits-style/SKILL.md": "705eb5a16f2e18ee61f58a8e947994bd77ba2042cba1b86af4f4022b9e25be14",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/git-safety-check/SKILL.md": "113f24b704775c482f51dc9a4c8639261d7e1bde365eb3373f029126f14857aa",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/git-working-directory-policy/SKILL.md": "4455a163d999921c00cb304143eb7c3c9de278192ace7b95c200d5ee95477eea",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/natural-language-report-writer/SKILL.md": "c704bff74c4873f10df108c7df8fdddb4c613ab582108213d18d55250e9a7c3e",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/todo-workflow-controller/SKILL.md": "c51122b245f71c67fc2343fc77905f9a5edc282bb2bd650676d2103970853e18",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/using-devcraft-toolkit/SKILL.md": "0675e9a6c3cdccc03ad09725e07527cbc93ce716c416e7b218b7646f0ff9ccc7",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/validation-discovery/SKILL.md": "f6005020c3ab999a3225c3f2b80456fd11962cd6161a0402d53ee6601ef963c7",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/conventional-commits-style/references/message-format.md": "4ec0e2b58018a91d3a2b709d2c52648e2eb7a6445e1378865fa2f8be597e64ed",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/git-safety-check/references/preflight.md": "a6e7803718b6a7e4b7e300ec25f2cfc42fca5ccb8ef62222825d05ef260a5e08",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/git-working-directory-policy/references/context.md": "38c9c6ae2fd3485ae550df6b0ed220f0e2eb27d8e04b26f61a1d3407e4ec26fd",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/natural-language-report-writer/assets/report.md": "1adefd31d5c74b2d2bd51ce2216eb242d31029f9081fb5ce9015aed9f29e1d41",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/natural-language-report-writer/references/report-quality.md": "edf7b2e7578dc8d1b0111b7c133f296399efb763d2a683212e0c1a624da6f8b0",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/todo-workflow-controller/references/progress-states.md": "5b42a53606881f67f2f6a00dbd1870d7cda677c558aa72e7b77f5c0c294f0f64",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/using-devcraft-toolkit/references/composition.md": "6bb6f8965bcc3f3994a35ec0782608608b6cf296b620a3c856a62e7cbcc7a8c0",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/validation-discovery/references/check-selection.md": "8f6a32c500d4626948b939ccd33b5a4d02588a01d73defbc6e862cc27cc17ef1"
+      }
+    },
+    {
+      "client": "claude",
+      "args": [
+        "plugin",
+        "update",
+        "devcraft-toolkit@devcraft-toolkit",
+        "--scope",
+        "project"
+      ],
+      "cwd": "/projects/selected",
+      "exit": 0,
+      "signal": null,
+      "stdout": "Checking for updates for plugin \"devcraft-toolkit@devcraft-toolkit\" at project scope…\ndevcraft-toolkit is read from its folder, /source: nothing to update. Edits there take effect at the next session start or /reload-plugins.\n✔ devcraft-toolkit is already at the latest version (0.1.0-preview.2).\n",
+      "stderr": "",
+      "project": {
+        "control/sentinel.txt": "87db257fe6d9f3f8c442cb523c2c6867f27d632bb7d4aa402b4bfe0521917713",
+        "selected/.claude/settings.json": "f0b18e7899b42c5f74fbab30e893ff27b330d7739e9e7c07b6276acb34a78e8b"
+      },
+      "home": {
+        ".claude.json": "9e7b07f0cda8b18e3ba407918680b4dcc67cbb726bbf771aaf5669a602f83d6c",
+        ".claude/settings.json": "5840863a04e064b76456a7e39282770e52e9985fcb027c0d846841baaf34f944",
+        ".codex/config.toml": "782d751f7bf975292c24605409e18a797e4ec1439ec6cb5920fafe93208de0f6",
+        ".claude/backups/.claude.json.backup.1792778923838": "c1d8e7694d4d1f73ddeb7749d6e5c8b8c700ef313b14b6a1f65b10bf3f83af79",
+        ".claude/plugins/installed_plugins.json": "32ecfa94f16780759ec4fffe59750ebb41cdb0e9145553dd4a6f4e10c1ca5757",
+        ".claude/plugins/known_marketplaces.json": "f9dba3a44d1d01c03aaaf43ce67b37049e5c8b1c3db01f7c20c39d7dbf8d4b9e",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/plugin.json": "9d9d6f6de0c200af770536e157fed0a807f49c8d3504feeb496c92d38488faa7",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/.claude-plugin/marketplace.json": "0c8469798f68ac7d659671d7f6d09aed08da85110d2d29b2c70ad7a23f4e2816",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/.claude-plugin/plugin.json": "3c3b7ce434ac8c156df34eb51fa8ad3e74bf03a4ff784a3a02b19d215cc907aa",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/.agents/plugins/marketplace.json": "4a2af6eb048fdd24a5bfc9dd557818f7bd04b011dc3a50707c0e22c1b5e35393",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/conventional-commits-style/SKILL.md": "705eb5a16f2e18ee61f58a8e947994bd77ba2042cba1b86af4f4022b9e25be14",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/git-safety-check/SKILL.md": "113f24b704775c482f51dc9a4c8639261d7e1bde365eb3373f029126f14857aa",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/git-working-directory-policy/SKILL.md": "4455a163d999921c00cb304143eb7c3c9de278192ace7b95c200d5ee95477eea",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/natural-language-report-writer/SKILL.md": "c704bff74c4873f10df108c7df8fdddb4c613ab582108213d18d55250e9a7c3e",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/todo-workflow-controller/SKILL.md": "c51122b245f71c67fc2343fc77905f9a5edc282bb2bd650676d2103970853e18",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/using-devcraft-toolkit/SKILL.md": "0675e9a6c3cdccc03ad09725e07527cbc93ce716c416e7b218b7646f0ff9ccc7",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/validation-discovery/SKILL.md": "f6005020c3ab999a3225c3f2b80456fd11962cd6161a0402d53ee6601ef963c7",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/conventional-commits-style/references/message-format.md": "4ec0e2b58018a91d3a2b709d2c52648e2eb7a6445e1378865fa2f8be597e64ed",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/git-safety-check/references/preflight.md": "a6e7803718b6a7e4b7e300ec25f2cfc42fca5ccb8ef62222825d05ef260a5e08",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/git-working-directory-policy/references/context.md": "38c9c6ae2fd3485ae550df6b0ed220f0e2eb27d8e04b26f61a1d3407e4ec26fd",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/natural-language-report-writer/assets/report.md": "1adefd31d5c74b2d2bd51ce2216eb242d31029f9081fb5ce9015aed9f29e1d41",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/natural-language-report-writer/references/report-quality.md": "edf7b2e7578dc8d1b0111b7c133f296399efb763d2a683212e0c1a624da6f8b0",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/todo-workflow-controller/references/progress-states.md": "5b42a53606881f67f2f6a00dbd1870d7cda677c558aa72e7b77f5c0c294f0f64",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/using-devcraft-toolkit/references/composition.md": "6bb6f8965bcc3f3994a35ec0782608608b6cf296b620a3c856a62e7cbcc7a8c0",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/validation-discovery/references/check-selection.md": "8f6a32c500d4626948b939ccd33b5a4d02588a01d73defbc6e862cc27cc17ef1"
+      }
+    },
+    {
+      "client": "claude",
+      "args": [
+        "plugin",
+        "uninstall",
+        "devcraft-toolkit@devcraft-toolkit",
+        "--scope",
+        "project"
+      ],
+      "cwd": "/projects/selected",
+      "exit": 0,
+      "signal": null,
+      "stdout": "✔ Successfully uninstalled plugin: devcraft-toolkit (scope: project)\n",
+      "stderr": "",
+      "project": {
+        "control/sentinel.txt": "87db257fe6d9f3f8c442cb523c2c6867f27d632bb7d4aa402b4bfe0521917713",
+        "selected/.claude/settings.json": "0fe84d03b8ed583db473f6815d63b80fc7dba01fe4fb064344bb2b731d3dee62"
+      },
+      "home": {
+        ".claude.json": "9e7b07f0cda8b18e3ba407918680b4dcc67cbb726bbf771aaf5669a602f83d6c",
+        ".claude/settings.json": "5840863a04e064b76456a7e39282770e52e9985fcb027c0d846841baaf34f944",
+        ".codex/config.toml": "782d751f7bf975292c24605409e18a797e4ec1439ec6cb5920fafe93208de0f6",
+        ".claude/backups/.claude.json.backup.1792778923838": "c1d8e7694d4d1f73ddeb7749d6e5c8b8c700ef313b14b6a1f65b10bf3f83af79",
+        ".claude/plugins/installed_plugins.json": "230f778f6e70cad02660c5624ac4f4458e5fc271cb3fc87a390b3b7003a6b6bb",
+        ".claude/plugins/known_marketplaces.json": "f9dba3a44d1d01c03aaaf43ce67b37049e5c8b1c3db01f7c20c39d7dbf8d4b9e",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/.orphaned_at": "a2cf9df1803a6527da9e910a47c64e3e5b37b7ca7263e43fdde803966aa38f2e",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/plugin.json": "9d9d6f6de0c200af770536e157fed0a807f49c8d3504feeb496c92d38488faa7",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/.claude-plugin/marketplace.json": "0c8469798f68ac7d659671d7f6d09aed08da85110d2d29b2c70ad7a23f4e2816",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/.claude-plugin/plugin.json": "3c3b7ce434ac8c156df34eb51fa8ad3e74bf03a4ff784a3a02b19d215cc907aa",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/.agents/plugins/marketplace.json": "4a2af6eb048fdd24a5bfc9dd557818f7bd04b011dc3a50707c0e22c1b5e35393",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/conventional-commits-style/SKILL.md": "705eb5a16f2e18ee61f58a8e947994bd77ba2042cba1b86af4f4022b9e25be14",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/git-safety-check/SKILL.md": "113f24b704775c482f51dc9a4c8639261d7e1bde365eb3373f029126f14857aa",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/git-working-directory-policy/SKILL.md": "4455a163d999921c00cb304143eb7c3c9de278192ace7b95c200d5ee95477eea",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/natural-language-report-writer/SKILL.md": "c704bff74c4873f10df108c7df8fdddb4c613ab582108213d18d55250e9a7c3e",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/todo-workflow-controller/SKILL.md": "c51122b245f71c67fc2343fc77905f9a5edc282bb2bd650676d2103970853e18",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/using-devcraft-toolkit/SKILL.md": "0675e9a6c3cdccc03ad09725e07527cbc93ce716c416e7b218b7646f0ff9ccc7",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/validation-discovery/SKILL.md": "f6005020c3ab999a3225c3f2b80456fd11962cd6161a0402d53ee6601ef963c7",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/conventional-commits-style/references/message-format.md": "4ec0e2b58018a91d3a2b709d2c52648e2eb7a6445e1378865fa2f8be597e64ed",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/git-safety-check/references/preflight.md": "a6e7803718b6a7e4b7e300ec25f2cfc42fca5ccb8ef62222825d05ef260a5e08",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/git-working-directory-policy/references/context.md": "38c9c6ae2fd3485ae550df6b0ed220f0e2eb27d8e04b26f61a1d3407e4ec26fd",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/natural-language-report-writer/assets/report.md": "1adefd31d5c74b2d2bd51ce2216eb242d31029f9081fb5ce9015aed9f29e1d41",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/natural-language-report-writer/references/report-quality.md": "edf7b2e7578dc8d1b0111b7c133f296399efb763d2a683212e0c1a624da6f8b0",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/todo-workflow-controller/references/progress-states.md": "5b42a53606881f67f2f6a00dbd1870d7cda677c558aa72e7b77f5c0c294f0f64",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/using-devcraft-toolkit/references/composition.md": "6bb6f8965bcc3f3994a35ec0782608608b6cf296b620a3c856a62e7cbcc7a8c0",
+        ".claude/plugins/cache/devcraft-toolkit/devcraft-toolkit/0.1.0-preview.2/skills/validation-discovery/references/check-selection.md": "8f6a32c500d4626948b939ccd33b5a4d02588a01d73defbc6e862cc27cc17ef1"
+      }
+    }
+  ]
+}

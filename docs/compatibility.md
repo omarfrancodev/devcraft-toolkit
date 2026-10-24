@@ -19,6 +19,68 @@ The available skills use Markdown instructions, YAML frontmatter, relative resou
 
 - Project validation composition: direct use, optional entry routing and absent-installation cases were evaluated. Baseline entry evaluation found no explicit route and one absent-skill response falsely described a route as existing; the entry now routes to the standalone capability only when installed and reports it unavailable when absent. Fresh contexts manually followed the entry and standalone instructions; native skill activation was unavailable.
 
+## Distribution candidate: 2026-10-23
+
+The 0.1.0-preview.2 distribution adds native package metadata and explicit selected-skill recipes; preview.1 remains source-only. [Filesystem evidence](../tests/integration/distribution/evaluations/2026-10-23-installation/filesystem.md) records 64 pinned-CLI cases, 64 independent manual-copy cases, eight CLI lifecycle cases and their actual before/after inventories. No personal skill store was used.
+
+[Ownership evaluation](../tests/skills/using_devcraft_toolkit/evaluations/2026-10-23-installation-routing/installation-routing.md) found two initial routing failures, corrected them through explicit selected-installation rules, and passed four final fresh-context packets plus twelve existing-behavior observations. Discovery fixtures and manual instruction following do not prove native metadata or invocation.
+
+[Native evidence](../tests/integration/distribution/evaluations/2026-10-23-installation/native.md) separates registration, file placement, discovery, invocation, scope and lifecycle. Codex CLI 0.162.0 registered, installed/listed and removed the local package; a separate RED-to-GREEN registry probe confirmed user-disabled/project-enabled precedence against a control project. This is configuration evidence, not active-session isolation. Claude Code 2.1.300 accepted metadata, registered and installed the suite in user/project scopes, and reported the project installation disabled in the control project. Local-directory update semantics differed from a Git marketplace. Authenticated skill invocation/resource reads and complete native lifecycle remain pending; Copilot and Kiro IDE sessions were not available in an isolated authenticated environment. The matrix is explicitly partial, not all-four-harness compatibility.
+
+Current automated checks: 78 tests discovered, 77 passed and one Windows symlink privilege skip. Both repository and distribution validators pass. Structural tests do not establish client activation or model instruction following.
+
+## Remote-first suite validation
+
+The consumer path now starts with the complete native suite from the public repository. [Individual skills](installation/individual-skills.md) are an alternative; [local/developer installation](installation/development.md) is separate. Default-source recipes use integrated metadata; [release-pinned sources](releases/v0.1.0-preview.2.md#version-pinned-sources) are separate from [historical pre-integration sources](installation/preview.md).
+
+The [remote evaluation](../tests/integration/distribution/evaluations/2026-10-23-remote-suite/remote.md) fetched public reference b05a8c4367dc02e33ac9d19a8eb98e0bdb31c04e, installed the suite through Codex and Claude's actual remote marketplace flows, and compared every installed skill resource against that source. It also copied an independent formatter for Codex and the complete project fallback for Kiro through the pinned external CLI. The corrected run's 29 commands exited 0; its native outcomes remain limited.
+
+Claude 2.1.300 rejected a commit SHA in the marketplace clone URL. The working preview uses a mutable existing branch whose resolved HEAD was recorded and verified. Codex accepted the immutable SHA. The failed attempt is retained. This is a version-specific observed difference, not a claim that all clients accept the same ref syntax.
+
+No authenticated native invocation, model-driven resource read, full version-changing lifecycle, Copilot session or Kiro IDE session passed. Existing native gates remain open; remote acquisition/resource hashes do not close them.
+
+## Seven local clients
+
+The approved extension documents Codex, Copilot CLI, Copilot in VS Code,
+Claude Code, Kiro CLI V3, Kiro IDE and Kiro Crew independently. The same seven
+canonical skills and existing manifests are reused; there is no new Crew
+template, App, crewmate or runtime installer.
+
+[Expanded client evidence](../tests/integration/distribution/evaluations/2026-10-23-client-expansion/clients.md)
+records the Copilot CLI 1.0.91 remote probe: 20 successful corrected commands,
+all seven installed resource sets matching the immutable payload, repeated
+install, user enable/disable, same-ref refresh/update and selected removal with
+sentinels preserved. The original rejected SHA is retained; the working preview
+uses a verified mutable branch. This is limited registration/filesystem evidence,
+not authenticated invocation or repository auto-install/active-session scope.
+
+Kiro CLI 2.28.0 version/help was inspected without installing into its real user.
+The V3 shared IDE-Power route and catalog/local management are documented; the
+CLI-only full remote set is a separate delivery. Crew uses its own native GitHub
+skill snapshot importer and trusted-project route; it does not inherit a proven
+Power installation. The existing default agent needs no toolkit template, while
+restricted agent mappings remain user-controlled.
+
+The [expanded matrix](../tests/integration/distribution/evaluations/2026-10-23-client-expansion/matrix.md)
+keeps 28 native client/delivery/scope rows and three distinct Kiro full-set
+fallback rows. Copilot VS Code crossover, Kiro CLI/IDE activation, Crew imports,
+resource reads, trust, scope and lifecycle remain blocked/unrun. Historical
+four-client observations are retained; Task 4 Step 3 remains open.
+
+## Kiro keywords correction F001
+
+Root plugin.json now includes activation keywords to follow Kiro's authoring
+guidance, although the portable schema makes them optional. The local contract
+requires a non-empty string array and keeps the minimal Claude metadata
+unchanged. [F001 evidence](../tests/integration/distribution/evaluations/2026-10-23-kiro-keywords/keywords.md)
+records the validator regression and correction.
+
+Earlier b05a8c4/218aea8 acquisition/resource observations describe the previous
+manifest. They remain historical and must not be presented as acceptance of the
+corrected root metadata. Canonical skills/resources, common identity/version
+and marketplace sources are unchanged. No isolated Kiro IDE/CLI activation was
+performed for this correction; Task 4 Step 3 remains open.
+
 ## Limits
 
-The skill behavior evaluations are manual instruction-following assessments in fresh agent contexts, not native skill-loader tests. Isolated package installation could not be confirmed because PyPI DNS/network access was unavailable. The submodule scenario, isolated missing-Git executable, external standalone installation, native skill loading, other harnesses, and mid-run progress-tracker failure were not dynamically exercised. No other harness or plugin installation has been validated. Structural tests prove repository checks and fixture state, not language quality or instruction following.
+The skill behavior evaluations are manual instruction-following assessments in fresh agent contexts, not native skill-loader tests. The earlier Python dependency-installation attempt was blocked by PyPI DNS/network access; the later isolated Skills CLI filesystem evaluation above is a separate, observed operation. The submodule scenario, isolated missing-Git executable, authenticated native skill loading, other harness sessions, and mid-run progress-tracker failure were not dynamically exercised. Native registration observations above do not establish full compatibility with any target harness; blocked activation rows remain open. Structural tests prove repository checks and fixture state, not language quality or instruction following.

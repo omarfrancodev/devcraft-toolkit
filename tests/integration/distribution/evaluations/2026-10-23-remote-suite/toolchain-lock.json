@@ -1,0 +1,374 @@
+{
+  "name": "tool",
+  "lockfileVersion": 3,
+  "requires": true,
+  "packages": {
+    "": {
+      "dependencies": {
+        "@anthropic-ai/claude-code": "^2.1.300",
+        "@openai/codex": "^0.162.0",
+        "skills": "^1.7.4"
+      }
+    },
+    "node_modules/@anthropic-ai/claude-code": {
+      "version": "2.1.300",
+      "resolved": "https://registry.npmjs.org/@anthropic-ai/claude-code/-/claude-code-2.1.300.tgz",
+      "integrity": "sha512-EOOmbzTxKxiukfV8T7K2+uDIxt8kR1vn+hgLB464HdjH1fZWS+qAc/nY6GYThcbe4kTqQOCFnyOcFKMXOxl+PQ==",
+      "hasInstallScript": true,
+      "license": "SEE LICENSE IN README.md",
+      "bin": {
+        "claude": "bin/claude.exe"
+      },
+      "engines": {
+        "node": ">=22.0.0"
+      },
+      "optionalDependencies": {
+        "@anthropic-ai/claude-code-darwin-arm64": "2.1.300",
+        "@anthropic-ai/claude-code-darwin-x64": "2.1.300",
+        "@anthropic-ai/claude-code-linux-arm64": "2.1.300",
+        "@anthropic-ai/claude-code-linux-arm64-musl": "2.1.300",
+        "@anthropic-ai/claude-code-linux-x64": "2.1.300",
+        "@anthropic-ai/claude-code-linux-x64-musl": "2.1.300",
+        "@anthropic-ai/claude-code-win32-arm64": "2.1.300",
+        "@anthropic-ai/claude-code-win32-x64": "2.1.300"
+      }
+    },
+    "node_modules/@anthropic-ai/claude-code-darwin-arm64": {
+      "version": "2.1.300",
+      "resolved": "https://registry.npmjs.org/@anthropic-ai/claude-code-darwin-arm64/-/claude-code-darwin-arm64-2.1.300.tgz",
+      "integrity": "sha512-voMU27sitARLTfblwmsPZvqVLkuhnJknwVJpAcYq9iSioC42Sxff4jv/QkjDThsx9p/NoF+T1XaKrWa4Qtn7Xg==",
+      "cpu": [
+        "arm64"
+      ],
+      "license": "SEE LICENSE IN LICENSE.md",
+      "optional": true,
+      "os": [
+        "darwin"
+      ]
+    },
+    "node_modules/@anthropic-ai/claude-code-darwin-x64": {
+      "version": "2.1.300",
+      "resolved": "https://registry.npmjs.org/@anthropic-ai/claude-code-darwin-x64/-/claude-code-darwin-x64-2.1.300.tgz",
+      "integrity": "sha512-/LBNsn0akFA/JJOuZx+Xp0NQBQZPLnWl7Q+7oJih/IDKA2GLCzza2g9N5ERK3kixnXx5l8uTJnvZJehsm3axcA==",
+      "cpu": [
+        "x64"
+      ],
+      "license": "SEE LICENSE IN LICENSE.md",
+      "optional": true,
+      "os": [
+        "darwin"
+      ]
+    },
+    "node_modules/@anthropic-ai/claude-code-linux-arm64": {
+      "version": "2.1.300",
+      "resolved": "https://registry.npmjs.org/@anthropic-ai/claude-code-linux-arm64/-/claude-code-linux-arm64-2.1.300.tgz",
+      "integrity": "sha512-LGxXJ2ibRUHG4BVUPWG1S7OQ+H6ctf98Jd/d5XByy3/sm2fG6k7u0892Dc1bF+wJYwb0FvOqRKdOtNj+zUCTuA==",
+      "cpu": [
+        "arm64"
+      ],
+      "libc": [
+        "glibc"
+      ],
+      "license": "SEE LICENSE IN LICENSE.md",
+      "optional": true,
+      "os": [
+        "linux"
+      ]
+    },
+    "node_modules/@anthropic-ai/claude-code-linux-arm64-musl": {
+      "version": "2.1.300",
+      "resolved": "https://registry.npmjs.org/@anthropic-ai/claude-code-linux-arm64-musl/-/claude-code-linux-arm64-musl-2.1.300.tgz",
+      "integrity": "sha512-C5aBU+fS5fx2tJgQFpTr9CfDxtGGOym0WfoymgMIPsmZ+1JyN426RBGed47rlWOe2q8fAOnEK8Lw74Ixx8J6GA==",
+      "cpu": [
+        "arm64"
+      ],
+      "libc": [
+        "musl"
+      ],
+      "license": "SEE LICENSE IN LICENSE.md",
+      "optional": true,
+      "os": [
+        "linux"
+      ]
+    },
+    "node_modules/@anthropic-ai/claude-code-linux-x64": {
+      "version": "2.1.300",
+      "resolved": "https://registry.npmjs.org/@anthropic-ai/claude-code-linux-x64/-/claude-code-linux-x64-2.1.300.tgz",
+      "integrity": "sha512-oW4/i4gBd0Y7vqKToK+RaO/fZm4oZWAA81CJ1s0afg+bP+OH9QJdOXKDDwQ9eizcV78a44mQAbce5WYsN18CAw==",
+      "cpu": [
+        "x64"
+      ],
+      "libc": [
+        "glibc"
+      ],
+      "license": "SEE LICENSE IN LICENSE.md",
+      "optional": true,
+      "os": [
+        "linux"
+      ]
+    },
+    "node_modules/@anthropic-ai/claude-code-linux-x64-musl": {
+      "version": "2.1.300",
+      "resolved": "https://registry.npmjs.org/@anthropic-ai/claude-code-linux-x64-musl/-/claude-code-linux-x64-musl-2.1.300.tgz",
+      "integrity": "sha512-2/rT9E/gKoejAG2Bgac375FRukp9IF++8hFWKZjABQGSjHLUqwQPV91+yCDIaj1gTYPkOMqj4GP27txJJSchvg==",
+      "cpu": [
+        "x64"
+      ],
+      "libc": [
+        "musl"
+      ],
+      "license": "SEE LICENSE IN LICENSE.md",
+      "optional": true,
+      "os": [
+        "linux"
+      ]
+    },
+    "node_modules/@anthropic-ai/claude-code-win32-arm64": {
+      "version": "2.1.300",
+      "resolved": "https://registry.npmjs.org/@anthropic-ai/claude-code-win32-arm64/-/claude-code-win32-arm64-2.1.300.tgz",
+      "integrity": "sha512-2YkSan9o1MDgIguu5TOTTLC16l3q2+E0LbKknU/6YuSqm0dHBN0Aqh0kzpVStL7sBUtpLhME5KrqtxdX1yIdXw==",
+      "cpu": [
+        "arm64"
+      ],
+      "license": "SEE LICENSE IN LICENSE.md",
+      "optional": true,
+      "os": [
+        "win32"
+      ]
+    },
+    "node_modules/@anthropic-ai/claude-code-win32-x64": {
+      "version": "2.1.300",
+      "resolved": "https://registry.npmjs.org/@anthropic-ai/claude-code-win32-x64/-/claude-code-win32-x64-2.1.300.tgz",
+      "integrity": "sha512-JCpTNFZ8TUKnRzmOpQ3WB/9u2/eg6ip3rRaWdcuqPkF0Vx4lnTdd7pYwcmLVZm+amyV3LfeuabI2toSHGD/7KA==",
+      "cpu": [
+        "x64"
+      ],
+      "license": "SEE LICENSE IN LICENSE.md",
+      "optional": true,
+      "os": [
+        "win32"
+      ]
+    },
+    "node_modules/@isaacs/fs-minipass": {
+      "version": "4.0.1",
+      "resolved": "https://registry.npmjs.org/@isaacs/fs-minipass/-/fs-minipass-4.0.1.tgz",
+      "integrity": "sha512-wgm9Ehl2jpeqP3zw/7mo3kRHFp5MEDhqAdwy1fTGkHAwnkGOVsgpvQhL8B5n1qlb01jV3n/bI0ZfZp5lWA1k4w==",
+      "license": "ISC",
+      "dependencies": {
+        "minipass": "^7.0.4"
+      },
+      "engines": {
+        "node": ">=18.0.0"
+      }
+    },
+    "node_modules/@openai/codex": {
+      "version": "0.162.0",
+      "resolved": "https://registry.npmjs.org/@openai/codex/-/codex-0.162.0.tgz",
+      "integrity": "sha512-qWWckMfknyVym1lD5y2rTwPJA2sgHkzePF2l/Uevss4hVpqbt23rMIHKNTrqECdnv82denylHWEzrAmDnCYNIw==",
+      "license": "Apache-2.0",
+      "bin": {
+        "codex": "bin/codex.js"
+      },
+      "engines": {
+        "node": ">=16"
+      },
+      "optionalDependencies": {
+        "@openai/codex-darwin-arm64": "npm:@openai/codex@0.162.0-darwin-arm64",
+        "@openai/codex-darwin-x64": "npm:@openai/codex@0.162.0-darwin-x64",
+        "@openai/codex-linux-arm64": "npm:@openai/codex@0.162.0-linux-arm64",
+        "@openai/codex-linux-x64": "npm:@openai/codex@0.162.0-linux-x64",
+        "@openai/codex-win32-arm64": "npm:@openai/codex@0.162.0-win32-arm64",
+        "@openai/codex-win32-x64": "npm:@openai/codex@0.162.0-win32-x64"
+      }
+    },
+    "node_modules/@openai/codex-darwin-arm64": {
+      "name": "@openai/codex",
+      "version": "0.162.0-darwin-arm64",
+      "resolved": "https://registry.npmjs.org/@openai/codex/-/codex-0.162.0-darwin-arm64.tgz",
+      "integrity": "sha512-hyiGlMCbZog7IY2TcSWzXbsmtUnynT93QA4utqGlVmFlmz8TurADk3LV28zqUIdgh9GLOzumDIdHQbYieo9Nqw==",
+      "cpu": [
+        "arm64"
+      ],
+      "license": "Apache-2.0",
+      "optional": true,
+      "os": [
+        "darwin"
+      ],
+      "engines": {
+        "node": ">=16"
+      }
+    },
+    "node_modules/@openai/codex-darwin-x64": {
+      "name": "@openai/codex",
+      "version": "0.162.0-darwin-x64",
+      "resolved": "https://registry.npmjs.org/@openai/codex/-/codex-0.162.0-darwin-x64.tgz",
+      "integrity": "sha512-4XzCUJgEDDdme6VWDEKvbWDA6f+470d4xhhorYUgNBZwY8Dq5NYqvWkO33rnc1vjxkqSj+SwkymHxRMxL6h1CA==",
+      "cpu": [
+        "x64"
+      ],
+      "license": "Apache-2.0",
+      "optional": true,
+      "os": [
+        "darwin"
+      ],
+      "engines": {
+        "node": ">=16"
+      }
+    },
+    "node_modules/@openai/codex-linux-arm64": {
+      "name": "@openai/codex",
+      "version": "0.162.0-linux-arm64",
+      "resolved": "https://registry.npmjs.org/@openai/codex/-/codex-0.162.0-linux-arm64.tgz",
+      "integrity": "sha512-6NYWwy09FsZ+/0Dz/bvV/yz3aFhkNzj86fSiux9Ax9VMBOID5nPdwd51OySm7fy8TMRud4fgJFELSi3Enc1s7Q==",
+      "cpu": [
+        "arm64"
+      ],
+      "license": "Apache-2.0",
+      "optional": true,
+      "os": [
+        "linux"
+      ],
+      "engines": {
+        "node": ">=16"
+      }
+    },
+    "node_modules/@openai/codex-linux-x64": {
+      "name": "@openai/codex",
+      "version": "0.162.0-linux-x64",
+      "resolved": "https://registry.npmjs.org/@openai/codex/-/codex-0.162.0-linux-x64.tgz",
+      "integrity": "sha512-qHWp6oKpf456PqjberGN8avs8zChv2oS+UuDiqVFYAuDOhq6vBc1drh8jEsnR7dBX+zcw03PN5VLtePGlMcC3w==",
+      "cpu": [
+        "x64"
+      ],
+      "license": "Apache-2.0",
+      "optional": true,
+      "os": [
+        "linux"
+      ],
+      "engines": {
+        "node": ">=16"
+      }
+    },
+    "node_modules/@openai/codex-win32-arm64": {
+      "name": "@openai/codex",
+      "version": "0.162.0-win32-arm64",
+      "resolved": "https://registry.npmjs.org/@openai/codex/-/codex-0.162.0-win32-arm64.tgz",
+      "integrity": "sha512-scdBHlUz4AfLOUWT4r4kwe3GFvjbBbWxreLDGoLSyMFf566e7sHSJvlJuV7uha2S7uRoQnMmWwmqYMJuT322UQ==",
+      "cpu": [
+        "arm64"
+      ],
+      "license": "Apache-2.0",
+      "optional": true,
+      "os": [
+        "win32"
+      ],
+      "engines": {
+        "node": ">=16"
+      }
+    },
+    "node_modules/@openai/codex-win32-x64": {
+      "name": "@openai/codex",
+      "version": "0.162.0-win32-x64",
+      "resolved": "https://registry.npmjs.org/@openai/codex/-/codex-0.162.0-win32-x64.tgz",
+      "integrity": "sha512-W8kqHaqpW0qPz71E0rRT5dq+socGz1BbJyYN7o3SP1TWQt8Zl6ML74R9Hvt/xn1NNLVlDTRfXqNmaMkte6yEMQ==",
+      "cpu": [
+        "x64"
+      ],
+      "license": "Apache-2.0",
+      "optional": true,
+      "os": [
+        "win32"
+      ],
+      "engines": {
+        "node": ">=16"
+      }
+    },
+    "node_modules/chownr": {
+      "version": "3.0.0",
+      "resolved": "https://registry.npmjs.org/chownr/-/chownr-3.0.0.tgz",
+      "integrity": "sha512-+IxzY9BZOQd/XuYPRmrvEVjF/nqj5kgT4kEq7VofrDoM1MxoRjEWkrCC3EtLi59TVawxTAn+orJwFQcrqEN1+g==",
+      "license": "BlueOak-1.0.0",
+      "engines": {
+        "node": ">=18"
+      }
+    },
+    "node_modules/minipass": {
+      "version": "7.1.3",
+      "resolved": "https://registry.npmjs.org/minipass/-/minipass-7.1.3.tgz",
+      "integrity": "sha512-tEBHqDnIoM/1rXME1zgka9g6Q2lcoCkxHLuc7ODJ5BxbP5d4c2Z5cGgtXAku59200Cx7diuHTOYfSBD8n6mm8A==",
+      "license": "BlueOak-1.0.0",
+      "engines": {
+        "node": ">=16 || 14 >=14.17"
+      }
+    },
+    "node_modules/minizlib": {
+      "version": "3.1.0",
+      "resolved": "https://registry.npmjs.org/minizlib/-/minizlib-3.1.0.tgz",
+      "integrity": "sha512-KZxYo1BUkWD2TVFLr0MQoM8vUUigWD3LlD83a/75BqC+4qE0Hb1Vo5v1FgcfaNXvfXzr+5EhQ6ing/CaBijTlw==",
+      "license": "MIT",
+      "dependencies": {
+        "minipass": "^7.1.2"
+      },
+      "engines": {
+        "node": ">= 18"
+      }
+    },
+    "node_modules/skills": {
+      "version": "1.7.4",
+      "resolved": "https://registry.npmjs.org/skills/-/skills-1.7.4.tgz",
+      "integrity": "sha512-lHZJksE8UImNAr+LL6unqq7jERjdFw5EJasm17srycwL7rXHGdCmgu1L1ttLxUO9i3rdH+QQig+px0icHqLmRw==",
+      "license": "MIT",
+      "dependencies": {
+        "tar": "^7.5.20",
+        "yaml": "^2.8.3"
+      },
+      "bin": {
+        "add-skill": "bin/cli.mjs",
+        "skills": "bin/cli.mjs"
+      },
+      "engines": {
+        "node": ">=22.20.0"
+      }
+    },
+    "node_modules/tar": {
+      "version": "7.5.22",
+      "resolved": "https://registry.npmjs.org/tar/-/tar-7.5.22.tgz",
+      "integrity": "sha512-MFO/QzvtAOmJbkhOaCTvbGcFN9L9b+JunIsDwaKljSOdcLMea3NJ1k9Usz/rjdfSXTq4dfzfeS7W4p4YOAAHeA==",
+      "license": "BlueOak-1.0.0",
+      "dependencies": {
+        "@isaacs/fs-minipass": "^4.0.0",
+        "chownr": "^3.0.0",
+        "minipass": "^7.1.2",
+        "minizlib": "^3.1.0",
+        "yallist": "^5.0.0"
+      },
+      "engines": {
+        "node": ">=18"
+      }
+    },
+    "node_modules/yallist": {
+      "version": "5.0.0",
+      "resolved": "https://registry.npmjs.org/yallist/-/yallist-5.0.0.tgz",
+      "integrity": "sha512-YgvUTfwqyc7UXVMrB+SImsVYSmTS8X/tSrtdNZMImM+n7+QTriRXyXim0mBrTXNeqzVF0KWGgHPeiyViFFrNDw==",
+      "license": "BlueOak-1.0.0",
+      "engines": {
+        "node": ">=18"
+      }
+    },
+    "node_modules/yaml": {
+      "version": "2.9.1",
+      "resolved": "https://registry.npmjs.org/yaml/-/yaml-2.9.1.tgz",
+      "integrity": "sha512-3NxN8+78OdzbT7C/WjGsyfPAtJaN3FNDsWxv7Y7mcDsT/oOmgW8BpyQQFFBnvZE3j9Y2Sdz1ULFLezL7Eb2yFw==",
+      "license": "ISC",
+      "bin": {
+        "yaml": "bin.mjs"
+      },
+      "engines": {
+        "node": ">= 14.6"
+      },
+      "funding": {
+        "url": "https://github.com/sponsors/eemeli"
+      }
+    }
+  }
+}

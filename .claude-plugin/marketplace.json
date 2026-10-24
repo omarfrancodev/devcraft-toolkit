@@ -1,0 +1,13 @@
+{
+  "name": "devcraft-toolkit",
+  "owner": {
+    "name": "omarfrancodev"
+  },
+  "plugins": [
+    {
+      "name": "devcraft-toolkit",
+      "source": "./",
+      "description": "Composable Git and development skills for coding agents."
+    }
+  ]
+}

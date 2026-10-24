@@ -1,0 +1,55 @@
+[
+  {
+    "args": [
+      "plugin",
+      "details",
+      "--help"
+    ],
+    "exit": 0,
+    "stdout": "Usage: claude plugin details [options] <name>\n\nShow a plugin's component inventory and projected token cost\n\nOptions:\n  -h, --help  Display help for command\n",
+    "stderr": ""
+  },
+  {
+    "args": [
+      "plugin",
+      "marketplace",
+      "add",
+      "/source"
+    ],
+    "exit": 0,
+    "stdout": "Adding marketplace…✔ Successfully added marketplace: devcraft-toolkit (declared in user settings)\n",
+    "stderr": ""
+  },
+  {
+    "args": [
+      "plugin",
+      "install",
+      "devcraft-toolkit@devcraft-toolkit",
+      "--scope",
+      "user"
+    ],
+    "exit": 0,
+    "stdout": "Installing plugin \"devcraft-toolkit@devcraft-toolkit\"...✔ Successfully installed plugin: devcraft-toolkit@devcraft-toolkit (scope: user)\n",
+    "stderr": ""
+  },
+  {
+    "args": [
+      "plugin",
+      "details",
+      "devcraft-toolkit@devcraft-toolkit",
+      "--json"
+    ],
+    "exit": 1,
+    "stdout": "",
+    "stderr": "error: unknown option '--json'\n"
+  },
+  {
+    "args": [
+      "auth",
+      "status"
+    ],
+    "exit": 1,
+    "stdout": "{\n  \"loggedIn\": false,\n  \"authMethod\": \"none\",\n  \"apiProvider\": \"firstParty\",\n  \"analyticsDisabled\": true,\n  \"projectsDirectory\": \"/root/.claude/projects\",\n  \"configDirectory\": \"/root/.claude\"\n}\n",
+    "stderr": ""
+  }
+]

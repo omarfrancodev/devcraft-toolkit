@@ -1,0 +1,15 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "devcraft-toolkit",
+  "version": "0.1.0-preview.2",
+  "description": "Composable Git and development skills for coding agents.",
+  "author": {
+    "name": "omarfrancodev"
+  },
+  "keywords": [
+    "git",
+    "commit",
+    "report",
+    "validation"
+  ]
+}
