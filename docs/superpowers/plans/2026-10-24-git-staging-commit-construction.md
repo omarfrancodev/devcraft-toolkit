@@ -71,15 +71,15 @@ The user requested spec, plan and then sequential implementation in one task. Us
 - Consumes: planner groups/messages and current analysis; Task 1 exact staging result; safety commit preflight; per-check validation results; progress gates.
 - Produces: `outcome,mode,authorization,groups,validations,commits,remaining,state,limitations`, including actual commit SHA/tree/message/identity or explicit unexecuted states.
 
-- [ ] **Step 1: Define scenarios and run five fresh baseline controls before coordinator authoring.**
+- [x] **Step 1: Define scenarios and run five fresh baseline controls before coordinator authoring.**
   Explicit commit request, prepared G1 and excluded later same-path edit, known identity, inspected passing check with actual worktree scope, no hooks/signing effects. Include preview-only, exact-scope validation, missing identity/dependency, unknown hooks, two groups/approved deferral, failure after first commit and exit-zero unexpected changes.
-- [ ] **Step 2: Write and run real commit fixture controls.**
-  `CommitFlowTests`: `test_commit_uses_selected_index_and_literal_message`, `test_unborn_commit_has_no_parent`, `test_failing_hook_preserves_pending_state`, `test_hook_added_content_is_detectably_outside_expected_tree`, `test_second_group_failure_preserves_first_commit`. Compare actual committed trees/parents/message/identity and residual state; fixtures intentionally configure owned hooks before the observed operation. Run `python -B -m unittest tests.skills.git_commit_builder.integration.test_commit_flow -v`; expected recipe controls pass.
-- [ ] **Step 3: Implement coordinator/reference and dependencies.**
+- [x] **Step 2: Write and run real commit fixture controls.**
+  `CommitFlowTests`: `test_commit_uses_selected_index_and_literal_message`, `test_unborn_commit_has_no_parent`, `test_failing_hook_preserves_pending_state`, `test_hook_added_content_is_detectably_outside_expected_tree`, `test_second_group_failure_preserves_first_commit`, `test_effective_identity_override_is_observable_before_commit`. Compare actual committed trees/parents/message/identity and residual state; fixtures intentionally configure owned hooks before the observed operation. Run `python -B -m unittest tests.skills.git_commit_builder.integration.test_commit_flow -v`; expected recipe controls pass.
+- [x] **Step 3: Implement coordinator/reference and dependencies.**
   Use progress -> analysis/preflight -> plan -> scoped validation -> per-group staging -> fresh commit preflight -> normal new commit -> postconditions. Explicit commit authorization covers necessary selected staging and ordinary inspected checks; unresolved scope/repartition/effects pause dependent writes. Unrelated staged entries require an approved deferral/restore decision rather than alternate-index/path bypass. Preserve state after every failure and report partial progress. Declare planner, stage, safety, validation and progress dependencies.
-- [ ] **Step 4: Repeat five fresh complete-instruction samples and independent edge/gap cases.**
+- [x] **Step 4: Repeat five fresh complete-instruction samples and independent edge/gap cases.**
   Expected: delegation, record completeness, no inferred validation of selected content, hook/signing/authorization gates, known own-transition freshness and partial failure semantics. English/Spanish variants preserve identifiers. No simulated command gets reported as executed.
-- [ ] **Step 5: Verify and commit the coordinator.**
+- [x] **Step 5: Verify and commit the coordinator.**
   Run Task 2 unittest, repository validator and full-base whitespace check; expected success. Commit `feat: coordinate scoped local commit construction`.
 
 ### Task 3: Compose and document the eleven-skill candidate

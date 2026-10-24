@@ -1,0 +1,101 @@
+{
+  "request": "Informa en español sobre esta ejecución de commits suministrada, sin ejecutar nada más.",
+  "selected_installation": "explicit complete standalone builder closure",
+  "authorization": "Create only the approved staged rounding commit; keep later debug and untracked notes outside.",
+  "mode": "commit",
+  "repository": {
+    "root": "/sample",
+    "branch": "feature/rounding",
+    "before_HEAD": "H1",
+    "identity": {
+      "name": "Fixture Author",
+      "email": "fixture@example.invalid",
+      "origin": "local"
+    }
+  },
+  "groups": [
+    {
+      "id": "G1",
+      "intent": "correct rounding",
+      "evidence": [
+        "A1",
+        "A3"
+      ],
+      "selection": [
+        [
+          "src/total.py",
+          "staged",
+          "ROUND"
+        ],
+        [
+          "tests/test_total.py",
+          "staged",
+          "TEST"
+        ]
+      ],
+      "depends_on": [],
+      "message": "fix(totals): corrige el redondeo decimal",
+      "exclusions": [
+        "debug unstaged",
+        "notes.txt untracked"
+      ]
+    }
+  ],
+  "observations": {
+    "source": "supplied executor transcript, not a live repository",
+    "preflight": "ready for commit; fresh guards and exact index manifest verified",
+    "hooks": "no active hooks",
+    "signing": "not configured",
+    "progress": "G1 complete using inline fallback",
+    "validations": [
+      {
+        "command": "python check.py",
+        "source": "inspected project check",
+        "exit": 0,
+        "output": "check ok",
+        "status": "passed",
+        "scope": "dirty worktree, includes excluded debug; not proof of exact staged tree",
+        "required_exact_index_check": false,
+        "artifacts": "none"
+      }
+    ],
+    "stage": {
+      "outcome": "no_op",
+      "index": "already exactly G1, no write necessary"
+    },
+    "commit": {
+      "command": "git commit --file=- --cleanup=verbatim",
+      "exit": 0,
+      "output": "[feature/rounding C1] fix(totals): corrige el redondeo decimal",
+      "HEAD": "C1",
+      "parent": "H1",
+      "tree": [
+        [
+          "src/total.py",
+          "100644",
+          "ROUND"
+        ],
+        [
+          "tests/test_total.py",
+          "100644",
+          "TEST"
+        ]
+      ],
+      "message": "fix(totals): corrige el redondeo decimal",
+      "author": "Fixture Author <fixture@example.invalid>",
+      "identity_origin": "local"
+    },
+    "after": {
+      "branch": "feature/rounding",
+      "index": "clean relative to C1",
+      "worktree": "excluded debug and untracked notes unchanged",
+      "other_refs": "unchanged",
+      "configuration": "unchanged"
+    },
+    "remaining": []
+  },
+  "limitations": [
+    "Only executor facts supplied; no native loader observed",
+    "Validation scope differs from selected index and is explicitly disclosed"
+  ]
+}

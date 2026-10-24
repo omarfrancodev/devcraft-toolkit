@@ -3,7 +3,7 @@
   "name": "devcraft-toolkit",
   "skills": [
     {"name": "using-devcraft-toolkit", "role": "entry", "status": "available", "path": "skills/using-devcraft-toolkit", "requires": ["git-working-directory-policy", "git-safety-check"]},
-    {"name": "git-commit-builder", "role": "coordinator", "status": "planned", "path": "skills/git-commit-builder", "requires": []},
+    {"name": "git-commit-builder", "role": "coordinator", "status": "available", "path": "skills/git-commit-builder", "requires": ["git-plan-commits", "git-stage-changes", "git-safety-check", "validation-discovery", "todo-workflow-controller"]},
     {"name": "git-publish-work", "role": "coordinator", "status": "planned", "path": "skills/git-publish-work", "requires": []},
     {"name": "git-activity-report", "role": "coordinator", "status": "planned", "path": "skills/git-activity-report", "requires": []},
     {"name": "git-analyze-changes", "role": "capability", "status": "available", "path": "skills/git-analyze-changes", "requires": ["git-working-directory-policy"]},
