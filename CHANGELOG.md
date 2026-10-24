@@ -4,6 +4,18 @@ Release dates use the GitHub publication date in America/Mexico_City. Pre-releas
 
 ## unreleased
 
+### Added
+
+- Add `git-stage-changes` for explicitly authorized exact index transformations, preserving excluded worktree/index content and checking complete target manifests.
+- Add `git-commit-builder` for scoped proposals and requested normal commits through installed planning, staging, validation, safety and progress capabilities.
+- Add owner-scoped record/application controls, actual owned-fixture execution and Git recipe coverage for partial staging, identity, hooks and partial progress.
+- Add optional installation-aware routes and explicit eleven-skill installation/dependency selections.
+
+### Changed
+
+- Set both manifests to unpublished development candidate `0.1.0-preview.4`; published preview.3 retains its nine-skill payload.
+- Document bounded Git-write exceptions, exact validation scope and preserved failure state; no implicit branch creation or publication.
+
 ## 0.1.0-preview.3 — 2026-10-24
 
 Experimental read-only Git preparation. Nine skills are available; native activation remains partially validated.

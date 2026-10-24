@@ -84,19 +84,19 @@ The user requested spec, plan and then sequential implementation in one task. Us
 
 ### Task 3: Compose and document the eleven-skill candidate
 
-**Files:** Modify entry SKILL/reference, catalog, current documentation/installation selections and both manifests. Add `tests/skills/using_devcraft_toolkit/evaluations/staging-commit-composition.md` and matching scenario packets; retain final verification under `tests/integration/evaluations/2026-10-24-git-staging-commits/`.
+**Files:** Modify entry SKILL/reference, catalog, current documentation/installation selections, both manifests and `tests/repository/test_distribution_validation.py` planned-status fixture setup. Add `tests/skills/using_devcraft_toolkit/evaluations/staging-commit-composition.md` and matching scenario packets; retain final verification under `tests/integration/evaluations/2026-10-24-git-staging-commits/`.
 
 **Interfaces:**
 - Consumes: available stage/builder contracts, owned dependency closure and existing installed-only routing.
 - Produces: optional routes, eleven available/six planned, exact individual/full-set selection closures and unpublished preview.4 metadata. Entry hard foundation unchanged.
 
-- [ ] **Step 1: Run entry routing controls before editing it.**
+- [x] **Step 1: Run entry routing controls before editing it.**
   Cases: owned staging/builder present; absent capability despite foreign copy; missing transitive dependency; message-only request; explicit standalone builder closure. Retain baseline gaps and successes.
-- [ ] **Step 2: Add optional routes and verify fresh candidate routing.**
+- [x] **Step 2: Add optional routes and verify fresh candidate routing.**
   Preserve mode/authorization boundaries, actual discovered namespaces and no emulation. Delegate defaults and decisions to installed capabilities; do not duplicate their execution.
-- [ ] **Step 3: Update current docs/catalog metadata.**
+- [x] **Step 3: Update current docs/catalog metadata.**
   Explain write exceptions, eleven-skill dependency closures, preview.4 candidate versus published preview.3, roadmap completion and native evidence limits. No change to prior release tags, historical payload counts or native gates.
-- [ ] **Step 4: Run full checks and commit integration.**
+- [x] **Step 4: Run full checks and commit integration.**
   Run `python -B -m unittest discover -s tests -p "test_*.py" -v`, repository/distribution validators and `git diff --check <base>` (then `<base>..HEAD` after commit). Expected all runnable tests pass; disclose the existing Windows symlink privilege skip. Commit `feat: compose staging and commit construction capabilities`.
 - [ ] **Step 5: One fresh whole-branch review and bounded fix pass.**
   Give reviewer the spec/plan, range, ledger rulings and Review Focus. Re-grade by actual impact, reproduce important findings before fixes and rerun affected/full checks. Preserve branch/worktree and report completion; no PR/merge/release unless subsequently requested.

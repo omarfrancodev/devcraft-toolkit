@@ -92,3 +92,11 @@ The `0.1.0-preview.3` release adds `git-analyze-changes` and `git-plan-commits`,
 Five fresh no-guidance samples and five complete-instruction samples per new capability were manually assessed; baseline judgment successes are retained. New command fixtures cover partial staging, freshness, exact paths and helper/filter boundaries. Neither these replays nor structural checks establish native activation or authenticated resource reads. Existing seven-skill preview.2 registration/resource/lifecycle results above remain historical; do not apply them to the release's two added skills.
 
 Preview.3 preparation verification: 89 tests discovered, 88 passed, one existing Windows symlink privilege skip; repository and finite distribution validators pass. Git for Windows 2.45.0.windows.1 was used for the added fixture controls. This does not close native invocation gates.
+
+## Scoped staging and commit construction candidate: 2026-10-24
+
+The unpublished preview.4 candidate adds `git-stage-changes` and `git-commit-builder`, bringing the development inventory to eleven available/six planned. [Staging evidence](../tests/skills/git_stage_changes/evaluations/2026-10-24.md) and [coordinator evidence](../tests/skills/git_commit_builder/evaluations/2026-10-24.md) retain baseline/candidate records, precision failures and corrections, edge/gap cases and independent parent verification.
+
+One owned live fixture performed exact partial staging; another created one requested commit while preserving excluded working content. Both manually loaded the local source skills and dependency closure; neither establishes native discovery. Disposable Git controls additionally cover literal transport, stale patches, initial commits, effective identity overrides, hooks and partial multi-commit failure. Native client invocation/lifecycle gates remain open.
+
+Candidate verification: 99 tests discovered, 98 passed and one existing Windows symlink privilege skip; both validators and complete-base whitespace checks pass. The first full run retained two stale planned-status fixture assumptions; explicit fixture setup corrected them without changing validator rejection assertions.

@@ -165,11 +165,26 @@ class DistributionValidationTests(unittest.TestCase):
         shutil.rmtree(root / "skills/validation-discovery")
         self.assertIn("distribution-inventory", self.codes(root))
 
+    def planned_fixture_entry(self, root):
+        # Set the fixture status explicitly instead of inheriting roadmap maturity.
+        name = "git-publish-work"
+        catalog = json.loads((root / "catalog.json").read_text(encoding="utf-8"))
+        entry = next(item for item in catalog["skills"] if item["name"] == name)
+        entry.update(status="planned", requires=[])
+        self.write_json(root / "catalog.json", catalog)
+        path = root / entry["path"]
+        self.assertTrue(path.resolve().is_relative_to(root.resolve()))
+        if path.exists():
+            shutil.rmtree(path)  # Only the verified owned temporary package copy.
+        return entry
+
     def test_planned_skill_is_not_discoverable(self):
         root = self.make_root()
-        path = root / "skills/git-commit-builder"
+        entry = self.planned_fixture_entry(root)
+        path = root / entry["path"]
         path.mkdir()
-        (path / "SKILL.md").write_text("---\nname: git-commit-builder\ndescription: Planned\n---\nText.")
+        (path / "SKILL.md").write_text(
+            f"---\nname: {entry['name']}\ndescription: Planned\n---\nText.")
         self.assertIn("distribution-inventory", self.codes(root))
 
     def test_duplicate_skill_copy_is_reported(self):
@@ -184,7 +199,8 @@ class DistributionValidationTests(unittest.TestCase):
 
     def test_dependency_closure_rejects_missing_or_planned_dependency(self):
         root = self.make_root()
-        for bad in ("missing-skill", "git-commit-builder"):
+        planned = self.planned_fixture_entry(root)
+        for bad in ("missing-skill", planned["name"]):
             with self.subTest(dependency=bad):
                 self.edit(root, "catalog.json", lambda v:
                           v["skills"][0].update(requires=[bad]))

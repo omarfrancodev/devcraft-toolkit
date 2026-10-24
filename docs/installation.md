@@ -33,3 +33,7 @@ For updates and removal use the selected client's guide and the same installatio
 ## Source inventory
 
 Version `0.1.0-preview.3` contains nine skills. Published `v0.1.0-preview.2` contains seven: it does not include `git-analyze-changes` or `git-plan-commits`. Select a revision containing this increment for those capabilities. All client routes use the canonical folders at their selected source revision; historical activation/resource evidence remains version-specific.
+
+## Development candidate inventory
+
+The unpublished `0.1.0-preview.4` checkout contains eleven skills, adding `git-stage-changes` and `git-commit-builder`. Published preview.3 has nine and cannot supply either addition. Use a revision containing this increment for the current complete/individual selections; older tags keep their own inventories. Installation does not authorize a runtime write.

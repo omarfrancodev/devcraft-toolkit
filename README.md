@@ -2,11 +2,11 @@
 
 A modular toolkit of composable skills for repository context, read-only Git preflight, project validation discovery, standalone Conventional Commit drafting, and portable progress tracking. Compatibility is recorded only for harnesses actually exercised.
 
-The distribution currently includes nine available skills: `using-devcraft-toolkit`, `git-working-directory-policy`, `git-safety-check`, `conventional-commits-style`, `todo-workflow-controller`, `natural-language-report-writer`, `validation-discovery`, `git-analyze-changes`, and `git-plan-commits`. Git commit coordination, publication coordination, and the Git activity-report coordinator remain planned capabilities, not usable skills in this distribution. CCR integration is outside the current scope.
+The distribution currently includes eleven available skills: `using-devcraft-toolkit`, `git-working-directory-policy`, `git-safety-check`, `conventional-commits-style`, `todo-workflow-controller`, `natural-language-report-writer`, `validation-discovery`, `git-analyze-changes`, `git-plan-commits`, `git-stage-changes`, and `git-commit-builder`. Publication coordination and the Git activity-report coordinator remain planned capabilities, not usable skills in this distribution. CCR integration is outside the current scope.
 
 Skill definitions and default templates use English. User-facing content follows an explicit language preference or the language of the user's request, defaulting to English when neither can be determined. Tests are maintained outside individual skill directories, grouped by the owning skill and then by test scope; repository infrastructure and cross-skill coverage have separate shared groups.
 
-The [catalog](catalog.json) records all seventeen target capabilities and marks each as `available` or `planned`. Nine are available and eight remain planned. See [installation](docs/installation.md), [architecture](docs/architecture.md), [language behavior](docs/language.md), and [compatibility evidence](docs/compatibility.md).
+The [catalog](catalog.json) records all seventeen target capabilities and marks each as `available` or `planned`. Eleven are available and six remain planned. See [installation](docs/installation.md), [architecture](docs/architecture.md), [language behavior](docs/language.md), and [compatibility evidence](docs/compatibility.md).
 
 The [capability roadmap](docs/roadmap.md) links the self-contained designs and plans for upcoming increments.
 
@@ -27,3 +27,9 @@ Need selected capabilities instead? Use [individual skill installation](docs/ins
 `git-analyze-changes` returns guarded, layer-specific local evidence; `git-plan-commits` proposes intent groups and messages while preserving staged selection and requested paths. Staging and commit execution remain planned. [Their design](docs/superpowers/specs/2026-10-24-git-analysis-planning-design.md) and [the roadmap](docs/roadmap.md#next-increments-and-acceptance-gates) describe the boundaries.
 
 Earlier [preview.2](docs/releases/v0.1.0-preview.2.md) contains seven skills and lacks the two new capabilities; preview.1 is the earlier source-only distribution. Historical native registration/resource evidence does not establish activation of the added skills.
+
+## Development candidate
+
+The current checkout is the unpublished `0.1.0-preview.4` candidate. It adds exact authorized staging and coordinated commit construction. `git-stage-changes` preserves excluded index/worktree content; `git-commit-builder` creates explicitly requested commits with scoped validation, identity/effect checks and actual partial-progress reporting. A proposal or ready preflight grants no write permission.
+
+Published preview.3 remains the nine-skill read-only-preparation snapshot and cannot provide these two added capabilities. Use a source revision containing this increment for the eleven-skill set; no preview.4 release or native activation is claimed. See the [design](docs/superpowers/specs/2026-10-24-git-staging-commit-construction-design.md), [plan](docs/superpowers/plans/2026-10-24-git-staging-commit-construction.md) and [roadmap](docs/roadmap.md).

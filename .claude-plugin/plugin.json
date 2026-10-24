@@ -1,6 +1,6 @@
 {
   "name": "devcraft-toolkit",
-  "version": "0.1.0-preview.3",
+  "version": "0.1.0-preview.4",
   "description": "Composable Git and development skills for coding agents.",
   "author": {
     "name": "omarfrancodev"

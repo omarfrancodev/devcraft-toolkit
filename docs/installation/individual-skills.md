@@ -33,7 +33,7 @@ The leading npm `--yes` permits acquisition of the pinned CLI; Skills remains in
 
 ## Source inventory and dependency selection
 
-Version `0.1.0-preview.3` contains nine skills, including analysis and planning. Select this tag or a later source containing those capabilities. Published preview.2 has seven skills: it cannot satisfy either new request, and its full-set command must omit the two new names. The complete dependency table below describes this checkout, not a retroactive change to that tag.
+The current checkout is an unpublished eleven-skill `0.1.0-preview.4` candidate, including staging and commit construction. Those additions require a source revision containing this increment. Published preview.3 contains nine skills: its full-set selection omits `git-stage-changes` and `git-commit-builder`. Preview.2 contains seven and also lacks analysis/planning. The table and eleven-name command below describe this checkout, not retroactive additions to old tags.
 
 ## Explicit dependency selection
 
@@ -48,15 +48,17 @@ Version `0.1.0-preview.3` contains nine skills, including analysis and planning.
 | `validation-discovery` | That name only |
 | `git-analyze-changes` | `git-analyze-changes git-working-directory-policy` |
 | `git-plan-commits` | `git-plan-commits git-analyze-changes git-working-directory-policy conventional-commits-style` |
+| `git-stage-changes` | `git-stage-changes git-analyze-changes git-safety-check git-working-directory-policy` |
+| `git-commit-builder` | `git-commit-builder git-plan-commits git-stage-changes git-safety-check validation-discovery todo-workflow-controller git-analyze-changes git-working-directory-policy conventional-commits-style` |
 
-The installer does not resolve `catalog.json` dependencies. A bare entry installs only the entry. Supply every listed name explicitly. All resources, including local references and assets, belong to the installed folder. Eight planned capabilities have no installable SKILL.md.
+The installer does not resolve `catalog.json` dependencies. A bare entry installs only the entry. Supply every listed name explicitly. All resources, including local references and assets, belong to the installed folder. Six planned capabilities have no installable SKILL.md.
 
 ## Complete skill-set fallback
 
-When the native project suite is unavailable (notably Kiro's project Power), select all nine skills explicitly:
+When the native project suite is unavailable (notably Kiro's project Power), select all eleven skills explicitly:
 
 ```powershell
-$toolkitSkills = @('using-devcraft-toolkit', 'git-working-directory-policy', 'git-safety-check', 'conventional-commits-style', 'todo-workflow-controller', 'natural-language-report-writer', 'validation-discovery', 'git-analyze-changes', 'git-plan-commits')
+$toolkitSkills = @('using-devcraft-toolkit', 'git-working-directory-policy', 'git-safety-check', 'conventional-commits-style', 'todo-workflow-controller', 'natural-language-report-writer', 'validation-discovery', 'git-analyze-changes', 'git-plan-commits', 'git-stage-changes', 'git-commit-builder')
 npx --yes skills@1.7.4 add "$toolkitSource" --skill $toolkitSkills --agent "$toolkitAgent" --copy
 ```
 
