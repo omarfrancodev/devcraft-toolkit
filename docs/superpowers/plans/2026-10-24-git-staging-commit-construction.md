@@ -52,15 +52,15 @@ The user requested spec, plan and then sequential implementation in one task. Us
 - Consumes: analyzer record and safety inspect context; exact `mode,repository,authorization,analysis_snapshot,selection,expected_index,exclusions`.
 - Produces: `outcome,repository,authorization,selection,before,after,checks,deferred,limitations`; current whole-index manifest plus observed effects.
 
-- [ ] **Step 1: Define scenarios and run five fresh baseline record/application controls without candidate instructions.**
+- [x] **Step 1: Define scenarios and run five fresh baseline record/application controls without candidate instructions.**
   Fixture: selected text hunk, existing partial staging, excluded debug and unrelated staged entry, explicit stage authorization, complete current target manifest and no active helpers. Cover preview/authorization gaps, stale content, foreign dependencies, identity absence, unsupported flags and literal paths. Retain actual responses; score factual successes separately from missing result fields.
-- [ ] **Step 2: Write and run Git recipe fixture controls.**
+- [x] **Step 2: Write and run Git recipe fixture controls.**
   `IndexOperationTests` methods: `test_cached_patch_stages_only_selected_hunk`, `test_stale_patch_check_writes_nothing`, `test_literal_paths_deletion_and_unborn_stage`, `test_authorized_reverse_patch_defers_only_selected_index_hunk`. Assert complete index manifests, excluded file/index guards and no HEAD/worktree/config changes. Run `python -B -m unittest tests.skills.git_stage_changes.integration.test_index_operations -v`. These command-semantic controls may pass before skill authoring; do not label that as behavioral RED.
-- [ ] **Step 3: Implement the skill/reference, catalog dependency and project write boundary.**
+- [x] **Step 3: Implement the skill/reference, catalog dependency and project write boundary.**
   Concise Use-when metadata; preview versus stage mode; exact manifest/hash normalization; cached patch check/apply and scoped approved reverse; before/after verification; no automatic recovery. Available stage requires analyzer+safety. Missing exact target or unsupported effects blocks/limits, not whole-file fallback.
-- [ ] **Step 4: Run five fresh candidate samples with complete instructions/dependencies, then independent edge/gap cases.**
+- [x] **Step 4: Run five fresh candidate samples with complete instructions/dependencies, then independent edge/gap cases.**
   Expected: semantic result fields, exact selected target, preserved exclusions, explicit replay limits and no invented execution. Execute actual Git recipes only in owned fixtures; record that these are not native loading.
-- [ ] **Step 5: Verify and commit staging before starting the coordinator.**
+- [x] **Step 5: Verify and commit staging before starting the coordinator.**
   Run Task 1 unittest, repository validator and full-base diff whitespace check. Expected success. Commit `feat: add exact scoped Git staging`.
 
 ### Task 2: Commit construction coordinator

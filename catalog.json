@@ -8,7 +8,7 @@
     {"name": "git-activity-report", "role": "coordinator", "status": "planned", "path": "skills/git-activity-report", "requires": []},
     {"name": "git-analyze-changes", "role": "capability", "status": "available", "path": "skills/git-analyze-changes", "requires": ["git-working-directory-policy"]},
     {"name": "git-plan-commits", "role": "capability", "status": "available", "path": "skills/git-plan-commits", "requires": ["git-analyze-changes", "conventional-commits-style"]},
-    {"name": "git-stage-changes", "role": "capability", "status": "planned", "path": "skills/git-stage-changes", "requires": []},
+    {"name": "git-stage-changes", "role": "capability", "status": "available", "path": "skills/git-stage-changes", "requires": ["git-analyze-changes", "git-safety-check"]},
     {"name": "git-sync-branch", "role": "capability", "status": "planned", "path": "skills/git-sync-branch", "requires": []},
     {"name": "git-publish-changes", "role": "capability", "status": "planned", "path": "skills/git-publish-changes", "requires": []},
     {"name": "git-manage-pull-request", "role": "capability", "status": "planned", "path": "skills/git-manage-pull-request", "requires": []},
