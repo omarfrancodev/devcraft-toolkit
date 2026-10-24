@@ -45,9 +45,12 @@
     {
       "name": "git-plan-commits",
       "role": "capability",
-      "status": "planned",
+      "status": "available",
       "path": "skills/git-plan-commits",
-      "requires": []
+      "requires": [
+        "git-analyze-changes",
+        "conventional-commits-style"
+      ]
     },
     {
       "name": "git-stage-changes",

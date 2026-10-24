@@ -75,15 +75,15 @@ The design builder check reported “nothing important left”. The user request
 - Consumes: Task 1 analysis record; installed `conventional-commits-style` supplied-facts message formatting.
 - Produces: `outcome`, `analysis_snapshot`, `selection_policy`, `groups`, `excluded`, `decisions`, `limitations`. Groups have `id`, `intent`, `evidence`, `selection`, `depends_on`, `rationale`, `message`.
 
-- [ ] **Step 1: Create planning scenarios and run five fresh baseline replay controls without planner instructions.**
+- [x] **Step 1: Create planning scenarios and run five fresh baseline replay controls without planner instructions.**
   Cover staged-first default, same-path mixed intent, implementation/tests/docs belonging together, dependency order, explicit empty staged scope, missing formatter, stale record, blocked conflicts/active operation, ambiguous/binary coverage and language. Record raw outputs and score exact contract separately from sound general judgment.
-- [ ] **Step 2: Write/run development fixture tests.**
+- [x] **Step 2: Write/run development fixture tests.**
   Assert real staged and worktree blobs represent different intents, a staged-only selection excludes untracked work, empty staged content does not imply clean repository, and changed index/content invalidates the captured facts. Run `python -B -m unittest tests.skills.git_plan_commits.integration.test_planning_fixtures -v`; expected: fixture controls pass without any mutation by inspected read recipes.
-- [ ] **Step 3: Author skill/reference and mark the planner available.**
+- [x] **Step 3: Author skill/reference and mark the planner available.**
   Declare direct requirements `git-analyze-changes` and `conventional-commits-style`. Require context closure, freshness, intent groups, layer/hunk selections, exclusions and pending decisions. Reuse the formatter; do not silently repartition staged work or produce a complete plan when material facts are missing.
-- [ ] **Step 4: Repeat five fresh replay samples with full instructions and dependencies, then edge/gap scenarios.**
+- [x] **Step 4: Repeat five fresh replay samples with full instructions and dependencies, then edge/gap scenarios.**
   Expected: contract, staged selection, conditional proposals/blocked outcomes and formatter delegation match the spec; outputs follow request language. Retain manual evidence honestly.
-- [ ] **Step 5: Validate and commit the completed planner.**
+- [x] **Step 5: Validate and commit the completed planner.**
   Run the Task 2 unittest command, repository validator and `git diff --check`; expected: success. Commit `feat: add evidence-based commit planning`.
 
 ### Task 3: Compose and distribute the nine-skill candidate
