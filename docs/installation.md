@@ -2,7 +2,7 @@
 
 Install **Devcraft Toolkit as a complete suite** using the route for your client. Native plugins/Powers include all seven available skills and resources. Crew imports the complete set through its own dashboard; CLI-only Kiro has a full-set alternative. These routes need no user-managed clone.
 
-The remote default-branch recipes below apply once the package metadata is integrated into that branch. While this change is under review, use the [remote preview sources](installation/preview.md) where supported. The published `v0.1.0-preview.1` is source-only and cannot serve as a native plugin source. Candidate metadata `0.1.0-preview.2` does not mean a release has been published.
+The default-branch recipes below use the integrated remote package. [v0.1.0-preview.2 release details](releases/v0.1.0-preview.2.md) provide version-pinned source options and download verification. The earlier `v0.1.0-preview.1` is source-only and cannot serve as a native plugin source. [Historical pre-integration sources](installation/preview.md) describe earlier probes, not the current release's native acceptance.
 
 ## Install the complete suite
 

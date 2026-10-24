@@ -2,7 +2,7 @@
 
 ## Install the complete remote suite as a Power
 
-The repository's default branch must contain `plugin.json`; this recipe applies [after integration](../installation.md). In Kiro IDE:
+The integrated default branch contains the corrected `plugin.json` and canonical skills. In Kiro IDE:
 
 1. Open Powers > Add Custom Power.
 2. Select Import power from GitHub.
@@ -29,7 +29,7 @@ inventory and activate it with a relevant request that reads bundled resources;
 compare an unrelated control project. These checks remain pending under
 [compatibility](../compatibility.md#kiro-keywords-correction-f001).
 
-The reviewed import interface does not establish how to pin a Git ref. Before integration, do not assume a branch/tree URL works: the [preview source note](preview.md#kiro-ide) keeps this native check unverified.
+The reviewed import interface does not establish how to pin a Git ref. Do not assume a branch/tree URL works: the [release source note](../releases/v0.1.0-preview.2.md#version-pinned-sources) keeps pinned Power import unverified.
 
 ## CLI and Crew are separate clients
 

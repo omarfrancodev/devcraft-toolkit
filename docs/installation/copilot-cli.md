@@ -3,8 +3,8 @@
 ## Install the complete remote suite
 
 Use the existing marketplace; no separate Copilot package is needed. The normal
-source applies [after integration](../installation.md). Before then use the
-[Copilot CLI preview](preview.md#copilot-cli).
+source uses the integrated package. [Release details](../releases/v0.1.0-preview.2.md#version-pinned-sources)
+describe a version-pinned marketplace source.
 
 ```sh
 copilot plugin marketplace add omarfrancodev/devcraft-toolkit
@@ -38,7 +38,7 @@ repository's `.github/copilot/settings.json`, preserving other settings:
 }
 ```
 
-Use the preview ref from the linked guide before integration. These CLI keys
+Use the release ref from the linked guide when selecting a pinned source. These CLI keys
 declare marketplace acquisition and repository activation, not merely editor
 recommendations. In clients supporting this interface, a repository-only enabled
 plugin stays disabled globally unless user settings also enable it. Inspect both

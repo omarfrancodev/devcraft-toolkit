@@ -1,5 +1,7 @@
 # Suite and Selective Skill Installation Design
 
+> Release amendment, 2026-10-24: publication of experimental v0.1.0-preview.2 is part of the PR #4 integration. Its changelog, metadata and release documentation are prepared on this branch before merge; the tag/release targets that merge commit. Earlier no-publication clauses describe the original implementation stage. [Release procedure](../../releases/v0.1.0-preview.2.md) defines this authorized follow-through; Task 4 Step 3 and all native limitations stay open.
+
 **Date:** 2026-10-23
 **Status:** Approved remote-first revision; metadata and local evidence implemented, native activation remains partially validated.
 **Scope:** Codex local clients, Copilot CLI, Copilot in VS Code, Claude Code local clients, Kiro CLI V3, Kiro IDE, and Kiro Crew.

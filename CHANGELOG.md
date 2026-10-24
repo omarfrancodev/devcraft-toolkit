@@ -4,6 +4,10 @@ Release dates use the GitHub publication date in America/Mexico_City. Pre-releas
 
 ## unreleased
 
+## 0.1.0-preview.2 — 2026-10-24
+
+Experimental remote-suite distribution. Seven skills are available; native activation and compatibility remain partially validated.
+
 ### Added
 
 #### Distribution and documentation

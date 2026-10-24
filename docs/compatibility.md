@@ -21,7 +21,7 @@ The available skills use Markdown instructions, YAML frontmatter, relative resou
 
 ## Distribution candidate: 2026-10-23
 
-The unpublished candidate 0.1.0-preview.2 adds native package metadata and explicit selected-skill recipes; the published preview.1 remains source-only. [Filesystem evidence](../tests/integration/distribution/evaluations/2026-10-23-installation/filesystem.md) records 64 pinned-CLI cases, 64 independent manual-copy cases, eight CLI lifecycle cases and their actual before/after inventories. No personal skill store was used.
+The 0.1.0-preview.2 distribution adds native package metadata and explicit selected-skill recipes; preview.1 remains source-only. [Filesystem evidence](../tests/integration/distribution/evaluations/2026-10-23-installation/filesystem.md) records 64 pinned-CLI cases, 64 independent manual-copy cases, eight CLI lifecycle cases and their actual before/after inventories. No personal skill store was used.
 
 [Ownership evaluation](../tests/skills/using_devcraft_toolkit/evaluations/2026-10-23-installation-routing/installation-routing.md) found two initial routing failures, corrected them through explicit selected-installation rules, and passed four final fresh-context packets plus twelve existing-behavior observations. Discovery fixtures and manual instruction following do not prove native metadata or invocation.
 
@@ -31,7 +31,7 @@ Current automated checks: 78 tests discovered, 77 passed and one Windows symlink
 
 ## Remote-first suite validation
 
-The consumer path now starts with the complete native suite from the public repository. [Individual skills](installation/individual-skills.md) are an alternative; [local/developer installation](installation/development.md) is separate. Default-source recipes apply after metadata integration, with [client-specific preview sources](installation/preview.md) before then.
+The consumer path now starts with the complete native suite from the public repository. [Individual skills](installation/individual-skills.md) are an alternative; [local/developer installation](installation/development.md) is separate. Default-source recipes use integrated metadata; [release-pinned sources](releases/v0.1.0-preview.2.md#version-pinned-sources) are separate from [historical pre-integration sources](installation/preview.md).
 
 The [remote evaluation](../tests/integration/distribution/evaluations/2026-10-23-remote-suite/remote.md) fetched public reference b05a8c4367dc02e33ac9d19a8eb98e0bdb31c04e, installed the suite through Codex and Claude's actual remote marketplace flows, and compared every installed skill resource against that source. It also copied an independent formatter for Codex and the complete project fallback for Kiro through the pinned external CLI. The corrected run's 29 commands exited 0; its native outcomes remain limited.
 

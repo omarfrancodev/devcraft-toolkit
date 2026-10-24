@@ -1,4 +1,6 @@
-# Remote preview sources
+# Historical remote preview sources
+
+This page records pre-integration sources used by earlier checks. For preview.2 installation use the [current client guides](../installation.md) or [version-pinned release sources](../releases/v0.1.0-preview.2.md#version-pinned-sources). These older refs do not establish compatibility of the corrected release manifest. Mutable preview branches can change or be removed; revalidate their existence before reproducing a historical probe.
 
 Before package metadata is integrated into the default branch, normal repository-source recipes cannot install it from that branch. Codex and applicable filesystem recipes use the existing public source revision `b05a8c4367dc02e33ac9d19a8eb98e0bdb31c04e` where the client supports refs. It contains both marketplaces and the seven-skill candidate; it is not a release tag or the source-only published preview.1.
 

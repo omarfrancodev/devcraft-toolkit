@@ -1,5 +1,7 @@
 # Suite and Selective Skill Installation Implementation Plan
 
+> Release amendment, 2026-10-24: publication of experimental v0.1.0-preview.2 is part of the PR #4 integration. Its changelog, metadata and release documentation are prepared on this branch before merge; the tag/release targets that merge commit. Earlier no-publication clauses describe the original implementation stage. [Release procedure](../../releases/v0.1.0-preview.2.md) defines this authorized follow-through; Task 4 Step 3 and all native limitations stay open.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Make the complete remote suite the main installation path; retain individual skills as an alternative and local installation as development/reference documentation across seven local clients.
