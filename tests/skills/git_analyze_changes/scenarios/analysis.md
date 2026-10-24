@@ -13,4 +13,3 @@ Fresh baseline and candidate actors receive the same request/facts; candidate ac
 | ANA-05 | Unborn, detached, missing identity, conflict or active operation | Inspection possible with facts; disclose planning constraints; no resolution/identity write |
 | ANA-06 | Missing context dependency or unpreserved NUL/index guard | Unavailable dependency or explicitly limited evidence; never fabricate |
 | ANA-07 | Clean selected scope vs empty staged area with untracked changes | no_op only for completely observed selected scope |
-

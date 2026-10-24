@@ -71,4 +71,3 @@ class PlanningFixtureTests(unittest.TestCase):
             self.assertEqual(before["index"], after["index"])
             self.assertEqual(before["HEAD"], after["HEAD"])
             self.assertNotEqual(digest, hashlib.sha256(path.read_bytes()).hexdigest())
-

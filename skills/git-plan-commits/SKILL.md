@@ -19,7 +19,7 @@ Obtain or refresh the selected repository/scope analysis through the analyzer. R
 
 Follow the local [planning reference](references/planning.md).
 
-Default to the existing staged selection when nonempty; otherwise consider unstaged/untracked work. Respect an explicit path/layer selection, including an empty staged-only scope. Record excluded evidence. Broaden only when requested.
+First narrow to requested paths. Explicit layers select layers; a path alone never selects all layers. Without an explicit layer request, default to nonempty staged content within that path scope; otherwise consider its unstaged/untracked work. Preserve an explicit empty staged-only scope. Record exclusions; broaden only when requested.
 
 Group by one evidenced intent: implementation, related tests and documentation usually belong together. Identify exact evidence IDs and layer/hunk selections; one filename can represent multiple selections. Proposing a split of the index or combining layers creates a pending decision before downstream execution, not permission to restage.
 
@@ -42,4 +42,3 @@ Use the installed formatter for each evidenced group's proposed message and expl
 Return this semantic record in conversation prose/tables, not a required JSON serialization. `planned` needs complete current selected evidence and no pending decision; `no_op` needs a completely observed empty selection. Otherwise state the applicable decision, coverage or access blocker. A proposal never authorizes later writes.
 
 Common mistakes: grouping only by extension, treating a partially staged file as wholly selected, turning metadata-only evidence into intent, or mistaking a plan/message for an executed commit.
-

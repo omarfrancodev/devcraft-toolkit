@@ -37,4 +37,3 @@ Retained excerpts:
 - G: “La propuesta no ejecuta staging, commits, creación de ramas, validaciones ni publicación.”
 
 These are conditional routing/application checks, not a native loader test, authenticated invocation or timing/reliability study. New capabilities remain unverified in native client sessions.
-

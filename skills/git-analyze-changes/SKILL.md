@@ -40,4 +40,3 @@ Return these fields in the conversation, using compact tables or prose:
 Use `analyzed` for complete selected-scope coverage; `no_op` only when that completely observed scope is empty. Partial/unverifiable evidence is `limited`; unavailable access is `blocked`; a material scope choice is `needs_decision`. A fully observed conflict can be `analyzed` with a planning blocker.
 
 Common mistakes: collapsing layers by filename, inferring behavior from names, calling an empty index a clean repository, or treating an analysis as authorization to stage/commit. Return only observed facts and limits; this is not a commit-readiness preflight.
-

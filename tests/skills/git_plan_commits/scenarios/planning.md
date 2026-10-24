@@ -14,4 +14,4 @@ Five fresh baseline controls and five complete-instruction candidate samples use
 | PLAN-06 | Missing formatter/analyzer or foreign namespaced dependency | Unavailable; no imitation/install or cross-installation substitution |
 | PLAN-07 | Conflict/active operation, unknown binary intent or ambiguous overlapping hunks | Blocked/needs_decision/limited for affected selections, conditional unaffected groups; no fabricated message/resolution |
 | PLAN-08 | English request or explicit language override | English or explicit language output; preserve identifiers/technical keys |
-
+| PLAN-09 | Path-only request for src/total.py; A1 staged fix + A2 unstaged debug; A3 supporting staged test outside path | Select A1 only by staged-first default; exclude A2/A3 without an unnecessary layer decision. If selected path has no staged work, staged content elsewhere does not suppress its unstaged fallback. |

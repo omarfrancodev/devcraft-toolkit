@@ -60,7 +60,7 @@ Return a compact record, not a fixed JSON serialization:
 
 Consume a current analysis record for the same selected repository/scope, user intent, and supplied or observed message conventions. For a live repository request, obtain or refresh evidence through the analyzer, including a fresh guard before relying on a prior record. A supplied record that cannot be verified remains `limited`; an offline example may be discussed conditionally but never presented as a current actionable plan.
 
-Default planning selection is the existing staged layer when nonempty; otherwise propose unstaged/untracked work. Broaden only when the user requests it. Distinguish an explicitly empty staged-only scope from a clean repository. Report excluded layers and preserve partial staging: a path is not an indivisible selection. Groups identify evidence IDs plus layer/hunk boundaries; cross-layer grouping or staged repartitioning requires an explicit decision before downstream execution.
+First narrow to explicitly requested paths. Explicit layers override layer selection; a path alone does not select extra layers. Default planning selection is the existing staged layer within those paths when nonempty; otherwise propose unstaged/untracked work within those paths. Broaden only when the user requests it. Distinguish an explicitly empty staged-only scope from a clean repository. Report excluded layers and preserve partial staging: a path is not an indivisible selection. Groups identify evidence IDs plus layer/hunk boundaries; cross-layer grouping or staged repartitioning requires an explicit decision before downstream execution.
 
 Group by one explainable intent, keeping relevant implementation, tests and documentation together rather than grouping by extension or folder alone. Give dependent groups a justified order. Ambiguous intent, overlapping hunks, unknown binary content, unresolved conflicts or active operations prevent a complete plan for affected changes. Preserve unaffected proposals as conditional when useful; never invent a resolution, successful validation, ticket key or business result.
 
@@ -96,4 +96,3 @@ A fresh design builder check precedes the plan. Execute the plan sequentially, c
 - [Git global no-lazy-fetch, literal-pathspecs and optional-lock controls](https://git-scm.com/docs/git)
 
 These references support command semantics. The contracts and conservative filter fallback above define the toolkit's narrower behavior.
-

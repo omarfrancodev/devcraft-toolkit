@@ -6,10 +6,12 @@ The analyzer returns `outcome`, `repository`, `scope`, `snapshot`, `changes`, `c
 
 For a live request, use the analyzer's guarded reads to verify a prior record before relying on it. A different repository/scope or changed HEAD/index/content means refresh, not reuse. If the analyzer cannot establish freshness, return limited. A timestamp or matching status code alone is not verification. An offline example remains conditional even if its recorded guards were equal.
 
-Choose the selection in this order:
-1. The user's explicit paths/layers. A staged-only selection may be empty while other layers are dirty.
-2. Otherwise, existing staged content when nonempty.
-3. Otherwise, unstaged and untracked changes within the requested scope.
+First restrict evidence to the user's requested paths; this narrows files without choosing additional layers. Then choose layers:
+1. Explicitly requested layers only. A staged-only selection may be empty while other layers are dirty.
+2. Without an explicit layer request, existing staged content within the path scope when nonempty.
+3. Otherwise, unstaged and untracked changes within that path scope.
+
+A request such as “plan commits for src/total.py” selects only that path's staged changes when present; it does not also select its later unstaged debug edit. Exclude supporting tests outside the requested paths rather than silently broadening. If staged work exists only outside the requested paths, it does not suppress the fallback for the selected paths.
 
 A limited analysis of unselected work does not automatically block a fully observed selected subset. State the limited coverage outside that selection. Unknown content or purpose inside the selection prevents a complete group/message for that content.
 
@@ -45,4 +47,3 @@ When several limits apply, report the strongest applicable blocker and list the 
 Evidence A1 is the staged rounding fix in `src/total.py`; A2 is a later unstaged debug print in that path; A3 is its staged test. With no broadening request, G1 selects A1/A3 as the staged rounding correction. Exclude A2. Ask whether to keep debug output only if that choice affects the requested selection; do not block the staged proposal on an unrelated excluded change.
 
 Supply the evidenced correction and repository conventions to `conventional-commits-style`; for an English request a suitable proposal could be `fix(totals): correct decimal rounding`. This is message text, not a command. In a supplied-fact replay the overall result remains limited until live guards can be verified.
-

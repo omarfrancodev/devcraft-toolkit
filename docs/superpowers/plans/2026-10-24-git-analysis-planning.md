@@ -106,10 +106,13 @@ The design builder check reported “nothing important left”. The user request
 - [x] **Step 4: Run complete verification.**
   Run `python -B -m unittest discover -s tests -p "test_*.py" -v`, `python -B scripts/validate_repository.py --root .`, `python -B -m scripts.validate_distribution --root .`, and `git diff --check`.
   Expected: all runnable tests pass (existing Windows symlink privilege skip is disclosed), both validators succeed, no whitespace errors.
-- [ ] **Step 5: Commit and perform one fresh whole-branch review.**
+- [x] **Step 5: Commit and perform one fresh whole-branch review.**
   Commit `feat: compose Git analysis and planning in the toolkit`. Review the spec, plan, ledger rulings and branch diff. Re-grade findings by user impact; fix Important/Critical findings once with reproduced evidence and rerun affected/full checks. Record minor deferrals explicitly. Do not merge or publish a release in this increment.
 
 ## Self-review
 
 All spec sections map to Tasks 1–3. Record contracts are identical at producer/consumer boundaries. Every Review Focus condition has owner-scoped scenarios and fixture/behavior evidence; structural checks do not substitute for skill invocation. The remaining roadmap work stays planned with no placeholder skills. Plan approval and implementation continuation were included in the user's current instruction.
 
+## Final verification adjustment
+
+Use `git diff --check <merge-base>` before the final commit and `git diff --check <merge-base>..HEAD` afterward: an unqualified check after commits does not inspect the feature range. A path-only request narrows files before the planner applies explicit layers or the staged-first default inside that scope. The PLAN-09 application regression reproduced and corrected the prior ambiguity; retain its actual RED/GREEN evidence with the planner.

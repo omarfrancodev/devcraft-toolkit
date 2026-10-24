@@ -61,4 +61,3 @@ Use filesystem reads/hashing that do not write cache files. HEAD/status alone mi
 For one file staged with a rounding fix and later edited with an unrelated debug print, create two evidence entries, such as `A1: src/total.py, staged, rounding fix` and `A2: src/total.py, unstaged, debug print`. Report partial staging in constraints. A binary name with no inspected contents is metadata-only coverage, never proof of a specific behavior.
 
 Official command semantics: [status](https://git-scm.com/docs/git-status), [diff](https://git-scm.com/docs/git-diff), [global options](https://git-scm.com/docs/git).
-

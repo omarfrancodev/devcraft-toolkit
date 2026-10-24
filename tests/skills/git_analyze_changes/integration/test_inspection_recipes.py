@@ -121,5 +121,3 @@ class InspectionRecipeTests(unittest.TestCase):
             self.git(repo, "status", "--porcelain=v1", "-z", "--ignore-submodules=all")
             self.assertFalse((repo / "vendor").exists())
             self.assertEqual(before, snapshot_repository(repo))
-
-
