@@ -1,0 +1,27 @@
+{
+  "request": "Prepara en español un reporte técnico de mis commits de hoy, 24 de octubre de 2026, en UTC. Solo quiero el contenido para revisarlo aquí. Usa únicamente estos datos; no hay herramientas.",
+  "facts": {
+    "configured_email": "dev@example.invalid",
+    "complete": true,
+    "commits": [
+      {
+        "id": "L",
+        "raw_author_email": "dev@example.invalid",
+        "author_time": "2026-10-24T15:00:00Z",
+        "message": "fix: preserve 14 decimal values"
+      },
+      {
+        "id": "M",
+        "raw_author_email": "dev@example.invalid",
+        "author_time": "2026-10-24T16:00:00Z",
+        "message": "fix: preserve 14 decimal values"
+      },
+      {
+        "id": "N",
+        "raw_author_email": "dev@example.invalid",
+        "author_time": "2026-10-24T17:00:00Z",
+        "message": "Revert \"fix: preserve 14 decimal values\""
+      }
+    ]
+  }
+}

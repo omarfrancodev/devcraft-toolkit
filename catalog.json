@@ -5,7 +5,7 @@
     {"name": "using-devcraft-toolkit", "role": "entry", "status": "available", "path": "skills/using-devcraft-toolkit", "requires": ["git-working-directory-policy", "git-safety-check"]},
     {"name": "git-commit-builder", "role": "coordinator", "status": "available", "path": "skills/git-commit-builder", "requires": ["git-plan-commits", "git-stage-changes", "git-safety-check", "validation-discovery", "todo-workflow-controller"]},
     {"name": "git-publish-work", "role": "coordinator", "status": "planned", "path": "skills/git-publish-work", "requires": []},
-    {"name": "git-activity-report", "role": "coordinator", "status": "planned", "path": "skills/git-activity-report", "requires": []},
+    {"name": "git-activity-report", "role": "coordinator", "status": "available", "path": "skills/git-activity-report", "requires": ["git-working-directory-policy", "natural-language-report-writer"]},
     {"name": "git-analyze-changes", "role": "capability", "status": "available", "path": "skills/git-analyze-changes", "requires": ["git-working-directory-policy"]},
     {"name": "git-plan-commits", "role": "capability", "status": "available", "path": "skills/git-plan-commits", "requires": ["git-analyze-changes", "conventional-commits-style"]},
     {"name": "git-stage-changes", "role": "capability", "status": "available", "path": "skills/git-stage-changes", "requires": ["git-analyze-changes", "git-safety-check"]},
