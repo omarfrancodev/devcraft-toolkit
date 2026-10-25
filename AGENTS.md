@@ -16,3 +16,5 @@
 - `git-commit-builder`, when available, may additionally create explicitly requested normal new commits through its bounded workflow, inspected local checks and known approved effects. Preserve actual state on failure; no automatic branch creation, reset, cleanup, amend, history rewrite, network, publication or identity/credential changes.
 
 - Inspect effective index-write hooks and referenced helpers before staging, deferral/restoration or commit-related index writes; unknown or unauthorized effects block before mutation. Never bypass hooks to force an operation.
+
+- `git-sync-branch` may perform explicitly requested single-branch fetch/tracking updates and verified fast-forward-only current-branch updates after protected reads and fresh effect/authorization gates. Preserve unrelated refs/configuration and actual partial effects; no merge commit, rebase, stash, reset, cleanup, branch creation, publication or automatic retry. Default inspection remains offline.

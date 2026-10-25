@@ -1,0 +1,28 @@
+{
+  "id": "SYNC-02",
+  "request": "Sincroniza main desde origin/main mediante fetch y fast-forward únicamente.",
+  "facts": {
+    "branch": "main",
+    "head": "L",
+    "remote": "origin",
+    "remote_branch": "refs/heads/main",
+    "tracking": "refs/remotes/origin/main",
+    "known_relation": "L is ancestor of remote U",
+    "worktree": "clean",
+    "hooks": "none active",
+    "filters": "none configured",
+    "remote_fetch_mappings": [
+      "+refs/heads/*:refs/remotes/origin/*",
+      "+refs/tags/*:refs/tags/*"
+    ],
+    "fetch_prune": true,
+    "fetch_prune_tags": true,
+    "remote_tagOpt": "--tags",
+    "other_local_refs": [
+      "refs/heads/keep",
+      "refs/remotes/origin/stale",
+      "refs/tags/local-tag"
+    ],
+    "endpoint": "one inspected local bare repository"
+  }
+}

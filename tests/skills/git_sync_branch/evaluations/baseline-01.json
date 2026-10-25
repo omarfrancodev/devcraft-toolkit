@@ -1,0 +1,15 @@
+{
+  "id": "SYNC-01",
+  "raw_response": "The cached information shows main behind origin/main, but it is two days old. The current remote state has not been observed, so I cannot confirm whether your branch is synchronized now. Your worktree is clean. To check without synchronizing the branch, refresh remote-tracking information with git fetch origin, then run git rev-list --left-right --count HEAD...origin/main. The two counts show commits ahead and behind; 0 0 means synchronized. Fetch updates local remote-tracking metadata but does not merge, rebase, reset, or push your branch. No commands or synchronization have been performed.",
+  "proposed_commands": [
+    {
+      "command": "git fetch origin",
+      "effects": "Contacts origin and updates local remote-tracking metadata; does not synchronize the checked-out branch."
+    },
+    {
+      "command": "git rev-list --left-right --count HEAD...origin/main",
+      "effects": "Reads local commit relationships and reports ahead/behind counts after the proposed fetch; changes no files or refs."
+    }
+  ],
+  "executed_effects": "Read only the specified fixture and wrote this evaluation record. No Git or network commands executed."
+}

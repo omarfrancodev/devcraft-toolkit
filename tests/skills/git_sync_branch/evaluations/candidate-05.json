@@ -1,0 +1,42 @@
+{
+  "case_id": "SYNC-05",
+  "invocation": "manual candidate sample, not native skill invocation",
+  "response": "outcome: needs_decision\nmode: sync; your request authorizes a scoped fetch and an eligible fast-forward.\n\nThe supplied facts identify branch `feature/demo`, upstream `origin` and remote branch `refs/heads/feature/demo`, but `origin` has two effective fetch endpoints:\n\n- `https://one.example.invalid/r.git`\n- `https://two.example.invalid/r.git`\n\nWhich fetch endpoint should I use? Credential components are redacted. The configured push endpoint does not select a fetch source.\n\nRemote state and ancestry are unknown; before/fetched/after commit IDs are unavailable. The clean worktree is supplied evidence, not a live preflight. I have not run Git or network commands. Synchronization must wait for your endpoint choice and fresh safety checks.",
+  "commands": [
+    {
+      "command": "Get-Content -LiteralPath 'git-sync-branch/SKILL.md','git-working-directory-policy/SKILL.md','git-safety-check/SKILL.md'",
+      "exit_code": 1,
+      "effect": "Failed reads; paths absent. Parent evaluation prompt omitted skills/ prefix."
+    },
+    {
+      "command": "Get-Content -LiteralPath 'tests/skills/git_sync_branch/fixtures/SYNC-05.json'",
+      "exit_code": 0,
+      "effect": "Read supplied fixture."
+    },
+    {
+      "command": "Get-Content -LiteralPath 'skills/git-sync-branch/SKILL.md','skills/git-working-directory-policy/SKILL.md','skills/git-safety-check/SKILL.md'",
+      "exit_code": 0,
+      "effect": "Read selected standalone skill instructions."
+    },
+    {
+      "command": "Get-Content -LiteralPath 'skills/git-sync-branch/references/synchronization.md','skills/git-working-directory-policy/references/context.md','skills/git-safety-check/references/preflight.md'",
+      "exit_code": 0,
+      "effect": "Read linked local references."
+    }
+  ],
+  "command_context": {
+    "workdir": "C:/Users/Developer.INSCORSOF2/Documents/Proyectos-Code/omarfrancodev/devcraft-toolkit/.worktrees/git-sync-publish",
+    "login": false
+  },
+  "effects": {
+    "git_commands": [],
+    "network_commands": [],
+    "repository_mutations": [],
+    "instrumentation_write": "tests/skills/git_sync_branch/evaluations/candidate-05.json"
+  },
+  "ownership": [
+    "test:git-sync-branch",
+    "test:git-working-directory-policy",
+    "test:git-safety-check"
+  ]
+}
