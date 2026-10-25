@@ -20,4 +20,10 @@ The installation-selection test first failed because the guide omitted `git-acti
 - The new SKILL.md is 444 whitespace-separated words including frontmatter; the dedicated skill validator passed. It has only local resources and the declared three-folder closure.
 - A final inventory scan found one stale activity-planned phrase in current root composition docs; it was corrected without changing runtime resources or tests after the full-suite run.
 
-The independent whole-branch review follows these checks; its verdict and any bounded fixes are recorded below after execution.
+## Independent review and completion
+
+The fresh [whole-branch review](independent-review.md) evaluated `613ffeb..14e6661` and found no actionable Critical, Important or Minor issues, with no declined behaviors. No fix pass was required. It independently checked complete-range whitespace without repeating the full suite.
+
+Final changed-document link scan: 117 local targets before these review/ledger links were added. [Execution ledger](execution-ledger.md) records each task's verification. No material plan rulings or deferred minors remain. All later changes record review/evidence only; runtime resources and tests are identical to the verified reviewed head.
+
+The feature branch and worktree remain available for integration. No push, PR, merge, tag or release was performed; published preview.4 is unchanged. Native activation/lifecycle and universal model adherence are not established by these evaluations.
