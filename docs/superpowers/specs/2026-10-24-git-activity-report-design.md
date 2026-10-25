@@ -1,7 +1,7 @@
 # Git Activity Reporting Design
 
 Date: 2026-10-24
-Status: Proposed for review; implementation has not started.
+Status: Approved on 2026-10-24; implementation tracked in the linked plan.
 
 ## Intent
 
@@ -90,3 +90,7 @@ Update catalog availability/dependencies, optional entry routing, existing manif
 ## Builder discretion
 
 The builder chooses test-only helper organization, fixture messages, rendering details and safe shell/interpreter transport. Any change to author/date defaults, runtime dependencies, side effects or supported scope requires revisiting the design. Record implementation and evaluation limitations explicitly.
+
+## Approval and execution
+
+The written design was approved after an independent builder check reported “nothing important left”. Continue with the [implementation plan](../plans/2026-10-24-git-activity-report.md), then execute inline with behavioral evaluations and one fresh whole-branch review.
