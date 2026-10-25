@@ -1,0 +1,14 @@
+{
+  "id": "PUSH-02",
+  "response": "Publicaría el commit fijado S únicamente en origin, con este comando propuesto (S representa su OID completo):\n\n```powershell\ngit -c push.followTags=false -c push.autoSetupRemote=false push --recurse-submodules=no origin S:refs/heads/feature/demo\n```\n\nEl refspec explícito limita el envío a refs/heads/feature/demo y evita que push.default=matching o remote.origin.push publiquen otras ramas. Se desactivan el seguimiento automático de etiquetas y los pushes de submódulos. No se utiliza --set-upstream y se desactiva su establecimiento automático: el upstream permanece igual.\n\nR es ancestro conocido de S, por lo que el avance observado es fast-forward; el comando no fuerza la actualización. No se publican refs/heads/other ni refs/tags/release-label. Tras un push exitoso, Git puede actualizar la referencia local origin/feature/demo conforme al mapeo canónico existente.\n\nNo he ejecutado el comando.",
+  "commands": [
+    "git -c push.followTags=false -c push.autoSetupRemote=false push --recurse-submodules=no origin S:refs/heads/feature/demo"
+  ],
+  "effects": [
+    "Publicar únicamente el commit fijado S en origin:refs/heads/feature/demo mediante push sin fuerza.",
+    "Mantener el upstream existente.",
+    "No publicar otras ramas, etiquetas ni submódulos.",
+    "Puede actualizar la referencia local origin/feature/demo tras el éxito.",
+    "Comando propuesto; no ejecutado."
+  ]
+}

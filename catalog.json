@@ -10,7 +10,7 @@
     {"name": "git-plan-commits", "role": "capability", "status": "available", "path": "skills/git-plan-commits", "requires": ["git-analyze-changes", "conventional-commits-style"]},
     {"name": "git-stage-changes", "role": "capability", "status": "available", "path": "skills/git-stage-changes", "requires": ["git-analyze-changes", "git-safety-check"]},
     {"name": "git-sync-branch", "role": "capability", "status": "available", "path": "skills/git-sync-branch", "requires": ["git-working-directory-policy", "git-safety-check"]},
-    {"name": "git-publish-changes", "role": "capability", "status": "planned", "path": "skills/git-publish-changes", "requires": []},
+    {"name": "git-publish-changes", "role": "capability", "status": "available", "path": "skills/git-publish-changes", "requires": ["git-working-directory-policy", "git-safety-check"]},
     {"name": "git-manage-pull-request", "role": "capability", "status": "planned", "path": "skills/git-manage-pull-request", "requires": []},
     {"name": "git-promote", "role": "capability", "status": "planned", "path": "skills/git-promote", "requires": []},
     {"name": "git-safety-check", "role": "support", "status": "available", "path": "skills/git-safety-check", "requires": ["git-working-directory-policy"]},

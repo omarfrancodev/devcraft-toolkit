@@ -132,3 +132,7 @@ An independent builder check reported “nothing important left”. The written 
 ## Execution
 
 Implement the [plan](../plans/2026-10-25-git-sync-publish.md) inline in the established order: synchronization, publication, then integration. Preserve observed test failures and successes; no additional planning approval is required.
+
+## Builder clarification: already-equal publication
+
+Verified remote equality satisfies the publication prerequisite for separately requested two-key upstream setup, without an unnecessary push. Branch `no_op` and optional configuration effects are reported separately. This interpretation honors the explicit setup request and preserves exactly its approved mutation scope; it does not authorize implicit setup or additional configuration changes.

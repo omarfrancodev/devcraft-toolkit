@@ -18,3 +18,5 @@
 - Inspect effective index-write hooks and referenced helpers before staging, deferral/restoration or commit-related index writes; unknown or unauthorized effects block before mutation. Never bypass hooks to force an operation.
 
 - `git-sync-branch` may perform explicitly requested single-branch fetch/tracking updates and verified fast-forward-only current-branch updates after protected reads and fresh effect/authorization gates. Preserve unrelated refs/configuration and actual partial effects; no merge commit, rebase, stash, reset, cleanup, branch creation, publication or automatic retry. Default inspection remains offline.
+
+- `git-publish-changes` may perform one explicitly requested normal single-branch push plus bounded remote verification after fresh protected/effect gates. Only explicitly requested upstream setup may update the selected branch's two repository-local tracking keys after verified publication/equality. Preserve other/global config, source/index/worktree and actual partial/uncertain effects. No implicit fetch, force, PR, promotion, release or retry; default inspection stays offline.

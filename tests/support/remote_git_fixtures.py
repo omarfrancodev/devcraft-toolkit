@@ -81,3 +81,9 @@ def hook(repo:Path,name:str,body:str):
     target=directory/name
     target.write_bytes(("#!/bin/sh\n"+body+"\n").encode("utf-8"));target.chmod(0o755)
     return target
+
+def advertise(repo:Path,remote:str="origin",branch:str="main"):
+    return git(repo,"ls-remote","--refs","--exit-code","--",remote,"refs/heads/"+branch,check=False)
+
+def push_pinned(f:RemoteFixture,oid:str,branch:str="main",remote:str="origin"):
+    return git(f.local,*PUSH,remote,oid+":refs/heads/"+branch,check=False)

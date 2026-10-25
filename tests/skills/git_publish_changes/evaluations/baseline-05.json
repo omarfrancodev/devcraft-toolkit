@@ -1,0 +1,15 @@
+{
+  "id": "PUSH-05",
+  "response": "Publicaría únicamente el commit fijado S y configuraría el upstream solo en este repositorio:\n\n```powershell\ngit -c push.autoSetupRemote=false push --force-with-lease=refs/heads/feature/demo: origin S:refs/heads/feature/demo\ngit config --local branch.feature/demo.remote origin\ngit config --local branch.feature/demo.merge refs/heads/feature/demo\n```\n\nEl push crea origin/feature/demo únicamente si sigue ausente; si aparece mientras tanto, se rechaza sin sobrescribirlo. Solo tras un push exitoso ejecutaría los dos comandos de configuración. Estos establecen origin/feature/demo como upstream de feature/demo. La desactivación de push.autoSetupRemote afecta únicamente esa invocación. Se conservan user.email, branch.other.remote y toda la configuración global. No modificaría archivos ni crearía commits.",
+  "commands": [
+    "git -c push.autoSetupRemote=false push --force-with-lease=refs/heads/feature/demo: origin S:refs/heads/feature/demo",
+    "git config --local branch.feature/demo.remote origin",
+    "git config --local branch.feature/demo.merge refs/heads/feature/demo"
+  ],
+  "effects": [
+    "Proposed only; no Git or network commands executed.",
+    "Create remote refs/heads/feature/demo at pinned S only if still absent.",
+    "After successful push, set repository-local upstream configuration for feature/demo.",
+    "Preserve identity, unrelated local configuration, global configuration and worktree."
+  ]
+}

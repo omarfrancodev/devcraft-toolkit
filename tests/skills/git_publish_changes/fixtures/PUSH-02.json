@@ -1,0 +1,29 @@
+{
+  "id": "PUSH-02",
+  "request": "Publica únicamente feature/demo en origin, como refs/heads/feature/demo. No cambies su upstream.",
+  "facts": {
+    "branch": "feature/demo",
+    "pinned_head": "S",
+    "remote": "origin",
+    "destination": "refs/heads/feature/demo",
+    "single_effective_push_url": "one inspected local bare endpoint",
+    "remote_observed_oid": "R",
+    "ancestry": "R is a known ancestor of S",
+    "worktree": "clean",
+    "hooks": "none active",
+    "push.default": "matching",
+    "remote.origin.push": [
+      "refs/heads/*:refs/heads/*"
+    ],
+    "push.followTags": true,
+    "push.recurseSubmodules": "on-demand",
+    "push.autoSetupRemote": true,
+    "push.pushOption": [],
+    "remote.origin.mirror": false,
+    "fetch_mapping": "one canonical origin/* tracking map",
+    "other_refs": [
+      "refs/heads/other",
+      "refs/tags/release-label"
+    ]
+  }
+}
