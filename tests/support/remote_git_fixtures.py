@@ -64,11 +64,24 @@ def remote_fixture(root:Path):
         git(local,"config","--local",name,value)
     yield RemoteFixture(root,remote,seed,local)
 
+def _fixture_tracking_gate(repo:Path,remote:str,branch:str):
+    # These owned fixtures use the conventional single tracking mapping. Runtime
+    # instructions require inspecting every actual matching configured mapping.
+    target=f"refs/remotes/{remote}/{branch}"
+    result=git(repo,"symbolic-ref","--quiet","--no-recurse","--",target,check=False)
+    if result.returncode==0:
+        return subprocess.CompletedProcess(result.args,1,b"",b"symbolic tracking destination; stop before mutation")
+    if result.returncode!=1:
+        return result
+    return None
+
 def fetch_selected(f:RemoteFixture,branch:str="main"):
+    blocked=_fixture_tracking_gate(f.local,"origin",branch)
+    if blocked is not None:return blocked
     return git(f.local,*FETCH,"origin",f"refs/heads/{branch}:refs/remotes/origin/{branch}",check=False)
 
 def fast_forward(repo:Path,oid:str):
-    return git(repo,"merge","--ff-only","--no-autostash","--no-squash","--no-edit","--no-stat",oid,check=False)
+    return git(repo,"merge","--ff-only","--no-overwrite-ignore","--no-autostash","--no-squash","--no-edit","--no-stat",oid,check=False)
 
 def working(snapshot:dict)->dict:
     return {k:v for k,v in snapshot.items() if k.startswith(("working:","working-mode:"))}
@@ -88,4 +101,6 @@ def advertise(repo:Path,remote:str="origin",branch:str="main"):
     return git(repo,"ls-remote","--refs","--exit-code","--",endpoints[0],"refs/heads/"+branch,check=False)
 
 def push_pinned(f:RemoteFixture,oid:str,branch:str="main",remote:str="origin"):
+    blocked=_fixture_tracking_gate(f.local,remote,branch)
+    if blocked is not None:return blocked
     return git(f.local,*PUSH,remote,oid+":refs/heads/"+branch,check=False)

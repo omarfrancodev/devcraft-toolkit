@@ -115,3 +115,32 @@ class SyncRecipeTests(unittest.TestCase):
             self.assertEqual(0,fetch_selected(f,branch).returncode)
             self.assertEqual(head(f.seed),head(f.local,"refs/remotes/origin/"+branch))
             self.assertFalse((f.root/"literal").exists())
+
+    def test_fast_forward_preserves_ignored_file_collision(self):
+        with remote_fixture(self.root) as f:
+            local=f.local/"local.env";local.write_bytes(b"private local content\n")
+            (f.local/".git/info/exclude").write_text("local.env\n",encoding="utf-8")
+            target=commit(f.seed,"incoming tracked environment","local.env")
+            git(f.seed,"push","--","origin","main")
+            self.assertEqual(0,fetch_selected(f).returncode)
+            before=snapshot_repository(f.local);old=head(f.local)
+            self.assertEqual(b"",git(f.local,"status","--porcelain").stdout)
+            result=fast_forward(f.local,target)
+            self.assertNotEqual(0,result.returncode)
+            after=snapshot_repository(f.local)
+            self.assertEqual(b"private local content\n",local.read_bytes())
+            self.assertEqual(old,head(f.local));self.assertEqual(before["index"],after["index"])
+            self.assertEqual(working(before),working(after))
+            self.assertEqual(target,head(f.local,"refs/remotes/origin/main"))
+
+    def test_symbolic_fetch_destination_stops_before_unrelated_branch_write(self):
+        with remote_fixture(self.root) as f:
+            old=head(f.local);git(f.local,"branch","keep")
+            git(f.local,"symbolic-ref","refs/remotes/origin/main","refs/heads/keep")
+            target=commit(f.seed,"remote update");git(f.seed,"push","--","origin","main")
+            before=snapshot_repository(f.local)
+            result=fetch_selected(f)
+            self.assertNotEqual(0,result.returncode)
+            self.assertEqual(old,head(f.local,"refs/heads/keep"))
+            self.assertEqual(before,snapshot_repository(f.local))
+            self.assertEqual(target,head(f.remote,"refs/heads/main"))

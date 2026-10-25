@@ -30,7 +30,9 @@ Before each write require clean index/worktree, no conflicts/merge/rebase/other 
 
 ## Fetch exactly one observation
 
-Resolve one concrete source branch and one tracking destination beneath `refs/remotes/<remote>/...`. Reject multiple destinations, local-head/tag mappings and unresolved custom upstream mappings. Use the explicit refspec with empty refmap so configured fetch mappings cannot widen it:
+Resolve one concrete source branch and one tracking destination beneath `refs/remotes/<remote>/...`. Reject multiple destinations, local-head/tag mappings and unresolved custom upstream mappings. Before fetch inspect the selected destination itself with protected `symbolic-ref --quiet --no-recurse -- <tracking-ref>` (or equivalent direct-ref metadata). Exit 0 means symbolic: stop before fetch, even if its printed pointer would remain unchanged; fetch dereferences it and could move an unrelated branch. Distinguish confirmed direct/absent state from query errors. Require a direct or absent destination and refresh that guard immediately before writing. Do not delete/replace a symbolic ref to proceed. Comparing unrelated symbolic aliases by pointer does not permit a symbolic write destination.
+
+Use the explicit refspec with empty refmap so configured fetch mappings cannot widen it:
 
 ```text
 fetch --no-tags --no-prune --no-prune-tags --no-recurse-submodules
@@ -57,8 +59,10 @@ Resolve the fetched tracking value as a full commit OID. Recheck local guards af
 Use only:
 
 ```text
-merge --ff-only --no-autostash --no-squash --no-edit --no-stat <fetched-full-OID>
+merge --ff-only --no-overwrite-ignore --no-autostash --no-squash --no-edit --no-stat <fetched-full-OID>
 ```
+
+`--no-overwrite-ignore` is mandatory: a clean status omits ignored files and does not permit overwriting them when the target newly tracks their paths. A collision stops the fast-forward with original bytes/HEAD/index preserved; disclose earlier fetch and any merge metadata effects as partial, without deleting/moving the ignored content or retrying.
 
 No pull default, stash, reset, merge commit, rebase or branch switch. Respect required verification and known approved helpers rather than disabling them. Before checkout inspect target attributes/helper effects, not only the old tree's settings.
 

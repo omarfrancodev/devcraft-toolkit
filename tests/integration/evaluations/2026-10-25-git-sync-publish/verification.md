@@ -16,3 +16,11 @@ Final command results and review receipt are appended after their execution.
 - Two-server pushurl regression failed against the fetch endpoint, then passed querying the effective push endpoint before/after. A fresh supplied-fact actor verified endpoint selection and uncertainty behavior; no network-fault injection.
 
 The explicitly requested upstream setup may follow verified equality without a redundant push. It remains a separate two-key local effect; a branch no_op is not a claim of zero configuration changes. The executor recorded this interpretation in the ledger because the original plan phrased the prerequisite as a verified push.
+
+## Final correction gate
+
+Post-fix full discovery: **138 tests, 137 passed, one existing Windows symlink privilege skip**, 200.825 seconds. [Raw post-fix log](post-fix-suite.log). The 135-test log above remains the original pre-review result; three new preservation regressions extend it.
+
+Both validators, both new-skill quick validations and complete-base whitespace passed after the correction. The [independent review and fix record](review.md) distinguishes the two Important findings, RED/GREEN, fresh behavioral cases and application limits. The [retained execution ledger](execution-ledger.md) records all task gates, rulings and costs. No minor findings were deferred. The branch/worktree remain local; this increment creates no PR or release.
+
+Final changed-document local target check: 130 checked, zero missing.

@@ -77,7 +77,7 @@ Resolve the fetched full commit OID and refresh the current branch/guards. Class
 - Neither: divergent (or unrelated); return `needs_decision` and preserve fetched observations without a merge/rebase.
 - Unknown/incomplete relation: `limited` or `blocked`, never a guessed fast-forward.
 
-Run only an explicitly bounded fast-forward of the pinned fetched OID, with `merge --ff-only --no-autostash --no-squash --no-edit --no-stat <fetched-OID>`. Respect required verification/helpers rather than disabling them. No integration commit is created. Verify HEAD equals the exact fetched OID, selected index/tree/worktree match expected target content under inspected filters, unrelated refs/configuration are unchanged, and expected ORIG_HEAD/reflog metadata is accounted for. A moving server tip is reported as a snapshot observation, not perpetual freshness.
+Run only an explicitly bounded fast-forward of the pinned fetched OID, with `merge --ff-only --no-overwrite-ignore --no-autostash --no-squash --no-edit --no-stat <fetched-OID>`. Respect required verification/helpers rather than disabling them. No integration commit is created. Verify HEAD equals the exact fetched OID, selected index/tree/worktree match expected target content under inspected filters, unrelated refs/configuration are unchanged, and expected ORIG_HEAD/reflog metadata is accounted for. A moving server tip is reported as a snapshot observation, not perpetual freshness.
 
 ### Result
 
@@ -136,3 +136,9 @@ Implement the [plan](../plans/2026-10-25-git-sync-publish.md) inline in the esta
 ## Builder clarification: already-equal publication
 
 Verified remote equality satisfies the publication prerequisite for separately requested two-key upstream setup, without an unnecessary push. Branch `no_op` and optional configuration effects are reported separately. This interpretation honors the explicit setup request and preserves exactly its approved mutation scope; it does not authorize implicit setup or additional configuration changes.
+
+## Final preservation corrections
+
+A selected fetch write destination must be direct or absent, not symbolic. Inspect its direct metadata before fetch and again at the freshness gate. Symbolic-pointer preservation alone is insufficient because Git can dereference it into an unrelated branch. Apply the same pre-push check to every matching opportunistic tracking destination; errors block rather than imply absence. Never repair a symbolic ref automatically.
+
+The fast-forward recipe must use `--no-overwrite-ignore`. Clean status does not expose ignored content; a newly tracked target path must not overwrite it. On collision preserve bytes, HEAD and index, disclose earlier fetch/metadata effects and stop without cleanup or retry.

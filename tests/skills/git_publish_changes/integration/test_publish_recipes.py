@@ -159,3 +159,14 @@ class PublishRecipeTests(unittest.TestCase):
             self.assertEqual(before,refs(f.remote));self.assertFalse((f.local/"push-marker").exists())
             self.assertEqual(b"origin\n",git(f.local,"config","--get","branch.main.remote").stdout)
             self.assertEqual(b"refs/heads/main\n",git(f.local,"config","--get","branch.main.merge").stdout)
+
+    def test_symbolic_push_tracking_stops_before_remote_or_local_write(self):
+        with remote_fixture(self.root) as f:
+            git(f.local,"branch","keep")
+            git(f.local,"symbolic-ref","refs/remotes/origin/main","refs/heads/keep")
+            selected=commit(f.local,"selected publication")
+            before=snapshot_repository(f.local);remote_before=refs(f.remote)
+            result=push_pinned(f,selected)
+            self.assertNotEqual(0,result.returncode)
+            self.assertEqual(before,snapshot_repository(f.local))
+            self.assertEqual(remote_before,refs(f.remote))
