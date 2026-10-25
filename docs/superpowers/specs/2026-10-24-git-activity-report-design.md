@@ -94,3 +94,7 @@ The builder chooses test-only helper organization, fixture messages, rendering d
 ## Approval and execution
 
 The written design was approved after an independent builder check reported “nothing important left”. Continue with the [implementation plan](../plans/2026-10-24-git-activity-report.md), then execute inline with behavioral evaluations and one fresh whole-branch review.
+
+## Release integration amendment — 2026-10-25
+
+The original implementation record retains its development-candidate scope. After the approving review of `6e3706272cccfa704c59382343c7c4363dff7968`, publication of `v0.1.0-preview.5` is authorized through PR #7. Changelog and consumer release preparation are included before merging. The tag and verified ZIP/checksum assets must use that PR's exact merge commit; no subsequent source-preparation commit is required. Native activation gates remain open. This amendment changes no runtime behavior and introduces no release automation.

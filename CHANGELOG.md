@@ -4,6 +4,10 @@ Release dates use the GitHub publication date in America/Mexico_City. Pre-releas
 
 ## unreleased
 
+## 0.1.0-preview.5 — 2026-10-25
+
+Experimental local Git activity reporting. Twelve skills are available; native activation remains partially validated.
+
 ### Added
 
 - Add `git-activity-report` with pinned local history, author/committer date selection, exact raw-author filtering, timezone-aware half-open periods and explicit coverage limits.
@@ -13,7 +17,7 @@ Release dates use the GitHub publication date in America/Mexico_City. Pre-releas
 ### Changed
 
 - Expand the current source to twelve available/five planned skills with a three-skill standalone report closure and consistent installation selections.
-- Set both existing manifests to unpublished development candidate `0.1.0-preview.5`; published preview.4 retains its eleven-skill payload and native activation limits.
+- Align both existing manifests and version-pinned consumer guidance on `0.1.0-preview.5`. Prepare the changelog and release documentation in PR #7 for publication from its exact merge commit; preview.4 retains its eleven-skill payload and historical evidence.
 - Mark remote publication as the next roadmap increment, with authenticated native validation continuing separately.
 
 ## 0.1.0-preview.4 — 2026-10-24
