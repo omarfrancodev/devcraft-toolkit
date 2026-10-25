@@ -1,6 +1,6 @@
 ---
 name: using-devcraft-toolkit
-description: Use when a request concerns an installed Devcraft Toolkit capability, local Git preparation, repository context, project validation, or shared development support.
+description: Use when a request concerns an installed Devcraft Toolkit capability, local Git preparation, Git history reporting, repository context, project validation, or shared development support.
 ---
 
 # Using Devcraft Toolkit
@@ -33,7 +33,7 @@ When duplicate copies have materially unresolved ownership or selection, ask one
 - Proposed commit grouping or sequence: use `git-plan-commits` when installed with `git-analyze-changes`, its context dependency, and `conventional-commits-style`. It returns a proposal preserving the existing staged selection and delegates message formatting; it does not create commits or need a mutation preflight. Missing required dependencies make the requested capability unavailable; do not emulate, install or use a foreign copy.
 - Index staging proposals or explicitly requested staging: use `git-stage-changes` with its analyzer/safety/context closure when installed. Delegate exact target, permission and postcondition decisions; a partial path never implies whole-file staging.
 - Coordinated commit proposals or explicitly requested commit creation: use `git-commit-builder` with its complete planner/stage/safety/validation/progress closure when installed. It delegates analyzer/context/formatter through those dependencies. Planning remains read-only; an explicit commit request authorizes only its selected workflow. Missing required dependencies make it unavailable, without imitation, substitution or automatic installation.
-- Git activity reporting from commit history: the `git-activity-report` coordinator is planned and unavailable in this distribution. Do not substitute evidence-based report writing for Git-history inspection or claim a history report was produced.
+- Git activity reporting from local commit history: use `git-activity-report` when installed with `git-working-directory-policy` and `natural-language-report-writer`. Delegate period/timezone, author/date-basis selection, pinned history, coverage and report output to the coordinator. Use the selected installation's exact discovered identifiers; missing/foreign dependencies make reporting unavailable. Do not replace history inspection with supplied-facts writing, run an unrelated mutation preflight or infer file/publication permission.
 - Publication coordination is planned and unavailable in this distribution. State that clearly; do not emulate it or modify another installation. Available local staging/commit capabilities grant no publication permission.
 - Any request outside toolkit scope: handle it without loading this entry.
 

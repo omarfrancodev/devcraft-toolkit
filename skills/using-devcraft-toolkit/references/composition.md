@@ -40,7 +40,7 @@ The preflight outcomes `ready`, `no_op`, `blocked`, `needs_decision`, and `limit
 
 `conventional-commits-style` uses supplied facts and conventions to return a message proposal. It needs no repository or Git preflight and performs no Git operation. Preserve its resolved language and its clarification decisions when composing the response.
 
-Publication coordination and the `git-activity-report` coordinator for reports derived from commit history are planned in this distribution. Do not replace those missing workflows with manual imitation or another capability. The installed `natural-language-report-writer` handles supplied-facts reports and does not inspect Git history.
+Publication coordination remains planned in this distribution; do not imitate it or substitute another capability. History-derived reporting uses the available optional `git-activity-report` coordinator with its owned context/writer closure. The standalone writer still handles supplied-facts reports without inspecting Git history.
 
 ## Read-only Git preparation
 
@@ -48,7 +48,7 @@ Publication coordination and the `git-activity-report` coordinator for reports d
 
 The analyzer returns repository/scope, a guarded observation snapshot, layer-specific evidence IDs, constraints and unknowns, with analyzed/no_op/needs_decision/limited/blocked outcomes. Keep those IDs and staged/unstaged/untracked boundaries when passing evidence to the planner. The planner verifies freshness through the analyzer, applies the explicit selection or staged-first default, and returns intent groups, exact selections/order, formatter-produced messages, exclusions, decisions and limits. Planned/no_op/needs_decision/limited/blocked describe proposals, never execution.
 
-Missing identity is not a blocker for read-only analysis/planning. A conflict can be completely observed while blocking a complete plan. Supplied/offline evidence stays conditional when live guards cannot be verified. Neither capability performs staging, commits, branch creation, validation execution or publication. Local staging/commit construction is separately available when installed; publication/activity coordinators remain planned.
+Missing identity is not a blocker for read-only analysis/planning. A conflict can be completely observed while blocking a complete plan. Supplied/offline evidence stays conditional when live guards cannot be verified. Neither capability performs staging, commits, branch creation, validation execution or publication. Local staging/commit construction is separately available when installed; publication coordinators remain planned; local-history reporting is separately available when installed.
 
 An explicitly selected standalone planner closure can be invoked directly without the entry or safety-check skill; using the entry itself still requires its existing foundation group.
 
@@ -61,3 +61,11 @@ An explicitly selected standalone planner closure can be invoked directly withou
 Retain actual result fields and per-check scope/cwd/exit evidence. Never infer selected-index validation from dirty-worktree checks. Actual earlier commits remain recorded if a later step fails; do not retry/reset/clean or silently restore deferred state. Neither new capability implies branch creation, history rewrite, network or publication.
 
 These optional routes do not change the entry's hard foundation. A standalone builder closure can be invoked directly without installing the entry or report writer.
+
+## Local-history reporting
+
+`git-activity-report` requires only `git-working-directory-policy` and `natural-language-report-writer`; its direct standalone closure has three skills and needs neither entry nor safety preflight. Resolve those owned discovered identifiers before dependent execution. The entry itself retains its existing foundation requirements and adds no hard dependency on reporting.
+
+The coordinator pins one local revision, resolves period/timezone, author/committer basis, exact author selection and merge policy, then inspects a bounded graph and delegates evidence to the writer. It preserves `status`, `scope`, `coverage`, `commits`, `report`, and `output`, including missing/partial source limits. `reported` and `no_op` are complete local snapshot results; `limited` never proves no matching history. Supplied-fact drafts must remain identified as supplied facts, not verified local queries.
+
+The writer controls prose language/format and an explicitly selected report destination, replacement permission and readback. Installation, a routing decision or a content-only request grants no filesystem/Git/network mutation. A missing or foreign writer/context makes the dependent coordinator unavailable; an ambiguous copy needs a focused choice. No runtime root catalog read, automatic installation or fallback imitation is allowed. Pure supplied-fact reports continue directly to the writer.

@@ -70,12 +70,12 @@ The approved request authorizes spec, plan and implementation in order. Execute 
 - Consumes Task 1's available coordinator and exact three-skill standalone closure.
 - Produces an optional route using selected-installation discovered identifiers, without changing entry hard dependencies. Supplied-fact requests continue directly to the writer.
 
-- [ ] **Step 1: Record routing RED.** Evaluate the unchanged entry for a history report with reporting/context/writer installed in the selected package. Also evaluate absent, foreign/ambiguous and direct standalone conditions using supplied discovery metadata.
+- [x] **Step 1: Record routing RED.** Evaluate the unchanged entry for a history report with reporting/context/writer installed in the selected package. Also evaluate absent, foreign/ambiguous and direct standalone conditions using supplied discovery metadata.
   Expected: unchanged entry calls the coordinator planned/unavailable; distinguish that expected limitation from any baseline successes.
-- [ ] **Step 2: Add the optional route.** Replace only stale activity-planned text and retain publication-planned boundaries. Delegate dependency ownership, history evidence and writer output; no safety preflight solely for reporting. Record the same dependency/result boundaries in the local composition reference.
-- [ ] **Step 3: Re-evaluate routing.** Fresh supplied-metadata cases cover installed, absent, foreign/ambiguous, direct three-skill closure and supplied-facts writing.
+- [x] **Step 2: Add the optional route.** Replace only stale activity-planned text and retain publication-planned boundaries. Delegate dependency ownership, history evidence and writer output; no safety preflight solely for reporting. Record the same dependency/result boundaries in the local composition reference.
+- [x] **Step 3: Re-evaluate routing.** Fresh supplied-metadata cases cover installed, absent, foreign/ambiguous, direct three-skill closure and supplied-facts writing.
   Expected: exact owned identifiers selected, absent dependencies unavailable, ambiguity pauses dependent invocation, no catalog read or automatic install, supplied facts still use writer directly.
-- [ ] **Step 4: Verify and commit.** Run both validators and owner integration checks; retain exact outcomes and limitations. Commit `feat: route installed Git history reporting`.
+- [x] **Step 4: Verify and commit.** Run both validators and owner integration checks; retain exact outcomes and limitations. Commit `feat: route installed Git history reporting`.
 
 ### Task 3: Align distribution and retained evidence
 

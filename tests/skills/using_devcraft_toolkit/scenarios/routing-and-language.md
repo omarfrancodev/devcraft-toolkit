@@ -177,3 +177,16 @@ Synthetic discovery/manual entry loading; no native activation claim.
 | WRITE-ENTRY-05 | Supplied-facts message only | Owned formatter only, no Git context/preflight |
 | WRITE-ENTRY-06 | Complete direct standalone builder closure, no entry/reportwriter | Direct capability usable; entry itself still needs foundation |
 | WRITE-ENTRY-07 | Bare builder invocation/proposal | Default plan, no write permission inferred |
+
+## Local-history reporting packets
+
+Manual supplied-discovery evaluation; no native loader claim.
+
+| ID | Request/discovery | Expected |
+| --- | --- | --- |
+| HIST-ENTRY-01 | Selected package P has entry foundation and P:report/context/writer | Route to exact P:git-activity-report, three-skill closure; no unrelated preflight |
+| HIST-ENTRY-02 | Report absent; P has writer/context | Unavailable; writer alone is not history reporting |
+| HIST-ENTRY-03 | P report/context present; writer foreign only | Dependency unavailable; no foreign substitution |
+| HIST-ENTRY-04 | Duplicate reporting copies, ownership unresolved | One focused choice before dependent invocation; preserve copies |
+| HIST-ENTRY-05 | Explicit standalone S report/context/writer, no entry/safety | Direct standalone usable; no catalog read or invented entry requirement |
+| HIST-ENTRY-06 | P writer present, user supplies facts only | Direct writer; no history query/preflight |
