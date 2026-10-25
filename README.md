@@ -1,12 +1,12 @@
 # Devcraft Toolkit
 
-A modular toolkit of composable skills for repository context, Git inspection and planning, exact authorized staging, requested local commits, project validation, reporting, and portable progress tracking. Compatibility is recorded only for harnesses actually exercised.
+A modular toolkit of composable skills for repository context, Git inspection and planning, exact authorized staging, requested local commits, scoped branch synchronization and publication, project validation, reporting, and portable progress tracking. Compatibility is recorded only for harnesses actually exercised.
 
-The distribution includes twelve available skills: `using-devcraft-toolkit`, `git-working-directory-policy`, `git-safety-check`, `conventional-commits-style`, `todo-workflow-controller`, `natural-language-report-writer`, `validation-discovery`, `git-analyze-changes`, `git-plan-commits`, `git-stage-changes`, `git-commit-builder`, and `git-activity-report`. Publication coordination remains planned and unavailable in this distribution. CCR integration is outside the current scope.
+The distribution candidate source includes fourteen available skills: `using-devcraft-toolkit`, `git-working-directory-policy`, `git-safety-check`, `conventional-commits-style`, `todo-workflow-controller`, `natural-language-report-writer`, `validation-discovery`, `git-analyze-changes`, `git-plan-commits`, `git-stage-changes`, `git-commit-builder`, `git-activity-report`, `git-sync-branch`, and `git-publish-changes`. Publication coordination remains planned and unavailable in this distribution. CCR integration is outside the current scope.
 
 Skill definitions and default templates use English. User-facing content follows an explicit language preference or the language of the user's request, defaulting to English when neither can be determined. Tests are maintained outside individual skill directories, grouped by the owning skill and then by test scope; repository infrastructure and cross-skill coverage have separate shared groups.
 
-The [catalog](catalog.json) records all seventeen target capabilities and marks each as `available` or `planned`. Twelve are available and five remain planned. See [installation](docs/installation.md), [architecture](docs/architecture.md), [language behavior](docs/language.md), and [compatibility evidence](docs/compatibility.md).
+The [catalog](catalog.json) records all seventeen target capabilities and marks each as `available` or `planned`. Fourteen are available and three remain planned. See [installation](docs/installation.md), [architecture](docs/architecture.md), [language behavior](docs/language.md), and [compatibility evidence](docs/compatibility.md).
 
 The [capability roadmap](docs/roadmap.md) links the self-contained designs and plans for upcoming increments.
 
@@ -16,7 +16,7 @@ Install the complete toolkit directly from GitHub using your client's documented
 
 Choose [Codex](docs/installation/codex.md), [Copilot CLI](docs/installation/copilot-cli.md), [Copilot in VS Code](docs/installation/copilot-vscode.md), [Claude Code](docs/installation/claude-code.md), [Kiro CLI V3](docs/installation/kiro-cli.md), [Kiro IDE](docs/installation/kiro.md), or [Kiro Crew](docs/installation/kiro-crew.md). The [installation overview](docs/installation.md) explains scope and the Kiro project fallback.
 
-The default-branch recipes use the integrated package. See [preview.5 release details](docs/releases/v0.1.0-preview.5.md) for version-pinned source options; [earlier preview sources](docs/installation/preview.md) are historical evidence. Native activation remains partially validated; no official catalog listing is claimed.
+The current branch prepares unpublished `0.1.0-preview.6`; its two new remote-operation skills require this revision until integrated/published. The default-branch recipes acquire only the capabilities present at their selected remote revision. See [preview.5 release details](docs/releases/v0.1.0-preview.5.md) for version-pinned source options; [earlier preview sources](docs/installation/preview.md) are historical evidence. Native activation remains partially validated; no official catalog listing is claimed.
 
 Need selected capabilities instead? Use [individual skill installation](docs/installation/individual-skills.md). Package contributors and manual-copy users can use [local development/reference](docs/installation/development.md).
 

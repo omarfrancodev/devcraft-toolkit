@@ -83,7 +83,9 @@ def hook(repo:Path,name:str,body:str):
     return target
 
 def advertise(repo:Path,remote:str="origin",branch:str="main"):
-    return git(repo,"ls-remote","--refs","--exit-code","--",remote,"refs/heads/"+branch,check=False)
+    endpoints=git(repo,"remote","get-url","--push","--all",remote).stdout.decode("utf-8").splitlines()
+    assert len(endpoints)==1, "publication needs one effective push endpoint"
+    return git(repo,"ls-remote","--refs","--exit-code","--",endpoints[0],"refs/heads/"+branch,check=False)
 
 def push_pinned(f:RemoteFixture,oid:str,branch:str="main",remote:str="origin"):
     return git(f.local,*PUSH,remote,oid+":refs/heads/"+branch,check=False)

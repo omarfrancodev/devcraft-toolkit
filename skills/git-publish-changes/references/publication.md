@@ -32,11 +32,13 @@ Resolve configured mirror mode, push options (including effective list clearing)
 
 ## Observe and publish exactly one ref
 
-Under explicit observation/publication permission query only the selected branch, for example with the safe prefix and:
+Under explicit observation/publication permission query only the selected branch at the selected effective **push** endpoint, for example with the safe prefix and:
 
 ```text
-ls-remote --refs --exit-code -- <remote> refs/heads/<destination>
+ls-remote --refs --exit-code -- <effective-push-endpoint> refs/heads/<destination>
 ```
+
+Resolve the query operand through inspected effective transport/URL rewriting and verify it reaches the same endpoint as the push. A named remote in ls-remote normally selects its fetch URL; use it only when that endpoint is proven equal. Distinct fetch/push URLs must never cause before/after publication observations to query the fetch server. Unknown or unqueryable push-endpoint routing blocks verification rather than substituting the fetch endpoint.
 
 Parse exact full ref/OID, status and complete output. Exit 2 is absence only after a successful selected-server query; connection/auth/other errors are not an absent branch. Multiple/malformed/truncated results remain unresolved. Cache or a supplied transcript is not a live advertisement.
 

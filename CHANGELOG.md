@@ -4,6 +4,19 @@ Release dates use the GitHub publication date in America/Mexico_City. Pre-releas
 
 ## unreleased
 
+Candidate source version: `0.1.0-preview.6` (not published).
+
+### Added
+
+- Add independent `git-sync-branch` for explicitly requested one-branch fetch and fast-forward-only synchronization, preserving divergence and partial effects.
+- Add `git-publish-changes` for one pinned normal branch push, independent verification and expressly requested two-key repository-local upstream setup.
+- Retain offline inspection defaults, endpoint/helper/hook gates, no implicit fetch/force/retry, owner-scoped behavior evidence and actual local bare-repository applications.
+
+### Changed
+
+- Add ownership-aware optional entry routes and explicit three-skill standalone selections; current candidate inventory is fourteen available/three planned.
+- Keep published preview.5's twelve-skill inventory and historical native evidence separate. PR management/promotion are next, then full publication coordination.
+
 ## 0.1.0-preview.5 — 2026-10-25
 
 Experimental local Git activity reporting. Twelve skills are available; native activation remains partially validated.

@@ -1,0 +1,187 @@
+{
+  "evaluation_type": "manual",
+  "evidence": "Hechos de descubrimiento suministrados por el solicitante; no son descubrimiento ni invocación nativa.",
+  "sources_read": [
+    "skills/using-devcraft-toolkit/SKILL.md",
+    "skills/using-devcraft-toolkit/references/composition.md"
+  ],
+  "execution": {
+    "native_skill_invocations": [],
+    "git_operations": [],
+    "network_operations": [],
+    "instrumentation_only": "Escritura expresamente autorizada de este archivo; no deriva de los permisos de los casos."
+  },
+  "supplied_mapping": {
+    "P:entry": "using-devcraft-toolkit",
+    "P:context": "git-working-directory-policy",
+    "P:safety": "git-safety-check",
+    "P:sync": "git-sync-branch",
+    "P:push": "git-publish-changes"
+  },
+  "cases": [
+    {
+      "id": "A",
+      "request": "Sincronización explícita mediante fetch y fast-forward únicamente; cierres completos en P.",
+      "raw_response": "Con los hechos suministrados, la ruta es P:entry → P:sync, con P:context y P:safety propios de P. La solicitud explícita autoriza un fetch acotado y el fast-forward verificado de la rama actual desde su upstream, sujeto a los destinos y controles de la skill. La divergencia requiere una decisión; no autoriza merge, rebase ni push. Esta evaluación manual no invocó skills ni ejecutó Git o red, y no acredita ningún resultado de sincronización.",
+      "exact_routes": [
+        "P:entry",
+        "P:sync"
+      ],
+      "owned_dependencies": [
+        "P:context",
+        "P:safety"
+      ],
+      "permissions": [
+        "un fetch acotado de la rama actual",
+        "fast-forward verificado de la rama actual"
+      ],
+      "limits": [
+        "divergencia pausa trabajo dependiente",
+        "sin merge/rebase/push",
+        "sin evidencia real de estado, upstream, OIDs o frescura"
+      ]
+    },
+    {
+      "id": "B",
+      "request": "Publicación normal explícita de la rama actual, sin configurar upstream; cierres completos en P.",
+      "raw_response": "Con los hechos suministrados, la ruta es P:entry → P:push, con P:context y P:safety propios de P. La solicitud autoriza un push normal de una sola rama con origen y destino exactos fijados y verificación posterior, sujeto a los controles de efecto y frescura. No autoriza fetch ni configurar upstream. Si origen y destino ya son iguales, no se necesita push. Esta publicación standalone está disponible aunque git-publish-work siga planificado. No hubo invocación nativa ni operación Git o de red; no se afirma publicación exitosa.",
+      "exact_routes": [
+        "P:entry",
+        "P:push"
+      ],
+      "owned_dependencies": [
+        "P:context",
+        "P:safety"
+      ],
+      "permissions": [
+        "push normal único de una rama con origen/destino fijados",
+        "verificación correspondiente"
+      ],
+      "limits": [
+        "sin fetch",
+        "sin escrituras de configuración upstream",
+        "igualdad implica no push",
+        "sin PR/promoción/release",
+        "sin resultado operativo observado"
+      ]
+    },
+    {
+      "id": "C",
+      "request": "Inspeccionar la publicación sin red.",
+      "raw_response": "Con los hechos suministrados, la ruta es P:entry → P:push en inspección offline, con P:context y P:safety propios de P. Solo corresponde evaluar evidencia local y conservar sus límites. El preflight interno de publicación es de lectura y no concede permiso para publicar. La solicitud no autoriza consultas de anuncios remotos, fetch ni push. La inspección offline no demuestra el estado remoto actual. Esta es una evaluación manual de la ruta; no se inspeccionó un repositorio ni se invocó una skill.",
+      "exact_routes": [
+        "P:entry",
+        "P:push"
+      ],
+      "owned_dependencies": [
+        "P:context",
+        "P:safety"
+      ],
+      "permissions": [
+        "inspección offline de lectura"
+      ],
+      "limits": [
+        "sin red, advertisement query, fetch o push",
+        "sin prueba del estado remoto vigente",
+        "sin resultados nativos"
+      ]
+    },
+    {
+      "id": "D",
+      "request": "Sincronizar; P no tiene sync aunque Q:sync existe y P conserva context/safety.",
+      "raw_response": "La sincronización no está disponible en la instalación seleccionada P: falta su capacidad git-sync-branch. Q:sync pertenece a otra instalación y no completa P, aunque P tenga P:context y P:safety. No seleccionaré ni imitaré Q:sync ni instalaré nada. P:context y P:safety siguen disponibles para contexto o una comprobación de lectura solicitada, pero no realizan la sincronización. No se ejecutó ninguna ruta dependiente ni operación Git o de red.",
+      "exact_routes": [
+        "P:entry"
+      ],
+      "selected_operation_route": null,
+      "excluded_foreign_route": "Q:sync",
+      "available_alternative_routes": [
+        "P:context",
+        "P:safety"
+      ],
+      "permissions": [
+        "la solicitud de sync no subsana una capacidad ausente"
+      ],
+      "limits": [
+        "sync no disponible en P",
+        "sin sustitución por Q:sync",
+        "sin instalación ni emulación",
+        "alternativas no equivalen a sync"
+      ]
+    },
+    {
+      "id": "E",
+      "request": "Publicación mediante P:push; la única safety pertenece a Q.",
+      "raw_response": "La publicación con P:push no está disponible en P porque falta su dependencia propia git-safety-check. Q:safety no satisface esa dependencia; P:push requiere su cierre de contexto y safety de la instalación seleccionada. La entrada también exige su grupo de fundamento propio. No invocaré la publicación ni sustituiré la dependencia con la copia de Q. Una solicitud explícita de push no elimina este límite de disponibilidad. No se ejecutó Git ni red.",
+      "exact_routes": [],
+      "selected_operation_route": null,
+      "requested_identifier": "P:push",
+      "excluded_foreign_dependency": "Q:safety",
+      "permissions": [
+        "push explícito condicionado a la disponibilidad del cierre propio"
+      ],
+      "limits": [
+        "cierre propio de P incompleto",
+        "fundamento de entrada incompleto",
+        "sin sustitución extranjera ni publicación"
+      ]
+    },
+    {
+      "id": "F",
+      "request": "Publicación con dos copias push cuyo propietario o selección no se ha resuelto.",
+      "raw_response": "Antes de elegir la ruta dependiente necesito resolver una decisión: ¿Qué instalación o copia de git-publish-changes quieres seleccionar para esta publicación? La propiedad o selección de las dos copias sigue sin determinarse; no puedo escoger por el sufijo del identificador ni combinar dependencias entre instalaciones. La publicación queda pendiente de esa respuesta. Conservaré ambas copias y solo podría continuar trabajo independiente. No se invocó ninguna copia ni se ejecutó Git o red.",
+      "exact_routes": [],
+      "selected_operation_route": null,
+      "permissions": [
+        "ninguna invocación dependiente hasta resolver la selección material"
+      ],
+      "limits": [
+        "pregunta enfocada sobre instalación/copia",
+        "no inferir propiedad por nombres",
+        "no modificar ni reinstalar copias"
+      ]
+    },
+    {
+      "id": "G",
+      "request": "Disponibilidad directa de un standalone seleccionado explícitamente con sync+context+safety, sin entry ni push.",
+      "raw_response": "Sí: según los hechos suministrados, el standalone seleccionado tiene el cierre completo P:sync + P:context + P:safety y puede invocarse directamente como P:sync. No requiere P:entry ni P:push. Preguntar por disponibilidad no autoriza sincronizar ni usar red; una invocación sin solicitud explícita de operación empieza con inspección offline. Esta conclusión es manual y condicional a los hechos suministrados; no hubo descubrimiento ni invocación nativa.",
+      "exact_routes": [
+        "P:sync"
+      ],
+      "owned_dependencies": [
+        "P:context",
+        "P:safety"
+      ],
+      "permissions": [
+        "respuesta de disponibilidad",
+        "sin autorización de fetch o fast-forward por esta pregunta"
+      ],
+      "limits": [
+        "entry y push no son dependencias",
+        "operación directa por defecto offline",
+        "no operación ejecutada"
+      ]
+    },
+    {
+      "id": "H",
+      "request": "Reporte de hechos suministrados, writer perteneciente a P; sin solicitud Git.",
+      "raw_response": "Corresponde la ruta de redacción de hechos suministrados hacia natural-language-report-writer perteneciente a P; el resultado se entrega en la conversación y conserva la identificación de los hechos como suministrados. No corresponde invocar P:context, P:safety, P:sync ni P:push, ni inspeccionar historial Git. Los hechos de este caso no incluyen el identificador exacto descubierto del writer: no lo inventaré; debe resolverse antes de una invocación real. No hay permiso implícito para guardar un reporte local ni publicar. Aquí solo evalué la ruta manualmente y no redacté ni guardé un reporte de usuario.",
+      "exact_routes": [
+        "P:entry"
+      ],
+      "selected_operation_route": null,
+      "target_canonical_capability": "natural-language-report-writer",
+      "target_owner": "P",
+      "target_exact_identifier": "no suministrado",
+      "permissions": [
+        "redacción conversacional desde hechos suministrados, una vez resuelto el identificador exacto"
+      ],
+      "limits": [
+        "sin contexto/preflight/Git/historial/red",
+        "sin archivo de reporte sin destino seleccionado",
+        "no inventar identificador descubierto",
+        "archivo de evaluación autorizado separadamente"
+      ]
+    }
+  ]
+}

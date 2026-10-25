@@ -57,8 +57,11 @@ class PublishRecipeTests(unittest.TestCase):
             fetched=git(f.local,"remote","get-url","--all","origin").stdout.decode("utf-8").strip()
             pushed=git(f.local,"remote","get-url","--push","--all","origin").stdout.decode("utf-8").strip()
             self.assertEqual(str(f.remote),fetched);self.assertEqual(other.as_posix(),pushed)
+            # Publication observation must query the push endpoint, not fetch origin.
+            self.assertEqual(2,advertise(f.local).returncode)
             old=refs(f.remote);r=push_pinned(f,selected)
             self.assertEqual(0,r.returncode,r.stderr);self.assertEqual(selected,head(other,"refs/heads/main"));self.assertEqual(old,refs(f.remote))
+            self.assertEqual(selected,advertise(f.local).stdout.decode("ascii").split()[0])
 
     def test_multiple_endpoints_and_mirror_require_decision(self):
         with remote_fixture(self.root/"multiple") as f:
