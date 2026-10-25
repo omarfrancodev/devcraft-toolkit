@@ -1,7 +1,7 @@
 # Scoped Branch Synchronization and Publication Design
 
 Date: 2026-10-25
-Status: Proposed written design; implementation has not started.
+Status: Approved on 2026-10-25; implementation tracked in the linked plan.
 
 ## Intent and selected approach
 
@@ -13,7 +13,7 @@ Approaches considered:
 2. **Merge/rebase reconciliation.** Handles diverged graphs but adds integration commits or rewritten history; excluded from this increment by the selected approach.
 3. **Fetch-only synchronization.** Refreshes remote observations but does not deliver the requested fast-forward behavior; insufficient as the primary sync contract. Fetch effects are still reported separately when a later fast-forward gate stops.
 
-The remaining command and result details below are builder proposals for approval. This document is self-contained and uses the current toolkit's published contracts rather than unavailable source material.
+The command and result details below form the approved contract. This document is self-contained and uses the current toolkit's published contracts rather than unavailable source material.
 
 ## Goals and constraints
 
@@ -127,4 +127,8 @@ The builder selects test-only helper signatures, fixture layouts, messages, rend
 
 Git's [fetch documentation](https://git-scm.com/docs/git-fetch/2.45.0) defines explicit refspec/refmap and scoped fetch controls; [push documentation](https://git-scm.com/docs/git-push/2.45.0) defines single-ref publication and override semantics; [merge documentation](https://git-scm.com/docs/git-merge) and [hook documentation](https://git-scm.com/docs/githooks) describe fast-forward and applicable effect boundaries. These references support the recipes and are not installed runtime dependencies.
 
-An independent builder check reported “nothing important left”. The written design remains proposed pending approval; the selected functional approach is fetch/fast-forward only.
+An independent builder check reported “nothing important left”. The written design was approved after this check; the selected functional approach is fetch/fast-forward only.
+
+## Execution
+
+Implement the [plan](../plans/2026-10-25-git-sync-publish.md) inline in the established order: synchronization, publication, then integration. Preserve observed test failures and successes; no additional planning approval is required.
