@@ -1,0 +1,40 @@
+{
+  "request": "Create my activity report for 2026-10-24 in UTC using author dates, from the current local HEAD. Explain what you can conclude and which safe history query/selection you would use. No tool access is available in this supplied-fact exercise.",
+  "facts": {
+    "repository": "selected local repo",
+    "configured_email": "dev@example.invalid",
+    "head": "A",
+    "commits": [
+      {
+        "id": "A",
+        "parents": [
+          "B"
+        ],
+        "author_email": "dev@example.invalid",
+        "author_time": "2026-10-20T12:00:00Z",
+        "committer_time": "2026-10-20T12:00:00Z",
+        "message": "maintenance: metadata"
+      },
+      {
+        "id": "B",
+        "parents": [
+          "C"
+        ],
+        "author_email": "dev@example.invalid",
+        "author_time": "2026-10-24T10:00:00Z",
+        "committer_time": "2026-10-25T10:00:00Z",
+        "message": "fix: reject unknown flag keys"
+      },
+      {
+        "id": "C",
+        "parents": [],
+        "author_email": "dev@example.invalid",
+        "author_time": "2026-10-24T00:00:00Z",
+        "committer_time": "2026-10-24T00:00:00Z",
+        "message": "docs: document flag validation"
+      }
+    ],
+    "traversal": "complete",
+    "shallow": false
+  }
+}

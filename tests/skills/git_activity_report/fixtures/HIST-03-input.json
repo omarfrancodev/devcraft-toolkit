@@ -1,0 +1,13 @@
+{
+  "request": "Prepare my report for 2026-10-24 UTC. The first page has no matching commits. Return a concise result; there is no tool access in this exercise.",
+  "facts": {
+    "head": "J",
+    "configured_email": "dev@example.invalid",
+    "examined": 1000,
+    "budget": 1000,
+    "probe_count": 1001,
+    "selected_in_examined": 0,
+    "shallow": false,
+    "messages_available": []
+  }
+}

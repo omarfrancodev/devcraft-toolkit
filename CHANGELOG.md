@@ -4,6 +4,22 @@ Release dates use the GitHub publication date in America/Mexico_City. Pre-releas
 
 ## unreleased
 
+## 0.1.0-preview.5 — 2026-10-25
+
+Experimental local Git activity reporting. Twelve skills are available; native activation remains partially validated.
+
+### Added
+
+- Add `git-activity-report` with pinned local history, author/committer date selection, exact raw-author filtering, timezone-aware half-open periods and explicit coverage limits.
+- Compose report writing and explicit one-file output through the existing writer, preserving message-level attribution, numeric meaning, failed saves and readback results.
+- Add owner-scoped Git recipe controls, baseline/candidate behavior samples, a real three-folder report application and optional entry-routing evaluations.
+
+### Changed
+
+- Expand the current source to twelve available/five planned skills with a three-skill standalone report closure and consistent installation selections.
+- Align both existing manifests and version-pinned consumer guidance on `0.1.0-preview.5`. Prepare the changelog and release documentation in PR #7 for publication from its exact merge commit; preview.4 retains its eleven-skill payload and historical evidence.
+- Mark remote publication as the next roadmap increment, with authenticated native validation continuing separately.
+
 ## 0.1.0-preview.4 — 2026-10-24
 
 Experimental exact staging and local commit construction. Eleven skills are available; native activation remains partially validated.
