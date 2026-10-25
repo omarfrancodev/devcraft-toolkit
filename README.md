@@ -2,7 +2,7 @@
 
 A modular toolkit of composable skills for repository context, Git inspection and planning, exact authorized staging, requested local commits, project validation, reporting, and portable progress tracking. Compatibility is recorded only for harnesses actually exercised.
 
-The distribution currently includes eleven available skills: `using-devcraft-toolkit`, `git-working-directory-policy`, `git-safety-check`, `conventional-commits-style`, `todo-workflow-controller`, `natural-language-report-writer`, `validation-discovery`, `git-analyze-changes`, `git-plan-commits`, `git-stage-changes`, and `git-commit-builder`. Publication coordination and the Git activity-report coordinator remain planned capabilities, not usable skills in this distribution. CCR integration is outside the current scope.
+The current development candidate includes twelve available skills: `using-devcraft-toolkit`, `git-working-directory-policy`, `git-safety-check`, `conventional-commits-style`, `todo-workflow-controller`, `natural-language-report-writer`, `validation-discovery`, `git-analyze-changes`, `git-plan-commits`, `git-stage-changes`, `git-commit-builder`, and `git-activity-report`. Publication coordination remains planned and unavailable in this distribution. CCR integration is outside the current scope.
 
 Skill definitions and default templates use English. User-facing content follows an explicit language preference or the language of the user's request, defaulting to English when neither can be determined. Tests are maintained outside individual skill directories, grouped by the owning skill and then by test scope; repository infrastructure and cross-skill coverage have separate shared groups.
 
@@ -27,3 +27,9 @@ Need selected capabilities instead? Use [individual skill installation](docs/ins
 `git-stage-changes` preserves excluded index/worktree content; `git-commit-builder` creates explicitly requested normal commits with scoped validation, effective identity and hook checks, and actual partial-progress reporting. A proposal or ready preflight grants no write permission. See the [design](docs/superpowers/specs/2026-10-24-git-staging-commit-construction-design.md), [plan](docs/superpowers/plans/2026-10-24-git-staging-commit-construction.md) and [roadmap](docs/roadmap.md).
 
 Earlier [preview.3](docs/releases/v0.1.0-preview.3.md) remains the nine-skill read-only analysis/planning snapshot; [preview.2](docs/releases/v0.1.0-preview.2.md) contains seven skills, and preview.1 is source-only. Historical native registration/resource evidence does not establish activation of the added skills.
+
+## Development candidate
+
+The unpublished `0.1.0-preview.5` candidate adds `git-activity-report`, bringing the available set to twelve. It inspects a pinned local history with explicit period/timezone, author-date and exact-author selection, bounded coverage and message-level evidence, then delegates writing to `natural-language-report-writer`. A saved report needs an explicit destination and verified readback; reporting does not authorize Git writes or publication.
+
+Published preview.4 remains an eleven-skill snapshot without this coordinator. Use a reviewed source revision containing this increment for the twelve-skill set; no preview.5 publication or native activation is claimed. See the [design](docs/superpowers/specs/2026-10-24-git-activity-report-design.md), [plan](docs/superpowers/plans/2026-10-24-git-activity-report.md) and [next increments](docs/roadmap.md#next-increments-and-acceptance-gates).

@@ -2,7 +2,7 @@
 
 ## Current foundation
 
-The preview.4 catalog provides eleven available skills and six planned entries across seventeen names. Exact scoped staging and commit construction join the foundation, shared capabilities and read-only preparation. Their explicit authorization boundaries permit selected index writes and requested normal commits; the earlier capabilities retain their own contracts. Optional entry routes add no hard dependency to the entry. Preview.3 remains a nine-skill snapshot; preview.4 delivers the eleven-skill set.
+The unpublished preview.5 candidate catalog provides twelve available skills and five planned entries across seventeen names. Exact scoped staging and commit construction join the foundation, shared capabilities and read-only preparation. Their explicit authorization boundaries permit selected index writes and requested normal commits; the earlier capabilities retain their own contracts. Optional entry routes add no hard dependency to the entry. Preview.3 remains a nine-skill snapshot and preview.4 the eleven-skill release. Preview.5 adds local-history reporting; it is not yet published.
 
 ## Shared capabilities
 
@@ -18,7 +18,7 @@ The [seven-client extension](../tests/integration/distribution/evaluations/2026-
 
 ## Git coordinators
 
-Local commit construction is available in preview.4 with bounded index/commit writes. Git-history activity reporting and remote publication remain separate planned increments; define their evidence, side effects and authorization boundaries before implementation. Planned capabilities have no discoverable skill placeholders and are not emulated by the entry.
+Local commit construction is available in preview.4 with bounded index/commit writes. Git-history activity reporting is available in the preview.5 candidate through context and report-writer composition. Remote publication remains the next planned increment; define its evidence, side effects and authorization boundaries before implementation. Planned capabilities have no discoverable skill placeholders and are not emulated by the entry.
 
 ## Deferred capabilities
 
@@ -41,8 +41,8 @@ The table reflects catalog availability. Planned designs do not create installab
 
 1. **Read-only analysis and commit planning — available.** Deliver `git-analyze-changes` and `git-plan-commits`, preserving staged/unstaged boundaries and freshness. See the [design](superpowers/specs/2026-10-24-git-analysis-planning-design.md) and [plan](superpowers/plans/2026-10-24-git-analysis-planning.md). Owner-scoped replay/edge evidence, real Git fixture safety checks and dependency-aware optional entry routes are implemented. Native invocation of the new capabilities remains unverified.
 2. **Staging and commit construction — available in preview.4.** `git-stage-changes` and `git-commit-builder` implement exact selection, explicit mutation authorization, current preflight/effective identity, scoped validation and preserved partial progress. See the [design](superpowers/specs/2026-10-24-git-staging-commit-construction-design.md) and [plan](superpowers/plans/2026-10-24-git-staging-commit-construction.md). Branch creation is not implied; native invocation remains unverified.
-3. **Git-history activity reporting — planned.** Design `git-activity-report` with verified history, author/date/timezone filters, evidence limits, report-writer reuse and an explicit output destination when saving.
-4. **Remote publication — planned.** Design `git-sync-branch`, `git-publish-changes`, `git-manage-pull-request` and `git-promote` before composing `git-publish-work`. Define independent synchronization, publication, review/promotion and authorization boundaries; no automatic remote mutation from an inspection request.
+3. **Git-history activity reporting — available in the development candidate.** `git-activity-report` provides pinned local history, exact author/date/timezone selection, bounded coverage and report-writer reuse with explicit file output/readback. See the [design](superpowers/specs/2026-10-24-git-activity-report-design.md) and [plan](superpowers/plans/2026-10-24-git-activity-report.md). Native invocation remains unverified.
+4. **Remote publication — next planned increment.** Design `git-sync-branch`, `git-publish-changes`, `git-manage-pull-request` and `git-promote` before composing `git-publish-work`. Define independent synchronization, publication, review/promotion and authorization boundaries; no automatic remote mutation from an inspection request.
 5. **Native validation — ongoing.** Start with a small authenticated Codex invocation of the published preview, then Copilot CLI and VS Code, followed by Claude Code and Kiro CLI V3/IDE/Crew. Verify resource reads, user/project scope and version-changing lifecycle per client. Keep unobserved rows open; this track does not block building the read-only capabilities.
 
 CCR, a custom installer, release automation and public directory submission remain deferred. Catalog availability is the current product inventory; old spec/plan checkboxes retain historical execution records and do not establish native validation. In particular, the earlier installation plan's authenticated execution gate remains open.
@@ -53,4 +53,4 @@ CCR, a custom installer, release automation and public directory submission rema
 
 ## Staging and commit construction release
 
-[Preview.4](releases/v0.1.0-preview.4.md) delivers exact staging and requested local commit construction as an eleven-skill suite. Its changelog and release preparation belong to PR #6; the tag/assets target that PR's exact merge commit, without a later source-preparation commit. Git-history activity reporting is next; native invocation continues as a separate validation track.
+[Preview.4](releases/v0.1.0-preview.4.md) delivers exact staging and requested local commit construction as an eleven-skill suite. Its changelog and release preparation belong to PR #6; the tag/assets target that PR's exact merge commit, without a later source-preparation commit. The subsequent activity-report coordinator is available in the unpublished preview.5 candidate. Remote publication is next; native invocation continues as a separate validation track.

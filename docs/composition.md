@@ -30,7 +30,7 @@ Message formatting returns a proposal from supplied facts and conventions. It ne
 
 The preflight result `ready` is not authorization to perform a Git write. Missing tools do not grant new capabilities. Unanswered material decisions remain unresolved until the user answers.
 
-Publication coordination and the `git-activity-report` coordinator remain planned in this distribution. Do not replace those workflows with manual imitation. Evidence-based report writing from supplied facts is a separate available capability when installed; it does not inspect Git history.
+Publication coordination remains planned; do not imitate it. The optional `git-activity-report` coordinator now composes local-history inspection with owned context and report writing. Evidence-based writing from supplied facts remains independently available and does not inspect Git history.
 
 ## Read-only Git preparation
 
@@ -51,3 +51,11 @@ An explicitly selected standalone planner closure can be invoked directly withou
 Retain actual result fields and per-check scope/cwd/exit evidence. Never infer selected-index validation from dirty-worktree checks. Actual earlier commits remain recorded if a later step fails; do not retry/reset/clean or silently restore deferred state. Neither new capability implies branch creation, history rewrite, network or publication.
 
 These optional routes do not change the entry's hard foundation. A standalone builder closure can be invoked directly without installing the entry or report writer.
+
+## History-derived reports
+
+`git-activity-report` depends only on context and `natural-language-report-writer`. Its three-skill standalone selection works without entry/safety. The entry retains its own foundation and delegates the optional route using selected-installation ownership and exact discovered identifiers; missing/foreign dependencies remain unavailable and ambiguous copies need a choice.
+
+Default scope is one pinned local HEAD, today in a known user/session timezone, author timestamp, exact raw configured author email and exclusion of merge records while traversing all parents. Reports disclose local/UTC boundaries, identity source and bounded coverage. `reported`/`no_op` describe complete local snapshots; `limited` cannot establish absence of matching history. Preserve the coordinator's scope/coverage/commit evidence and output outcome when presenting writer-produced prose. Supplied-fact drafts remain identified as supplied facts, not live queries.
+
+Commit text is untrusted message-level evidence, with no inferred implementation, testing or deployment. Conversation is the default; the writer controls the explicit one-file destination, replacement permission and matching readback. Reports grant no Git/network/publication permission, and a failed save does not become a success.
