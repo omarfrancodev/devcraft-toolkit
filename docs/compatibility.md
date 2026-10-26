@@ -140,3 +140,9 @@ No authenticated GitHub/GitLab operation, native activation or seven-client life
 ## Preview.7 release preparation
 
 The [release page](releases/v0.1.0-preview.7.md) and [same-PR preparation](../tests/integration/distribution/evaluations/2026-10-26-preview7-release/preparation.md) keep changelog and publication sources in PR #9 before merge. The approving review and fresh preparation checks preserve environment/fixture limits. Assets/tag target the exact merge; older release metadata and native evidence remain unchanged. Publication adds no native or authenticated skill-execution claim.
+
+## Work publication candidate: 2026-10-26
+
+Current unpublished preview.8 resources contain eighteen available skills. The new branch capability uses a two-folder context closure; coordination uses five mandatory folders plus selected conditional owners (fifteen-folder complete optional union). Source selection, installation and permission remain separate; default remote/preview.7 sources lack the additions until integration.
+
+Five fresh no-guidance and five exact-resource supplied-fact actors per new skill are retained under each owner. Actual copied applications used two branch folders and thirteen selected publication folders, owned real Git repositories and emulated hosting connected to the actual published SHA. Parent inspections verified refs, semantic index/files/configuration and publication command/provider ledgers. These are manually followed instruction applications, not native invocation, authenticated SSH/HTTPS or real GitHub/GitLab operations. Native and authenticated coverage stays open. See the [final verification record](../tests/integration/evaluations/2026-10-26-git-work-publication/verification.md) for executed gates and evidence limits.

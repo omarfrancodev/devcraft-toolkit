@@ -10,8 +10,8 @@ The selected behavior includes creating a work branch when work is still on the 
 
 ### Approaches
 
-1. Independent branch capability plus publication coordinator â€” selected. Branch creation has its own permission/evidence contract, standalone installation and owner tests. Coordination delegates it just like the existing commit/push/request owners. It adds one catalog name and a small inventory-validation update.
-2. Branch creation embedded in the publication coordinator â€” considered. It keeps seventeen names and one new folder, but makes branch creation available only through that coordinator and reduces independent reuse. Not selected.
+1. Independent branch capability plus publication coordinator — selected. Branch creation has its own permission/evidence contract, standalone installation and owner tests. Coordination delegates it just like the existing commit/push/request owners. It adds one catalog name and a small inventory-validation update.
+2. Branch creation embedded in the publication coordinator — considered. It keeps seventeen names and one new folder, but makes branch creation available only through that coordinator and reduces independent reuse. Not selected.
 
 ### Approved implementation boundaries
 

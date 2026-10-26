@@ -22,7 +22,7 @@ _STATUSES = {"planned", "available"}
 _FENCE_OPEN = re.compile(r"^ {0,3}(`{3,}|~{3,})(.*)$")
 _FENCE_CLOSE = re.compile(r"^ {0,3}(`+|~+)[ \t]*$")
 _LIST_MARKER = re.compile(r"(?:[*+-]|[0-9]{1,9}[.)])(?=[ \t])")
-_INVENTORY_SPEC = Path("docs/superpowers/specs/2026-10-16-bootstrap-foundation-design.md")
+_INVENTORY_SPEC = Path("docs/capability-inventory.md")
 _INVENTORY_HEADING = "## Target capability inventory"
 _INVENTORY_ROW = re.compile(r"^\|\s*([a-z0-9]+(?:-[a-z0-9]+)*)\s*\|\s*[^|\n]+\|\s*(?:planned|available)\s*\|$")
 _MARKDOWN_ESCAPABLE = set('!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~')
@@ -54,7 +54,7 @@ def _load_spec_inventory(root: Path) -> tuple[set[str] | None, str | None]:
     try:
         lines = spec_path.read_text(encoding="utf-8").splitlines()
     except (OSError, UnicodeError) as exc:
-        return None, f"Cannot read canonical skill inventory spec {_INVENTORY_SPEC.as_posix()}: {exc}"
+        return None, f"Cannot read canonical skill inventory {_INVENTORY_SPEC.as_posix()}: {exc}"
 
     in_inventory = False
     names: list[str] = []
@@ -68,9 +68,11 @@ def _load_spec_inventory(root: Path) -> tuple[set[str] | None, str | None]:
             match = _INVENTORY_ROW.fullmatch(line)
             if match:
                 names.append(match.group(1))
+            elif line.strip().startswith("|") and line.strip() != "| Capability | Role | Status |" and not re.fullmatch(r"[| :\-]+", line.strip()):
+                return None, f"Malformed canonical inventory row in {_INVENTORY_SPEC.as_posix()}."
 
-    if len(names) != 17 or len(set(names)) != 17:
-        return None, f"The canonical inventory in {_INVENTORY_SPEC.as_posix()} must define exactly 17 unique skill names."
+    if not names or len(set(names)) != len(names):
+        return None, f"The canonical inventory in {_INVENTORY_SPEC.as_posix()} must define nonempty unique skill names."
     return set(names), None
 
 
@@ -149,9 +151,9 @@ def validate_repository(root: Path) -> list[ValidationIssue]:
             if missing:
                 details.append(f"missing from catalog: {', '.join(missing)}")
             if unexpected:
-                details.append(f"not in spec: {', '.join(unexpected)}")
+                details.append(f"not in approved inventory: {', '.join(unexpected)}")
             issues.append(ValidationIssue(
-                "catalog-inventory", "catalog.json", "Catalog names differ from the design spec (" + "; ".join(details) + ").",
+                "catalog-inventory", "catalog.json", "Catalog names differ from the approved inventory (" + "; ".join(details) + ").",
             ))
 
     for entry in valid_entries:

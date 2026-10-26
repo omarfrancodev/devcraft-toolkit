@@ -348,3 +348,43 @@ class RepositoryValidationTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class CurrentInventoryTests(unittest.TestCase):
+    """Full-root controls; tiny package tests above intentionally omit identity files."""
+    entry = staticmethod(RepositoryValidationTests.entry)
+    catalog = RepositoryValidationTests.catalog
+    tearDown = RepositoryValidationTests.tearDown
+
+    def setUp(self):
+        RepositoryValidationTests.setUp(self)
+        (self.root/"AGENTS.md").write_text("Repository identity\n",encoding="utf-8")
+
+    def inventory(self,names):
+        p=self.root/"docs/capability-inventory.md";p.parent.mkdir(parents=True,exist_ok=True)
+        p.write_text("## Target capability inventory\n\n| Capability | Role | Status |\n| --- | --- | --- |\n"+"".join(f"| {n} | support | planned |\n" for n in names),encoding="utf-8")
+
+    def test_approved_inventory_expansion_has_no_fixed_seventeen_limit(self):
+        names=("alpha","beta","gamma","delta","epsilon","zeta","eta","theta","iota","kappa","lambda","mu","nu","xi","omicron","pi","rho","sigma","tau")
+        self.inventory(names);self.catalog([self.entry(n) for n in names])
+        self.assertEqual([],validate_repository(self.root))
+
+    def test_missing_approved_catalog_name_is_rejected(self):
+        self.inventory(["alpha","beta"]);self.catalog([self.entry("alpha")])
+        self.assertIn("catalog-inventory",{i.code for i in validate_repository(self.root)})
+
+    def test_unapproved_extra_catalog_name_is_rejected(self):
+        self.inventory(["alpha"]);self.catalog([self.entry("alpha"),self.entry("beta")])
+        self.assertIn("catalog-inventory",{i.code for i in validate_repository(self.root)})
+
+    def test_duplicate_approved_inventory_name_is_rejected(self):
+        self.inventory(["alpha","alpha"]);self.catalog([self.entry("alpha")])
+        self.assertIn("catalog-inventory",{i.code for i in validate_repository(self.root)})
+
+    def test_empty_inventory_is_rejected(self):
+        self.inventory([]);self.catalog([])
+        self.assertIn("catalog-inventory",{i.code for i in validate_repository(self.root)})
+
+    def test_malformed_inventory_row_is_rejected(self):
+        self.inventory(["alpha","bad_name"]);self.catalog([self.entry("alpha")])
+        self.assertIn("catalog-inventory",{i.code for i in validate_repository(self.root)})

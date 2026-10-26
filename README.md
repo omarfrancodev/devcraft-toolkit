@@ -2,11 +2,11 @@
 
 A modular toolkit of composable skills for repository context, Git inspection and planning, exact authorized staging, requested local commits, scoped branch synchronization and publication, hosted PR/MR management and explicit promotion, project validation, reporting, and portable progress tracking. Compatibility is recorded only for harnesses actually exercised.
 
-The preview.7 distribution includes sixteen available skills: `using-devcraft-toolkit`, `git-working-directory-policy`, `git-safety-check`, `conventional-commits-style`, `todo-workflow-controller`, `natural-language-report-writer`, `validation-discovery`, `git-analyze-changes`, `git-plan-commits`, `git-stage-changes`, `git-commit-builder`, `git-activity-report`, `git-sync-branch`, `git-publish-changes`, `git-manage-pull-request`, and `git-promote`. Publication coordination remains planned and unavailable in this distribution. CCR integration is outside the current scope.
+Published preview.7 contains sixteen skills and excludes the two current candidate additions described below. CCR integration remains deferred.
 
 Skill definitions and default templates use English. User-facing content follows an explicit language preference or the language of the user's request, defaulting to English when neither can be determined. Tests are maintained outside individual skill directories, grouped by the owning skill and then by test scope; repository infrastructure and cross-skill coverage have separate shared groups.
 
-The [catalog](catalog.json) records all seventeen target capabilities and marks each as `available` or `planned`. Sixteen are available and only `git-publish-work` remains planned. See [installation](docs/installation.md), [architecture](docs/architecture.md), [language behavior](docs/language.md), and [compatibility evidence](docs/compatibility.md).
+The [approved inventory](docs/capability-inventory.md) and [catalog](catalog.json) contain eighteen available capabilities, with no planned placeholders. Current source adds independent work-branch creation and selected publication coordination as an unpublished `0.1.0-preview.8` candidate. See [installation](docs/installation.md), [architecture](docs/architecture.md), [language behavior](docs/language.md), and [compatibility evidence](docs/compatibility.md).
 
 The [capability roadmap](docs/roadmap.md) links the self-contained designs and plans for upcoming increments.
 
@@ -16,7 +16,7 @@ Install the complete toolkit directly from GitHub using your client's documented
 
 Choose [Codex](docs/installation/codex.md), [Copilot CLI](docs/installation/copilot-cli.md), [Copilot in VS Code](docs/installation/copilot-vscode.md), [Claude Code](docs/installation/claude-code.md), [Kiro CLI V3](docs/installation/kiro-cli.md), [Kiro IDE](docs/installation/kiro.md), or [Kiro Crew](docs/installation/kiro-crew.md). The [installation overview](docs/installation.md) explains scope and the Kiro project fallback.
 
-The default-branch recipes use the integrated sixteen-skill package. See [preview.7 release details](docs/releases/v0.1.0-preview.7.md) for version-pinned source options; [earlier preview sources](docs/installation/preview.md) are historical evidence. Native activation remains partially validated; no official catalog listing is claimed.
+Published preview.7 and default remote recipes currently deliver sixteen skills. The two candidate capabilities require this checkout/revision until it is integrated; use the [development route](docs/installation/development.md) to inspect candidate resources. After integration the complete remote suite follows its selected revision. See [preview.7 release details](docs/releases/v0.1.0-preview.7.md) for version-pinned source options; [earlier preview sources](docs/installation/preview.md) are historical evidence. Native activation remains partially validated; no official catalog listing is claimed.
 
 Need selected capabilities instead? Use [individual skill installation](docs/installation/individual-skills.md). Package contributors and manual-copy users can use [local development/reference](docs/installation/development.md).
 
@@ -33,3 +33,9 @@ Earlier [preview.6](docs/releases/v0.1.0-preview.6.md) retains fourteen skills, 
 `git-manage-pull-request` proposes or observes a selected PR/MR and may create it or edit selected title/body fields when explicitly requested. Its direct closure has two folders: management and context. `git-promote` adds a third folder and may perform one expressly requested source-conditional normal merge of an existing request after current policy/review/check gates. Both default to offline assessment, preserve local work and do not imply push, branch cleanup, release or deployment.
 
 See the [approved design](docs/superpowers/specs/2026-10-25-git-pr-promotion-design.md), [plan](docs/superpowers/plans/2026-10-25-git-pr-promotion.md), [standalone selections](docs/installation/individual-skills.md) and [evidence limits](docs/compatibility.md). The changelog and release preparation belong to PR #9; its exact merge commit is the tag/asset source. Preview.6 retains fourteen skills and historical native probes keep their original scope.
+
+## Work branches and publication coordination
+
+`git-create-work-branch` can independently create and select a new local branch at the current committed HEAD while preserving partial staging and all local work. `git-publish-work` coordinates only the selected goal: necessary branch creation, full commit preparation, normal push and optional PR/MR work, with synchronization and merge only when explicitly requested. It forecasts known blockers before earlier writes and preserves actual partial effects.
+
+Standalone branch creation needs two folders; basic coordination needs five. Additional owners are conditional on the selected flow. See the [design](docs/superpowers/specs/2026-10-26-git-work-publication-design.md), [plan](docs/superpowers/plans/2026-10-26-git-work-publication.md), [composition](docs/composition.md) and [exact installation selections](docs/installation/individual-skills.md). Native activation and authenticated provider validation remain open.

@@ -177,7 +177,9 @@
     "clean exact committed tree/index",
     "all working bytes and local config preserved",
     "exact remote ref set",
-    "13 copied folders byte-equal"
+    "13 copied folders byte-equal",
+    "exact local refs: originals plus selected branch and expected opportunistic tracking ref",
+    "owned global configuration still exact original empty bytes"
   ],
   "limits": "Manually followed copied instructions; owned real Git and emulated hosting only. Parent initial trace reader omitted --file=- and was corrected from actual argv; no fixture mutation replayed. Direct parent reads independently establish final state; audit trace is preauthorized outside checkout."
 }
