@@ -24,7 +24,7 @@ Read [publication.md](references/publication.md) before inspection/execution. It
 3. Pin full source OID. Observe the selected remote branch under publication permission. Unknown local target objects require a fetch decision, not automatic fetch. Non-fast-forward is blocked. Stricter create-only/exact-old conditions must not be weakened.
 4. Refresh guards; push only the full pinned source to the full branch ref, suppressing tag/submodule/default expansion and automatic setup as documented. Never force, mirror, delete, use all/tags or skip hooks. Capture the actual result once.
 5. Independently verify the remote OID and preserved local guards/expected tracking effects. Failed or unavailable acknowledgment is not proof of no effects; preserve state without retry, rollback or cleanup.
-6. Only for explicitly requested upstream setup, after verified publication/equality and unchanged source, write/read back the two repository-local branch keys. Preserve other/global config and actual partial failure. An already equal target needs no push; requested configuration remains a separate result.
+6. Only for explicitly requested upstream setup, after verified publication/equality and unchanged source, require a usable existing fetch mapping/tracking ref, write/read back the two repository-local branch keys and verify upstream resolution. Preserve other/global config and actual partial failure. An already equal target needs no push; requested configuration remains a separate result.
 
 ## Return
 

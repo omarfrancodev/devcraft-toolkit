@@ -61,6 +61,8 @@ Capture the actual exit/stdout/stderr during that one attempt. Verify selected t
 
 Only an explicit request permits repository-local `branch.<current>.remote` and `branch.<current>.merge` changes. Verify publication/equality, recheck the source/endpoint and inspect old effective values/origins. Conflicting command/worktree/include overrides that would prevent the requested local values from becoming effective need a decision before config writes; do not change another scope silently.
 
+Before either key write, inspect effective `remote.<remote>.fetch` entries, including exclusions and scope/origin overrides. The selected full remote branch must map unambiguously to one safe direct local remote-tracking ref through an existing usable mapping. Verify that ref already resolves locally to a commit; a stored key pair alone does not make an upstream usable. A single-branch clone may map only main and exclude a newly published feature branch. Missing, excluded, ambiguous or unusable mapping/ref yields upstream `needs_decision` before keys change. Preserve any verified push as a completed branch effect and report unfinished setup separately (overall partial when publication already had effects). Do not fetch, create/repair tracking refs or widen `remote.*.fetch` under the two-key setup permission. A push without requested upstream setup does not require such a mapping, provided its own publication gates pass.
+
 When permitted, set exactly:
 
 ```text
@@ -68,7 +70,7 @@ config --local --replace-all branch.<current>.remote <selected-remote>
 config --local --replace-all branch.<current>.merge refs/heads/<destination>
 ```
 
-Pass keys/values as separate arguments, verify both local and effective values/origins, and preserve every other key and global file. A pinned-OID push with -u is not evidence that a named local branch's tracking was configured. Do not use -u as that assumption. Already equal remote state satisfies the verified publication prerequisite for explicitly requested setup; no unnecessary push is run. Report configuration effects separately from branch no_op.
+Pass keys/values as separate arguments, verify both local and effective values/origins, and preserve every other key and global file. Then resolve `<current>@{upstream}` to the expected full tracking ref with protected `rev-parse --symbolic-full-name <current>@{upstream}` and verify `<current>@{upstream}^{commit}` with `rev-parse --verify --end-of-options`. Capture exits and the local tracking OID; cached tracking is distinct from the independently observed remote tip. `configured` requires successful correct-ref/commit resolution, not only matching config values. A failed or unexpected resolution after writes is partial: preserve actual keys/publication and request a decision, without automatic repair or false completion. A pinned-OID push with -u is not evidence that a named local branch's tracking was configured. Do not use -u as that assumption. Already equal remote state satisfies the verified publication prerequisite for explicitly requested setup; no unnecessary push is run. Report configuration effects separately from branch no_op.
 
 If one key fails after the other or source changes after push, preserve the successful push/actual key state and report partial; do not restore automatically or claim complete setup. Without explicit setup permission, config stays unchanged.
 

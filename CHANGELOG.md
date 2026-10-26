@@ -12,6 +12,7 @@ Candidate source version: `0.1.0-preview.6` (not published).
 - Add `git-publish-changes` for one pinned normal branch push, independent verification and expressly requested two-key repository-local upstream setup.
 - Retain offline inspection defaults, endpoint/helper/hook gates, no implicit fetch/force/retry, owner-scoped behavior evidence and actual local bare-repository applications.
 - Preserve ignored-file collisions during fast-forward and reject symbolic selected tracking destinations before fetch or push.
+- Require an existing usable fetch mapping/tracking ref before requested upstream keys change and verify actual upstream resolution after setup; preserve publication when setup needs a decision.
 
 ### Changed
 

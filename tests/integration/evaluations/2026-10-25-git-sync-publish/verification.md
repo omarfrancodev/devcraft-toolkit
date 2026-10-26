@@ -24,3 +24,7 @@ Post-fix full discovery: **138 tests, 137 passed, one existing Windows symlink p
 Both validators, both new-skill quick validations and complete-base whitespace passed after the correction. The [independent review and fix record](review.md) distinguishes the two Important findings, RED/GREEN, fresh behavioral cases and application limits. The [retained execution ledger](execution-ledger.md) records all task gates, rulings and costs. No minor findings were deferred. The branch/worktree remain local; this increment creates no PR or release.
 
 Final changed-document local target check: 130 checked, zero missing.
+
+## Subsequent upstream review correction
+
+The [F002 follow-up](../../../skills/git_publish_changes/evaluations/upstream-mapping-review.md) reproduces a single-branch mapping gap and absent local tracking. The new fresh full suite discovered 140 tests: 139 passed and one Windows skip. Historical 135/138-test records above retain their original scope; this follow-up adds two regressions and strengthens successful setup resolution checks.

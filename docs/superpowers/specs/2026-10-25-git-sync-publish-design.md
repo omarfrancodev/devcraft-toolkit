@@ -142,3 +142,7 @@ Verified remote equality satisfies the publication prerequisite for separately r
 A selected fetch write destination must be direct or absent, not symbolic. Inspect its direct metadata before fetch and again at the freshness gate. Symbolic-pointer preservation alone is insufficient because Git can dereference it into an unrelated branch. Apply the same pre-push check to every matching opportunistic tracking destination; errors block rather than imply absence. Never repair a symbolic ref automatically.
 
 The fast-forward recipe must use `--no-overwrite-ignore`. Clean status does not expose ignored content; a newly tracked target path must not overwrite it. On collision preserve bytes, HEAD and index, disclose earlier fetch/metadata effects and stop without cleanup or retry.
+
+## Usable upstream postcondition
+
+Requested two-key upstream setup requires an existing unambiguous safe fetch mapping for the selected remote branch and an already usable local tracking ref. Inspect effective mapping exclusions/overrides before writing keys. Missing or unusable mapping/ref returns upstream needs_decision without changing the keys, preserving independently verified publication and reporting unfinished setup. Do not fetch, create tracking refs or expand remote fetch configuration under this permission. After writes, verify the expected full upstream ref and commit resolution; failed readback is partial, not configured. Normal publication without upstream setup retains its independent mapping/effect gates.

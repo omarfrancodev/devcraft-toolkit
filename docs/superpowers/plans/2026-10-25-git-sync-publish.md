@@ -97,3 +97,9 @@ Execute inline following the user's approved spec/implementation continuation. U
 ## Self-review
 
 Shared field names and both dependency closures agree across tasks. Every Review Focus item has real Git controls or explicit behavioral cases. Recipe tests do not prove instruction following, and manual copied-resource applications do not establish native activation. No implementation relies on unavailable projects or historical migration provenance.
+
+## Review follow-up: usable upstream
+
+Add real single-branch and absent-tracking controls for the upstream postcondition, retaining their RED/GREEN outcomes. Verify normal publication still succeeds independently, safe mapped setup resolves the correct ref/commit, missing setup prerequisites preserve keys/publication, and no implicit fetch or mapping repair occurs. Retain fresh supplied-fact behavior and rerun the full suite/validators before updating the same PR.
+
+Follow-up completed: both new regressions failed before the correction and passed afterward; successful setup cases also resolve the correct upstream ref/commit. Fresh full verification: 140 tests, 139 passed, one existing Windows skip; validators passed.

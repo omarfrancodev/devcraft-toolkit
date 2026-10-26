@@ -1,5 +1,7 @@
 """Real normal-push controls using local bare endpoints; no skill-loader claim."""
 from pathlib import Path
+from dataclasses import replace
+from tests.skills.git_publish_changes.integration.upstream_recipe import setup_upstream
 import hashlib
 import tempfile
 import unittest
@@ -127,8 +129,10 @@ class PublishRecipeTests(unittest.TestCase):
             r=push_pinned(f,selected,"feature/demo");self.assertEqual(0,r.returncode,r.stderr)
             self.assertEqual(selected,advertise(f.local,branch="feature/demo").stdout.decode("ascii").split()[0])
             self.assertEqual(1,git(f.local,"config","--get","branch.feature/demo.remote",check=False).returncode)
-            git(f.local,"config","--local","--replace-all","branch.feature/demo.remote","origin")
-            git(f.local,"config","--local","--replace-all","branch.feature/demo.merge","refs/heads/feature/demo")
+            configured=setup_upstream(f.local,"feature/demo","origin","feature/demo")
+            self.assertEqual("configured",configured["outcome"])
+            self.assertEqual("refs/remotes/origin/feature/demo",configured["tracking_ref"])
+            self.assertEqual(selected,configured["tracking_oid"])
             after=git(f.local,"config","--local","--list").stdout.splitlines()
             self.assertEqual(set(before)|{b"branch.feature/demo.remote=origin",b"branch.feature/demo.merge=refs/heads/feature/demo"},set(after))
             self.assertEqual(global_before,hashlib.sha256(cfg.read_bytes()).hexdigest())
@@ -154,8 +158,10 @@ class PublishRecipeTests(unittest.TestCase):
             before=refs(f.remote);source=head(f.local)
             observed=advertise(f.local)
             self.assertEqual(source,observed.stdout.decode("ascii").split()[0])
-            git(f.local,"config","--local","--replace-all","branch.main.remote","origin")
-            git(f.local,"config","--local","--replace-all","branch.main.merge","refs/heads/main")
+            configured=setup_upstream(f.local,"main","origin","main")
+            self.assertEqual("configured",configured["outcome"])
+            self.assertEqual("refs/remotes/origin/main",configured["tracking_ref"])
+            self.assertEqual(source,configured["tracking_oid"])
             self.assertEqual(before,refs(f.remote));self.assertFalse((f.local/"push-marker").exists())
             self.assertEqual(b"origin\n",git(f.local,"config","--get","branch.main.remote").stdout)
             self.assertEqual(b"refs/heads/main\n",git(f.local,"config","--get","branch.main.merge").stdout)
@@ -170,3 +176,34 @@ class PublishRecipeTests(unittest.TestCase):
             self.assertNotEqual(0,result.returncode)
             self.assertEqual(before,snapshot_repository(f.local))
             self.assertEqual(remote_before,refs(f.remote))
+
+    def test_single_branch_upstream_requires_usable_fetch_mapping(self):
+        with remote_fixture(self.root) as f:
+            single=f.root/"sb"
+            git(f.root,"clone","--single-branch","--branch","main","--",str(f.remote),str(single))
+            for key,value in (("user.name","Fixture User"),("user.email","fixture@example.invalid")):
+                git(single,"config","--local",key,value)
+            git(single,"switch","-c","feature/demo")
+            source=commit(single,"single branch publication")
+            selected=replace(f,local=single)
+            self.assertEqual(0,push_pinned(selected,source,"feature/demo").returncode)
+            self.assertEqual(source,advertise(single,branch="feature/demo").stdout.decode("ascii").split()[0])
+            self.assertEqual(b"+refs/heads/main:refs/remotes/origin/main\n",git(single,"config","--get-all","remote.origin.fetch").stdout)
+            before=snapshot_repository(single);remote_before=refs(f.remote)
+            result=setup_upstream(single,"feature/demo","origin","feature/demo")
+            unresolved=git(single,"rev-parse","--verify","@{upstream}",check=False)
+            self.assertEqual("needs_decision",result["outcome"],unresolved.stderr.decode())
+            self.assertEqual(before,snapshot_repository(single))
+            self.assertEqual(remote_before,refs(f.remote))
+            self.assertNotIn("refs/remotes/origin/feature/demo",refs(single))
+
+    def test_equal_remote_without_local_tracking_requires_decision_before_keys(self):
+        with remote_fixture(self.root) as f:
+            source=head(f.local);git(f.local,"switch","-c","feature/demo")
+            git(f.seed,"push","--","origin","HEAD:refs/heads/feature/demo")
+            self.assertEqual(source,advertise(f.local,branch="feature/demo").stdout.decode("ascii").split()[0])
+            self.assertNotIn("refs/remotes/origin/feature/demo",refs(f.local))
+            before=snapshot_repository(f.local);remote_before=refs(f.remote)
+            result=setup_upstream(f.local,"feature/demo","origin","feature/demo")
+            self.assertEqual("needs_decision",result["outcome"])
+            self.assertEqual(before,snapshot_repository(f.local));self.assertEqual(remote_before,refs(f.remote))
