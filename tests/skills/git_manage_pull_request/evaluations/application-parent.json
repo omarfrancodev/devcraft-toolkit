@@ -1,0 +1,72 @@
+{
+  "emulated": true,
+  "attempt": 2,
+  "writes": [
+    {
+      "op": "create",
+      "payload": {
+        "scope": {
+          "provider": "github",
+          "host": "github.fixture.invalid",
+          "source_project": 42,
+          "target_project": 7,
+          "source_ref": "refs/heads/feature/demo",
+          "target_ref": "refs/heads/main",
+          "source_oid": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "target_oid": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        "title": "Añadir totales de facturas",
+        "body": "## Resumen\n\nSe añadieron totales de facturas.\n\n## Cambios\n\n- Se incorporaron los totales de las facturas.\n\n## Validación\n\nLas validaciones no se ejecutaron. La comparación observada informa validation=not_run.\n\n## Consideraciones\n\nResumen basado en la comparación completa de aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa hacia bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb. No se observaron restricciones adicionales en esa comparación.",
+        "draft": false
+      },
+      "status": 201,
+      "result": {
+        "id": 7
+      }
+    },
+    {
+      "op": "update",
+      "payload": {
+        "request_id": 7,
+        "body": "Se añadieron totales de facturas. Las validaciones no se ejecutaron."
+      },
+      "status": 200,
+      "result": {
+        "id": 7
+      }
+    }
+  ],
+  "request": {
+    "id": 7,
+    "scope": {
+      "provider": "github",
+      "host": "github.fixture.invalid",
+      "source_project": 42,
+      "target_project": 7,
+      "source_ref": "refs/heads/feature/demo",
+      "target_ref": "refs/heads/main",
+      "source_oid": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "target_oid": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+    },
+    "title": "Añadir totales de facturas",
+    "body": "Se añadieron totales de facturas. Las validaciones no se ejecutaron.",
+    "draft": false,
+    "state": "open",
+    "mergeable": true,
+    "merge_oid": null,
+    "labels": [
+      "keep"
+    ],
+    "reviewers": [
+      "existing-reviewer"
+    ],
+    "approvals": 0
+  },
+  "git_snapshot_unchanged": true,
+  "scope_and_gates_unchanged": true,
+  "post_reads": 4,
+  "limits": [
+    "Owned provider emulation; not authenticated hosting or native loader activation.",
+    "Parent compares persisted Unicode values, full Git metadata/content snapshot, scope and policy."
+  ]
+}

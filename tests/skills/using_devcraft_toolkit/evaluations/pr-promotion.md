@@ -1,0 +1,5 @@
+# Hosted request/promotion entry evaluation
+
+The fresh entry-only baseline read old entry/reference resources before edits and returned unavailable for create, merge and offline proposal despite supplied complete owned discovery. The new entry/reference then routed thirteen fresh supplied-fact cases: create, merge, offline proposal, missing/foreign/ambiguous ownership, direct two-/three-folder closures, combined explicit actions, supplied-facts writer, approving comment, planned coordinator and missing provider tools.
+
+Raw baseline/candidate packets retain exact routes, identifiers and limits. Candidate A/I initial compact project/ref shorthand was clarified to source project 42 refs/heads/feature/demo and target project 7 refs/heads/main; no assertions were supplied. Actor read only entry/reference; no capability body execution, Git/provider/network operation or native activation was observed. Parent inspected all thirteen responses against separate owner assertions. Entry foundation is unchanged and hosted routes do not invoke local safety/publication checks solely because a hosted selector exists.

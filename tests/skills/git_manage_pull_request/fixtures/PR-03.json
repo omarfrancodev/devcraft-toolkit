@@ -1,0 +1,14 @@
+{
+  "id": "PR-03",
+  "request": "Finish creating the requested PR and report its result.",
+  "facts": {
+    "provider": "gitlab",
+    "project_id": 7,
+    "source_ref": "refs/heads/feature/demo",
+    "target_ref": "refs/heads/main",
+    "write_attempts": 1,
+    "create_result": "connection closed before acknowledgment; creation may have happened",
+    "request_id": "unknown",
+    "read_tools": "available"
+  }
+}

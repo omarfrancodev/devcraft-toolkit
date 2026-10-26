@@ -1,0 +1,74 @@
+[
+  {
+    "application": "pr-app-2",
+    "skill": "git-manage-pull-request",
+    "resource": "assets/pull-request.md",
+    "sha256": "52480c4fc8436400a0011b93164d0ff3cb004105063d1b4646abe06f4e9c58d7"
+  },
+  {
+    "application": "pr-app-2",
+    "skill": "git-manage-pull-request",
+    "resource": "references/requests.md",
+    "sha256": "6cc4f291de56085ec2544bcd44916fa75e3e674ef33ec76a49b3127567faedfa"
+  },
+  {
+    "application": "pr-app-2",
+    "skill": "git-manage-pull-request",
+    "resource": "SKILL.md",
+    "sha256": "4d0f6aea530985a30ae7116f152684c131efe3a7afe2e7de0d17e058b50d25cb"
+  },
+  {
+    "application": "pr-app-2",
+    "skill": "git-working-directory-policy",
+    "resource": "references/context.md",
+    "sha256": "38c9c6ae2fd3485ae550df6b0ed220f0e2eb27d8e04b26f61a1d3407e4ec26fd"
+  },
+  {
+    "application": "pr-app-2",
+    "skill": "git-working-directory-policy",
+    "resource": "SKILL.md",
+    "sha256": "4455a163d999921c00cb304143eb7c3c9de278192ace7b95c200d5ee95477eea"
+  },
+  {
+    "application": "promote-app",
+    "skill": "git-promote",
+    "resource": "references/promotion.md",
+    "sha256": "5d269a7384704da5d2fa4ca2ff6fa2885a3b5f5f74f1e884d7f393d688450585"
+  },
+  {
+    "application": "promote-app",
+    "skill": "git-promote",
+    "resource": "SKILL.md",
+    "sha256": "e1ba9a99b428f04a6d891c9ef50301c5d1dab0a9e401943e6a8d1035e354cb25"
+  },
+  {
+    "application": "promote-app",
+    "skill": "git-manage-pull-request",
+    "resource": "assets/pull-request.md",
+    "sha256": "52480c4fc8436400a0011b93164d0ff3cb004105063d1b4646abe06f4e9c58d7"
+  },
+  {
+    "application": "promote-app",
+    "skill": "git-manage-pull-request",
+    "resource": "references/requests.md",
+    "sha256": "6cc4f291de56085ec2544bcd44916fa75e3e674ef33ec76a49b3127567faedfa"
+  },
+  {
+    "application": "promote-app",
+    "skill": "git-manage-pull-request",
+    "resource": "SKILL.md",
+    "sha256": "4d0f6aea530985a30ae7116f152684c131efe3a7afe2e7de0d17e058b50d25cb"
+  },
+  {
+    "application": "promote-app",
+    "skill": "git-working-directory-policy",
+    "resource": "references/context.md",
+    "sha256": "38c9c6ae2fd3485ae550df6b0ed220f0e2eb27d8e04b26f61a1d3407e4ec26fd"
+  },
+  {
+    "application": "promote-app",
+    "skill": "git-working-directory-policy",
+    "resource": "SKILL.md",
+    "sha256": "4455a163d999921c00cb304143eb7c3c9de278192ace7b95c200d5ee95477eea"
+  }
+]

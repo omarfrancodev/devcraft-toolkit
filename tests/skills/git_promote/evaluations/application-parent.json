@@ -1,0 +1,32 @@
+{
+  "emulated": true,
+  "writes": [
+    {
+      "op": "merge",
+      "payload": {
+        "request_id": 7,
+        "operands": {
+          "sha": "5efacca30920cfff13426576cceb0e21acbc143f",
+          "merge_method": "merge"
+        }
+      },
+      "status": 200,
+      "result": {
+        "merged": true,
+        "merge_oid": "7cbfaad07efdd544ba1d259e415233ac569136fd"
+      }
+    }
+  ],
+  "merge_oid": "7cbfaad07efdd544ba1d259e415233ac569136fd",
+  "parents": [
+    "01699b5d2b300f2eab2d7ee901b56aa51782e47e",
+    "5efacca30920cfff13426576cceb0e21acbc143f"
+  ],
+  "target_contains_merge": true,
+  "local_git_and_graph_snapshots_unchanged": true,
+  "unselected_metadata_policy_and_source_preserved": true,
+  "limits": [
+    "Merge changes emulated provider state; graph objects were prepared before application, not a live hosted merge.",
+    "Copied resources manually followed; no native activation claim."
+  ]
+}

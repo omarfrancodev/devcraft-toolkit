@@ -1,0 +1,11 @@
+{
+  "fixture_id": "PR-03",
+  "raw_response": "The GitLab merge-request creation has an unknown outcome: the connection closed before acknowledgment, and the first attempt may already have created it. I would reconcile that attempt using the available read tools before issuing another create request.\n\nQuery merge requests in GitLab project 7 with source_branch=feature/demo and target_branch=main, including all states, and inspect matching records for their ID/IID, URL, state, project identity, and source/target branches. The refs/heads/ prefixes identify Git refs; the provider branch operands are feature/demo and main. Follow pagination so an existing record is not missed.\n\nIf one matching merge request can be identified as the requested result, report its actual URL and state and do not create a duplicate. If multiple plausible matches exist, inspect their details to resolve the ambiguity before any write. If no match appears, treat that as inconclusive until the prior operation has had a reasonable opportunity to become visible; repeat bounded reads and inspect any available operation evidence. With no request ID and no confirmed failure, do not blindly retry the creation. If the outcome remains uncertain, report that creation could not be confirmed and that another attempt could duplicate it.\n\nI have not executed Git commands, queried GitLab, or performed provider writes in this baseline. No merge-request ID, URL, successful creation, or final failure has been verified.",
+  "limits": [
+    "Only supplied fixture facts were read.",
+    "No Git, network, or provider operations were executed.",
+    "The proposed reconciliation is not an actual read result.",
+    "Creation outcome remains unknown; no success, failure, or absence is established.",
+    "Only this evaluation-record write is authorized instrumentation."
+  ]
+}

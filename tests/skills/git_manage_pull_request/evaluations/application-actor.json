@@ -1,0 +1,192 @@
+{
+  "raw_response": "Creado y actualizado el PR emulado 7 (proyecto 42, feature/demo → proyecto 7, main). Se usó la plantilla instalada de respaldo y la comparación completa observada. Después se cambió únicamente la descripción a: «Se añadieron totales de facturas. Las validaciones no se ejecutaron.». Las relecturas confirmaron el título «Añadir totales de facturas», el estado abierto sin borrador, las identidades y los OID originales. No se ejecutaron validaciones ni operaciones Git o de limpieza local. El resultado pertenece exclusivamente al proveedor emulado github.fixture.invalid; no acredita publicación externa ni activación nativa.",
+  "outcome": "updated",
+  "mode": "explicit fixture create followed by explicitly selected description-only update",
+  "installed_resources": [
+    {
+      "id": "fixture:management",
+      "owner": "P",
+      "path": "installed/git-manage-pull-request"
+    },
+    {
+      "id": "fixture:context",
+      "owner": "P",
+      "path": "installed/git-working-directory-policy"
+    }
+  ],
+  "commands": [
+    {
+      "cmd": "Get-Content -Raw installed/git-manage-pull-request/SKILL.md; Get-Content -Raw installed/git-working-directory-policy/SKILL.md",
+      "exit_code": 0,
+      "observation": "Read selected installation management/context skill pair only.",
+      "workdir": "C:/Users/Developer.INSCORSOF2/Documents/Proyectos-Code/omarfrancodev/devcraft-toolkit/.worktrees/pr-promotion/tests/.tmp/pr-app-2",
+      "login": false,
+      "sandbox_permissions": "require_escalated"
+    },
+    {
+      "cmd": "Get-Content -Raw installed/git-manage-pull-request/references/requests.md; Get-Content -Raw installed/git-working-directory-policy/references/context.md; python -B transport/hosted_transport.py provider/state.json capabilities",
+      "exit_code": 0,
+      "observation": "Read selected references. Provider capabilities: emulated=true, provider=github, host=github.fixture.invalid, account=fixture-user; operations capabilities/read/list/create/update; JSON stdin.",
+      "workdir": "C:/Users/Developer.INSCORSOF2/Documents/Proyectos-Code/omarfrancodev/devcraft-toolkit/.worktrees/pr-promotion/tests/.tmp/pr-app-2",
+      "login": false,
+      "sandbox_permissions": "require_escalated"
+    },
+    {
+      "cmd": "python -B transport/hosted_transport.py provider/state.json read; python -B transport/hosted_transport.py provider/state.json list",
+      "exit_code": 0,
+      "observation": "Read scope 42 feature/demo -> 7 main, source aaaa x40, target bbbb x40; request=null; compare.complete=true, Adds invoice totals, validation=not_run; template=null; list items=[],complete=true,next_cursor=null.",
+      "workdir": "C:/Users/Developer.INSCORSOF2/Documents/Proyectos-Code/omarfrancodev/devcraft-toolkit/.worktrees/pr-promotion/tests/.tmp/pr-app-2",
+      "login": false,
+      "sandbox_permissions": "require_escalated"
+    },
+    {
+      "cmd": "Get-Content -Raw installed/git-manage-pull-request/assets/pull-request.md; python -B transport/hosted_transport.py provider/state.json read; python -B transport/hosted_transport.py provider/state.json list",
+      "exit_code": 0,
+      "observation": "Read fallback Summary/Changes/Validation/Considerations template. Immediate pre-create refresh unchanged; complete duplicate list empty.",
+      "workdir": "C:/Users/Developer.INSCORSOF2/Documents/Proyectos-Code/omarfrancodev/devcraft-toolkit/.worktrees/pr-promotion/tests/.tmp/pr-app-2",
+      "login": false,
+      "sandbox_permissions": "require_escalated"
+    },
+    {
+      "cmd": "$OutputEncoding = [System.Text.UTF8Encoding]::new($false)\n$payload = [ordered]@{scope=[ordered]@{provider='github';host='github.fixture.invalid';source_project=42;target_project=7;source_ref='refs/heads/feature/demo';target_ref='refs/heads/main';source_oid='aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa';target_oid='bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb'};title='Añadir totales de facturas';body=\"## Resumen`n`nSe añadieron totales de facturas.`n`n## Cambios`n`n- Se incorporaron los totales de las facturas.`n`n## Validación`n`nLas validaciones no se ejecutaron. La comparación observada informa validation=not_run.`n`n## Consideraciones`n`nResumen basado en la comparación completa de aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa hacia bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb. No se observaron restricciones adicionales en esa comparación.\";draft=$false}\n$payload | ConvertTo-Json -Depth 8 -Compress | python -B transport/hosted_transport.py provider/state.json create",
+      "chunk_id": "4d3d5c",
+      "wall_time_seconds": 1.3085921,
+      "exit_code": 0,
+      "original_token_count": 279,
+      "output": "{\"provider\": \"github\", \"host\": \"github.fixture.invalid\", \"id\": 7, \"global_id\": 10007, \"source_project\": 42, \"target_project\": 7, \"source_ref\": \"refs/heads/feature/demo\", \"target_ref\": \"refs/heads/main\", \"source_oid\": \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\", \"target_oid\": \"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\", \"reported_base_oid\": \"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\", \"state\": \"open\", \"draft\": false, \"merged\": false, \"mergeable\": true, \"merge_oid\": null, \"hypothetical_merge_oid\": \"cccccccccccccccccccccccccccccccccccccccc\", \"title\": \"Añadir totales de facturas\", \"body\": \"## Resumen\\n\\nSe añadieron totales de facturas.\\n\\n## Cambios\\n\\n- Se incorporaron los totales de las facturas.\\n\\n## Validación\\n\\nLas validaciones no se ejecutaron. La comparación observada informa validation=not_run.\\n\\n## Consideraciones\\n\\nResumen basado en la comparación completa de aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa hacia bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb. No se observaron restricciones adicionales en esa comparación.\", \"url\": \"https://github.fixture.invalid/org/repo/pull/7\", \"complete\": true}\r\n",
+      "workdir": "C:/Users/Developer.INSCORSOF2/Documents/Proyectos-Code/omarfrancodev/devcraft-toolkit/.worktrees/pr-promotion/tests/.tmp/pr-app-2",
+      "login": false,
+      "sandbox_permissions": "require_escalated"
+    },
+    {
+      "cmd": "$OutputEncoding = [System.Text.UTF8Encoding]::new($false)\n'{\"request_id\":7}' | python -B transport/hosted_transport.py provider/state.json read",
+      "chunk_id": "d8277b",
+      "wall_time_seconds": 1.2345212,
+      "exit_code": 0,
+      "original_token_count": 567,
+      "output": "{\"emulated\": true, \"provider\": \"github\", \"account\": \"fixture-user\", \"scope\": {\"provider\": \"github\", \"host\": \"github.fixture.invalid\", \"source_project\": 42, \"target_project\": 7, \"source_ref\": \"refs/heads/feature/demo\", \"target_ref\": \"refs/heads/main\", \"source_oid\": \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\", \"target_oid\": \"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\"}, \"request\": {\"provider\": \"github\", \"host\": \"github.fixture.invalid\", \"id\": 7, \"global_id\": 10007, \"source_project\": 42, \"target_project\": 7, \"source_ref\": \"refs/heads/feature/demo\", \"target_ref\": \"refs/heads/main\", \"source_oid\": \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\", \"target_oid\": \"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\", \"reported_base_oid\": \"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\", \"state\": \"open\", \"draft\": false, \"merged\": false, \"mergeable\": true, \"merge_oid\": null, \"hypothetical_merge_oid\": \"cccccccccccccccccccccccccccccccccccccccc\", \"title\": \"Añadir totales de facturas\", \"body\": \"## Resumen\\n\\nSe añadieron totales de facturas.\\n\\n## Cambios\\n\\n- Se incorporaron los totales de las facturas.\\n\\n## Validación\\n\\nLas validaciones no se ejecutaron. La comparación observada informa validation=not_run.\\n\\n## Consideraciones\\n\\nResumen basado en la comparación completa de aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa hacia bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb. No se observaron restricciones adicionales en esa comparación.\", \"url\": \"https://github.fixture.invalid/org/repo/pull/7\", \"complete\": true}, \"gates\": {\"merge_method\": \"merge\", \"allow_merge_commit\": true, \"squash_required\": false, \"source_cleanup\": false, \"review\": {\"state\": \"not_required\", \"source\": \"fixture_project_policy\", \"head_oid\": \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"}, \"checks\": {\"state\": \"satisfied\", \"source\": \"fixture_project_policy\", \"head_oid\": \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\", \"required\": [\"unit\"], \"records\": [{\"name\": \"unit\", \"head_oid\": \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\", \"status\": \"completed\", \"conclusion\": \"success\"}]}}, \"template\": null, \"compare\": {\"complete\": true, \"source_oid\": \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\", \"target_oid\": \"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\", \"changes\": [\"Adds invoice totals\"], \"validation\": \"not_run\"}, \"complete\": true}\r\n",
+      "workdir": "C:/Users/Developer.INSCORSOF2/Documents/Proyectos-Code/omarfrancodev/devcraft-toolkit/.worktrees/pr-promotion/tests/.tmp/pr-app-2",
+      "login": false,
+      "sandbox_permissions": "require_escalated"
+    },
+    {
+      "cmd": "$OutputEncoding = [System.Text.UTF8Encoding]::new($false)\n$payload = [ordered]@{request_id=7;body='Se añadieron totales de facturas. Las validaciones no se ejecutaron.'}\n$payload | ConvertTo-Json -Depth 4 -Compress | python -B transport/hosted_transport.py provider/state.json update",
+      "chunk_id": "fa02c0",
+      "wall_time_seconds": 1.3211862,
+      "exit_code": 0,
+      "original_token_count": 185,
+      "output": "{\"provider\": \"github\", \"host\": \"github.fixture.invalid\", \"id\": 7, \"global_id\": 10007, \"source_project\": 42, \"target_project\": 7, \"source_ref\": \"refs/heads/feature/demo\", \"target_ref\": \"refs/heads/main\", \"source_oid\": \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\", \"target_oid\": \"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\", \"reported_base_oid\": \"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\", \"state\": \"open\", \"draft\": false, \"merged\": false, \"mergeable\": true, \"merge_oid\": null, \"hypothetical_merge_oid\": \"cccccccccccccccccccccccccccccccccccccccc\", \"title\": \"Añadir totales de facturas\", \"body\": \"Se añadieron totales de facturas. Las validaciones no se ejecutaron.\", \"url\": \"https://github.fixture.invalid/org/repo/pull/7\", \"complete\": true}\r\n",
+      "workdir": "C:/Users/Developer.INSCORSOF2/Documents/Proyectos-Code/omarfrancodev/devcraft-toolkit/.worktrees/pr-promotion/tests/.tmp/pr-app-2",
+      "login": false,
+      "sandbox_permissions": "require_escalated"
+    },
+    {
+      "cmd": "$OutputEncoding = [System.Text.UTF8Encoding]::new($false)\n'{\"request_id\":7}' | python -B transport/hosted_transport.py provider/state.json read",
+      "chunk_id": "cb055e",
+      "wall_time_seconds": 1.3569389,
+      "exit_code": 0,
+      "original_token_count": 473,
+      "output": "{\"emulated\": true, \"provider\": \"github\", \"account\": \"fixture-user\", \"scope\": {\"provider\": \"github\", \"host\": \"github.fixture.invalid\", \"source_project\": 42, \"target_project\": 7, \"source_ref\": \"refs/heads/feature/demo\", \"target_ref\": \"refs/heads/main\", \"source_oid\": \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\", \"target_oid\": \"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\"}, \"request\": {\"provider\": \"github\", \"host\": \"github.fixture.invalid\", \"id\": 7, \"global_id\": 10007, \"source_project\": 42, \"target_project\": 7, \"source_ref\": \"refs/heads/feature/demo\", \"target_ref\": \"refs/heads/main\", \"source_oid\": \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\", \"target_oid\": \"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\", \"reported_base_oid\": \"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\", \"state\": \"open\", \"draft\": false, \"merged\": false, \"mergeable\": true, \"merge_oid\": null, \"hypothetical_merge_oid\": \"cccccccccccccccccccccccccccccccccccccccc\", \"title\": \"Añadir totales de facturas\", \"body\": \"Se añadieron totales de facturas. Las validaciones no se ejecutaron.\", \"url\": \"https://github.fixture.invalid/org/repo/pull/7\", \"complete\": true}, \"gates\": {\"merge_method\": \"merge\", \"allow_merge_commit\": true, \"squash_required\": false, \"source_cleanup\": false, \"review\": {\"state\": \"not_required\", \"source\": \"fixture_project_policy\", \"head_oid\": \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"}, \"checks\": {\"state\": \"satisfied\", \"source\": \"fixture_project_policy\", \"head_oid\": \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\", \"required\": [\"unit\"], \"records\": [{\"name\": \"unit\", \"head_oid\": \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\", \"status\": \"completed\", \"conclusion\": \"success\"}]}}, \"template\": null, \"compare\": {\"complete\": true, \"source_oid\": \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\", \"target_oid\": \"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\", \"changes\": [\"Adds invoice totals\"], \"validation\": \"not_run\"}, \"complete\": true}\r\n",
+      "workdir": "C:/Users/Developer.INSCORSOF2/Documents/Proyectos-Code/omarfrancodev/devcraft-toolkit/.worktrees/pr-promotion/tests/.tmp/pr-app-2",
+      "login": false,
+      "sandbox_permissions": "require_escalated"
+    }
+  ],
+  "observations": {
+    "provider": "github",
+    "emulated": true,
+    "host": "github.fixture.invalid",
+    "account": "fixture-user",
+    "scope": {
+      "provider": "github",
+      "host": "github.fixture.invalid",
+      "source_project": 42,
+      "target_project": 7,
+      "source_ref": "refs/heads/feature/demo",
+      "target_ref": "refs/heads/main",
+      "source_oid": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "target_oid": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+    },
+    "request_identity": {
+      "target_project": 7,
+      "request_id": 7,
+      "global_id": 10007,
+      "url": "https://github.fixture.invalid/org/repo/pull/7"
+    },
+    "coverage": {
+      "complete": true,
+      "source_oid": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "target_oid": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "changes": [
+        "Adds invoice totals"
+      ],
+      "validation": "not_run"
+    },
+    "template": "installed/git-manage-pull-request/assets/pull-request.md; project template absent",
+    "language": "es",
+    "before_update": {
+      "provider": "github",
+      "host": "github.fixture.invalid",
+      "id": 7,
+      "global_id": 10007,
+      "source_project": 42,
+      "target_project": 7,
+      "source_ref": "refs/heads/feature/demo",
+      "target_ref": "refs/heads/main",
+      "source_oid": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "target_oid": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "reported_base_oid": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "state": "open",
+      "draft": false,
+      "merged": false,
+      "mergeable": true,
+      "merge_oid": null,
+      "hypothetical_merge_oid": "cccccccccccccccccccccccccccccccccccccccc",
+      "title": "Añadir totales de facturas",
+      "body": "## Resumen\n\nSe añadieron totales de facturas.\n\n## Cambios\n\n- Se incorporaron los totales de las facturas.\n\n## Validación\n\nLas validaciones no se ejecutaron. La comparación observada informa validation=not_run.\n\n## Consideraciones\n\nResumen basado en la comparación completa de aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa hacia bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb. No se observaron restricciones adicionales en esa comparación.",
+      "url": "https://github.fixture.invalid/org/repo/pull/7",
+      "complete": true
+    },
+    "after_update": {
+      "provider": "github",
+      "host": "github.fixture.invalid",
+      "id": 7,
+      "global_id": 10007,
+      "source_project": 42,
+      "target_project": 7,
+      "source_ref": "refs/heads/feature/demo",
+      "target_ref": "refs/heads/main",
+      "source_oid": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "target_oid": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "reported_base_oid": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "state": "open",
+      "draft": false,
+      "merged": false,
+      "mergeable": true,
+      "merge_oid": null,
+      "hypothetical_merge_oid": "cccccccccccccccccccccccccccccccccccccccc",
+      "title": "Añadir totales de facturas",
+      "body": "Se añadieron totales de facturas. Las validaciones no se ejecutaron.",
+      "url": "https://github.fixture.invalid/org/repo/pull/7",
+      "complete": true
+    },
+    "changed_fields": [
+      "body"
+    ],
+    "gates_preserved": true
+  },
+  "effects": {
+    "create_attempts": 1,
+    "update_attempts": 1,
+    "request_created": true,
+    "description_updated_literal": "Se añadieron totales de facturas. Las validaciones no se ejecutaron.",
+    "other_request_fields_preserved": true,
+    "local_operations": "No Git, repository scans, configuration changes, tests, push, merge, cleanup, or other local-state operations executed. Only actor-result.json saved besides authorized provider mutations."
+  },
+  "limits": [
+    "Owned emulated transport only; no real hosted publication or native activation claimed.",
+    "No local status inspection; local preservation established by no local-state operation, not an independently scanned snapshot.",
+    "Capabilities did not advertise atomic conditional updates; immediate rereads used and no observed drift.",
+    "Fixture project-policy unit success was observed metadata; no validation execution by actor; comparison validation=not_run."
+  ]
+}

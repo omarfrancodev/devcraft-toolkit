@@ -1,0 +1,32 @@
+{
+  "id": "PM-03",
+  "request": "Merge this existing PR normally, preserving source branch.",
+  "facts": {
+    "provider": "github",
+    "host": "github.fixture.invalid",
+    "account": "fixture-user",
+    "source_project": 42,
+    "target_project": 7,
+    "source_ref": "refs/heads/feature/demo",
+    "target_ref": "refs/heads/main",
+    "source_oid": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "target_oid": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "request_id": 7,
+    "state": "open",
+    "draft": false,
+    "mergeable": true,
+    "initial_source_oid": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "fresh_source_oid": "dddddddddddddddddddddddddddddddddddddddd",
+    "review": {
+      "state": "satisfied",
+      "head_oid": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    },
+    "checks": {
+      "state": "satisfied",
+      "head_oid": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    },
+    "merge_tool": {
+      "expected_head_sha": true
+    }
+  }
+}

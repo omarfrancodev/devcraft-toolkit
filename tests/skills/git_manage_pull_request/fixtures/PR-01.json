@@ -1,0 +1,17 @@
+{
+  "id": "PR-01",
+  "request": "Prepara una propuesta de PR desde los datos indicados, sin consultar la red ni cambiar nada.",
+  "facts": {
+    "provider": "github",
+    "host": "github.fixture.invalid",
+    "source_project": 42,
+    "target_project": 7,
+    "source_ref": "refs/heads/feature/demo",
+    "target_ref": "refs/heads/main",
+    "source_oid": "S",
+    "target_oid": "B",
+    "change": "Adds invoice totals; no validation execution supplied",
+    "local_worktree": "dirty unrelated changes",
+    "available_tools": "provider and Git tools exist"
+  }
+}

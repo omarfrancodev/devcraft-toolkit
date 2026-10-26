@@ -1,0 +1,10 @@
+{
+  "fixture_id": "PR-01",
+  "raw_response": "Propuesta de PR para GitHub en github.fixture.invalid:\n\nTítulo: Añadir totales de facturas\n\nDescripción:\nSe añaden los totales de las facturas.\nValidación: no se proporcionó evidencia de ejecución de validaciones.\n\nOrigen: proyecto 42, rama feature/demo (refs/heads/feature/demo), revisión indicada S.\nDestino: proyecto 7, rama main (refs/heads/main), revisión indicada B.\n\nLa propuesta es entre proyectos distintos. Antes de una eventual creación sería necesario resolver los identificadores 42 y 7 a sus repositorios y propietarios en ese host y confirmar que GitHub admite la relación entre ambos. Con los datos actuales no puede construirse de forma fiable un comando gh pr create: faltan owner/repository y el propietario de la rama de origen. No debe interpretarse el número 42 como un nombre de propietario.\n\nAcción propuesta, sin ejecutarla: crear el PR en el repositorio correspondiente al proyecto 7, con base main y la rama feature/demo del repositorio correspondiente al proyecto 42, usando el título y la descripción anteriores. Las revisiones S y B son los valores suministrados; no se ha comprobado que las ramas apunten a ellas.\n\nResultado real: únicamente esta propuesta. No se consultó la red ni se ejecutaron operaciones Git, validaciones o escrituras en el proveedor. No existe un PR creado ni una URL verificada. Los cambios locales ajenos permanecen fuera de esta propuesta.",
+  "limits": [
+    "Supplied fixture facts only; no skills, specifications, plans, assertions, or other evaluations read.",
+    "No Git commands, network calls, validation runs, or provider writes executed.",
+    "Project IDs were not resolved to repository owners/names; PR compatibility and branch revisions remain unverified.",
+    "Only the separately authorized evaluation record is written; this does not derive permission from the scenario."
+  ]
+}

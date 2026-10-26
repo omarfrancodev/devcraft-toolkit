@@ -1,0 +1,24 @@
+{
+  "id": "PR-02",
+  "request": "Create the PR from fork-42 feature/demo into project-7 main.",
+  "facts": {
+    "provider": "github",
+    "host": "github.fixture.invalid",
+    "source_project": 42,
+    "target_project": 7,
+    "first_page": [
+      {
+        "number": 9,
+        "source_project": 99,
+        "target_project": 7,
+        "source_ref": "refs/heads/feature/demo",
+        "target_ref": "refs/heads/main",
+        "state": "open"
+      }
+    ],
+    "listing_complete": false,
+    "next_page_tool": "unavailable",
+    "source_oid": "S",
+    "target_oid": "B"
+  }
+}

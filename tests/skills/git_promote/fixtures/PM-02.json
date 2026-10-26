@@ -1,0 +1,25 @@
+{
+  "id": "PM-02",
+  "request": "Merge this existing PR if current requirements are satisfied.",
+  "facts": {
+    "provider": "github",
+    "host": "github.fixture.invalid",
+    "account": "fixture-user",
+    "source_project": 42,
+    "target_project": 7,
+    "source_ref": "refs/heads/feature/demo",
+    "target_ref": "refs/heads/main",
+    "source_oid": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "target_oid": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "request_id": 7,
+    "state": "open",
+    "draft": false,
+    "mergeable": null,
+    "review": {
+      "state": "approved",
+      "head_oid": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+    },
+    "checks": [],
+    "required_rules": null
+  }
+}

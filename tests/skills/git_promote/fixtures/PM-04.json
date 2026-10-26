@@ -1,0 +1,32 @@
+{
+  "id": "PM-04",
+  "request": "Report the result of the merge already attempted. Do not initiate a different operation.",
+  "facts": {
+    "provider": "github",
+    "host": "github.fixture.invalid",
+    "account": "fixture-user",
+    "source_project": 42,
+    "target_project": 7,
+    "source_ref": "refs/heads/feature/demo",
+    "target_ref": "refs/heads/main",
+    "source_oid": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "target_oid": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "request_id": 7,
+    "state": "open",
+    "draft": false,
+    "mergeable": true,
+    "write_attempts": 1,
+    "receipt": "connection lost after accept",
+    "read_1": {
+      "state": "open",
+      "merged": false,
+      "merge_commit_sha": "cccccccccccccccccccccccccccccccccccccccc",
+      "server_job": "pending"
+    },
+    "read_2": {
+      "state": "open",
+      "merged": false,
+      "server_job": "pending"
+    }
+  }
+}

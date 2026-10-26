@@ -1,0 +1,11 @@
+{
+  "id": "PR-02",
+  "raw_response": "The requested PR is source project 42 (fork-42), branch feature/demo, into target project 7, branch main, on github.fixture.invalid. PR #9 is not a match: its source project is 99, despite having the same branch names and target project.\n\nThe supplied listing is incomplete and its next-page tool is unavailable, so I cannot establish whether the requested PR already exists. Before creating anything, obtain a complete listing or an authoritative exact lookup for the open PR with source project 42, source ref refs/heads/feature/demo, target project 7, and target ref refs/heads/main. If it exists, return its verified URL; if its absence is established, create that cross-fork PR and verify the returned identity and URL. Resolve project IDs to provider owner/repository operands before issuing a GitHub API or CLI request; those names are not supplied. The supplied source OID S and target OID B are facts, not evidence of a completed push or PR creation.\n\nNo Git command, network lookup, or provider write was executed. No PR was created, and no PR URL or absence of an existing match has been verified. With only the supplied facts and unavailable pagination, creation remains pending.",
+  "limits": [
+    "Read only the supplied PR-02 actor input.",
+    "No Git, network, or provider writes executed.",
+    "Incomplete listing cannot establish absence of a matching PR.",
+    "Project owner/repository names and a PR URL were not supplied.",
+    "Only this evaluation record is written as separately authorized instrumentation."
+  ]
+}
