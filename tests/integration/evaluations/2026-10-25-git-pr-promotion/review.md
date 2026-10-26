@@ -20,3 +20,7 @@ Minor (deferred): tests/support/hosted_provider_fixtures.py:50 invents merge pro
 ## Assessment
 
 Ready to merge: yes, with the minor fixture correction recommended before expanding unknown-provenance coverage. Reviewer confirmed matching clean worktree and complete-range whitespace, inspected both full-suite receipts (160 discovered, 159 passed, one existing Windows symlink skip; 254.700 and 185.562 seconds), and ran only the concrete in-memory reproduction. The full suite was not rerun during review.
+
+## Subsequent requested correction
+
+The original review above remains unchanged. The later explicit request to fix its Minor finding is completed through two reproduced RED/GREEN regressions and a fresh full-suite gate (162 discovered, 161 passed, one existing Windows skip). See fixture-follow-up.md and review-follow-up-suite.log. No additional independent re-review is claimed; the Minor is now resolved.

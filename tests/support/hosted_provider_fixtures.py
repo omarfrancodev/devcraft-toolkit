@@ -47,7 +47,10 @@ class HostedFixture:
         result={"emulated":True,"provider":self.state["provider"],"host":self.state["scope"]["host"],"account":self.state["account"],"operations":["capabilities","read","list","create","update","merge"],"atomic_target_oid":False,"merge_input":"request_id plus GitHub sha/merge_method=merge; GitLab sha/squash=false/auto_merge=false/should_remove_source_branch=false","input":"JSON stdin; writes carry scope/title/body or request_id plus selected fields","auth":"owned fixture only; no real account"}
         self._event("capabilities",{},result);return result
     def raw_request(self,request):
-        s=request["scope"];common={"id":10000+request["id"],"title":request["title"],"draft":request["draft"],"mergeable":request.get("mergeable"),"merge_commit_sha":request.get("merge_oid") or "c"*40,"_complete":True}
+        merge_oid=request.get("merge_oid")
+        if merge_oid is None and request["state"] in ["open","closed"]:
+            merge_oid="c"*40
+        s=request["scope"];common={"id":10000+request["id"],"title":request["title"],"draft":request["draft"],"mergeable":request.get("mergeable"),"merge_commit_sha":merge_oid,"_complete":True}
         if self.state["provider"]=="github":
             return {**common,"number":request["id"],"head":{"repo":{"id":s["source_project"]},"ref":s["source_ref"].removeprefix("refs/heads/"),"sha":s["source_oid"]},"base":{"repo":{"id":s["target_project"]},"ref":s["target_ref"].removeprefix("refs/heads/"),"sha":s["target_oid"]},"body":request["body"],"state":"closed" if request["state"]=="merged" else request["state"],"merged":request["state"]=="merged","html_url":f"https://{s['host']}/org/repo/pull/{request['id']}"}
         return {**common,"iid":request["id"],"source_project_id":s["source_project"],"target_project_id":s["target_project"],"source_branch":s["source_ref"].removeprefix("refs/heads/"),"target_branch":s["target_ref"].removeprefix("refs/heads/"),"sha":s["source_oid"],"diff_refs":{"base_sha":s["target_oid"],"head_sha":s["source_oid"]},"description":request["body"],"state":"opened" if request["state"]=="open" else request["state"],"web_url":f"https://{s['host']}/org/repo/-/merge_requests/{request['id']}"}
@@ -56,7 +59,7 @@ class HostedFixture:
         selected=next((q for q in self.state["requests"] if q["id"]==self.state["selected_id"]),None)
         result={"emulated":True,"provider":self.state["provider"],"account":self.state["account"],"scope":deepcopy(self.state["scope"]),"request":self._normalized(selected) if selected else None,"gates":deepcopy(self.state["gates"]),"template":self.state["template"],"compare":deepcopy(self.state["compare"]),"complete":self.state["observation_complete"]}
         graph=self.state.get("graph")
-        if graph and selected and selected["state"]=="merged":
+        if graph and selected and selected["state"]=="merged" and selected.get("merge_oid")==graph["M"]:
             result["commit_evidence"]={"source":"owned_real_git_graph_fixture","merge_oid":selected["merge_oid"],"parents":graph["merge_parents"],"observed_target_oid":self.state["scope"]["target_oid"],"target_contains_merge":graph["containment"].get(self.state["scope"]["target_oid"])}
         self._event("read",{"request_id":self.state["selected_id"]},{"id":selected["id"] if selected else None});return result
     def list_requests(self):

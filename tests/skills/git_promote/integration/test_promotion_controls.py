@@ -82,3 +82,28 @@ class PromotionControls(unittest.TestCase):
             q=self.prepare(f);g=f.state["graph"];f.merge(q["id"],self.args(f));f.state["scope"]["target_oid"]=g["R"]
             self.assertFalse(git_ancestor(g,g["M"],g["R"]))
             result=f.read();self.assertTrue(result["request"]["merged"]);self.assertFalse(result["commit_evidence"]["target_contains_merge"])
+
+    def test_merged_request_without_result_preserves_unknown_provenance(self):
+        for provider in ["github","gitlab"]:
+            for missing_key in [False,True]:
+                with self.subTest(provider=provider,missing_key=missing_key),provider_fixture(self.root/provider/str(missing_key),provider) as f:
+                    f.create({"scope":deepcopy(f.state["scope"]),"title":"Totals","body":"Result unavailable.","draft":False})
+                    request=f.state["requests"][0];request["state"]="merged"
+                    if missing_key:request.pop("merge_oid")
+                    observed=f.read()["request"]
+                    self.assertTrue(observed["merged"])
+                    self.assertIsNone(observed["merge_oid"])
+                    self.assertIsNone(observed["hypothetical_merge_oid"])
+                    self.assertIsNone(f.raw_request(request)["merge_commit_sha"])
+
+    def test_unknown_merge_result_does_not_borrow_prepared_graph_evidence(self):
+        with provider_fixture(self.root) as f:
+            self.prepare(f);request=f.state["requests"][0]
+            request["state"]="merged";f.state["scope"]["target_oid"]=f.state["graph"]["M"]
+            for missing_key in [False,True]:
+                with self.subTest(missing_key=missing_key):
+                    if missing_key:request.pop("merge_oid")
+                    observed=f.read()
+                    self.assertTrue(observed["request"]["merged"])
+                    self.assertIsNone(observed["request"]["merge_oid"])
+                    self.assertNotIn("commit_evidence",observed)

@@ -18,10 +18,18 @@ Parent checks verified one creation/body-only update and one separately requeste
 
 ## Limits and review
 
-These are development protocol/Git controls, supplied-fact evaluations and manual copied-resource applications. They do not prove native activation, authenticated GitHub/GitLab behavior or seven-client lifecycle compatibility. No implementation push/PR/merge/release is included. Full publication coordination is the next product increment; native/authenticated validation remains separate.
+These are development protocol/Git controls, supplied-fact evaluations and manual copied-resource applications. They do not prove native activation, authenticated GitHub/GitLab behavior or seven-client lifecycle compatibility. The original implementation scope did not include push/PR/merge/release; the subsequent explicit publication request is recorded below. Full publication coordination is the next product increment; native/authenticated validation remains separate.
 
 Committed-tree task gate: 160 tests, 159 passed and the same one Windows privilege skip, 185.562 seconds; see task-3-tests.log. Both task gates and final ledger are retained. All twelve installed application resource hashes match the final skill sources.
 
-One fresh gpt-6-astra/high whole-branch review found no Critical or Important issues. It reproduced one Minor development-fixture missing-provenance fallback; that recommendation remains deferred and does not affect the installed instructions or retained successful application. See review.md and execution-ledger.md for the complete finding, evidence limits and two explicit executor rulings. No material fix pass was needed.
+One fresh gpt-6-astra/high whole-branch review found no Critical or Important issues. It reproduced one Minor development-fixture missing-provenance fallback; that recommendation was initially deferred and did not affect the installed instructions or retained successful application. See review.md and execution-ledger.md for the complete finding, evidence limits and two explicit executor rulings. No material fix pass was needed.
 
-The approved branch/worktree are preserved locally. Final changes after the reviewed source commit record review evidence and plan status only.
+The approved branch/worktree are preserved locally. Changes immediately after the reviewed source commit recorded review evidence and plan status; the subsequent fixture correction is recorded below.
+
+## Fixture follow-up and publication request
+
+The explicitly requested follow-up resolves the original Minor finding. Two regressions observed RED before fixing missing/null merge provenance and preventing unrelated prepared graph evidence (including an absent-key exception). Both pass after correction. Installed skill instructions are unchanged and the original independent review remains a historical assessment, not a re-review of this follow-up.
+
+Final follow-up verification: 162 tests discovered, 161 passed and one existing Windows symlink privilege skip, 452.625 seconds; see review-follow-up-suite.log. Both repository/distribution validators and complete-base whitespace pass.
+
+See fixture-follow-up.md for exact scope, reproduced failures and retained intermediate-run limits. No Minor findings remain deferred. The user explicitly requested branch push and a PR toward main after this gate; no merge or release is requested. Publishing the implementation does not establish authenticated execution of the installed skills or native activation.

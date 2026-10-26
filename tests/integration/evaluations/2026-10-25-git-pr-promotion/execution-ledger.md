@@ -12,3 +12,6 @@ Final: minor (deferred): hosted_provider_fixtures.py raw_request supplies a hypo
 Final: Ruling: authenticated provider execution and native activation remain unverified — the approved development scope uses owned emulation/manual copied resources, so these stay separate validation tracks — cost if wrong: provider/client incompatibilities may remain undiscovered until authenticated/native checks.
 Final: Ruling: full provider-policy enforcement is not claimed for the development emulator — protocol/graph controls and instruction-following evaluations have distinct contracts — cost if wrong: future test consumers could overestimate policy coverage and miss provider-policy defects.
 Finish: preserve feat/git-pr-promotion and its worktree as authorized by the approved design; no implementation publication or integration requested.
+
+Follow-up: explicit request authorizes the previously deferred Minor correction, verification, branch push and PR toward main.
+Follow-up: fixed missing merge provenance and prepared-graph attribution — two regressions RED/GREEN; suite 162 discovered/161 passed/1 existing Windows skip (452.625s); original review retained. No Minor findings remain deferred.
