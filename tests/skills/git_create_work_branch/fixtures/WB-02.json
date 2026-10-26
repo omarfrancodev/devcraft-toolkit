@@ -1,0 +1,5 @@
+{
+  "id": "WB-02",
+  "request": "Create exactly @{-1}; if it fails use feature/parser.",
+  "facts": "Previous checkout is release. refs/heads/feature/parser already exists at another commit and is selected in another worktree. branch.feature/parser.remote=private remains in local config. Need one exact name decision; no current target selected."
+}

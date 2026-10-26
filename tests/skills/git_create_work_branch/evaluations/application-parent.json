@@ -1,0 +1,53 @@
+{
+  "outcome": "passed",
+  "checks": [
+    "full refs match original plus one new branch",
+    "raw source and symbolic HEAD",
+    "semantic index entries",
+    "all working byte/mode inventory",
+    "local config",
+    "copied-resource byte equality"
+  ],
+  "before": {
+    "head": "5b838a40469f2880c2a3c2fa509445acc56e27a3",
+    "symbolic": "refs/heads/main",
+    "refs": {
+      "refs/heads/main": "5b838a40469f2880c2a3c2fa509445acc56e27a3",
+      "refs/heads/release": "5b838a40469f2880c2a3c2fa509445acc56e27a3"
+    },
+    "index": "3130303634342031643163623566616666636130653230313063626135393439393266373335636437356436623766203009524541444d452e6d6400",
+    "files": {
+      "working-mode:.env": "438",
+      "working:.env": "918e0382a5426ecca58098c3776e68332c88ef8356d76071157d27687c951211",
+      "working-mode:.gitignore": "438",
+      "working:.gitignore": "69aa73cf5bc3377a7d97f2e8d2bb773195815efe225af7f1be6f5b9306bbe14f",
+      "working-mode:dise\u00f1o.txt": "438",
+      "working:dise\u00f1o.txt": "22649c7c00e1bd2f7dd4fd37ac6a4cdb6210cf4e5f84e0d2c294833c8c27d05d",
+      "working-mode:README.md": "438",
+      "working:README.md": "4fd7718b1a3d5b5d306c61472f9454bb4c117b947789f32e796bad8b1b2b6e0d"
+    },
+    "config": "636f72652e7265706f7369746f7279666f726d617476657273696f6e0a3000636f72652e66696c656d6f64650a66616c736500636f72652e626172650a66616c736500636f72652e6c6f67616c6c726566757064617465730a7472756500636f72652e73796d6c696e6b730a66616c736500636f72652e69676e6f7265636173650a7472756500757365722e6e616d650a46697874757265205573657200757365722e656d61696c0a66697874757265406578616d706c652e696e76616c696400"
+  },
+  "after": {
+    "head": "5b838a40469f2880c2a3c2fa509445acc56e27a3",
+    "symbolic": "refs/heads/feature/parser",
+    "refs": {
+      "refs/heads/feature/parser": "5b838a40469f2880c2a3c2fa509445acc56e27a3",
+      "refs/heads/main": "5b838a40469f2880c2a3c2fa509445acc56e27a3",
+      "refs/heads/release": "5b838a40469f2880c2a3c2fa509445acc56e27a3"
+    },
+    "index": "3130303634342031643163623566616666636130653230313063626135393439393266373335636437356436623766203009524541444d452e6d6400",
+    "files": {
+      "working-mode:.env": "438",
+      "working:.env": "918e0382a5426ecca58098c3776e68332c88ef8356d76071157d27687c951211",
+      "working-mode:.gitignore": "438",
+      "working:.gitignore": "69aa73cf5bc3377a7d97f2e8d2bb773195815efe225af7f1be6f5b9306bbe14f",
+      "working-mode:dise\u00f1o.txt": "438",
+      "working:dise\u00f1o.txt": "22649c7c00e1bd2f7dd4fd37ac6a4cdb6210cf4e5f84e0d2c294833c8c27d05d",
+      "working-mode:README.md": "438",
+      "working:README.md": "4fd7718b1a3d5b5d306c61472f9454bb4c117b947789f32e796bad8b1b2b6e0d"
+    },
+    "config": "636f72652e7265706f7369746f7279666f726d617476657273696f6e0a3000636f72652e66696c656d6f64650a66616c736500636f72652e626172650a66616c736500636f72652e6c6f67616c6c726566757064617465730a7472756500636f72652e73796d6c696e6b730a66616c736500636f72652e69676e6f7265636173650a7472756500757365722e6e616d650a46697874757265205573657200757365722e656d61696c0a66697874757265406578616d706c652e696e76616c696400"
+  },
+  "limits": "Parent independently inspected final Git state; command attempt details are actor-reported. No native loader/authenticated provider coverage."
+}
