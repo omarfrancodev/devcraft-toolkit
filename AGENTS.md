@@ -26,3 +26,5 @@
 - `git-promote` may execute one explicitly requested ordinary hosted merge of an existing request after fresh scoped policy/review/check gates and a server-enforced full source OID condition. Preserve source branches and local Git state; no automatic queues, squash/rebase, bypass, cleanup, retry, release or deployment inference. Bound post-attempt recovery to three read observations. Development applications remain owned emulation.
 
 - `git-create-work-branch` may create and select one explicitly authorized new local branch at the pinned current committed HEAD after literal name, helper/effect and preservation gates. Dirty work is allowed; preserve actual partial effects. No hook bypass, reset, history removal, alternate-base/unborn creation, network, tracking setup or rollback.
+
+- `git-publish-work` may compose only explicitly selected branch/commit/sync/push/request/promotion effects through their owned capabilities and current gates. Forecast known blockers before earlier writes; preserve actual receipts/partial effects. No inferred fetch, merge, upstream setup, retry, cleanup, release or background monitoring.

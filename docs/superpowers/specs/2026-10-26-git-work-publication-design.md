@@ -1,6 +1,6 @@
 # Work Branch Creation and Publication Coordination Design
 
-Status: proposed; awaiting design approval. Implementation order: git-create-work-branch, then git-publish-work, then composition/distribution integration.
+Status: approved 2026-10-26. Implementation order: git-create-work-branch, then git-publish-work, then composition/distribution integration.
 
 ## Intent and explicit decisions
 
@@ -10,12 +10,12 @@ The selected behavior includes creating a work branch when work is still on the 
 
 ### Approaches
 
-1. Independent branch capability plus publication coordinator — selected. Branch creation has its own permission/evidence contract, standalone installation and owner tests. Coordination delegates it just like the existing commit/push/request owners. It adds one catalog name and a small inventory-validation update.
-2. Branch creation embedded in the publication coordinator — considered. It keeps seventeen names and one new folder, but makes branch creation available only through that coordinator and reduces independent reuse. Not selected.
+1. Independent branch capability plus publication coordinator â€” selected. Branch creation has its own permission/evidence contract, standalone installation and owner tests. Coordination delegates it just like the existing commit/push/request owners. It adds one catalog name and a small inventory-validation update.
+2. Branch creation embedded in the publication coordinator â€” considered. It keeps seventeen names and one new folder, but makes branch creation available only through that coordinator and reduces independent reuse. Not selected.
 
-### Builder proposals for approval
+### Approved implementation boundaries
 
-Keep default planning offline; resolve ambiguous requested effects before writes. Use a five-folder mandatory publication closure with conditional dependencies for selected steps, rather than requiring all preparation/hosting capabilities for an existing-commit push. Initial branch creation supports only a new local branch at the current existing commit; unborn/orphan and arbitrary alternate-base workflows remain decisions. Keep all mutation bounded by the selected goal, with no implicit merge, sync, upstream setup or release. These are proposed implementation boundaries, not additional decisions attributed to the user.
+Keep default planning offline; resolve ambiguous requested effects before writes. Use a five-folder mandatory publication closure with conditional dependencies for selected steps, rather than requiring all preparation/hosting capabilities for an existing-commit push. Initial branch creation supports only a new local branch at the current existing commit; unborn/orphan and arbitrary alternate-base workflows remain decisions. Keep all mutation bounded by the selected goal, with no implicit merge, sync, upstream setup or release. These boundaries govern implementation alongside the selected architecture.
 
 ## Goals and boundaries
 

@@ -1,0 +1,5 @@
+{
+  "id": "PW-04",
+  "request": "Commit selected changes, synchronize explicitly with origin feature/demo, push and create PR to main.",
+  "facts": "Selected work branch already exists. Builder verified expected own transition A -> B, explicit fast-forward owner verified B -> C; final source currently C. Distinct PR target main. Separate case: current source unexpectedly D after guards pinned C. Separate case: user insists push BEFORE committing selected changes but expects new commit included. Resolve all three."
+}

@@ -1,0 +1,22 @@
+Outcome: `uncertain` — supplied-facts assessment only; no Git/provider operations performed. Goal: continue the previously authorized push and PR creation, without merge. Existing authorization carries forward; old progress does not establish current completion.
+
+Selected installation: `tests/.tmp/publication-install/full`. Owners: `git-publish-work`, `git-publish-changes`, `todo-workflow-controller`, `git-working-directory-policy`, `git-safety-check`, and selected PR owner `git-manage-pull-request`. The separate prior merge case additionally uses `git-promote` with management/context. Their copied resources define the applicable handoffs; no foreign substitutions or installation are selected.
+
+PW-05 continuation:
+
+- Push: reported complete, acknowledgment lost; current result remains `uncertain`. Reobserve actual current branch/full source OID, index/worktree, operation state, effective push endpoint/destination and selected remote ref through the publisher's protected reads and fresh gates. Reconcile previous effects before deciding what remains. Verified equal publication yields publisher `no_op`; do not push merely to recover acknowledgment. If publication remains necessary, derive the still-authorized normal push only from fresh, compatible evidence and safety gates. Unexpected source movement stops dependent writes; missing objects do not authorize fetch.
+- PR creation: `blocked` pending verified publication and bounded request reconciliation. Bind canonical host/account/source and target project/ref identities; obtain a complete exact-match listing or exact request evidence. Unknown listing completeness is not absence. One verified exact open match yields management `no_op`, without inferred title/body edits. Multiple matches require selection. Only confirmed absence, refreshed publication/source/template/change coverage and valid gates can support the remaining authorized creation. Never repeat creation solely because acknowledgment was lost. Matching state afterward does not prove who created it.
+- Merge: `skipped` for this continuation because the request explicitly says do not merge. The reviewer's “approvable” statement establishes neither merge permission nor current policy/check satisfaction.
+- Branch preparation, commits, sync and upstream setup: `skipped`; none is selected by these supplied facts. No cleanup, release, deployment or monitoring is authorized.
+
+Separate prior explicit merge case: preserve `pending`; no final merged evidence exists. Its prior authorization permits bounded reconciliation through management/promotion, not a second merge. At most three read observations, stopping earlier on material errors, must establish exact merged state, real merge provenance tied to the pinned source, ordinary merge method, source preservation and current target containment separately. Pending acknowledgment is not merged provenance. If evidence remains unavailable or pending, report that limit and stop; do not poll unattended, retry, rollback or schedule monitoring.
+
+All repository, branch, full OID, endpoint and hosted request identities, live checks and actual operation receipts are unspecified here. No requested effect can be marked verified/completed from these facts.
+
+Separate gap decisions:
+
+- Bare invocation without a goal: offline `planned` scope only; resolve the concrete requested effects before network or writes.
+- Missing mandatory publisher: coordinator `blocked`/unavailable, even for planning its executable flow; do not imitate, substitute or auto-install it.
+- Ambiguous conditional-owner installation: `needs_decision`; obtain one focused installation choice, preserving copies. Stop that dependent flow while allowing independently authorized existing-commit publication when its closure is resolved.
+- Provider tool unavailable despite selected PR goal: forecast the limitation before earlier writes. An already available authenticated equivalent may suffice; otherwise PR execution is `limited`/`blocked`. Missing execution tools differ from missing skills; do not install or repair credentials.
+- Explicit upstream setup: after verified publication/equality, require an existing usable unambiguous mapping/tracking ref, then write/read back only the two local branch keys and verify resolution. Without explicit setup, preserve configuration and suppress automatic setup. Unusable mapping needs a decision, not fetch or mapping repair.

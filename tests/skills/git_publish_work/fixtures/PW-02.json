@@ -1,0 +1,5 @@
+{
+  "id": "PW-02",
+  "request": "Prepare all selected README changes from main on a new work branch, push it to origin and open a PR to org/repo main.",
+  "facts": "Current main at bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb. No work branch yet. All current edits are selected; no excluded residual work. Naming convention feature/parser and purpose parser are known. Entire owned suite available. Effective identity and checks/effects available for inspection. GitHub source/target identities observed. No sync, merge, upstream setup or release selected."
+}

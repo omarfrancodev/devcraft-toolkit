@@ -1,0 +1,5 @@
+{
+  "id": "PW-05",
+  "request": "Continue the previously requested push and PR creation; do not merge.",
+  "facts": "Old progress says push complete but acknowledgment lost. Actual remote and local refs must be reobserved. PR creation may already have succeeded; listing completeness unknown. A reviewer says approvable. Separate prior explicit merge case returned pending; no final merged evidence. State remaining steps for both, no monitoring authorized."
+}

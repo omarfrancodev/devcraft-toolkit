@@ -28,9 +28,12 @@
     {
       "name": "git-publish-work",
       "role": "coordinator",
-      "status": "planned",
+      "status": "available",
       "path": "skills/git-publish-work",
-      "requires": []
+      "requires": [
+        "git-publish-changes",
+        "todo-workflow-controller"
+      ]
     },
     {
       "name": "git-activity-report",
