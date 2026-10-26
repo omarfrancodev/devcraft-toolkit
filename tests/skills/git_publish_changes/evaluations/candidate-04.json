@@ -1,0 +1,11 @@
+{
+  "case_id": "PUSH-04",
+  "selected_skills": [
+    "test:git-publish-changes",
+    "test:git-working-directory-policy",
+    "test:git-safety-check"
+  ],
+  "response": "Outcome: uncertain. Based on the supplied report, the requested push of main at pinned source S returned exit 1 with “connection lost after sending the update.” The remote was R before the attempt; its current OID cannot be verified. The error does not establish that the remote rejected or failed to apply the update. Remote effects remain unknown, so publication cannot be confirmed and no absence of effects can be claimed. Local HEAD remains S; index, worktree, configuration and tracking-ref postconditions were not supplied. What remains is independent verification of the selected remote branch and the protected local state. Preserve the current state. No retry was requested; do not repeat the push or perform rollback or cleanup. These are reported facts, not commands I executed. The selected remote, destination ref and endpoint were not provided.",
+  "commands": [],
+  "effects": []
+}

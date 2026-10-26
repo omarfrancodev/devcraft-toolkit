@@ -2,7 +2,7 @@
 
 Install **Devcraft Toolkit as a complete suite** using the route for your client. Native plugins/Powers include all available skills and resources from the selected revision. Crew imports the complete set through its own dashboard; CLI-only Kiro has a full-set alternative. These routes need no user-managed clone.
 
-The default-branch recipes below use the integrated remote package. [v0.1.0-preview.5 release details](releases/v0.1.0-preview.5.md) provide version-pinned source options and download verification. The earlier `v0.1.0-preview.1` is source-only and cannot serve as a native plugin source. [Historical pre-integration sources](installation/preview.md) describe earlier probes, not the current release's native acceptance.
+The default-branch recipes below use the integrated remote package. [v0.1.0-preview.6 release details](releases/v0.1.0-preview.6.md) provide version-pinned source options and download verification. The earlier `v0.1.0-preview.1` is source-only and cannot serve as a native plugin source. [Historical pre-integration sources](installation/preview.md) describe earlier probes, not the current release's native acceptance.
 
 ## Install the complete suite
 
@@ -32,4 +32,4 @@ For updates and removal use the selected client's guide and the same installatio
 
 ## Source inventory
 
-Version `0.1.0-preview.5` contains twelve skills, including `git-activity-report`. Select this tag or a later revision containing the requested capabilities for the current complete/individual selections. Preview.4 has eleven skills, including staging/commit construction, but no history-report coordinator. Preview.3 has nine and also lacks staging/commit construction. Preview.2 has seven and also lacks analysis/planning. Source selection does not establish native activation. All client routes use canonical folders at their selected source revision; older tags and native activation/resource evidence remain version-specific. Installation does not authorize a runtime write.
+Version `0.1.0-preview.6` has fourteen skills, adding `git-sync-branch` and `git-publish-changes`. Select this tag or a later revision containing these capabilities for the current complete/individual selections. Published `0.1.0-preview.5` has twelve skills including `git-activity-report` and lacks both new capabilities. Select a revision that actually contains the requested capabilities. Preview.4 has eleven skills, including staging/commit construction, but no history-report coordinator. Preview.3 has nine and also lacks staging/commit construction. Preview.2 has seven and also lacks analysis/planning. Source selection does not establish native activation. All client routes use canonical folders at their selected source revision; older tags and native activation/resource evidence remain version-specific. Installation does not authorize a runtime write.

@@ -1,0 +1,32 @@
+test_single_branch_upstream_requires_usable_fetch_mapping (tests.skills.git_publish_changes.integration.test_publish_recipes.PublishRecipeTests.test_single_branch_upstream_requires_usable_fetch_mapping) ... FAIL
+test_equal_remote_without_local_tracking_requires_decision_before_keys (tests.skills.git_publish_changes.integration.test_publish_recipes.PublishRecipeTests.test_equal_remote_without_local_tracking_requires_decision_before_keys) ... FAIL
+
+======================================================================
+FAIL: test_single_branch_upstream_requires_usable_fetch_mapping (tests.skills.git_publish_changes.integration.test_publish_recipes.PublishRecipeTests.test_single_branch_upstream_requires_usable_fetch_mapping)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Developer.INSCORSOF2\Documents\Proyectos-Code\omarfrancodev\devcraft-toolkit\.worktrees\git-sync-publish\tests\skills\git_publish_changes\integration\test_publish_recipes.py", line 191, in test_single_branch_upstream_requires_usable_fetch_mapping
+    self.assertEqual("needs_decision",result["outcome"],unresolved.stderr.decode())
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'needs_decision' != 'configured'
+- needs_decision
++ configured
+ : fatal: upstream branch 'refs/heads/feature/demo' not stored as a remote-tracking branch
+
+
+======================================================================
+FAIL: test_equal_remote_without_local_tracking_requires_decision_before_keys (tests.skills.git_publish_changes.integration.test_publish_recipes.PublishRecipeTests.test_equal_remote_without_local_tracking_requires_decision_before_keys)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Developer.INSCORSOF2\Documents\Proyectos-Code\omarfrancodev\devcraft-toolkit\.worktrees\git-sync-publish\tests\skills\git_publish_changes\integration\test_publish_recipes.py", line 204, in test_equal_remote_without_local_tracking_requires_decision_before_keys
+    self.assertEqual("needs_decision",result["outcome"])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'needs_decision' != 'configured'
+- needs_decision
++ configured
+
+
+----------------------------------------------------------------------
+Ran 2 tests in 6.936s
+
+FAILED (failures=2)

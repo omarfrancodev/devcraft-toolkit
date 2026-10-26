@@ -1,0 +1,28 @@
+{
+  "raw_response": "The supplied evidence establishes that publication succeeded: origin's selected effective push endpoint advertises refs/heads/feature/demo=S. I would not repeat the push or fetch.\n\nUpstream setup cannot be completed within the requested configuration boundary. The existing fetch refspec maps only main, so refs/heads/feature/demo has no origin remote-tracking mapping; origin/feature/demo is also absent. Merely setting these two authorized keys would not produce a resolvable upstream:\n\nconfig --local --replace-all branch.feature/demo.remote origin\nconfig --local --replace-all branch.feature/demo.merge refs/heads/feature/demo\n\nI would leave those keys unchanged rather than describe that incomplete association as completed upstream setup. Completing it requires a separate decision allowing a suitable fetch mapping and local tracking-ref establishment; neither is part of the two branch-key writes allowed by this request. I would not add remote.origin.fetch, fabricate origin/feature/demo, run fetch, or change identity/global settings.\n\nOutcome: partial overall, with the branch publication reported as successful and upstream setup blocked by the supplied mapping and scope restrictions. No next mutation is proposed under the present authorization. S is the supplied symbol, not an actual verified OID, and all success evidence here is reported rather than personally executed.",
+  "resources_read": [
+    {
+      "path": "skills/git-publish-changes/SKILL.md",
+      "bytes": 3752,
+      "last_write_utc": "2026-10-25T20:19:25.9376551Z"
+    },
+    {
+      "path": "skills/git-publish-changes/references/publication.md",
+      "bytes": 10978,
+      "last_write_utc": "2026-10-25T20:43:58.6369597Z"
+    }
+  ],
+  "read_limits": {
+    "allowed": [
+      "skills/git-publish-changes/SKILL.md",
+      "skills/git-publish-changes/references/publication.md"
+    ],
+    "context_safety_read": false,
+    "review_spec_plan_test_evaluation_read": false,
+    "git_executed": false,
+    "network_used": false,
+    "delegated": false,
+    "read_output_truncated": false
+  },
+  "instrumentation": "Separately authorized output only; no evaluation resources read."
+}

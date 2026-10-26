@@ -1,0 +1,14 @@
+{
+  "id": "SYNC-01",
+  "raw_response": "outcome: planned; mode: inspect (cached evidence only).\n\nBased on the supplied facts, main at L is behind the cached origin observation U for refs/heads/main. That observation is two days old, so it does not establish whether your branch is synchronized with the remote now. The worktree is reported clean.\n\nNo synchronization or remote observation is authorized by this request. No Git or network commands were executed; no fetch, branch movement, or Git changes occurred. There is no fetched OID or live after-state verification.\n\nA future explicitly authorized observation could check the selected remote branch; synchronization would require separate authorization. Repository metadata, the effective fetch endpoint, and live safety/helper checks were not supplied, so they remain unverified.",
+  "commands": {
+    "git": [],
+    "network": [],
+    "instrumentation": "Read only the specified skill files, their local references, and SYNC-01.json; wrote this evaluation record."
+  },
+  "effects": {
+    "git": "none",
+    "network": "none",
+    "files_written": ["tests/skills/git_sync_branch/evaluations/candidate-01.json"]
+  }
+}

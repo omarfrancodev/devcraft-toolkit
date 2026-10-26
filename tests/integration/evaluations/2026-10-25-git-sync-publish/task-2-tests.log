@@ -1,0 +1,17 @@
+test_publish_available_with_exact_three_skill_closure (test_package.PublishPackageTests.test_publish_available_with_exact_three_skill_closure) ... ok
+test_equal_remote_allows_requested_upstream_without_push (test_publish_recipes.PublishRecipeTests.test_equal_remote_allows_requested_upstream_without_push) ... ok
+test_explicit_upstream_changes_only_two_local_keys (test_publish_recipes.PublishRecipeTests.test_explicit_upstream_changes_only_two_local_keys) ... ok
+test_multiple_endpoints_and_mirror_require_decision (test_publish_recipes.PublishRecipeTests.test_multiple_endpoints_and_mirror_require_decision) ... ok
+test_normal_push_rejects_non_fast_forward (test_publish_recipes.PublishRecipeTests.test_normal_push_rejects_non_fast_forward) ... ok
+test_pinned_single_ref_overrides_matching_and_follow_tags (test_publish_recipes.PublishRecipeTests.test_pinned_single_ref_overrides_matching_and_follow_tags) ... ok
+test_pre_push_and_reference_hooks_are_not_bypassed (test_publish_recipes.PublishRecipeTests.test_pre_push_and_reference_hooks_are_not_bypassed) ... ok
+test_pushurl_and_rewrite_select_effective_endpoint (test_publish_recipes.PublishRecipeTests.test_pushurl_and_rewrite_select_effective_endpoint) ... ok
+test_rejection_or_lost_ack_requires_actual_observation (test_publish_recipes.PublishRecipeTests.test_rejection_or_lost_ack_requires_actual_observation) ... ok
+test_source_movement_does_not_publish_new_tip (test_publish_recipes.PublishRecipeTests.test_source_movement_does_not_publish_new_tip) ... ok
+test_unknown_remote_oid_requires_fetch_decision (test_publish_recipes.PublishRecipeTests.test_unknown_remote_oid_requires_fetch_decision) ... ok
+test_upstream_failure_preserves_verified_push_and_partial_keys (test_publish_recipes.PublishRecipeTests.test_upstream_failure_preserves_verified_push_and_partial_keys) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 26.113s
+
+OK

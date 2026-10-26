@@ -1,0 +1,12 @@
+{
+  "before": "a0dbea407a8a72aff391738bfcedc288bde1ceae",
+  "after": "90c52b0a9aa6ec0d2880d20be1127fa21a4da122",
+  "expected_target": "90c52b0a9aa6ec0d2880d20be1127fa21a4da122",
+  "expected_refs_only": true,
+  "server_refs_unchanged": true,
+  "config_unchanged": true,
+  "fetch_head_preserved": true,
+  "index_matches_tree": true,
+  "working_content_exact": true,
+  "extra_client_files": []
+}

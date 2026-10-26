@@ -1,0 +1,15 @@
+{
+  "id": "SYNC-01",
+  "request": "Check whether my branch is synchronized. Do not perform the synchronization yet.",
+  "facts": {
+    "branch": "main",
+    "local_head": "L",
+    "cached_upstream": "U",
+    "cache_age": "two days",
+    "cached_relation": "behind",
+    "remote": "origin",
+    "upstream": "refs/heads/main",
+    "worktree": "clean",
+    "remote_current_state": "not observed"
+  }
+}

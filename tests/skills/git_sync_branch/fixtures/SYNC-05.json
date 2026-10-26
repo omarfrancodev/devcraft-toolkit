@@ -1,0 +1,16 @@
+{
+  "id": "SYNC-05",
+  "request": "Synchronize my branch. Tell me what you need if the destination is unclear.",
+  "facts": {
+    "branch": "feature/demo",
+    "upstream_remote": "origin",
+    "upstream_branch": "refs/heads/feature/demo",
+    "effective_fetch_urls": [
+      "https://fake-token-one@one.example.invalid/r.git",
+      "https://fake-token-two@two.example.invalid/r.git"
+    ],
+    "pushurl": "ssh://git@fork.example.invalid/r.git",
+    "remote_current_state": "not observed",
+    "worktree": "clean"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "id": "PUSH-03",
+  "request": "Publish the current committed main branch to its selected upstream, without force.",
+  "facts": {
+    "branch": "main",
+    "source_oid": "S",
+    "remote": "origin",
+    "destination": "refs/heads/main",
+    "advertised_remote_oid": "R",
+    "R_locally_available": false,
+    "graph_relation": "not established",
+    "worktree": "clean",
+    "fetch_authorized": false,
+    "endpoint": "one inspected remote"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "respuestas": [
+    {
+      "caso": 1,
+      "respuesta": "Modo publish autorizado para main -> origin/refs/heads/main; upstream no autorizado. El endpoint de publicación es B. Consultaría exclusivamente B con los operandos ls-remote --refs --exit-code -- B refs/heads/main, comprobando que la reescritura efectiva también dirige la consulta a B. No usaría ls-remote origin porque su fetch URL A es distinta. R, disponible localmente y ancestro de S según los hechos suministrados, permite proponer un avance normal. Con guards frescos, ejecutaría una sola vez los operandos -c push.autoSetupRemote=false push --porcelain --no-follow-tags --recurse-submodules=no -- origin <OID-completo-de-S>:refs/heads/main. Capturaría su salida y consultaría nuevamente B con ls-remote --refs --exit-code -- B refs/heads/main; comprobaría además los guards y únicamente los efectos de tracking previstos por el mapping inspeccionado. El resultado solo sería published tras verificar B/main=S y los postestados locales; con la evidencia presente es una propuesta, no una publicación ejecutada ni un no_op. A/main=S no demuestra igualdad en B."
+    },
+    {
+      "caso": 2,
+      "respuesta": "uncertain según la evidencia suministrada: el push se reporta exitoso, pero la verificación de B falla. Conservaría el resultado reportado del único intento y los efectos locales observables; no repetiría el push, haría rollback ni sustituiría la consulta por A. A/main=S no verifica el endpoint publicado B. Informaría que no se pudo establecer el OID remoto posterior de B y que no procede afirmar published ni ausencia de efectos. Upstream permanece sin cambios autorizados."
+    }
+  ],
+  "limites": [
+    "No se ejecutó Git ni se accedió a la red; todas las observaciones y el éxito del segundo supuesto son hechos suministrados.",
+    "A, B, R y S son símbolos del supuesto; no se inventaron URLs, OIDs completos, códigos de salida, mediciones ni identificadores. Los operandos requieren los valores reales validados antes de ejecución.",
+    "Cada operación Git propuesta llevaría el prefijo protegido: git --no-pager --no-optional-locks --no-lazy-fetch --no-replace-objects -c core.fsmonitor=false -c maintenance.auto=false -c gc.auto=0 -c log.showSignature=false; shell sin perfil, workdir explícito y argumentos literales.",
+    "No se propone fetch, configuración de upstream ni modificación global. La única escritura realizada es este registro de instrumentación expresamente autorizado."
+  ]
+}

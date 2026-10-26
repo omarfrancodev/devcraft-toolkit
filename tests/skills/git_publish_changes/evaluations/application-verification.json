@@ -1,0 +1,13 @@
+{
+  "source": "e0e4774e4cc97ef5db5de782b0af5401884ffd8d",
+  "destination": "refs/heads/feature/receipt",
+  "remote_exact": true,
+  "local_refs_only_expected_tracking": true,
+  "head_index_content_preserved": true,
+  "config_only_two_requested_keys": true,
+  "global_preserved": true,
+  "upstream": "refs/remotes/origin/feature/receipt",
+  "push_attempts": 1,
+  "extra_client_files": [],
+  "limits": "Owned local bare, copied three-folder manual invocation; no SSH/HTTPS/native activation."
+}

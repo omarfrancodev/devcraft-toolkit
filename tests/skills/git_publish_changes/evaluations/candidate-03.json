@@ -1,0 +1,19 @@
+{
+  "sample_id": "PUSH-03",
+  "execution_mode": "manual",
+  "response": "Outcome: needs_decision (publish).\n\nFrom the supplied evidence, current branch main is clean and its pinned source is S. The selected route is origin → refs/heads/main at one inspected endpoint; that endpoint's actual value was not supplied. The advertised remote OID is R, which is unavailable locally, so the ancestry relationship between R and S cannot be established. These are reported facts, not live observations.\n\nYour request authorizes a normal, non-force publication and bounded verification, but not a fetch. Publication must stop before push because fast-forward eligibility is unknown. Do you authorize fetching the selected target's missing history to establish ancestry, or prefer to handle synchronization separately?\n\nNo Git or network commands were executed; no push was attempted and no upstream configuration was changed. The remote-after OID and local postconditions were not verified. Once the missing history is available and fresh safety checks pass, publication can proceed only if the target is equal to, or an ancestor of, the pinned source; a non-fast-forward update remains blocked.",
+  "commands": [
+    "Read skills/git-publish-changes/SKILL.md",
+    "Read skills/git-working-directory-policy/SKILL.md",
+    "Read skills/git-safety-check/SKILL.md",
+    "Read tests/skills/git_publish_changes/fixtures/PUSH-03.json",
+    "Read skills/git-publish-changes/references/publication.md",
+    "Read skills/git-working-directory-policy/references/context.md",
+    "Read skills/git-safety-check/references/preflight.md"
+  ],
+  "effects": [
+    "Read only the authorized skill documents, local references, and fixture.",
+    "No Git commands or network calls executed.",
+    "Created only tests/skills/git_publish_changes/evaluations/candidate-03.json as authorized instrumentation."
+  ]
+}

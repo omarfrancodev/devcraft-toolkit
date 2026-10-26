@@ -1,0 +1,17 @@
+{
+  "installation": "P",
+  "source": "unchanged entry and composition reference only",
+  "execution": "none",
+  "responses": [
+    {
+      "id": "A",
+      "request": "Sincroniza mi rama actual desde su upstream con fetch y fast-forward únicamente.",
+      "raw_response": "La entrada seleccionada P:using-devcraft-toolkit no declara una ruta para sincronizar ramas, aunque el descubrimiento suministrado identifica P:git-sync-branch y su cierre completo en P. No puedo deducir esa coordinación de las instrucciones leídas ni ejecutarla como sustitución. La alternativa declarada es observar el contexto con P:git-working-directory-policy y, si se solicita, evaluar la preparación mediante P:git-safety-check con su dependencia de contexto; eso solo produce una comprobación de lectura. No se ejecutaron fetch, fast-forward ni otros comandos Git."
+    },
+    {
+      "id": "B",
+      "request": "Publica únicamente mi rama actual en su destino seleccionado, sin cambiar upstream.",
+      "raw_response": "Según la entrada seleccionada P:using-devcraft-toolkit y su referencia de composición, la coordinación de publicación está planificada y no está disponible en esta distribución. El descubrimiento suministrado identifica P:git-publish-changes y su cierre completo en P, pero las instrucciones de entrada no proporcionan una ruta para invocarlo y prohíben imitar la publicación o sustituir otra capacidad. No se ejecutó publicación ni ningún comando Git; no se observó el destino ni el upstream y no se modificó ninguno."
+    }
+  ]
+}

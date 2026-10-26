@@ -1,0 +1,586 @@
+{
+  "outcome": "published",
+  "mode": "publish",
+  "authorization": "Publicar s\u00c3\u00b3lo la rama actual feature/receipt en origin refs/heads/feature/receipt y configurar su upstream local; conservar las dem\u00c3\u00a1s referencias, contenido e identidad/configuraci\u00c3\u00b3n global.",
+  "raw_response": "published: feature/receipt publicada en origin como refs/heads/feature/receipt, OID e0e4774e4cc97ef5db5de782b0af5401884ffd8d. Verificaci\u00c3\u00b3n independiente correcta (antes: ausente; despu\u00c3\u00a9s: OID fijado). Upstream local configurado y efectivo: origin/feature/receipt. Se conservaron otras ramas y etiquetas, HEAD, contenido local, \u00c3\u00adndice, identidad y configuraci\u00c3\u00b3n global; s\u00c3\u00b3lo se cre\u00c3\u00b3 el tracking esperado y se escribieron las dos claves locales autorizadas. Un \u00c3\u00banico push, sin fetch, commits, PR ni release. Auditor\u00c3\u00ada: actor-result.json. L\u00c3\u00admites: observaciones puntuales, sin bloqueo de concurrencia.",
+  "installation": "fixture:git-publish-changes/context/safety (copied resources, manual invocation authorized)",
+  "read_resources": [
+    "installed/git-publish-changes/SKILL.md",
+    "installed/git-publish-changes/references/publication.md",
+    "installed/git-working-directory-policy/SKILL.md",
+    "installed/git-working-directory-policy/references/context.md",
+    "installed/git-safety-check/SKILL.md",
+    "installed/git-safety-check/references/preflight.md"
+  ],
+  "cwd": "repositories/client",
+  "environment": {
+    "GIT_CONFIG_GLOBAL": "repositories/.fixture-global-config",
+    "GIT_CONFIG_NOSYSTEM": "1",
+    "observedOtherGitOverride": "GIT_PAGER=cat",
+    "shell": "powershell login:false"
+  },
+  "gitPrefix": [
+    "git",
+    "--no-pager",
+    "--no-optional-locks",
+    "--no-lazy-fetch",
+    "--no-replace-objects",
+    "-c",
+    "core.fsmonitor=false",
+    "-c",
+    "maintenance.auto=false",
+    "-c",
+    "gc.auto=0",
+    "-c",
+    "log.showSignature=false"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "--version"
+      ],
+      "observations": [
+        [
+          "metadata",
+          0
+        ]
+      ]
+    },
+    {
+      "argv": [
+        "rev-parse",
+        "--show-toplevel"
+      ],
+      "observations": [
+        [
+          "metadata",
+          0
+        ]
+      ]
+    },
+    {
+      "argv": [
+        "rev-parse",
+        "--absolute-git-dir"
+      ],
+      "observations": [
+        [
+          "metadata",
+          0
+        ]
+      ]
+    },
+    {
+      "argv": [
+        "rev-parse",
+        "--git-common-dir"
+      ],
+      "observations": [
+        [
+          "metadata",
+          0
+        ]
+      ]
+    },
+    {
+      "argv": [
+        "rev-parse",
+        "--show-superproject-working-tree"
+      ],
+      "observations": [
+        [
+          "metadata",
+          0
+        ]
+      ]
+    },
+    {
+      "argv": [
+        "symbolic-ref",
+        "--short",
+        "-q",
+        "HEAD"
+      ],
+      "observations": [
+        [
+          "metadata",
+          0
+        ],
+        [
+          "push",
+          0
+        ],
+        [
+          "upstream",
+          0
+        ],
+        [
+          "finalVerify",
+          0
+        ]
+      ]
+    },
+    {
+      "argv": [
+        "rev-parse",
+        "--verify",
+        "HEAD"
+      ],
+      "observations": [
+        [
+          "metadata",
+          0
+        ],
+        [
+          "push",
+          0
+        ],
+        [
+          "upstream",
+          0
+        ],
+        [
+          "finalVerify",
+          0
+        ]
+      ]
+    },
+    {
+      "argv": [
+        "config",
+        "--show-origin",
+        "--show-scope",
+        "--list"
+      ],
+      "observations": [
+        [
+          "metadata",
+          0
+        ],
+        [
+          "finalVerify",
+          0
+        ]
+      ]
+    },
+    {
+      "argv": [
+        "remote",
+        "get-url",
+        "--push",
+        "--all",
+        "origin"
+      ],
+      "observations": [
+        [
+          "metadata",
+          0
+        ],
+        [
+          "push",
+          0
+        ],
+        [
+          "upstream",
+          0
+        ]
+      ]
+    },
+    {
+      "argv": [
+        "remote",
+        "get-url",
+        "--all",
+        "origin"
+      ],
+      "observations": [
+        [
+          "metadata",
+          0
+        ]
+      ]
+    },
+    {
+      "argv": [
+        "-C",
+        "C:/Users/Developer.INSCORSOF2/Documents/Proyectos-Code/omarfrancodev/devcraft-toolkit/.worktrees/git-sync-publish/tests/.tmp/publish-application/repositories/remote space.git",
+        "config",
+        "--show-origin",
+        "--show-scope",
+        "--list"
+      ],
+      "observations": [
+        [
+          "preflight",
+          0
+        ]
+      ]
+    },
+    {
+      "argv": [
+        "status",
+        "--porcelain=v1",
+        "--untracked-files=all"
+      ],
+      "observations": [
+        [
+          "preflight",
+          0
+        ],
+        [
+          "push",
+          0
+        ],
+        [
+          "upstream",
+          0
+        ],
+        [
+          "finalVerify",
+          0
+        ]
+      ]
+    },
+    {
+      "argv": [
+        "for-each-ref",
+        "--format=%(refname) %(objectname) %(symref)"
+      ],
+      "observations": [
+        [
+          "preflight",
+          0
+        ],
+        [
+          "push",
+          0
+        ],
+        [
+          "upstream",
+          0
+        ],
+        [
+          "finalVerify",
+          0
+        ]
+      ]
+    },
+    {
+      "argv": [
+        "rev-parse",
+        "--is-shallow-repository"
+      ],
+      "observations": [
+        [
+          "preflight",
+          0
+        ]
+      ]
+    },
+    {
+      "argv": [
+        "config",
+        "--local",
+        "--list"
+      ],
+      "observations": [
+        [
+          "preflight",
+          0
+        ],
+        [
+          "push",
+          0
+        ],
+        [
+          "upstream",
+          0
+        ],
+        [
+          "finalVerify",
+          0
+        ]
+      ]
+    },
+    {
+      "argv": [
+        "config",
+        "--show-origin",
+        "--get",
+        "user.name"
+      ],
+      "observations": [
+        [
+          "preflight",
+          0
+        ]
+      ]
+    },
+    {
+      "argv": [
+        "config",
+        "--show-origin",
+        "--get",
+        "user.email"
+      ],
+      "observations": [
+        [
+          "preflight",
+          0
+        ]
+      ]
+    },
+    {
+      "argv": [
+        "check-ref-format",
+        "refs/heads/feature/receipt"
+      ],
+      "observations": [
+        [
+          "preflight",
+          0
+        ]
+      ]
+    },
+    {
+      "argv": [
+        "-C",
+        "C:/Users/Developer.INSCORSOF2/Documents/Proyectos-Code/omarfrancodev/devcraft-toolkit/.worktrees/git-sync-publish/tests/.tmp/publish-application/repositories/remote space.git",
+        "for-each-ref",
+        "--format=%(refname) %(objectname) %(symref)"
+      ],
+      "observations": [
+        [
+          "preflight",
+          0
+        ],
+        [
+          "upstream",
+          0
+        ],
+        [
+          "finalVerify",
+          0
+        ]
+      ]
+    },
+    {
+      "argv": [
+        "ls-remote",
+        "--refs",
+        "--exit-code",
+        "--",
+        "origin",
+        "refs/heads/feature/receipt"
+      ],
+      "observations": [
+        [
+          "advertBefore",
+          2
+        ],
+        [
+          "upstream",
+          0
+        ]
+      ]
+    },
+    {
+      "argv": [
+        "-c",
+        "push.autoSetupRemote=false",
+        "push",
+        "--porcelain",
+        "--no-follow-tags",
+        "--recurse-submodules=no",
+        "--",
+        "origin",
+        "e0e4774e4cc97ef5db5de782b0af5401884ffd8d:refs/heads/feature/receipt"
+      ],
+      "observations": [
+        [
+          "push",
+          0
+        ]
+      ]
+    },
+    {
+      "argv": [
+        "config",
+        "--show-origin",
+        "--show-scope",
+        "--get-all",
+        "branch.feature/receipt.remote"
+      ],
+      "observations": [
+        [
+          "upstream",
+          1
+        ],
+        [
+          "upstream",
+          0
+        ]
+      ]
+    },
+    {
+      "argv": [
+        "config",
+        "--show-origin",
+        "--show-scope",
+        "--get-all",
+        "branch.feature/receipt.merge"
+      ],
+      "observations": [
+        [
+          "upstream",
+          1
+        ],
+        [
+          "upstream",
+          0
+        ]
+      ]
+    },
+    {
+      "argv": [
+        "config",
+        "--local",
+        "--replace-all",
+        "branch.feature/receipt.remote",
+        "origin"
+      ],
+      "observations": [
+        [
+          "upstream",
+          0
+        ]
+      ]
+    },
+    {
+      "argv": [
+        "config",
+        "--local",
+        "--replace-all",
+        "branch.feature/receipt.merge",
+        "refs/heads/feature/receipt"
+      ],
+      "observations": [
+        [
+          "upstream",
+          0
+        ]
+      ]
+    },
+    {
+      "argv": [
+        "config",
+        "--local",
+        "--get-all",
+        "branch.feature/receipt.remote"
+      ],
+      "observations": [
+        [
+          "upstream",
+          0
+        ]
+      ]
+    },
+    {
+      "argv": [
+        "config",
+        "--local",
+        "--get-all",
+        "branch.feature/receipt.merge"
+      ],
+      "observations": [
+        [
+          "upstream",
+          0
+        ]
+      ]
+    },
+    {
+      "argv": [
+        "rev-parse",
+        "--symbolic-full-name",
+        "@{upstream}"
+      ],
+      "observations": [
+        [
+          "finalVerify",
+          0
+        ]
+      ]
+    }
+  ],
+  "scope": {
+    "branch": "feature/receipt",
+    "sourceOid": "e0e4774e4cc97ef5db5de782b0af5401884ffd8d",
+    "remote": "origin",
+    "destination": "refs/heads/feature/receipt",
+    "endpoint": "repositories/remote space.git",
+    "transport": "owned local bare; no external network",
+    "remoteBefore": null,
+    "remoteAfter": "e0e4774e4cc97ef5db5de782b0af5401884ffd8d",
+    "relation": "create"
+  },
+  "routingEffects": "Single configured effective push endpoint; explicit refspec suppresses matching and remote.origin.push defaults; no-follow-tags, recurse-submodules=no and command-local autoSetupRemote=false suppress expansion. One safe origin fetch mapping permits only expected tracking update. No active applicable hooks, custom helpers/commands, signing requirement, mirror, push options, filters, or side-effecting environment override observed.",
+  "push": {
+    "attempts": 1,
+    "exit": 0,
+    "output": [
+      "To C:\\Users\\Developer.INSCORSOF2\\Documents\\Proyectos-Code\\omarfrancodev\\devcraft-toolkit\\.worktrees\\git-sync-publish\\tests\\.tmp\\publish-application\\repositories\\remote space.git",
+      "*\te0e4774e4cc97ef5db5de782b0af5401884ffd8d:refs/heads/feature/receipt\t[new branch]",
+      "Done"
+    ]
+  },
+  "postVerification": {
+    "advertisementExit": 0,
+    "oid": "e0e4774e4cc97ef5db5de782b0af5401884ffd8d",
+    "checks": {
+      "localConfigOnlyRequestedKeys": true,
+      "localRefsOnlyExpectedTrackingCreation": true,
+      "remoteRefsOnlyRequestedBranchCreation": true,
+      "cleanStatus": true,
+      "sameHead": true,
+      "sameBranch": true,
+      "upstream": true,
+      "indexAndGlobalHashesUnchanged": true,
+      "noActiveOperation": true
+    }
+  },
+  "upstream": {
+    "outcome": "configured",
+    "remote": "origin",
+    "merge": "refs/heads/feature/receipt",
+    "scope": "local file:.git/config",
+    "oldValues": "absent (get-all exit 1)",
+    "writeExits": [
+      0,
+      0
+    ],
+    "localAndEffectiveReadbackExits": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "effects": {
+    "remoteBranchCreated": true,
+    "localTrackingRefCreated": "refs/remotes/origin/feature/receipt",
+    "configKeysWritten": [
+      "branch.feature/receipt.remote=origin",
+      "branch.feature/receipt.merge=refs/heads/feature/receipt"
+    ],
+    "protectedRefsAndConfigPreserved": true,
+    "indexSha256": "A8B835F1693BBAFC447414D88ED0375FE57085615B24D46551566D70C835F1AE",
+    "globalSha256": "66974B15E6F5952DBF692370BD1111BB9FBE210BB88E41C9965009E1901E4D49",
+    "identity": "Fixture User <fixture@example.invalid>, file:.git/config, unchanged"
+  },
+  "limits": [
+    "Observational guards are not concurrency locks.",
+    "No fetch, commit, PR, release, external network, retries, force, or global configuration mutation."
+  ],
+  "auditWrite": "Separately authorized instrumentation only."
+}

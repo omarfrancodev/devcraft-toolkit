@@ -1,0 +1,43 @@
+[
+  {
+    "id": "GAP-01",
+    "request": "Publish main to origin/main and set its local upstream.",
+    "facts": {
+      "source": "S",
+      "verified_remote": "S",
+      "branch_guard": "unchanged",
+      "upstream": "absent",
+      "pre_push_hook": "unknown effects; not invoked"
+    }
+  },
+  {
+    "id": "GAP-02",
+    "request": "Create origin/new only if it remains absent; do not update an existing branch.",
+    "facts": {
+      "observed_remote": "absent",
+      "available_transport": "normal Git push; no atomic create-only primitive established",
+      "source": "S"
+    }
+  },
+  {
+    "id": "GAP-03",
+    "request": "Publish the approved current-branch snapshot S.",
+    "facts": {
+      "source_before": "S",
+      "source_now": "S2",
+      "guard_change": "detected before push",
+      "remote": "R"
+    }
+  },
+  {
+    "id": "GAP-04",
+    "request": "Finish the requested publication/upstream report.",
+    "facts": {
+      "verified_push_target": "S",
+      "first_local_tracking_key": "written as origin",
+      "second_key": "write failed due to config lock",
+      "global_config": "unchanged",
+      "source_guard": "unchanged"
+    }
+  }
+]

@@ -2,7 +2,7 @@
 
 ## Install the complete remote suite
 
-The default-source recipe uses the integrated package; [release details](../releases/v0.1.0-preview.5.md#version-pinned-sources) describe version-pinned installation. Register this repository from your shell:
+The default-source recipe uses the integrated package; [release details](../releases/v0.1.0-preview.6.md#version-pinned-sources) describe version-pinned installation. Register this repository from your shell:
 
 ```sh
 claude plugin marketplace add omarfrancodev/devcraft-toolkit

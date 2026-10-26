@@ -1,0 +1,11 @@
+{
+  "id": "SYNC-03",
+  "raw_response": "The fetch succeeded and updated the selected upstream tracking ref from T to R. main remains at L, and the worktree is clean. L and R have diverged: neither commit is an ancestor of the other, so a fast-forward is impossible. Sync cannot finish under the fetch-and-fast-forward-only constraint. Stop here; no further Git commands or history changes are needed. The fetched objects and tracking-ref update remain; other refs are unchanged.",
+  "proposed_commands": [],
+  "proposed_effects": [
+    "Stop because fast-forward is impossible.",
+    "Preserve main at L and the clean worktree.",
+    "Retain fetched objects and tracking ref at R.",
+    "Leave all other refs unchanged."
+  ]
+}

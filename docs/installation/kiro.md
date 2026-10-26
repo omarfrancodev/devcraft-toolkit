@@ -29,7 +29,7 @@ inventory and activate it with a relevant request that reads bundled resources;
 compare an unrelated control project. These checks remain pending under
 [compatibility](../compatibility.md#kiro-keywords-correction-f001).
 
-The reviewed import interface does not establish how to pin a Git ref. Do not assume a branch/tree URL works: the [release source note](../releases/v0.1.0-preview.5.md#version-pinned-sources) keeps pinned Power import unverified.
+The reviewed import interface does not establish how to pin a Git ref. Do not assume a branch/tree URL works: the [release source note](../releases/v0.1.0-preview.6.md#version-pinned-sources) keeps pinned Power import unverified.
 
 ## CLI and Crew are separate clients
 

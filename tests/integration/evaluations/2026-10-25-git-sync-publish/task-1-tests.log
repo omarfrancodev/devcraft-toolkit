@@ -1,0 +1,14 @@
+test_sync_available_with_exact_three_skill_closure (test_package.SyncPackageTests.test_sync_available_with_exact_three_skill_closure) ... ok
+test_dirty_conflicted_unborn_detached_write_gates (test_sync_recipes.SyncRecipeTests.test_dirty_conflicted_unborn_detached_write_gates) ... ok
+test_equal_ahead_and_diverged_are_not_reset (test_sync_recipes.SyncRecipeTests.test_equal_ahead_and_diverged_are_not_reset) ... ok
+test_exact_fetch_ignores_tags_prune_and_extra_refmaps (test_sync_recipes.SyncRecipeTests.test_exact_fetch_ignores_tags_prune_and_extra_refmaps) ... ok
+test_fast_forward_moves_only_current_branch (test_sync_recipes.SyncRecipeTests.test_fast_forward_moves_only_current_branch) ... ok
+test_literal_remote_paths_and_refs (test_sync_recipes.SyncRecipeTests.test_literal_remote_paths_and_refs) ... ok
+test_ref_and_endpoint_movement_invalidate_snapshot (test_sync_recipes.SyncRecipeTests.test_ref_and_endpoint_movement_invalidate_snapshot) ... ok
+test_reference_and_index_hooks_execute_in_real_recipes (test_sync_recipes.SyncRecipeTests.test_reference_and_index_hooks_execute_in_real_recipes) ... ok
+test_unrelated_and_missing_history_do_not_fast_forward (test_sync_recipes.SyncRecipeTests.test_unrelated_and_missing_history_do_not_fast_forward) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 18.948s
+
+OK

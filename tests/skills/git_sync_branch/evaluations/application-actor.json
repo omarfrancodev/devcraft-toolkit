@@ -1,0 +1,1186 @@
+{
+  "outcome": "synced",
+  "mode": "sync",
+  "authorization": "Explicit user request for one scoped fetch and eligible fast-forward of current main from origin/main; separately authorized actor-result.json audit.",
+  "raw_response": "synced: main avanzó por fast-forward de a0dbea407a8a72aff391738bfcedc288bde1ceae a 90c52b0a9aa6ec0d2880d20be1127fa21a4da122 tras un único fetch local de origin/main. Índice y worktree limpios; otras ramas, etiquetas y configuración conservadas; sin publicación. Recursos instalados aplicados manualmente porque la invocación nativa no está disponible. Auditoría: C:/Users/Developer.INSCORSOF2/Documents/Proyectos-Code/omarfrancodev/devcraft-toolkit/.worktrees/git-sync-publish/tests/.tmp/sync-application/actor-result.json",
+  "ownership": [
+    "fixture:git-sync-branch",
+    "fixture:git-working-directory-policy",
+    "fixture:git-safety-check"
+  ],
+  "invocation": {
+    "native_available": false,
+    "manual_application": true,
+    "resources": "Only copied installed resources and their references were read."
+  },
+  "repository": "C:/Users/Developer.INSCORSOF2/Documents/Proyectos-Code/omarfrancodev/devcraft-toolkit/.worktrees/git-sync-publish/tests/.tmp/sync-application/repositories/client",
+  "scope": {
+    "branch": "refs/heads/main",
+    "remote": "origin",
+    "source": "refs/heads/main",
+    "destination": "refs/remotes/origin/main",
+    "endpoint": "C:\\Users\\Developer.INSCORSOF2\\Documents\\Proyectos-Code\\omarfrancodev\\devcraft-toolkit\\.worktrees\\git-sync-publish\\tests\\.tmp\\sync-application\\repositories\\remote space.git",
+    "transport": "owned local bare repository; no external network"
+  },
+  "oids": {
+    "before": "a0dbea407a8a72aff391738bfcedc288bde1ceae",
+    "selected_fetched": "90c52b0a9aa6ec0d2880d20be1127fa21a4da122",
+    "actual_after": "90c52b0a9aa6ec0d2880d20be1127fa21a4da122",
+    "relation": "local was strict ancestor of fetched; ancestor test 0 and inverse 1; repository not shallow"
+  },
+  "preflight": {
+    "outcome": "ready",
+    "intent": "publish local gates for operation=sync; no publication authorization",
+    "named_current_branch": true,
+    "clean_index_worktree": true,
+    "active_operations": [],
+    "identity": {
+      "name": "Fixture User",
+      "email": "fixture@example.invalid",
+      "origin": ".git/config"
+    },
+    "hooks": "Only inactive *.sample files in client and remote hooks directories; no core.hooksPath configured.",
+    "helpers": "No configured clean/process/smudge, credential, transport or signature helper overrides. Local filesystem transport.",
+    "attributes": "Current and target trees contain only work.txt; no .gitattributes or info/attributes; no configured filter commands.",
+    "fresh_guards": "Full snapshot equality checked immediately before fetch and fast-forward, including endpoint, effective config, refs, HEAD, branch, index, worktree, operation markers, hooks/metadata and local remote inventory."
+  },
+  "effects": {
+    "fetch": {
+      "added": [
+        {
+          "path": "logs\\refs\\remotes\\origin\\main",
+          "sha256": "401AB9F1F7CEBD2545528FC8B6E61521DCE3AA4CDE5505427485203152F1F4FB"
+        },
+        {
+          "path": "objects\\4c\\889f32f7d5cb38e07255a00a11a66f1e1741e7",
+          "sha256": "B532FA9E53BF1423EF38E681D73F7095BD8C20472B647566C47E07CA51D9B064"
+        },
+        {
+          "path": "objects\\72\\e649dd026f59e177de26d7d7d63edd4e3a2930",
+          "sha256": "1FB9AB99EF90B24F4DFE8045C861B270CC40542A18C1A882AA3266B6CB2CDC25"
+        },
+        {
+          "path": "objects\\90\\c52b0a9aa6ec0d2880d20be1127fa21a4da122",
+          "sha256": "E7353F75A0548E46A18C4CF354308F6FCE82343F881CF64B2303DF4BA9AA6F80"
+        },
+        {
+          "path": "refs\\remotes\\origin\\main",
+          "sha256": "10C9D3BA4D0C1EBE6BBEEB57D6BABD801A60F5BAAF2023892CD6CE76A6B351C7"
+        }
+      ],
+      "changed": [],
+      "removed": []
+    },
+    "merge": {
+      "added": [
+        {
+          "path": "ORIG_HEAD",
+          "sha256": "3B7819DBF3F572EF91A1709954E8B1B6FF739C517347C466B8085334D7EEEA7F"
+        }
+      ],
+      "changed": [
+        {
+          "path": "index",
+          "sha256": "89CC2ACD2F1199C92B68AC49E296A6CAFE3C45C1483EC57E498CFA97757EC48D"
+        },
+        {
+          "path": "logs\\HEAD",
+          "sha256": "C1A2F9F4E24A55D07571999087B898955389B3D0715BB3742E36DC98E2AF71F8"
+        },
+        {
+          "path": "logs\\refs\\heads\\main",
+          "sha256": "C1A2F9F4E24A55D07571999087B898955389B3D0715BB3742E36DC98E2AF71F8"
+        },
+        {
+          "path": "refs\\heads\\main",
+          "sha256": "10C9D3BA4D0C1EBE6BBEEB57D6BABD801A60F5BAAF2023892CD6CE76A6B351C7"
+        }
+      ],
+      "removed": []
+    },
+    "all": {
+      "added": [
+        {
+          "path": "ORIG_HEAD",
+          "sha256": "3B7819DBF3F572EF91A1709954E8B1B6FF739C517347C466B8085334D7EEEA7F"
+        },
+        {
+          "path": "logs\\refs\\remotes\\origin\\main",
+          "sha256": "401AB9F1F7CEBD2545528FC8B6E61521DCE3AA4CDE5505427485203152F1F4FB"
+        },
+        {
+          "path": "objects\\4c\\889f32f7d5cb38e07255a00a11a66f1e1741e7",
+          "sha256": "B532FA9E53BF1423EF38E681D73F7095BD8C20472B647566C47E07CA51D9B064"
+        },
+        {
+          "path": "objects\\72\\e649dd026f59e177de26d7d7d63edd4e3a2930",
+          "sha256": "1FB9AB99EF90B24F4DFE8045C861B270CC40542A18C1A882AA3266B6CB2CDC25"
+        },
+        {
+          "path": "objects\\90\\c52b0a9aa6ec0d2880d20be1127fa21a4da122",
+          "sha256": "E7353F75A0548E46A18C4CF354308F6FCE82343F881CF64B2303DF4BA9AA6F80"
+        },
+        {
+          "path": "refs\\remotes\\origin\\main",
+          "sha256": "10C9D3BA4D0C1EBE6BBEEB57D6BABD801A60F5BAAF2023892CD6CE76A6B351C7"
+        }
+      ],
+      "changed": [
+        {
+          "path": "index",
+          "sha256": "89CC2ACD2F1199C92B68AC49E296A6CAFE3C45C1483EC57E498CFA97757EC48D"
+        },
+        {
+          "path": "logs\\HEAD",
+          "sha256": "C1A2F9F4E24A55D07571999087B898955389B3D0715BB3742E36DC98E2AF71F8"
+        },
+        {
+          "path": "logs\\refs\\heads\\main",
+          "sha256": "C1A2F9F4E24A55D07571999087B898955389B3D0715BB3742E36DC98E2AF71F8"
+        },
+        {
+          "path": "refs\\heads\\main",
+          "sha256": "10C9D3BA4D0C1EBE6BBEEB57D6BABD801A60F5BAAF2023892CD6CE76A6B351C7"
+        }
+      ],
+      "removed": []
+    },
+    "remote_unchanged": true,
+    "config_unchanged": true,
+    "global_config_unchanged": true,
+    "other_branch_keep_preserved": true,
+    "local_only_tag_preserved": true,
+    "remote_only_tag_not_imported": true,
+    "origin_HEAD_symbolic_pointer_preserved": "refs/remotes/origin/main (derived OID follows tracking update)",
+    "FETCH_HEAD": "Absent before and after; no-write-fetch-head honored",
+    "ORIG_HEAD": "a0dbea407a8a72aff391738bfcedc288bde1ceae",
+    "worktree": "work.txt updated to target blob 72e649dd026f59e177de26d7d7d63edd4e3a2930; clean",
+    "index_matches_target": true,
+    "final_diffs": {
+      "worktree_exit": 0,
+      "index_exit": 0
+    },
+    "publication": false,
+    "auxiliary_client_files": false
+  },
+  "snapshots": {
+    "before": {
+      "head": "a0dbea407a8a72aff391738bfcedc288bde1ceae",
+      "branch": "refs/heads/main",
+      "refs": [
+        "refs/heads/keep a0dbea407a8a72aff391738bfcedc288bde1ceae ",
+        "refs/heads/main a0dbea407a8a72aff391738bfcedc288bde1ceae ",
+        "refs/remotes/origin/HEAD a0dbea407a8a72aff391738bfcedc288bde1ceae refs/remotes/origin/main",
+        "refs/remotes/origin/main a0dbea407a8a72aff391738bfcedc288bde1ceae ",
+        "refs/tags/local-only a0dbea407a8a72aff391738bfcedc288bde1ceae "
+      ],
+      "config": [
+        "file:.git/config\tcore.repositoryformatversion=0",
+        "file:.git/config\tcore.filemode=false",
+        "file:.git/config\tcore.bare=false",
+        "file:.git/config\tcore.logallrefupdates=true",
+        "file:.git/config\tcore.symlinks=false",
+        "file:.git/config\tcore.ignorecase=true",
+        "file:.git/config\tremote.origin.url=C:\\Users\\Developer.INSCORSOF2\\Documents\\Proyectos-Code\\omarfrancodev\\devcraft-toolkit\\.worktrees\\git-sync-publish\\tests\\.tmp\\sync-application\\repositories\\remote space.git",
+        "file:.git/config\tremote.origin.fetch=+refs/heads/*:refs/remotes/origin/*",
+        "file:.git/config\tremote.origin.tagopt=--tags",
+        "file:.git/config\tbranch.main.remote=origin",
+        "file:.git/config\tbranch.main.merge=refs/heads/main",
+        "file:.git/config\tuser.name=Fixture User",
+        "file:.git/config\tuser.email=fixture@example.invalid",
+        "file:.git/config\tfetch.prune=true",
+        "command line:\tcore.fsmonitor=false",
+        "command line:\tmaintenance.auto=false",
+        "command line:\tgc.auto=0",
+        "command line:\tlog.showsignature=false"
+      ],
+      "endpoint": [
+        "C:\\Users\\Developer.INSCORSOF2\\Documents\\Proyectos-Code\\omarfrancodev\\devcraft-toolkit\\.worktrees\\git-sync-publish\\tests\\.tmp\\sync-application\\repositories\\remote space.git"
+      ],
+      "status": [],
+      "index": [
+        "100644 1e189ab93fcb6615a7118d78ee4e01f43d1aa6eb 0\twork.txt"
+      ],
+      "operations": [],
+      "metadata": [
+        {
+          "path": "config",
+          "sha256": "4871908F7D7339A191CC012BB551CCF4C1DF2CB8567D8B889852887E112A185F"
+        },
+        {
+          "path": "description",
+          "sha256": "85AB6C163D43A17EA9CF7788308BCA1466F1B0A8D1CC92E26E9BF63DA4062AEE"
+        },
+        {
+          "path": "HEAD",
+          "sha256": "28D25BF82AF4C0E2B72F50959B2BEB859E3E60B9630A5E8C603DAD4DDB2B6E80"
+        },
+        {
+          "path": "index",
+          "sha256": "38839BDA4A981BE7DD99054C037B0272E80CFD69615342BE5458AFA4BB6758DD"
+        },
+        {
+          "path": "packed-refs",
+          "sha256": "5932563AFBC9BE6FE6C9CA0053A8631C15E37A1420129AFBB715110B94B0FCB1"
+        },
+        {
+          "path": "hooks\\applypatch-msg.sample",
+          "sha256": "0223497A0B8B033AA58A3A521B8629869386CF7AB0E2F101963D328AA62193F7"
+        },
+        {
+          "path": "hooks\\commit-msg.sample",
+          "sha256": "1F74D5E9292979B573EBD59741D46CB93FF391ACDD083D340B94370753D92437"
+        },
+        {
+          "path": "hooks\\fsmonitor-watchman.sample",
+          "sha256": "E0549964E93897B519BD8E333C037E51FFF0F88BA13E086A331592BF801FA1D0"
+        },
+        {
+          "path": "hooks\\post-update.sample",
+          "sha256": "81765AF2DAEF323061DCBC5E61FC16481CB74B3BAC9AD8A174B186523586F6C5"
+        },
+        {
+          "path": "hooks\\pre-applypatch.sample",
+          "sha256": "E15C5B469EA3E0A695BEA6F2C82BCF8E62821074939DDD85B77E0007FF165475"
+        },
+        {
+          "path": "hooks\\pre-commit.sample",
+          "sha256": "57185B7B9F05239D7AB52DB045F5B89EB31348D7B2177EAB214F5EB872E1971B"
+        },
+        {
+          "path": "hooks\\pre-merge-commit.sample",
+          "sha256": "D3825A70337940EBBD0A5C072984E13245920CDF8898BD225C8D27A6DFC9CB53"
+        },
+        {
+          "path": "hooks\\pre-push.sample",
+          "sha256": "ECCE9C7E04D3F5DD9D8ADA81753DD1D549A9634B26770042B58DDA00217D086A"
+        },
+        {
+          "path": "hooks\\pre-rebase.sample",
+          "sha256": "4FEBCE867790052338076F4E66CC47EFB14879D18097D1D61C8261859EAAA7B3"
+        },
+        {
+          "path": "hooks\\pre-receive.sample",
+          "sha256": "A4C3D2B9C7BB3FD8D1441C31BD4EE71A595D66B44FCF49DDB310252320169989"
+        },
+        {
+          "path": "hooks\\prepare-commit-msg.sample",
+          "sha256": "E9DDCAA4189FDDD25ED97FC8C789ECA7B6CA16390B2392AE3276F0C8E1AA4619"
+        },
+        {
+          "path": "hooks\\push-to-checkout.sample",
+          "sha256": "A53D0741798B287C6DD7AFA64AEE473F305E65D3F49463BB9D7408EC3B12BF5F"
+        },
+        {
+          "path": "hooks\\sendemail-validate.sample",
+          "sha256": "44EBFC923DC5466BC009602F0ECF067B9C65459ABFE8868DDC49B78E6CED7A92"
+        },
+        {
+          "path": "hooks\\update.sample",
+          "sha256": "8D5F2FA83E103CF08B57EAA67521DF9194F45CBDBCB37DA52AD586097A14D106"
+        },
+        {
+          "path": "info\\exclude",
+          "sha256": "6671FE83B7A07C8932EE89164D1F2793B2318058EB8B98DC5C06EE0A5A3B0EC1"
+        },
+        {
+          "path": "logs\\HEAD",
+          "sha256": "6CE38E6EC892B5CCE3477358949D040EF730F4C7F72A1749854419802F2DAEA1"
+        },
+        {
+          "path": "logs\\refs\\heads\\keep",
+          "sha256": "B692D74B904D446F1C825C6AEDC42340A8D497EE45A6A8F79627160FC268F150"
+        },
+        {
+          "path": "logs\\refs\\heads\\main",
+          "sha256": "6CE38E6EC892B5CCE3477358949D040EF730F4C7F72A1749854419802F2DAEA1"
+        },
+        {
+          "path": "logs\\refs\\remotes\\origin\\HEAD",
+          "sha256": "6CE38E6EC892B5CCE3477358949D040EF730F4C7F72A1749854419802F2DAEA1"
+        },
+        {
+          "path": "objects\\1e\\189ab93fcb6615a7118d78ee4e01f43d1aa6eb",
+          "sha256": "DBB2B3235585BA221D78FAC5F0E328AE3C44380FA49DA000D62977D817DCB0A1"
+        },
+        {
+          "path": "objects\\6c\\ccc000c9eed13c9d3d78b132a0ea431f12a0ee",
+          "sha256": "885DAE034320B72DD97091B968ACE4155CC5662EFF67D744970759E177DA1C50"
+        },
+        {
+          "path": "objects\\a0\\dbea407a8a72aff391738bfcedc288bde1ceae",
+          "sha256": "CC4AC6F97678E9B5C7FD4FF3C72CBC1BABC8ABD24053D797A136260553CB8E67"
+        },
+        {
+          "path": "refs\\heads\\keep",
+          "sha256": "3B7819DBF3F572EF91A1709954E8B1B6FF739C517347C466B8085334D7EEEA7F"
+        },
+        {
+          "path": "refs\\heads\\main",
+          "sha256": "3B7819DBF3F572EF91A1709954E8B1B6FF739C517347C466B8085334D7EEEA7F"
+        },
+        {
+          "path": "refs\\remotes\\origin\\HEAD",
+          "sha256": "2BB6A24AA0FC6C484100F5D51A29BBAD841CD2C755F5D93FAA204E5DBB4EB2B4"
+        },
+        {
+          "path": "refs\\tags\\local-only",
+          "sha256": "3B7819DBF3F572EF91A1709954E8B1B6FF739C517347C466B8085334D7EEEA7F"
+        }
+      ],
+      "remote": [
+        {
+          "path": "config",
+          "sha256": "74C63B4EAE3533B3FF4C0E285897778464D6C04815C33457729279DED1E2A947"
+        },
+        {
+          "path": "description",
+          "sha256": "85AB6C163D43A17EA9CF7788308BCA1466F1B0A8D1CC92E26E9BF63DA4062AEE"
+        },
+        {
+          "path": "HEAD",
+          "sha256": "28D25BF82AF4C0E2B72F50959B2BEB859E3E60B9630A5E8C603DAD4DDB2B6E80"
+        },
+        {
+          "path": "hooks\\applypatch-msg.sample",
+          "sha256": "0223497A0B8B033AA58A3A521B8629869386CF7AB0E2F101963D328AA62193F7"
+        },
+        {
+          "path": "hooks\\commit-msg.sample",
+          "sha256": "1F74D5E9292979B573EBD59741D46CB93FF391ACDD083D340B94370753D92437"
+        },
+        {
+          "path": "hooks\\fsmonitor-watchman.sample",
+          "sha256": "E0549964E93897B519BD8E333C037E51FFF0F88BA13E086A331592BF801FA1D0"
+        },
+        {
+          "path": "hooks\\post-update.sample",
+          "sha256": "81765AF2DAEF323061DCBC5E61FC16481CB74B3BAC9AD8A174B186523586F6C5"
+        },
+        {
+          "path": "hooks\\pre-applypatch.sample",
+          "sha256": "E15C5B469EA3E0A695BEA6F2C82BCF8E62821074939DDD85B77E0007FF165475"
+        },
+        {
+          "path": "hooks\\pre-commit.sample",
+          "sha256": "57185B7B9F05239D7AB52DB045F5B89EB31348D7B2177EAB214F5EB872E1971B"
+        },
+        {
+          "path": "hooks\\pre-merge-commit.sample",
+          "sha256": "D3825A70337940EBBD0A5C072984E13245920CDF8898BD225C8D27A6DFC9CB53"
+        },
+        {
+          "path": "hooks\\pre-push.sample",
+          "sha256": "ECCE9C7E04D3F5DD9D8ADA81753DD1D549A9634B26770042B58DDA00217D086A"
+        },
+        {
+          "path": "hooks\\pre-rebase.sample",
+          "sha256": "4FEBCE867790052338076F4E66CC47EFB14879D18097D1D61C8261859EAAA7B3"
+        },
+        {
+          "path": "hooks\\pre-receive.sample",
+          "sha256": "A4C3D2B9C7BB3FD8D1441C31BD4EE71A595D66B44FCF49DDB310252320169989"
+        },
+        {
+          "path": "hooks\\prepare-commit-msg.sample",
+          "sha256": "E9DDCAA4189FDDD25ED97FC8C789ECA7B6CA16390B2392AE3276F0C8E1AA4619"
+        },
+        {
+          "path": "hooks\\push-to-checkout.sample",
+          "sha256": "A53D0741798B287C6DD7AFA64AEE473F305E65D3F49463BB9D7408EC3B12BF5F"
+        },
+        {
+          "path": "hooks\\sendemail-validate.sample",
+          "sha256": "44EBFC923DC5466BC009602F0ECF067B9C65459ABFE8868DDC49B78E6CED7A92"
+        },
+        {
+          "path": "hooks\\update.sample",
+          "sha256": "8D5F2FA83E103CF08B57EAA67521DF9194F45CBDBCB37DA52AD586097A14D106"
+        },
+        {
+          "path": "info\\exclude",
+          "sha256": "6671FE83B7A07C8932EE89164D1F2793B2318058EB8B98DC5C06EE0A5A3B0EC1"
+        },
+        {
+          "path": "objects\\1e\\189ab93fcb6615a7118d78ee4e01f43d1aa6eb",
+          "sha256": "DBB2B3235585BA221D78FAC5F0E328AE3C44380FA49DA000D62977D817DCB0A1"
+        },
+        {
+          "path": "objects\\4c\\889f32f7d5cb38e07255a00a11a66f1e1741e7",
+          "sha256": "B532FA9E53BF1423EF38E681D73F7095BD8C20472B647566C47E07CA51D9B064"
+        },
+        {
+          "path": "objects\\6c\\ccc000c9eed13c9d3d78b132a0ea431f12a0ee",
+          "sha256": "885DAE034320B72DD97091B968ACE4155CC5662EFF67D744970759E177DA1C50"
+        },
+        {
+          "path": "objects\\72\\e649dd026f59e177de26d7d7d63edd4e3a2930",
+          "sha256": "1FB9AB99EF90B24F4DFE8045C861B270CC40542A18C1A882AA3266B6CB2CDC25"
+        },
+        {
+          "path": "objects\\90\\c52b0a9aa6ec0d2880d20be1127fa21a4da122",
+          "sha256": "E7353F75A0548E46A18C4CF354308F6FCE82343F881CF64B2303DF4BA9AA6F80"
+        },
+        {
+          "path": "objects\\a0\\dbea407a8a72aff391738bfcedc288bde1ceae",
+          "sha256": "CC4AC6F97678E9B5C7FD4FF3C72CBC1BABC8ABD24053D797A136260553CB8E67"
+        },
+        {
+          "path": "refs\\heads\\main",
+          "sha256": "10C9D3BA4D0C1EBE6BBEEB57D6BABD801A60F5BAAF2023892CD6CE76A6B351C7"
+        },
+        {
+          "path": "refs\\tags\\remote-only",
+          "sha256": "10C9D3BA4D0C1EBE6BBEEB57D6BABD801A60F5BAAF2023892CD6CE76A6B351C7"
+        }
+      ],
+      "globalConfigHash": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "worktree": [
+        {
+          "path": "work.txt",
+          "sha256": "4A09127AC6DAE62F3BF8929EE996FB09F98212B9FCA18C818C7BC8E2691E290E"
+        }
+      ]
+    },
+    "after_fetch": {
+      "head": "a0dbea407a8a72aff391738bfcedc288bde1ceae",
+      "branch": "refs/heads/main",
+      "refs": [
+        "refs/heads/keep a0dbea407a8a72aff391738bfcedc288bde1ceae ",
+        "refs/heads/main a0dbea407a8a72aff391738bfcedc288bde1ceae ",
+        "refs/remotes/origin/HEAD 90c52b0a9aa6ec0d2880d20be1127fa21a4da122 refs/remotes/origin/main",
+        "refs/remotes/origin/main 90c52b0a9aa6ec0d2880d20be1127fa21a4da122 ",
+        "refs/tags/local-only a0dbea407a8a72aff391738bfcedc288bde1ceae "
+      ],
+      "config": [
+        "file:.git/config\tcore.repositoryformatversion=0",
+        "file:.git/config\tcore.filemode=false",
+        "file:.git/config\tcore.bare=false",
+        "file:.git/config\tcore.logallrefupdates=true",
+        "file:.git/config\tcore.symlinks=false",
+        "file:.git/config\tcore.ignorecase=true",
+        "file:.git/config\tremote.origin.url=C:\\Users\\Developer.INSCORSOF2\\Documents\\Proyectos-Code\\omarfrancodev\\devcraft-toolkit\\.worktrees\\git-sync-publish\\tests\\.tmp\\sync-application\\repositories\\remote space.git",
+        "file:.git/config\tremote.origin.fetch=+refs/heads/*:refs/remotes/origin/*",
+        "file:.git/config\tremote.origin.tagopt=--tags",
+        "file:.git/config\tbranch.main.remote=origin",
+        "file:.git/config\tbranch.main.merge=refs/heads/main",
+        "file:.git/config\tuser.name=Fixture User",
+        "file:.git/config\tuser.email=fixture@example.invalid",
+        "file:.git/config\tfetch.prune=true",
+        "command line:\tcore.fsmonitor=false",
+        "command line:\tmaintenance.auto=false",
+        "command line:\tgc.auto=0",
+        "command line:\tlog.showsignature=false"
+      ],
+      "endpoint": [
+        "C:\\Users\\Developer.INSCORSOF2\\Documents\\Proyectos-Code\\omarfrancodev\\devcraft-toolkit\\.worktrees\\git-sync-publish\\tests\\.tmp\\sync-application\\repositories\\remote space.git"
+      ],
+      "status": [],
+      "index": [
+        "100644 1e189ab93fcb6615a7118d78ee4e01f43d1aa6eb 0\twork.txt"
+      ],
+      "operations": [],
+      "metadata": [
+        {
+          "path": "config",
+          "sha256": "4871908F7D7339A191CC012BB551CCF4C1DF2CB8567D8B889852887E112A185F"
+        },
+        {
+          "path": "description",
+          "sha256": "85AB6C163D43A17EA9CF7788308BCA1466F1B0A8D1CC92E26E9BF63DA4062AEE"
+        },
+        {
+          "path": "HEAD",
+          "sha256": "28D25BF82AF4C0E2B72F50959B2BEB859E3E60B9630A5E8C603DAD4DDB2B6E80"
+        },
+        {
+          "path": "index",
+          "sha256": "38839BDA4A981BE7DD99054C037B0272E80CFD69615342BE5458AFA4BB6758DD"
+        },
+        {
+          "path": "packed-refs",
+          "sha256": "5932563AFBC9BE6FE6C9CA0053A8631C15E37A1420129AFBB715110B94B0FCB1"
+        },
+        {
+          "path": "hooks\\applypatch-msg.sample",
+          "sha256": "0223497A0B8B033AA58A3A521B8629869386CF7AB0E2F101963D328AA62193F7"
+        },
+        {
+          "path": "hooks\\commit-msg.sample",
+          "sha256": "1F74D5E9292979B573EBD59741D46CB93FF391ACDD083D340B94370753D92437"
+        },
+        {
+          "path": "hooks\\fsmonitor-watchman.sample",
+          "sha256": "E0549964E93897B519BD8E333C037E51FFF0F88BA13E086A331592BF801FA1D0"
+        },
+        {
+          "path": "hooks\\post-update.sample",
+          "sha256": "81765AF2DAEF323061DCBC5E61FC16481CB74B3BAC9AD8A174B186523586F6C5"
+        },
+        {
+          "path": "hooks\\pre-applypatch.sample",
+          "sha256": "E15C5B469EA3E0A695BEA6F2C82BCF8E62821074939DDD85B77E0007FF165475"
+        },
+        {
+          "path": "hooks\\pre-commit.sample",
+          "sha256": "57185B7B9F05239D7AB52DB045F5B89EB31348D7B2177EAB214F5EB872E1971B"
+        },
+        {
+          "path": "hooks\\pre-merge-commit.sample",
+          "sha256": "D3825A70337940EBBD0A5C072984E13245920CDF8898BD225C8D27A6DFC9CB53"
+        },
+        {
+          "path": "hooks\\pre-push.sample",
+          "sha256": "ECCE9C7E04D3F5DD9D8ADA81753DD1D549A9634B26770042B58DDA00217D086A"
+        },
+        {
+          "path": "hooks\\pre-rebase.sample",
+          "sha256": "4FEBCE867790052338076F4E66CC47EFB14879D18097D1D61C8261859EAAA7B3"
+        },
+        {
+          "path": "hooks\\pre-receive.sample",
+          "sha256": "A4C3D2B9C7BB3FD8D1441C31BD4EE71A595D66B44FCF49DDB310252320169989"
+        },
+        {
+          "path": "hooks\\prepare-commit-msg.sample",
+          "sha256": "E9DDCAA4189FDDD25ED97FC8C789ECA7B6CA16390B2392AE3276F0C8E1AA4619"
+        },
+        {
+          "path": "hooks\\push-to-checkout.sample",
+          "sha256": "A53D0741798B287C6DD7AFA64AEE473F305E65D3F49463BB9D7408EC3B12BF5F"
+        },
+        {
+          "path": "hooks\\sendemail-validate.sample",
+          "sha256": "44EBFC923DC5466BC009602F0ECF067B9C65459ABFE8868DDC49B78E6CED7A92"
+        },
+        {
+          "path": "hooks\\update.sample",
+          "sha256": "8D5F2FA83E103CF08B57EAA67521DF9194F45CBDBCB37DA52AD586097A14D106"
+        },
+        {
+          "path": "info\\exclude",
+          "sha256": "6671FE83B7A07C8932EE89164D1F2793B2318058EB8B98DC5C06EE0A5A3B0EC1"
+        },
+        {
+          "path": "logs\\HEAD",
+          "sha256": "6CE38E6EC892B5CCE3477358949D040EF730F4C7F72A1749854419802F2DAEA1"
+        },
+        {
+          "path": "logs\\refs\\heads\\keep",
+          "sha256": "B692D74B904D446F1C825C6AEDC42340A8D497EE45A6A8F79627160FC268F150"
+        },
+        {
+          "path": "logs\\refs\\heads\\main",
+          "sha256": "6CE38E6EC892B5CCE3477358949D040EF730F4C7F72A1749854419802F2DAEA1"
+        },
+        {
+          "path": "logs\\refs\\remotes\\origin\\HEAD",
+          "sha256": "6CE38E6EC892B5CCE3477358949D040EF730F4C7F72A1749854419802F2DAEA1"
+        },
+        {
+          "path": "logs\\refs\\remotes\\origin\\main",
+          "sha256": "401AB9F1F7CEBD2545528FC8B6E61521DCE3AA4CDE5505427485203152F1F4FB"
+        },
+        {
+          "path": "objects\\1e\\189ab93fcb6615a7118d78ee4e01f43d1aa6eb",
+          "sha256": "DBB2B3235585BA221D78FAC5F0E328AE3C44380FA49DA000D62977D817DCB0A1"
+        },
+        {
+          "path": "objects\\4c\\889f32f7d5cb38e07255a00a11a66f1e1741e7",
+          "sha256": "B532FA9E53BF1423EF38E681D73F7095BD8C20472B647566C47E07CA51D9B064"
+        },
+        {
+          "path": "objects\\6c\\ccc000c9eed13c9d3d78b132a0ea431f12a0ee",
+          "sha256": "885DAE034320B72DD97091B968ACE4155CC5662EFF67D744970759E177DA1C50"
+        },
+        {
+          "path": "objects\\72\\e649dd026f59e177de26d7d7d63edd4e3a2930",
+          "sha256": "1FB9AB99EF90B24F4DFE8045C861B270CC40542A18C1A882AA3266B6CB2CDC25"
+        },
+        {
+          "path": "objects\\90\\c52b0a9aa6ec0d2880d20be1127fa21a4da122",
+          "sha256": "E7353F75A0548E46A18C4CF354308F6FCE82343F881CF64B2303DF4BA9AA6F80"
+        },
+        {
+          "path": "objects\\a0\\dbea407a8a72aff391738bfcedc288bde1ceae",
+          "sha256": "CC4AC6F97678E9B5C7FD4FF3C72CBC1BABC8ABD24053D797A136260553CB8E67"
+        },
+        {
+          "path": "refs\\heads\\keep",
+          "sha256": "3B7819DBF3F572EF91A1709954E8B1B6FF739C517347C466B8085334D7EEEA7F"
+        },
+        {
+          "path": "refs\\heads\\main",
+          "sha256": "3B7819DBF3F572EF91A1709954E8B1B6FF739C517347C466B8085334D7EEEA7F"
+        },
+        {
+          "path": "refs\\remotes\\origin\\HEAD",
+          "sha256": "2BB6A24AA0FC6C484100F5D51A29BBAD841CD2C755F5D93FAA204E5DBB4EB2B4"
+        },
+        {
+          "path": "refs\\remotes\\origin\\main",
+          "sha256": "10C9D3BA4D0C1EBE6BBEEB57D6BABD801A60F5BAAF2023892CD6CE76A6B351C7"
+        },
+        {
+          "path": "refs\\tags\\local-only",
+          "sha256": "3B7819DBF3F572EF91A1709954E8B1B6FF739C517347C466B8085334D7EEEA7F"
+        }
+      ],
+      "remote": [
+        {
+          "path": "config",
+          "sha256": "74C63B4EAE3533B3FF4C0E285897778464D6C04815C33457729279DED1E2A947"
+        },
+        {
+          "path": "description",
+          "sha256": "85AB6C163D43A17EA9CF7788308BCA1466F1B0A8D1CC92E26E9BF63DA4062AEE"
+        },
+        {
+          "path": "HEAD",
+          "sha256": "28D25BF82AF4C0E2B72F50959B2BEB859E3E60B9630A5E8C603DAD4DDB2B6E80"
+        },
+        {
+          "path": "hooks\\applypatch-msg.sample",
+          "sha256": "0223497A0B8B033AA58A3A521B8629869386CF7AB0E2F101963D328AA62193F7"
+        },
+        {
+          "path": "hooks\\commit-msg.sample",
+          "sha256": "1F74D5E9292979B573EBD59741D46CB93FF391ACDD083D340B94370753D92437"
+        },
+        {
+          "path": "hooks\\fsmonitor-watchman.sample",
+          "sha256": "E0549964E93897B519BD8E333C037E51FFF0F88BA13E086A331592BF801FA1D0"
+        },
+        {
+          "path": "hooks\\post-update.sample",
+          "sha256": "81765AF2DAEF323061DCBC5E61FC16481CB74B3BAC9AD8A174B186523586F6C5"
+        },
+        {
+          "path": "hooks\\pre-applypatch.sample",
+          "sha256": "E15C5B469EA3E0A695BEA6F2C82BCF8E62821074939DDD85B77E0007FF165475"
+        },
+        {
+          "path": "hooks\\pre-commit.sample",
+          "sha256": "57185B7B9F05239D7AB52DB045F5B89EB31348D7B2177EAB214F5EB872E1971B"
+        },
+        {
+          "path": "hooks\\pre-merge-commit.sample",
+          "sha256": "D3825A70337940EBBD0A5C072984E13245920CDF8898BD225C8D27A6DFC9CB53"
+        },
+        {
+          "path": "hooks\\pre-push.sample",
+          "sha256": "ECCE9C7E04D3F5DD9D8ADA81753DD1D549A9634B26770042B58DDA00217D086A"
+        },
+        {
+          "path": "hooks\\pre-rebase.sample",
+          "sha256": "4FEBCE867790052338076F4E66CC47EFB14879D18097D1D61C8261859EAAA7B3"
+        },
+        {
+          "path": "hooks\\pre-receive.sample",
+          "sha256": "A4C3D2B9C7BB3FD8D1441C31BD4EE71A595D66B44FCF49DDB310252320169989"
+        },
+        {
+          "path": "hooks\\prepare-commit-msg.sample",
+          "sha256": "E9DDCAA4189FDDD25ED97FC8C789ECA7B6CA16390B2392AE3276F0C8E1AA4619"
+        },
+        {
+          "path": "hooks\\push-to-checkout.sample",
+          "sha256": "A53D0741798B287C6DD7AFA64AEE473F305E65D3F49463BB9D7408EC3B12BF5F"
+        },
+        {
+          "path": "hooks\\sendemail-validate.sample",
+          "sha256": "44EBFC923DC5466BC009602F0ECF067B9C65459ABFE8868DDC49B78E6CED7A92"
+        },
+        {
+          "path": "hooks\\update.sample",
+          "sha256": "8D5F2FA83E103CF08B57EAA67521DF9194F45CBDBCB37DA52AD586097A14D106"
+        },
+        {
+          "path": "info\\exclude",
+          "sha256": "6671FE83B7A07C8932EE89164D1F2793B2318058EB8B98DC5C06EE0A5A3B0EC1"
+        },
+        {
+          "path": "objects\\1e\\189ab93fcb6615a7118d78ee4e01f43d1aa6eb",
+          "sha256": "DBB2B3235585BA221D78FAC5F0E328AE3C44380FA49DA000D62977D817DCB0A1"
+        },
+        {
+          "path": "objects\\4c\\889f32f7d5cb38e07255a00a11a66f1e1741e7",
+          "sha256": "B532FA9E53BF1423EF38E681D73F7095BD8C20472B647566C47E07CA51D9B064"
+        },
+        {
+          "path": "objects\\6c\\ccc000c9eed13c9d3d78b132a0ea431f12a0ee",
+          "sha256": "885DAE034320B72DD97091B968ACE4155CC5662EFF67D744970759E177DA1C50"
+        },
+        {
+          "path": "objects\\72\\e649dd026f59e177de26d7d7d63edd4e3a2930",
+          "sha256": "1FB9AB99EF90B24F4DFE8045C861B270CC40542A18C1A882AA3266B6CB2CDC25"
+        },
+        {
+          "path": "objects\\90\\c52b0a9aa6ec0d2880d20be1127fa21a4da122",
+          "sha256": "E7353F75A0548E46A18C4CF354308F6FCE82343F881CF64B2303DF4BA9AA6F80"
+        },
+        {
+          "path": "objects\\a0\\dbea407a8a72aff391738bfcedc288bde1ceae",
+          "sha256": "CC4AC6F97678E9B5C7FD4FF3C72CBC1BABC8ABD24053D797A136260553CB8E67"
+        },
+        {
+          "path": "refs\\heads\\main",
+          "sha256": "10C9D3BA4D0C1EBE6BBEEB57D6BABD801A60F5BAAF2023892CD6CE76A6B351C7"
+        },
+        {
+          "path": "refs\\tags\\remote-only",
+          "sha256": "10C9D3BA4D0C1EBE6BBEEB57D6BABD801A60F5BAAF2023892CD6CE76A6B351C7"
+        }
+      ],
+      "globalConfigHash": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "worktree": [
+        {
+          "path": "work.txt",
+          "sha256": "4A09127AC6DAE62F3BF8929EE996FB09F98212B9FCA18C818C7BC8E2691E290E"
+        }
+      ]
+    },
+    "after_merge": {
+      "head": "90c52b0a9aa6ec0d2880d20be1127fa21a4da122",
+      "branch": "refs/heads/main",
+      "refs": [
+        "refs/heads/keep a0dbea407a8a72aff391738bfcedc288bde1ceae ",
+        "refs/heads/main 90c52b0a9aa6ec0d2880d20be1127fa21a4da122 ",
+        "refs/remotes/origin/HEAD 90c52b0a9aa6ec0d2880d20be1127fa21a4da122 refs/remotes/origin/main",
+        "refs/remotes/origin/main 90c52b0a9aa6ec0d2880d20be1127fa21a4da122 ",
+        "refs/tags/local-only a0dbea407a8a72aff391738bfcedc288bde1ceae "
+      ],
+      "config": [
+        "file:.git/config\tcore.repositoryformatversion=0",
+        "file:.git/config\tcore.filemode=false",
+        "file:.git/config\tcore.bare=false",
+        "file:.git/config\tcore.logallrefupdates=true",
+        "file:.git/config\tcore.symlinks=false",
+        "file:.git/config\tcore.ignorecase=true",
+        "file:.git/config\tremote.origin.url=C:\\Users\\Developer.INSCORSOF2\\Documents\\Proyectos-Code\\omarfrancodev\\devcraft-toolkit\\.worktrees\\git-sync-publish\\tests\\.tmp\\sync-application\\repositories\\remote space.git",
+        "file:.git/config\tremote.origin.fetch=+refs/heads/*:refs/remotes/origin/*",
+        "file:.git/config\tremote.origin.tagopt=--tags",
+        "file:.git/config\tbranch.main.remote=origin",
+        "file:.git/config\tbranch.main.merge=refs/heads/main",
+        "file:.git/config\tuser.name=Fixture User",
+        "file:.git/config\tuser.email=fixture@example.invalid",
+        "file:.git/config\tfetch.prune=true",
+        "command line:\tcore.fsmonitor=false",
+        "command line:\tmaintenance.auto=false",
+        "command line:\tgc.auto=0",
+        "command line:\tlog.showsignature=false"
+      ],
+      "endpoint": [
+        "C:\\Users\\Developer.INSCORSOF2\\Documents\\Proyectos-Code\\omarfrancodev\\devcraft-toolkit\\.worktrees\\git-sync-publish\\tests\\.tmp\\sync-application\\repositories\\remote space.git"
+      ],
+      "status": [],
+      "index": [
+        "100644 72e649dd026f59e177de26d7d7d63edd4e3a2930 0\twork.txt"
+      ],
+      "operations": [],
+      "metadata": [
+        {
+          "path": "config",
+          "sha256": "4871908F7D7339A191CC012BB551CCF4C1DF2CB8567D8B889852887E112A185F"
+        },
+        {
+          "path": "description",
+          "sha256": "85AB6C163D43A17EA9CF7788308BCA1466F1B0A8D1CC92E26E9BF63DA4062AEE"
+        },
+        {
+          "path": "HEAD",
+          "sha256": "28D25BF82AF4C0E2B72F50959B2BEB859E3E60B9630A5E8C603DAD4DDB2B6E80"
+        },
+        {
+          "path": "index",
+          "sha256": "89CC2ACD2F1199C92B68AC49E296A6CAFE3C45C1483EC57E498CFA97757EC48D"
+        },
+        {
+          "path": "ORIG_HEAD",
+          "sha256": "3B7819DBF3F572EF91A1709954E8B1B6FF739C517347C466B8085334D7EEEA7F"
+        },
+        {
+          "path": "packed-refs",
+          "sha256": "5932563AFBC9BE6FE6C9CA0053A8631C15E37A1420129AFBB715110B94B0FCB1"
+        },
+        {
+          "path": "hooks\\applypatch-msg.sample",
+          "sha256": "0223497A0B8B033AA58A3A521B8629869386CF7AB0E2F101963D328AA62193F7"
+        },
+        {
+          "path": "hooks\\commit-msg.sample",
+          "sha256": "1F74D5E9292979B573EBD59741D46CB93FF391ACDD083D340B94370753D92437"
+        },
+        {
+          "path": "hooks\\fsmonitor-watchman.sample",
+          "sha256": "E0549964E93897B519BD8E333C037E51FFF0F88BA13E086A331592BF801FA1D0"
+        },
+        {
+          "path": "hooks\\post-update.sample",
+          "sha256": "81765AF2DAEF323061DCBC5E61FC16481CB74B3BAC9AD8A174B186523586F6C5"
+        },
+        {
+          "path": "hooks\\pre-applypatch.sample",
+          "sha256": "E15C5B469EA3E0A695BEA6F2C82BCF8E62821074939DDD85B77E0007FF165475"
+        },
+        {
+          "path": "hooks\\pre-commit.sample",
+          "sha256": "57185B7B9F05239D7AB52DB045F5B89EB31348D7B2177EAB214F5EB872E1971B"
+        },
+        {
+          "path": "hooks\\pre-merge-commit.sample",
+          "sha256": "D3825A70337940EBBD0A5C072984E13245920CDF8898BD225C8D27A6DFC9CB53"
+        },
+        {
+          "path": "hooks\\pre-push.sample",
+          "sha256": "ECCE9C7E04D3F5DD9D8ADA81753DD1D549A9634B26770042B58DDA00217D086A"
+        },
+        {
+          "path": "hooks\\pre-rebase.sample",
+          "sha256": "4FEBCE867790052338076F4E66CC47EFB14879D18097D1D61C8261859EAAA7B3"
+        },
+        {
+          "path": "hooks\\pre-receive.sample",
+          "sha256": "A4C3D2B9C7BB3FD8D1441C31BD4EE71A595D66B44FCF49DDB310252320169989"
+        },
+        {
+          "path": "hooks\\prepare-commit-msg.sample",
+          "sha256": "E9DDCAA4189FDDD25ED97FC8C789ECA7B6CA16390B2392AE3276F0C8E1AA4619"
+        },
+        {
+          "path": "hooks\\push-to-checkout.sample",
+          "sha256": "A53D0741798B287C6DD7AFA64AEE473F305E65D3F49463BB9D7408EC3B12BF5F"
+        },
+        {
+          "path": "hooks\\sendemail-validate.sample",
+          "sha256": "44EBFC923DC5466BC009602F0ECF067B9C65459ABFE8868DDC49B78E6CED7A92"
+        },
+        {
+          "path": "hooks\\update.sample",
+          "sha256": "8D5F2FA83E103CF08B57EAA67521DF9194F45CBDBCB37DA52AD586097A14D106"
+        },
+        {
+          "path": "info\\exclude",
+          "sha256": "6671FE83B7A07C8932EE89164D1F2793B2318058EB8B98DC5C06EE0A5A3B0EC1"
+        },
+        {
+          "path": "logs\\HEAD",
+          "sha256": "C1A2F9F4E24A55D07571999087B898955389B3D0715BB3742E36DC98E2AF71F8"
+        },
+        {
+          "path": "logs\\refs\\heads\\keep",
+          "sha256": "B692D74B904D446F1C825C6AEDC42340A8D497EE45A6A8F79627160FC268F150"
+        },
+        {
+          "path": "logs\\refs\\heads\\main",
+          "sha256": "C1A2F9F4E24A55D07571999087B898955389B3D0715BB3742E36DC98E2AF71F8"
+        },
+        {
+          "path": "logs\\refs\\remotes\\origin\\HEAD",
+          "sha256": "6CE38E6EC892B5CCE3477358949D040EF730F4C7F72A1749854419802F2DAEA1"
+        },
+        {
+          "path": "logs\\refs\\remotes\\origin\\main",
+          "sha256": "401AB9F1F7CEBD2545528FC8B6E61521DCE3AA4CDE5505427485203152F1F4FB"
+        },
+        {
+          "path": "objects\\1e\\189ab93fcb6615a7118d78ee4e01f43d1aa6eb",
+          "sha256": "DBB2B3235585BA221D78FAC5F0E328AE3C44380FA49DA000D62977D817DCB0A1"
+        },
+        {
+          "path": "objects\\4c\\889f32f7d5cb38e07255a00a11a66f1e1741e7",
+          "sha256": "B532FA9E53BF1423EF38E681D73F7095BD8C20472B647566C47E07CA51D9B064"
+        },
+        {
+          "path": "objects\\6c\\ccc000c9eed13c9d3d78b132a0ea431f12a0ee",
+          "sha256": "885DAE034320B72DD97091B968ACE4155CC5662EFF67D744970759E177DA1C50"
+        },
+        {
+          "path": "objects\\72\\e649dd026f59e177de26d7d7d63edd4e3a2930",
+          "sha256": "1FB9AB99EF90B24F4DFE8045C861B270CC40542A18C1A882AA3266B6CB2CDC25"
+        },
+        {
+          "path": "objects\\90\\c52b0a9aa6ec0d2880d20be1127fa21a4da122",
+          "sha256": "E7353F75A0548E46A18C4CF354308F6FCE82343F881CF64B2303DF4BA9AA6F80"
+        },
+        {
+          "path": "objects\\a0\\dbea407a8a72aff391738bfcedc288bde1ceae",
+          "sha256": "CC4AC6F97678E9B5C7FD4FF3C72CBC1BABC8ABD24053D797A136260553CB8E67"
+        },
+        {
+          "path": "refs\\heads\\keep",
+          "sha256": "3B7819DBF3F572EF91A1709954E8B1B6FF739C517347C466B8085334D7EEEA7F"
+        },
+        {
+          "path": "refs\\heads\\main",
+          "sha256": "10C9D3BA4D0C1EBE6BBEEB57D6BABD801A60F5BAAF2023892CD6CE76A6B351C7"
+        },
+        {
+          "path": "refs\\remotes\\origin\\HEAD",
+          "sha256": "2BB6A24AA0FC6C484100F5D51A29BBAD841CD2C755F5D93FAA204E5DBB4EB2B4"
+        },
+        {
+          "path": "refs\\remotes\\origin\\main",
+          "sha256": "10C9D3BA4D0C1EBE6BBEEB57D6BABD801A60F5BAAF2023892CD6CE76A6B351C7"
+        },
+        {
+          "path": "refs\\tags\\local-only",
+          "sha256": "3B7819DBF3F572EF91A1709954E8B1B6FF739C517347C466B8085334D7EEEA7F"
+        }
+      ],
+      "remote": [
+        {
+          "path": "config",
+          "sha256": "74C63B4EAE3533B3FF4C0E285897778464D6C04815C33457729279DED1E2A947"
+        },
+        {
+          "path": "description",
+          "sha256": "85AB6C163D43A17EA9CF7788308BCA1466F1B0A8D1CC92E26E9BF63DA4062AEE"
+        },
+        {
+          "path": "HEAD",
+          "sha256": "28D25BF82AF4C0E2B72F50959B2BEB859E3E60B9630A5E8C603DAD4DDB2B6E80"
+        },
+        {
+          "path": "hooks\\applypatch-msg.sample",
+          "sha256": "0223497A0B8B033AA58A3A521B8629869386CF7AB0E2F101963D328AA62193F7"
+        },
+        {
+          "path": "hooks\\commit-msg.sample",
+          "sha256": "1F74D5E9292979B573EBD59741D46CB93FF391ACDD083D340B94370753D92437"
+        },
+        {
+          "path": "hooks\\fsmonitor-watchman.sample",
+          "sha256": "E0549964E93897B519BD8E333C037E51FFF0F88BA13E086A331592BF801FA1D0"
+        },
+        {
+          "path": "hooks\\post-update.sample",
+          "sha256": "81765AF2DAEF323061DCBC5E61FC16481CB74B3BAC9AD8A174B186523586F6C5"
+        },
+        {
+          "path": "hooks\\pre-applypatch.sample",
+          "sha256": "E15C5B469EA3E0A695BEA6F2C82BCF8E62821074939DDD85B77E0007FF165475"
+        },
+        {
+          "path": "hooks\\pre-commit.sample",
+          "sha256": "57185B7B9F05239D7AB52DB045F5B89EB31348D7B2177EAB214F5EB872E1971B"
+        },
+        {
+          "path": "hooks\\pre-merge-commit.sample",
+          "sha256": "D3825A70337940EBBD0A5C072984E13245920CDF8898BD225C8D27A6DFC9CB53"
+        },
+        {
+          "path": "hooks\\pre-push.sample",
+          "sha256": "ECCE9C7E04D3F5DD9D8ADA81753DD1D549A9634B26770042B58DDA00217D086A"
+        },
+        {
+          "path": "hooks\\pre-rebase.sample",
+          "sha256": "4FEBCE867790052338076F4E66CC47EFB14879D18097D1D61C8261859EAAA7B3"
+        },
+        {
+          "path": "hooks\\pre-receive.sample",
+          "sha256": "A4C3D2B9C7BB3FD8D1441C31BD4EE71A595D66B44FCF49DDB310252320169989"
+        },
+        {
+          "path": "hooks\\prepare-commit-msg.sample",
+          "sha256": "E9DDCAA4189FDDD25ED97FC8C789ECA7B6CA16390B2392AE3276F0C8E1AA4619"
+        },
+        {
+          "path": "hooks\\push-to-checkout.sample",
+          "sha256": "A53D0741798B287C6DD7AFA64AEE473F305E65D3F49463BB9D7408EC3B12BF5F"
+        },
+        {
+          "path": "hooks\\sendemail-validate.sample",
+          "sha256": "44EBFC923DC5466BC009602F0ECF067B9C65459ABFE8868DDC49B78E6CED7A92"
+        },
+        {
+          "path": "hooks\\update.sample",
+          "sha256": "8D5F2FA83E103CF08B57EAA67521DF9194F45CBDBCB37DA52AD586097A14D106"
+        },
+        {
+          "path": "info\\exclude",
+          "sha256": "6671FE83B7A07C8932EE89164D1F2793B2318058EB8B98DC5C06EE0A5A3B0EC1"
+        },
+        {
+          "path": "objects\\1e\\189ab93fcb6615a7118d78ee4e01f43d1aa6eb",
+          "sha256": "DBB2B3235585BA221D78FAC5F0E328AE3C44380FA49DA000D62977D817DCB0A1"
+        },
+        {
+          "path": "objects\\4c\\889f32f7d5cb38e07255a00a11a66f1e1741e7",
+          "sha256": "B532FA9E53BF1423EF38E681D73F7095BD8C20472B647566C47E07CA51D9B064"
+        },
+        {
+          "path": "objects\\6c\\ccc000c9eed13c9d3d78b132a0ea431f12a0ee",
+          "sha256": "885DAE034320B72DD97091B968ACE4155CC5662EFF67D744970759E177DA1C50"
+        },
+        {
+          "path": "objects\\72\\e649dd026f59e177de26d7d7d63edd4e3a2930",
+          "sha256": "1FB9AB99EF90B24F4DFE8045C861B270CC40542A18C1A882AA3266B6CB2CDC25"
+        },
+        {
+          "path": "objects\\90\\c52b0a9aa6ec0d2880d20be1127fa21a4da122",
+          "sha256": "E7353F75A0548E46A18C4CF354308F6FCE82343F881CF64B2303DF4BA9AA6F80"
+        },
+        {
+          "path": "objects\\a0\\dbea407a8a72aff391738bfcedc288bde1ceae",
+          "sha256": "CC4AC6F97678E9B5C7FD4FF3C72CBC1BABC8ABD24053D797A136260553CB8E67"
+        },
+        {
+          "path": "refs\\heads\\main",
+          "sha256": "10C9D3BA4D0C1EBE6BBEEB57D6BABD801A60F5BAAF2023892CD6CE76A6B351C7"
+        },
+        {
+          "path": "refs\\tags\\remote-only",
+          "sha256": "10C9D3BA4D0C1EBE6BBEEB57D6BABD801A60F5BAAF2023892CD6CE76A6B351C7"
+        }
+      ],
+      "globalConfigHash": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "worktree": [
+        {
+          "path": "work.txt",
+          "sha256": "1C61145B64BEB6E7638E9D01F3F6A82B85C247E610FBC69D237702CDAD80884D"
+        }
+      ]
+    }
+  },
+  "commands": [
+    {
+      "command": "Get-Content -LiteralPath 'installed/git-sync-branch/SKILL.md'; Get-Content -LiteralPath 'installed/git-working-directory-policy/SKILL.md'; Get-Content -LiteralPath 'installed/git-safety-check/SKILL.md'",
+      "outcome": "exit 0; read copied resources"
+    },
+    {
+      "command": "Get-Content -LiteralPath 'installed/git-sync-branch/references/synchronization.md'; Get-Content -LiteralPath 'installed/git-working-directory-policy/references/context.md'; Get-Content -LiteralPath 'installed/git-safety-check/references/preflight.md'",
+      "chunk_id": "54007a",
+      "wall_time_seconds": 0.8906435,
+      "exit_code": 0,
+      "original_token_count": 2662,
+      "output": "# Scoped Synchronization Reference\r\n\r\n## Scope, ownership and modes\r\n\r\nRequire installed context+safety from the selected package or explicitly selected standalone closure. Invoke actual discovered identifiers without prefix guessing. No hosting connector, commit builder, validation or progress skill is required. Missing skills are distinct from missing execution tools; neither permits imitation or installation.\r\n\r\n`inspect` is a local proposal using cached observations, not a remote-freshness check. Do not run fetch, ls-remote, pull or networked dry-run to complete it. `observe` requires an explicit remote-observation request and may advertise only the selected branch. `sync` requires an explicit synchronization request and covers its single fetch plus eligible fast-forward and verification. A plain skill invocation, preflight or proposed next step is not permission. A user-selected stricter scope remains binding.\r\n\r\nSelect the current named branch with an existing commit, exact remote name and full `refs/heads/...` remote branch. Use an explicit request, otherwise a single configured upstream. No upstream or conflicting/multiple endpoint/mapping evidence needs a decision; do not assume origin or a primary branch. Detached/unborn or a different local branch cannot be repaired through checkout/creation. Explicit remote-branch overrides do not change upstream configuration.\r\n\r\nInspect effective `remote get-url --all <remote>` fetch URLs, rewriting and relevant invocation overrides before network. Fetch and push endpoints differ: pushurl is not a fetch source. Require one supported known SSH/scp-like, HTTPS, local or file endpoint. Unknown custom protocols/helpers or unverifiable overrides block. Do not print credential-bearing URL components, token/query values or secret helper output. Keep comparison data in memory and redact presentation.\r\n\r\nNormal trusted transport/authentication can run within the selected network request; new login/key/token/credential or remote setup is separate. Known server processing belongs to the selected operation and is not proof of deployment. Do not demand inaccessible server-hook source or change authentication to force a connection.\r\n\r\n## Protected reads and preconditions\r\n\r\nUse a profile-free shell, explicit working directory and separate literal arguments. Local reads use this Git 2.45+ prefix:\r\n\r\n```text\r\ngit --no-pager --no-optional-locks --no-lazy-fetch --no-replace-objects\r\n    -c core.fsmonitor=false -c maintenance.auto=false -c gc.auto=0\r\n    -c log.showSignature=false\r\n```\r\n\r\nThis is an argument sequence, not shell code to paste across unescaped lines. Unsupported controls block; do not remove them. Content queries disable external diff/textconv, notes/colors and signature display. Preserve user environment overrides rather than silently clearing them; account for their effects. Do not evaluate untrusted names/content as commands.\r\n\r\nFirst obtain root/Git/common directories, branch/HEAD and configuration without optional status scans. Inspect clean/process filters and applicable attributes before status, worktree diff or safety reads that could execute them. Unknown helper effects block those reads; metadata-only findings may still be returned as limited. Then invoke the owned safety skill's publish preflight for its local clean/committed/named-branch gate, retaining `operation=sync` and separate authorization. Missing commit identity alone does not block this operation; no new commit is created.\r\n\r\nBefore each write require clean index/worktree, no conflicts/merge/rebase/other active operation and the same branch, HEAD, selected refs, endpoint/config and effect guards. A prior ready result is not a lock. Inspect effective core.hooksPath/default hooks and referenced helpers: reference-transaction before fetch/ref writes; post-index-change and post-merge before fast-forward; attributes/checkout filters in current and target trees; required signature verification and transport commands as applicable. Sample/disabled hooks are not active. Known approved bounded effects may run with expected changes disclosed; unknown/out-of-contract effects block before mutation. Never bypass hooks, signing or required checks.\r\n\r\n## Fetch exactly one observation\r\n\r\nResolve one concrete source branch and one tracking destination beneath `refs/remotes/<remote>/...`. Reject multiple destinations, local-head/tag mappings and unresolved custom upstream mappings. Use the explicit refspec with empty refmap so configured fetch mappings cannot widen it:\r\n\r\n```text\r\nfetch --no-tags --no-prune --no-prune-tags --no-recurse-submodules\r\n      --no-write-fetch-head --no-auto-maintenance --no-write-commit-graph\r\n      --refmap= -- <remote> refs/heads/<branch>:refs/remotes/<remote>/<branch>\r\n```\r\n\r\nApply the protected prefix and safe argument transport. No force marker, all-remotes, tags, pruning, recursive submodules, deepen/unshallow, side refs or implicit config writes. Necessary fetched objects/packs and selected tracking-ref/reflog updates are expected; preserve other refs/configuration, FETCH_HEAD, local HEAD/index and working content. Tracking refresh may reflect a rewritten remote, but does not authorize local history rewriting. Guard actual symbolic pointers rather than mistaking their derived object values for independent ref writes.\r\n\r\nCapture exit/stdout/stderr once and inspect actual state. A failed fetch may have written objects or a ref; report those effects, not an assumed rollback. Do not repeat a mutating command to recover its output.\r\n\r\n## Decide and fast-forward\r\n\r\nResolve the fetched tracking value as a full commit OID. Recheck local guards after fetch; observed own transitions are reconciled explicitly. `merge-base --is-ancestor` provides relation evidence, with errors distinct from false and incomplete/shallow/missing data disclosed:\r\n\r\n| Evidence | Action |\r\n| --- | --- |\r\n| Local equals fetched | No branch movement; disclose any fetch effects |\r\n| Fetched ancestor of local | Local ahead; no reset or automatic push |\r\n| Local ancestor of fetched | Eligible pinned fast-forward after fresh gates |\r\n| Neither with complete evidence | Diverged/unrelated: needs_decision, preserve fetch effects |\r\n| Relation not established | limited/blocked, no inferred fast-forward |\r\n\r\nUse only:\r\n\r\n```text\r\nmerge --ff-only --no-autostash --no-squash --no-edit --no-stat <fetched-full-OID>\r\n```\r\n\r\nNo pull default, stash, reset, merge commit, rebase or branch switch. Respect required verification and known approved helpers rather than disabling them. Before checkout inspect target attributes/helper effects, not only the old tree's settings.\r\n\r\nAfterward verify exact HEAD equals the fetched OID, index/expected target tree and working content agree under inspected filters, config and unrelated refs are unchanged, and ORIG_HEAD/reflog/index metadata match expected own changes. Remote tip movement does not change the pinned operation silently; report the observed snapshot and any freshness limit. Stop and preserve actual state on changed guards, failure or unexplained effects. No rollback, cleanup or automatic retry.\r\n\r\n## Receipt\r\n\r\nReturn outcome/mode/authorization, repository/current branch, exact selected ref and redacted endpoint, before/fetched/after OIDs and relation, preflight/effect checks, actual command exits and sanitized output, expected/observed ref/metadata changes, remaining state and limitations.\r\n\r\n`planned` is offline proposal; `observed` is authorized advertisement evidence. `synced` requires verified FF. `no_op` describes no branch advance and must still disclose fetch/object/tracking writes. `needs_decision` covers unresolved scope/divergence; `limited` insufficient evidence; `blocked` unavailable safe operation; `stopped` a stopped attempt; `partial` known earlier effects with unfinished work; `uncertain` unestablished effects. Do not claim complete absence or no mutation from missing output. Supplied transcripts stay identified as reported evidence. No receipt file/cache/post is created by default.\r\n\r\nExample: L and R diverge after a successful scoped fetch. Keep local L, record tracking R and fetched objects, and stop for a decision. The earlier successful fetch is not authorization for rebase, merge or publication.\r\n# Repository context reference\r\n\r\nUse Git's output as the source of truth. A compact result can follow this shape:\r\n\r\n```text\r\nroot: <physical worktree root>\r\ngit_dir: <Git directory>\r\ncommon_dir: <shared Git directory>\r\nkind: normal checkout | linked worktree | submodule | not identified\r\nbranch_state: branch <name> | detached at <commit> | unborn branch <name>\r\nidentity: user.name=<value or unknown> (from <origin or unknown>); user.email=<value or unknown> (from <origin or unknown>)\r\nworking_tree: <observed summary or not inspected>\r\nexecution_directory: <explicit directory or git -C path>\r\nlimitations: <observed limits or none>\r\n```\r\n\r\nAn unborn branch has a symbolic branch name but no resolvable `HEAD`. Detached HEAD has a resolvable commit and no current branch. A submodule check takes precedence over the linked-worktree comparison because submodules also have separate Git metadata. Report paths returned by Git in the context of the selected worktree; do not infer other repositories from nearby directories.\r\n\r\nAll commands in this reference are read-only. Missing identity is useful evidence for later write preflight, but it does not prevent repository-context inspection.\r\n# Git preflight reference\r\n\r\nReturn a concise record in this shape:\r\n\r\n```text\r\nintent: inspect | commit | publish\r\noutcome: ready | no_op | blocked | needs_decision | limited\r\nrepository: <selected root and branch/HEAD state>\r\nevidence: <conflicts, operations, commit, index/worktree status, identity source as relevant>\r\ndecision_needed: <specific unresolved choice or none>\r\nlimitations: <unavailable evidence or none>\r\nside_effects: none\r\n```\r\n\r\nTreat the index and working files as separate sources. A staged addition, modification, or deletion is an existing user selection. Unstaged and untracked files remain outside that selection unless the user separately asks to include them. A conflict blocks future mutation but not read-only inspection.\r\n\r\nAn unborn branch is not detached: the symbolic branch exists without a commit. It can be prepared for an initial commit when identity is known, but it cannot be published. A clean branch with a commit can pass publish preflight without a network check; report that remote freshness was not established.\r\n\r\nNever use `ready` as authorization for an operation beyond the requested preflight.\r\n"
+    },
+    {
+      "command": "$env:GIT_CONFIG_GLOBAL='C:/Users/Developer.INSCORSOF2/Documents/Proyectos-Code/omarfrancodev/devcraft-toolkit/.worktrees/git-sync-publish/tests/.tmp/sync-application/repositories/.fixture-global-config'\n$env:GIT_CONFIG_NOSYSTEM='1'\nGet-ChildItem Env:GIT* | ForEach-Object { if ($_.Name -match 'TOKEN|PASSWORD|SECRET|AUTH') { $_.Name + '=<redacted>' } else { $_.Name + '=' + $_.Value } }\nfunction Read-Git { $cmdArgs=$args; 'COMMAND git ' + ($cmdArgs -join ' '); & git --no-pager --no-optional-locks --no-lazy-fetch --no-replace-objects -c core.fsmonitor=false -c maintenance.auto=false -c gc.auto=0 -c log.showSignature=false @cmdArgs; 'EXIT ' + $LASTEXITCODE }\nRead-Git --version\nRead-Git rev-parse --show-toplevel --git-dir --git-common-dir --show-superproject-working-tree\nRead-Git symbolic-ref --short -q HEAD\nRead-Git rev-parse --verify HEAD\nRead-Git config --show-origin --list\nRead-Git remote get-url --all origin\nRead-Git for-each-ref '--format=%(refname) %(objectname) %(symref)'\nGet-ChildItem -LiteralPath .git -Force | Select-Object Name,Mode\nGet-ChildItem -LiteralPath .git/hooks -Force | Select-Object Name,Mode\nGet-Content -LiteralPath .git/info/attributes -ErrorAction SilentlyContinue",
+      "chunk_id": "955c8f",
+      "wall_time_seconds": 1.7917948,
+      "exit_code": 1,
+      "original_token_count": 794,
+      "output": "GIT_CONFIG_NOSYSTEM=1\r\nGIT_CONFIG_GLOBAL=C:/Users/Developer.INSCORSOF2/Documents/Proyectos-Code/omarfrancodev/devcraft-toolkit/.worktrees/git-sync-publish/tests/.tmp/sync-application/repositories/.fixture-global-config\r\nGIT_PAGER=cat\r\nCOMMAND git --version\r\ngit version 2.45.0.windows.1\nEXIT 0\r\nCOMMAND git rev-parse --show-toplevel --git-dir --git-common-dir --show-superproject-working-tree\r\nC:/Users/Developer.INSCORSOF2/Documents/Proyectos-Code/omarfrancodev/devcraft-toolkit/.worktrees/git-sync-publish/tests/.tmp/sync-application/repositories/client\n.git\n.git\nEXIT 0\r\nCOMMAND git symbolic-ref --short -q HEAD\r\nmain\nEXIT 0\r\nCOMMAND git rev-parse --verify HEAD\r\na0dbea407a8a72aff391738bfcedc288bde1ceae\nEXIT 0\r\nCOMMAND git config --show-origin --list\r\nfile:.git/config\tcore.repositoryformatversion=0\nfile:.git/config\tcore.filemode=false\nfile:.git/config\tcore.bare=false\nfile:.git/config\tcore.logallrefupdates=true\nfile:.git/config\tcore.symlinks=false\nfile:.git/config\tcore.ignorecase=true\nfile:.git/config\tremote.origin.url=C:\\Users\\Developer.INSCORSOF2\\Documents\\Proyectos-Code\\omarfrancodev\\devcraft-toolkit\\.worktrees\\git-sync-publish\\tests\\.tmp\\sync-application\\repositories\\remote space.git\nfile:.git/config\tremote.origin.fetch=+refs/heads/*:refs/remotes/origin/*\nfile:.git/config\tremote.origin.tagopt=--tags\nfile:.git/config\tbranch.main.remote=origin\nfile:.git/config\tbranch.main.merge=refs/heads/main\nfile:.git/config\tuser.name=Fixture User\nfile:.git/config\tuser.email=fixture@example.invalid\nfile:.git/config\tfetch.prune=true\ncommand line:\tcore.fsmonitor=false\ncommand line:\tmaintenance.auto=false\ncommand line:\tgc.auto=0\ncommand line:\tlog.showsignature=false\nEXIT 0\r\nCOMMAND git remote get-url --all origin\r\nC:\\Users\\Developer.INSCORSOF2\\Documents\\Proyectos-Code\\omarfrancodev\\devcraft-toolkit\\.worktrees\\git-sync-publish\\tests\\.tmp\\sync-application\\repositories\\remote space.git\nEXIT 0\r\nCOMMAND git for-each-ref --format=%(refname) %(objectname) %(symref)\r\nrefs/heads/keep a0dbea407a8a72aff391738bfcedc288bde1ceae \nrefs/heads/main a0dbea407a8a72aff391738bfcedc288bde1ceae \nrefs/remotes/origin/HEAD a0dbea407a8a72aff391738bfcedc288bde1ceae refs/remotes/origin/main\nrefs/remotes/origin/main a0dbea407a8a72aff391738bfcedc288bde1ceae \nrefs/tags/local-only a0dbea407a8a72aff391738bfcedc288bde1ceae \nEXIT 0\r\n\r\nName                      Mode\r\n----                      ----\r\nhooks                     d----\r\ninfo                      d----\r\nlogs                      d----\r\nobjects                   d----\r\nrefs                      d----\r\nconfig                    -a---\r\ndescription               -a---\r\nHEAD                      -a---\r\nindex                     -a---\r\npacked-refs               -a---\r\napplypatch-msg.sample     -a---\r\ncommit-msg.sample         -a---\r\nfsmonitor-watchman.sample -a---\r\npost-update.sample        -a---\r\npre-applypatch.sample     -a---\r\npre-commit.sample         -a---\r\npre-merge-commit.sample   -a---\r\npre-push.sample           -a---\r\npre-rebase.sample         -a---\r\npre-receive.sample        -a---\r\nprepare-commit-msg.sample -a---\r\npush-to-checkout.sample   -a---\r\nsendemail-validate.sample -a---\r\nupdate.sample             -a---\r\n\r\n"
+    },
+    {
+      "command": "$env:GIT_CONFIG_GLOBAL='C:/Users/Developer.INSCORSOF2/Documents/Proyectos-Code/omarfrancodev/devcraft-toolkit/.worktrees/git-sync-publish/tests/.tmp/sync-application/repositories/.fixture-global-config'\n$env:GIT_CONFIG_NOSYSTEM='1'\nfunction Read-Git { $cmdArgs=$args; 'COMMAND git ' + ($cmdArgs -join ' '); & git --no-pager --no-optional-locks --no-lazy-fetch --no-replace-objects -c core.fsmonitor=false -c maintenance.auto=false -c gc.auto=0 -c log.showSignature=false @cmdArgs; 'EXIT ' + $LASTEXITCODE }\nRead-Git ls-tree -r --name-only HEAD\nRead-Git ls-files --stage\nGet-ChildItem -LiteralPath .git/info -Force | Select-Object Name,Mode\nGet-Content -LiteralPath '../remote space.git/config'\nGet-ChildItem -LiteralPath '../remote space.git/hooks' -Force | Select-Object Name,Mode\nGet-Content -LiteralPath '../.fixture-global-config'\nRead-Git rev-parse --is-shallow-repository",
+      "chunk_id": "f82c22",
+      "wall_time_seconds": 1.2332527,
+      "exit_code": 0,
+      "original_token_count": 223,
+      "output": "COMMAND git ls-tree -r --name-only HEAD\r\nwork.txt\nEXIT 0\r\nCOMMAND git ls-files --stage\r\n100644 1e189ab93fcb6615a7118d78ee4e01f43d1aa6eb 0\twork.txt\nEXIT 0\r\n\r\nfalse\nName                      Mode\r\n----                      ----\r\nexclude                   -a---\r\n[core]\r\n\trepositoryformatversion = 0\r\n\tfilemode = false\r\n\tbare = true\r\n\tsymlinks = false\r\n\tignorecase = true\r\napplypatch-msg.sample     -a---\r\ncommit-msg.sample         -a---\r\nfsmonitor-watchman.sample -a---\r\npost-update.sample        -a---\r\npre-applypatch.sample     -a---\r\npre-commit.sample         -a---\r\npre-merge-commit.sample   -a---\r\npre-push.sample           -a---\r\npre-rebase.sample         -a---\r\npre-receive.sample        -a---\r\nprepare-commit-msg.sample -a---\r\npush-to-checkout.sample   -a---\r\nsendemail-validate.sample -a---\r\nupdate.sample             -a---\r\nCOMMAND git rev-parse --is-shallow-repository\r\nEXIT 0\r\n\r\n"
+    },
+    {
+      "command": "$env:GIT_CONFIG_GLOBAL='C:/Users/Developer.INSCORSOF2/Documents/Proyectos-Code/omarfrancodev/devcraft-toolkit/.worktrees/git-sync-publish/tests/.tmp/sync-application/repositories/.fixture-global-config'\n$env:GIT_CONFIG_NOSYSTEM='1'\nfunction Read-Git { & git --no-pager --no-optional-locks --no-lazy-fetch --no-replace-objects -c core.fsmonitor=false -c maintenance.auto=false -c gc.auto=0 -c log.showSignature=false @args; if ($LASTEXITCODE -ne 0) { throw 'Git read failed: '+$LASTEXITCODE } }\nfunction Inventory($base) { $resolved=(Resolve-Path -LiteralPath $base).Path; @(Get-ChildItem -LiteralPath $resolved -Recurse -File -Force | ForEach-Object { [ordered]@{path=$_.FullName.Substring($resolved.Length+1);sha256=(Get-FileHash -LiteralPath $_.FullName -Algorithm SHA256).Hash} }) }\n[ordered]@{head=(Read-Git rev-parse --verify HEAD);branch=(Read-Git symbolic-ref -q HEAD);refs=@(Read-Git for-each-ref '--format=%(refname) %(objectname) %(symref)');config=@(Read-Git config --show-origin --list);endpoint=@(Read-Git remote get-url --all origin);status=@(Read-Git status --porcelain=v1 --untracked-files=all);index=@(Read-Git ls-files --stage);operations=@(Get-ChildItem -LiteralPath .git -Force | Where-Object {$_.Name -match '^(MERGE_HEAD|CHERRY_PICK_HEAD|REVERT_HEAD|REBASE_HEAD|rebase-apply|rebase-merge|sequencer|BISECT_LOG|.*\\.lock)$'} | Select-Object -ExpandProperty Name);metadata=(Inventory '.git');remote=(Inventory '../remote space.git');globalConfigHash=(Get-FileHash -LiteralPath '../.fixture-global-config' -Algorithm SHA256).Hash;worktree=@(Get-ChildItem -LiteralPath . -Force | Where-Object {$_.Name -ne '.git'} | ForEach-Object {if ($_.PSIsContainer) {throw 'Unexpected worktree directory; inspect first'}; [ordered]@{path=$_.Name;sha256=(Get-FileHash -LiteralPath $_.FullName -Algorithm SHA256).Hash}})} | ConvertTo-Json -Depth 8 -Compress",
+      "chunk_id": "84a3d9",
+      "wall_time_seconds": 1.4317926,
+      "exit_code": 1,
+      "original_token_count": 65,
+      "output": "fatal: this operation must be run in a work tree\nException: \r\nLine |\r\n   4 |  … f ($LASTEXITCODE -ne 0) { throw 'Git read failed: '+$LASTEXITCODE } }\r\n     |                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\r\n     | Git read failed: 128\r\n"
+    },
+    {
+      "command": "$env:GIT_CONFIG_GLOBAL='C:/Users/Developer.INSCORSOF2/Documents/Proyectos-Code/omarfrancodev/devcraft-toolkit/.worktrees/git-sync-publish/tests/.tmp/sync-application/repositories/.fixture-global-config'\n$env:GIT_CONFIG_NOSYSTEM='1'\nGet-Location\nGet-Content -LiteralPath .git/config\nfunction Read-Git { 'COMMAND '+($args -join ' '); & git --no-pager --no-optional-locks --no-lazy-fetch --no-replace-objects -c core.fsmonitor=false -c maintenance.auto=false -c gc.auto=0 -c log.showSignature=false @args; 'EXIT '+$LASTEXITCODE }\nRead-Git rev-parse --show-toplevel --is-inside-work-tree --is-bare-repository\nRead-Git status --porcelain=v1 --untracked-files=all",
+      "chunk_id": "209e83",
+      "wall_time_seconds": 1.0703072,
+      "exit_code": 0,
+      "original_token_count": 268,
+      "output": "\r\nC:/Users/Developer.INSCORSOF2/Documents/Proyectos-Code/omarfrancodev/devcraft-toolkit/.worktrees/git-sync-publish/tests/.tmp/sync-application/repositories/client\ntrue\nfalse\nfatal: this operation must be run in a work tree\nPath\r\n----\r\nC:\\Users\\Developer.INSCORSOF2\\Documents\\Proyectos-Code\\omarfrancodev\\devcraft-toolkit\\.worktrees\\git-sync-publish\\test…\r\n[core]\r\n\trepositoryformatversion = 0\r\n\tfilemode = false\r\n\tbare = false\r\n\tlogallrefupdates = true\r\n\tsymlinks = false\r\n\tignorecase = true\r\n[remote \"origin\"]\r\n\turl = C:\\\\Users\\\\Developer.INSCORSOF2\\\\Documents\\\\Proyectos-Code\\\\omarfrancodev\\\\devcraft-toolkit\\\\.worktrees\\\\git-sync-publish\\\\tests\\\\.tmp\\\\sync-application\\\\repositories\\\\remote space.git\r\n\tfetch = +refs/heads/*:refs/remotes/origin/*\r\n\ttagOpt = --tags\r\n[branch \"main\"]\r\n\tremote = origin\r\n\tmerge = refs/heads/main\r\n[user]\r\n\tname = Fixture User\r\n\temail = fixture@example.invalid\r\n[fetch]\r\n\tprune = true\r\nCOMMAND rev-parse --show-toplevel --is-inside-work-tree --is-bare-repository\r\nEXIT 0\r\nCOMMAND status --porcelain=v1 --untracked-files=all\r\nEXIT 128\r\n\r\n"
+    },
+    {
+      "command": "$env:GIT_CONFIG_GLOBAL='C:/Users/Developer.INSCORSOF2/Documents/Proyectos-Code/omarfrancodev/devcraft-toolkit/.worktrees/git-sync-publish/tests/.tmp/sync-application/repositories/.fixture-global-config'\n$env:GIT_CONFIG_NOSYSTEM='1'\nGet-Command git | Select-Object CommandType,Source,Definition\nGet-ChildItem Env:GIT*\n& git --no-pager --no-optional-locks --no-lazy-fetch --no-replace-objects -c core.fsmonitor=false -c maintenance.auto=false -c gc.auto=0 -c log.showSignature=false status --porcelain=v1 --untracked-files=all\n'EXIT '+$LASTEXITCODE\n& git --no-pager --no-optional-locks --no-lazy-fetch --no-replace-objects -c core.fsmonitor=false -c maintenance.auto=false -c gc.auto=0 -c log.showSignature=false rev-parse --absolute-git-dir --git-path index --show-prefix\n'EXIT '+$LASTEXITCODE",
+      "chunk_id": "706a01",
+      "wall_time_seconds": 1.1189676,
+      "exit_code": 0,
+      "original_token_count": 146,
+      "output": "\r\nfatal: this operation must be run in a work tree\nC:/Users/Developer.INSCORSOF2/Documents/Proyectos-Code/omarfrancodev/devcraft-toolkit/.worktrees/git-sync-publish/tests/.tmp/sync-application/repositories/client/.git\n.git/index\n\nCommandType Source                           Definition\r\n----------- ------                           ----------\r\nApplication C:\\Program Files\\Git\\cmd\\git.exe C:\\Program Files\\Git\\cmd\\git.exe\r\n                                             \r\n                                             \r\n                                             \r\nEXIT 128\r\nEXIT 0\r\n\r\n"
+    },
+    {
+      "command": "$env:GIT_CONFIG_GLOBAL='C:/Users/Developer.INSCORSOF2/Documents/Proyectos-Code/omarfrancodev/devcraft-toolkit/.worktrees/git-sync-publish/tests/.tmp/sync-application/repositories/.fixture-global-config'\n$env:GIT_CONFIG_NOSYSTEM='1'\n& git --no-pager --no-optional-locks --no-lazy-fetch --no-replace-objects -c core.fsmonitor=false -c maintenance.auto=false -c gc.auto=0 -c log.showSignature=false '--work-tree=C:/Users/Developer.INSCORSOF2/Documents/Proyectos-Code/omarfrancodev/devcraft-toolkit/.worktrees/git-sync-publish/tests/.tmp/sync-application/repositories/client' status --porcelain=v1 --untracked-files=all\n'EXIT '+$LASTEXITCODE",
+      "chunk_id": "70524e",
+      "wall_time_seconds": 0.7589804,
+      "exit_code": 0,
+      "original_token_count": 15,
+      "output": "fatal: cannot come back to cwd: Permission denied\nEXIT 128\r\n"
+    },
+    {
+      "command": "$env:GIT_CONFIG_GLOBAL='C:/Users/Developer.INSCORSOF2/Documents/Proyectos-Code/omarfrancodev/devcraft-toolkit/.worktrees/git-sync-publish/tests/.tmp/sync-application/repositories/.fixture-global-config'\n$env:GIT_CONFIG_NOSYSTEM='1'\n& git --no-pager --no-optional-locks --no-lazy-fetch --no-replace-objects -c core.fsmonitor=false -c maintenance.auto=false -c gc.auto=0 -c log.showSignature=false status --porcelain=v1 --untracked-files=all\n'EXIT '+$LASTEXITCODE",
+      "permissions": "require_escalated",
+      "chunk_id": "d17116",
+      "wall_time_seconds": 0.7341186,
+      "exit_code": 0,
+      "original_token_count": 2,
+      "output": "EXIT 0\r\n"
+    },
+    {
+      "command": "$env:GIT_CONFIG_GLOBAL='C:/Users/Developer.INSCORSOF2/Documents/Proyectos-Code/omarfrancodev/devcraft-toolkit/.worktrees/git-sync-publish/tests/.tmp/sync-application/repositories/.fixture-global-config'\n$env:GIT_CONFIG_NOSYSTEM='1'\nfunction Read-Git { & git --no-pager --no-optional-locks --no-lazy-fetch --no-replace-objects -c core.fsmonitor=false -c maintenance.auto=false -c gc.auto=0 -c log.showSignature=false @args; if ($LASTEXITCODE -ne 0) { throw 'Git read failed: '+$LASTEXITCODE } }\nfunction Inventory($base) { $resolved=(Resolve-Path -LiteralPath $base).Path; @(Get-ChildItem -LiteralPath $resolved -Recurse -File -Force | ForEach-Object { [ordered]@{path=$_.FullName.Substring($resolved.Length+1);sha256=(Get-FileHash -LiteralPath $_.FullName -Algorithm SHA256).Hash} }) }\n[ordered]@{head=(Read-Git rev-parse --verify HEAD);branch=(Read-Git symbolic-ref -q HEAD);refs=@(Read-Git for-each-ref '--format=%(refname) %(objectname) %(symref)');config=@(Read-Git config --show-origin --list);endpoint=@(Read-Git remote get-url --all origin);status=@(Read-Git status --porcelain=v1 --untracked-files=all);index=@(Read-Git ls-files --stage);operations=@(Get-ChildItem -LiteralPath .git -Force | Where-Object {$_.Name -match '^(MERGE_HEAD|CHERRY_PICK_HEAD|REVERT_HEAD|REBASE_HEAD|rebase-apply|rebase-merge|sequencer|BISECT_LOG|.*\\.lock)$'} | Select-Object -ExpandProperty Name);metadata=(Inventory '.git');remote=(Inventory '../remote space.git');globalConfigHash=(Get-FileHash -LiteralPath '../.fixture-global-config' -Algorithm SHA256).Hash;worktree=@(Get-ChildItem -LiteralPath . -Force | Where-Object {$_.Name -ne '.git'} | ForEach-Object {if ($_.PSIsContainer) {throw 'Unexpected worktree directory; inspect first'}; [ordered]@{path=$_.Name;sha256=(Get-FileHash -LiteralPath $_.FullName -Algorithm SHA256).Hash}})} | ConvertTo-Json -Depth 8 -Compress",
+      "permissions": "require_escalated",
+      "chunk_id": "502113",
+      "wall_time_seconds": 1.4435408,
+      "exit_code": 0,
+      "original_token_count": 2118,
+      "output": "{\"head\":\"a0dbea407a8a72aff391738bfcedc288bde1ceae\",\"branch\":\"refs/heads/main\",\"refs\":[\"refs/heads/keep a0dbea407a8a72aff391738bfcedc288bde1ceae \",\"refs/heads/main a0dbea407a8a72aff391738bfcedc288bde1ceae \",\"refs/remotes/origin/HEAD a0dbea407a8a72aff391738bfcedc288bde1ceae refs/remotes/origin/main\",\"refs/remotes/origin/main a0dbea407a8a72aff391738bfcedc288bde1ceae \",\"refs/tags/local-only a0dbea407a8a72aff391738bfcedc288bde1ceae \"],\"config\":[\"file:.git/config\\tcore.repositoryformatversion=0\",\"file:.git/config\\tcore.filemode=false\",\"file:.git/config\\tcore.bare=false\",\"file:.git/config\\tcore.logallrefupdates=true\",\"file:.git/config\\tcore.symlinks=false\",\"file:.git/config\\tcore.ignorecase=true\",\"file:.git/config\\tremote.origin.url=C:\\\\Users\\\\Developer.INSCORSOF2\\\\Documents\\\\Proyectos-Code\\\\omarfrancodev\\\\devcraft-toolkit\\\\.worktrees\\\\git-sync-publish\\\\tests\\\\.tmp\\\\sync-application\\\\repositories\\\\remote space.git\",\"file:.git/config\\tremote.origin.fetch=+refs/heads/*:refs/remotes/origin/*\",\"file:.git/config\\tremote.origin.tagopt=--tags\",\"file:.git/config\\tbranch.main.remote=origin\",\"file:.git/config\\tbranch.main.merge=refs/heads/main\",\"file:.git/config\\tuser.name=Fixture User\",\"file:.git/config\\tuser.email=fixture@example.invalid\",\"file:.git/config\\tfetch.prune=true\",\"command line:\\tcore.fsmonitor=false\",\"command line:\\tmaintenance.auto=false\",\"command line:\\tgc.auto=0\",\"command line:\\tlog.showsignature=false\"],\"endpoint\":[\"C:\\\\Users\\\\Developer.INSCORSOF2\\\\Documents\\\\Proyectos-Code\\\\omarfrancodev\\\\devcraft-toolkit\\\\.worktrees\\\\git-sync-publish\\\\tests\\\\.tmp\\\\sync-application\\\\repositories\\\\remote space.git\"],\"status\":[],\"index\":[\"100644 1e189ab93fcb6615a7118d78ee4e01f43d1aa6eb 0\\twork.txt\"],\"operations\":[],\"metadata\":[{\"path\":\"config\",\"sha256\":\"4871908F7D7339A191CC012BB551CCF4C1DF2CB8567D8B889852887E112A185F\"},{\"path\":\"description\",\"sha256\":\"85AB6C163D43A17EA9CF7788308BCA1466F1B0A8D1CC92E26E9BF63DA4062AEE\"},{\"path\":\"HEAD\",\"sha256\":\"28D25BF82AF4C0E2B72F50959B2BEB859E3E60B9630A5E8C603DAD4DDB2B6E80\"},{\"path\":\"index\",\"sha256\":\"38839BDA4A981BE7DD99054C037B0272E80CFD69615342BE5458AFA4BB6758DD\"},{\"path\":\"packed-refs\",\"sha256\":\"5932563AFBC9BE6FE6C9CA0053A8631C15E37A1420129AFBB715110B94B0FCB1\"},{\"path\":\"hooks\\\\applypatch-msg.sample\",\"sha256\":\"0223497A0B8B033AA58A3A521B8629869386CF7AB0E2F101963D328AA62193F7\"},{\"path\":\"hooks\\\\commit-msg.sample\",\"sha256\":\"1F74D5E9292979B573EBD59741D46CB93FF391ACDD083D340B94370753D92437\"},{\"path\":\"hooks\\\\fsmonitor-watchman.sample\",\"sha256\":\"E0549964E93897B519BD8E333C037E51FFF0F88BA13E086A331592BF801FA1D0\"},{\"path\":\"hooks\\\\post-update.sample\",\"sha256\":\"81765AF2DAEF323061DCBC5E61FC16481CB74B3BAC9AD8A174B186523586F6C5\"},{\"path\":\"hooks\\\\pre-applypatch.sample\",\"sha256\":\"E15C5B469EA3E0A695BEA6F2C82BCF8E62821074939DDD85B77E0007FF165475\"},{\"path\":\"hooks\\\\pre-commit.sample\",\"sha256\":\"57185B7B9F05239D7AB52DB045F5B89EB31348D7B2177EAB214F5EB872E1971B\"},{\"path\":\"hooks\\\\pre-merge-commit.sample\",\"sha256\":\"D3825A70337940EBBD0A5C072984E13245920CDF8898BD225C8D27A6DFC9CB53\"},{\"path\":\"hooks\\\\pre-push.sample\",\"sha256\":\"ECCE9C7E04D3F5DD9D8ADA81753DD1D549A9634B26770042B58DDA00217D086A\"},{\"path\":\"hooks\\\\pre-rebase.sample\",\"sha256\":\"4FEBCE867790052338076F4E66CC47EFB14879D18097D1D61C8261859EAAA7B3\"},{\"path\":\"hooks\\\\pre-receive.sample\",\"sha256\":\"A4C3D2B9C7BB3FD8D1441C31BD4EE71A595D66B44FCF49DDB310252320169989\"},{\"path\":\"hooks\\\\prepare-commit-msg.sample\",\"sha256\":\"E9DDCAA4189FDDD25ED97FC8C789ECA7B6CA16390B2392AE3276F0C8E1AA4619\"},{\"path\":\"hooks\\\\push-to-checkout.sample\",\"sha256\":\"A53D0741798B287C6DD7AFA64AEE473F305E65D3F49463BB9D7408EC3B12BF5F\"},{\"path\":\"hooks\\\\sendemail-validate.sample\",\"sha256\":\"44EBFC923DC5466BC009602F0ECF067B9C65459ABFE8868DDC49B78E6CED7A92\"},{\"path\":\"hooks\\\\update.sample\",\"sha256\":\"8D5F2FA83E103CF08B57EAA67521DF9194F45CBDBCB37DA52AD586097A14D106\"},{\"path\":\"info\\\\exclude\",\"sha256\":\"6671FE83B7A07C8932EE89164D1F2793B2318058EB8B98DC5C06EE0A5A3B0EC1\"},{\"path\":\"logs\\\\HEAD\",\"sha256\":\"6CE38E6EC892B5CCE3477358949D040EF730F4C7F72A1749854419802F2DAEA1\"},{\"path\":\"logs\\\\refs\\\\heads\\\\keep\",\"sha256\":\"B692D74B904D446F1C825C6AEDC42340A8D497EE45A6A8F79627160FC268F150\"},{\"path\":\"logs\\\\refs\\\\heads\\\\main\",\"sha256\":\"6CE38E6EC892B5CCE3477358949D040EF730F4C7F72A1749854419802F2DAEA1\"},{\"path\":\"logs\\\\refs\\\\remotes\\\\origin\\\\HEAD\",\"sha256\":\"6CE38E6EC892B5CCE3477358949D040EF730F4C7F72A1749854419802F2DAEA1\"},{\"path\":\"objects\\\\1e\\\\189ab93fcb6615a7118d78ee4e01f43d1aa6eb\",\"sha256\":\"DBB2B3235585BA221D78FAC5F0E328AE3C44380FA49DA000D62977D817DCB0A1\"},{\"path\":\"objects\\\\6c\\\\ccc000c9eed13c9d3d78b132a0ea431f12a0ee\",\"sha256\":\"885DAE034320B72DD97091B968ACE4155CC5662EFF67D744970759E177DA1C50\"},{\"path\":\"objects\\\\a0\\\\dbea407a8a72aff391738bfcedc288bde1ceae\",\"sha256\":\"CC4AC6F97678E9B5C7FD4FF3C72CBC1BABC8ABD24053D797A136260553CB8E67\"},{\"path\":\"refs\\\\heads\\\\keep\",\"sha256\":\"3B7819DBF3F572EF91A1709954E8B1B6FF739C517347C466B8085334D7EEEA7F\"},{\"path\":\"refs\\\\heads\\\\main\",\"sha256\":\"3B7819DBF3F572EF91A1709954E8B1B6FF739C517347C466B8085334D7EEEA7F\"},{\"path\":\"refs\\\\remotes\\\\origin\\\\HEAD\",\"sha256\":\"2BB6A24AA0FC6C484100F5D51A29BBAD841CD2C755F5D93FAA204E5DBB4EB2B4\"},{\"path\":\"refs\\\\tags\\\\local-only\",\"sha256\":\"3B7819DBF3F572EF91A1709954E8B1B6FF739C517347C466B8085334D7EEEA7F\"}],\"remote\":[{\"path\":\"config\",\"sha256\":\"74C63B4EAE3533B3FF4C0E285897778464D6C04815C33457729279DED1E2A947\"},{\"path\":\"description\",\"sha256\":\"85AB6C163D43A17EA9CF7788308BCA1466F1B0A8D1CC92E26E9BF63DA4062AEE\"},{\"path\":\"HEAD\",\"sha256\":\"28D25BF82AF4C0E2B72F50959B2BEB859E3E60B9630A5E8C603DAD4DDB2B6E80\"},{\"path\":\"hooks\\\\applypatch-msg.sample\",\"sha256\":\"0223497A0B8B033AA58A3A521B8629869386CF7AB0E2F101963D328AA62193F7\"},{\"path\":\"hooks\\\\commit-msg.sample\",\"sha256\":\"1F74D5E9292979B573EBD59741D46CB93FF391ACDD083D340B94370753D92437\"},{\"path\":\"hooks\\\\fsmonitor-watchman.sample\",\"sha256\":\"E0549964E93897B519BD8E333C037E51FFF0F88BA13E086A331592BF801FA1D0\"},{\"path\":\"hooks\\\\post-update.sample\",\"sha256\":\"81765AF2DAEF323061DCBC5E61FC16481CB74B3BAC9AD8A174B186523586F6C5\"},{\"path\":\"hooks\\\\pre-applypatch.sample\",\"sha256\":\"E15C5B469EA3E0A695BEA6F2C82BCF8E62821074939DDD85B77E0007FF165475\"},{\"path\":\"hooks\\\\pre-commit.sample\",\"sha256\":\"57185B7B9F05239D7AB52DB045F5B89EB31348D7B2177EAB214F5EB872E1971B\"},{\"path\":\"hooks\\\\pre-merge-commit.sample\",\"sha256\":\"D3825A70337940EBBD0A5C072984E13245920CDF8898BD225C8D27A6DFC9CB53\"},{\"path\":\"hooks\\\\pre-push.sample\",\"sha256\":\"ECCE9C7E04D3F5DD9D8ADA81753DD1D549A9634B26770042B58DDA00217D086A\"},{\"path\":\"hooks\\\\pre-rebase.sample\",\"sha256\":\"4FEBCE867790052338076F4E66CC47EFB14879D18097D1D61C8261859EAAA7B3\"},{\"path\":\"hooks\\\\pre-receive.sample\",\"sha256\":\"A4C3D2B9C7BB3FD8D1441C31BD4EE71A595D66B44FCF49DDB310252320169989\"},{\"path\":\"hooks\\\\prepare-commit-msg.sample\",\"sha256\":\"E9DDCAA4189FDDD25ED97FC8C789ECA7B6CA16390B2392AE3276F0C8E1AA4619\"},{\"path\":\"hooks\\\\push-to-checkout.sample\",\"sha256\":\"A53D0741798B287C6DD7AFA64AEE473F305E65D3F49463BB9D7408EC3B12BF5F\"},{\"path\":\"hooks\\\\sendemail-validate.sample\",\"sha256\":\"44EBFC923DC5466BC009602F0ECF067B9C65459ABFE8868DDC49B78E6CED7A92\"},{\"path\":\"hooks\\\\update.sample\",\"sha256\":\"8D5F2FA83E103CF08B57EAA67521DF9194F45CBDBCB37DA52AD586097A14D106\"},{\"path\":\"info\\\\exclude\",\"sha256\":\"6671FE83B7A07C8932EE89164D1F2793B2318058EB8B98DC5C06EE0A5A3B0EC1\"},{\"path\":\"objects\\\\1e\\\\189ab93fcb6615a7118d78ee4e01f43d1aa6eb\",\"sha256\":\"DBB2B3235585BA221D78FAC5F0E328AE3C44380FA49DA000D62977D817DCB0A1\"},{\"path\":\"objects\\\\4c\\\\889f32f7d5cb38e07255a00a11a66f1e1741e7\",\"sha256\":\"B532FA9E53BF1423EF38E681D73F7095BD8C20472B647566C47E07CA51D9B064\"},{\"path\":\"objects\\\\6c\\\\ccc000c9eed13c9d3d78b132a0ea431f12a0ee\",\"sha256\":\"885DAE034320B72DD97091B968ACE4155CC5662EFF67D744970759E177DA1C50\"},{\"path\":\"objects\\\\72\\\\e649dd026f59e177de26d7d7d63edd4e3a2930\",\"sha256\":\"1FB9AB99EF90B24F4DFE8045C861B270CC40542A18C1A882AA3266B6CB2CDC25\"},{\"path\":\"objects\\\\90\\\\c52b0a9aa6ec0d2880d20be1127fa21a4da122\",\"sha256\":\"E7353F75A0548E46A18C4CF354308F6FCE82343F881CF64B2303DF4BA9AA6F80\"},{\"path\":\"objects\\\\a0\\\\dbea407a8a72aff391738bfcedc288bde1ceae\",\"sha256\":\"CC4AC6F97678E9B5C7FD4FF3C72CBC1BABC8ABD24053D797A136260553CB8E67\"},{\"path\":\"refs\\\\heads\\\\main\",\"sha256\":\"10C9D3BA4D0C1EBE6BBEEB57D6BABD801A60F5BAAF2023892CD6CE76A6B351C7\"},{\"path\":\"refs\\\\tags\\\\remote-only\",\"sha256\":\"10C9D3BA4D0C1EBE6BBEEB57D6BABD801A60F5BAAF2023892CD6CE76A6B351C7\"}],\"globalConfigHash\":\"E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855\",\"worktree\":[{\"path\":\"work.txt\",\"sha256\":\"4A09127AC6DAE62F3BF8929EE996FB09F98212B9FCA18C818C7BC8E2691E290E\"}]}\r\n"
+    },
+    {
+      "command": "$env:GIT_CONFIG_GLOBAL='C:/Users/Developer.INSCORSOF2/Documents/Proyectos-Code/omarfrancodev/devcraft-toolkit/.worktrees/git-sync-publish/tests/.tmp/sync-application/repositories/.fixture-global-config'\n$env:GIT_CONFIG_NOSYSTEM='1'\nfunction Read-Git { & git --no-pager --no-optional-locks --no-lazy-fetch --no-replace-objects -c core.fsmonitor=false -c maintenance.auto=false -c gc.auto=0 -c log.showSignature=false @args; if ($LASTEXITCODE -ne 0) { throw 'Git read failed: '+$LASTEXITCODE } }\nfunction Inventory($base) { $resolved=(Resolve-Path -LiteralPath $base).Path; @(Get-ChildItem -LiteralPath $resolved -Recurse -File -Force | ForEach-Object { [ordered]@{path=$_.FullName.Substring($resolved.Length+1);sha256=(Get-FileHash -LiteralPath $_.FullName -Algorithm SHA256).Hash} }) }\n$snapshot=[ordered]@{head=(Read-Git rev-parse --verify HEAD);branch=(Read-Git symbolic-ref -q HEAD);refs=@(Read-Git for-each-ref '--format=%(refname) %(objectname) %(symref)');config=@(Read-Git config --show-origin --list);endpoint=@(Read-Git remote get-url --all origin);status=@(Read-Git status --porcelain=v1 --untracked-files=all);index=@(Read-Git ls-files --stage);operations=@(Get-ChildItem -LiteralPath .git -Force | Where-Object {$_.Name -match '^(MERGE_HEAD|CHERRY_PICK_HEAD|REVERT_HEAD|REBASE_HEAD|rebase-apply|rebase-merge|sequencer|BISECT_LOG|.*\\.lock)$'} | Select-Object -ExpandProperty Name);metadata=(Inventory '.git');remote=(Inventory '../remote space.git');globalConfigHash=(Get-FileHash -LiteralPath '../.fixture-global-config' -Algorithm SHA256).Hash;worktree=@(Get-ChildItem -LiteralPath . -Force | Where-Object {$_.Name -ne '.git'} | ForEach-Object {if ($_.PSIsContainer) {throw 'Unexpected worktree directory; inspect first'}; [ordered]@{path=$_.Name;sha256=(Get-FileHash -LiteralPath $_.FullName -Algorithm SHA256).Hash}})}\n$currentJson=$snapshot | ConvertTo-Json -Depth 8 -Compress\nif ($currentJson -cne '{\"head\":\"a0dbea407a8a72aff391738bfcedc288bde1ceae\",\"branch\":\"refs/heads/main\",\"refs\":[\"refs/heads/keep a0dbea407a8a72aff391738bfcedc288bde1ceae \",\"refs/heads/main a0dbea407a8a72aff391738bfcedc288bde1ceae \",\"refs/remotes/origin/HEAD a0dbea407a8a72aff391738bfcedc288bde1ceae refs/remotes/origin/main\",\"refs/remotes/origin/main a0dbea407a8a72aff391738bfcedc288bde1ceae \",\"refs/tags/local-only a0dbea407a8a72aff391738bfcedc288bde1ceae \"],\"config\":[\"file:.git/config\\tcore.repositoryformatversion=0\",\"file:.git/config\\tcore.filemode=false\",\"file:.git/config\\tcore.bare=false\",\"file:.git/config\\tcore.logallrefupdates=true\",\"file:.git/config\\tcore.symlinks=false\",\"file:.git/config\\tcore.ignorecase=true\",\"file:.git/config\\tremote.origin.url=C:\\\\Users\\\\Developer.INSCORSOF2\\\\Documents\\\\Proyectos-Code\\\\omarfrancodev\\\\devcraft-toolkit\\\\.worktrees\\\\git-sync-publish\\\\tests\\\\.tmp\\\\sync-application\\\\repositories\\\\remote space.git\",\"file:.git/config\\tremote.origin.fetch=+refs/heads/*:refs/remotes/origin/*\",\"file:.git/config\\tremote.origin.tagopt=--tags\",\"file:.git/config\\tbranch.main.remote=origin\",\"file:.git/config\\tbranch.main.merge=refs/heads/main\",\"file:.git/config\\tuser.name=Fixture User\",\"file:.git/config\\tuser.email=fixture@example.invalid\",\"file:.git/config\\tfetch.prune=true\",\"command line:\\tcore.fsmonitor=false\",\"command line:\\tmaintenance.auto=false\",\"command line:\\tgc.auto=0\",\"command line:\\tlog.showsignature=false\"],\"endpoint\":[\"C:\\\\Users\\\\Developer.INSCORSOF2\\\\Documents\\\\Proyectos-Code\\\\omarfrancodev\\\\devcraft-toolkit\\\\.worktrees\\\\git-sync-publish\\\\tests\\\\.tmp\\\\sync-application\\\\repositories\\\\remote space.git\"],\"status\":[],\"index\":[\"100644 1e189ab93fcb6615a7118d78ee4e01f43d1aa6eb 0\\twork.txt\"],\"operations\":[],\"metadata\":[{\"path\":\"config\",\"sha256\":\"4871908F7D7339A191CC012BB551CCF4C1DF2CB8567D8B889852887E112A185F\"},{\"path\":\"description\",\"sha256\":\"85AB6C163D43A17EA9CF7788308BCA1466F1B0A8D1CC92E26E9BF63DA4062AEE\"},{\"path\":\"HEAD\",\"sha256\":\"28D25BF82AF4C0E2B72F50959B2BEB859E3E60B9630A5E8C603DAD4DDB2B6E80\"},{\"path\":\"index\",\"sha256\":\"38839BDA4A981BE7DD99054C037B0272E80CFD69615342BE5458AFA4BB6758DD\"},{\"path\":\"packed-refs\",\"sha256\":\"5932563AFBC9BE6FE6C9CA0053A8631C15E37A1420129AFBB715110B94B0FCB1\"},{\"path\":\"hooks\\\\applypatch-msg.sample\",\"sha256\":\"0223497A0B8B033AA58A3A521B8629869386CF7AB0E2F101963D328AA62193F7\"},{\"path\":\"hooks\\\\commit-msg.sample\",\"sha256\":\"1F74D5E9292979B573EBD59741D46CB93FF391ACDD083D340B94370753D92437\"},{\"path\":\"hooks\\\\fsmonitor-watchman.sample\",\"sha256\":\"E0549964E93897B519BD8E333C037E51FFF0F88BA13E086A331592BF801FA1D0\"},{\"path\":\"hooks\\\\post-update.sample\",\"sha256\":\"81765AF2DAEF323061DCBC5E61FC16481CB74B3BAC9AD8A174B186523586F6C5\"},{\"path\":\"hooks\\\\pre-applypatch.sample\",\"sha256\":\"E15C5B469EA3E0A695BEA6F2C82BCF8E62821074939DDD85B77E0007FF165475\"},{\"path\":\"hooks\\\\pre-commit.sample\",\"sha256\":\"57185B7B9F05239D7AB52DB045F5B89EB31348D7B2177EAB214F5EB872E1971B\"},{\"path\":\"hooks\\\\pre-merge-commit.sample\",\"sha256\":\"D3825A70337940EBBD0A5C072984E13245920CDF8898BD225C8D27A6DFC9CB53\"},{\"path\":\"hooks\\\\pre-push.sample\",\"sha256\":\"ECCE9C7E04D3F5DD9D8ADA81753DD1D549A9634B26770042B58DDA00217D086A\"},{\"path\":\"hooks\\\\pre-rebase.sample\",\"sha256\":\"4FEBCE867790052338076F4E66CC47EFB14879D18097D1D61C8261859EAAA7B3\"},{\"path\":\"hooks\\\\pre-receive.sample\",\"sha256\":\"A4C3D2B9C7BB3FD8D1441C31BD4EE71A595D66B44FCF49DDB310252320169989\"},{\"path\":\"hooks\\\\prepare-commit-msg.sample\",\"sha256\":\"E9DDCAA4189FDDD25ED97FC8C789ECA7B6CA16390B2392AE3276F0C8E1AA4619\"},{\"path\":\"hooks\\\\push-to-checkout.sample\",\"sha256\":\"A53D0741798B287C6DD7AFA64AEE473F305E65D3F49463BB9D7408EC3B12BF5F\"},{\"path\":\"hooks\\\\sendemail-validate.sample\",\"sha256\":\"44EBFC923DC5466BC009602F0ECF067B9C65459ABFE8868DDC49B78E6CED7A92\"},{\"path\":\"hooks\\\\update.sample\",\"sha256\":\"8D5F2FA83E103CF08B57EAA67521DF9194F45CBDBCB37DA52AD586097A14D106\"},{\"path\":\"info\\\\exclude\",\"sha256\":\"6671FE83B7A07C8932EE89164D1F2793B2318058EB8B98DC5C06EE0A5A3B0EC1\"},{\"path\":\"logs\\\\HEAD\",\"sha256\":\"6CE38E6EC892B5CCE3477358949D040EF730F4C7F72A1749854419802F2DAEA1\"},{\"path\":\"logs\\\\refs\\\\heads\\\\keep\",\"sha256\":\"B692D74B904D446F1C825C6AEDC42340A8D497EE45A6A8F79627160FC268F150\"},{\"path\":\"logs\\\\refs\\\\heads\\\\main\",\"sha256\":\"6CE38E6EC892B5CCE3477358949D040EF730F4C7F72A1749854419802F2DAEA1\"},{\"path\":\"logs\\\\refs\\\\remotes\\\\origin\\\\HEAD\",\"sha256\":\"6CE38E6EC892B5CCE3477358949D040EF730F4C7F72A1749854419802F2DAEA1\"},{\"path\":\"objects\\\\1e\\\\189ab93fcb6615a7118d78ee4e01f43d1aa6eb\",\"sha256\":\"DBB2B3235585BA221D78FAC5F0E328AE3C44380FA49DA000D62977D817DCB0A1\"},{\"path\":\"objects\\\\6c\\\\ccc000c9eed13c9d3d78b132a0ea431f12a0ee\",\"sha256\":\"885DAE034320B72DD97091B968ACE4155CC5662EFF67D744970759E177DA1C50\"},{\"path\":\"objects\\\\a0\\\\dbea407a8a72aff391738bfcedc288bde1ceae\",\"sha256\":\"CC4AC6F97678E9B5C7FD4FF3C72CBC1BABC8ABD24053D797A136260553CB8E67\"},{\"path\":\"refs\\\\heads\\\\keep\",\"sha256\":\"3B7819DBF3F572EF91A1709954E8B1B6FF739C517347C466B8085334D7EEEA7F\"},{\"path\":\"refs\\\\heads\\\\main\",\"sha256\":\"3B7819DBF3F572EF91A1709954E8B1B6FF739C517347C466B8085334D7EEEA7F\"},{\"path\":\"refs\\\\remotes\\\\origin\\\\HEAD\",\"sha256\":\"2BB6A24AA0FC6C484100F5D51A29BBAD841CD2C755F5D93FAA204E5DBB4EB2B4\"},{\"path\":\"refs\\\\tags\\\\local-only\",\"sha256\":\"3B7819DBF3F572EF91A1709954E8B1B6FF739C517347C466B8085334D7EEEA7F\"}],\"remote\":[{\"path\":\"config\",\"sha256\":\"74C63B4EAE3533B3FF4C0E285897778464D6C04815C33457729279DED1E2A947\"},{\"path\":\"description\",\"sha256\":\"85AB6C163D43A17EA9CF7788308BCA1466F1B0A8D1CC92E26E9BF63DA4062AEE\"},{\"path\":\"HEAD\",\"sha256\":\"28D25BF82AF4C0E2B72F50959B2BEB859E3E60B9630A5E8C603DAD4DDB2B6E80\"},{\"path\":\"hooks\\\\applypatch-msg.sample\",\"sha256\":\"0223497A0B8B033AA58A3A521B8629869386CF7AB0E2F101963D328AA62193F7\"},{\"path\":\"hooks\\\\commit-msg.sample\",\"sha256\":\"1F74D5E9292979B573EBD59741D46CB93FF391ACDD083D340B94370753D92437\"},{\"path\":\"hooks\\\\fsmonitor-watchman.sample\",\"sha256\":\"E0549964E93897B519BD8E333C037E51FFF0F88BA13E086A331592BF801FA1D0\"},{\"path\":\"hooks\\\\post-update.sample\",\"sha256\":\"81765AF2DAEF323061DCBC5E61FC16481CB74B3BAC9AD8A174B186523586F6C5\"},{\"path\":\"hooks\\\\pre-applypatch.sample\",\"sha256\":\"E15C5B469EA3E0A695BEA6F2C82BCF8E62821074939DDD85B77E0007FF165475\"},{\"path\":\"hooks\\\\pre-commit.sample\",\"sha256\":\"57185B7B9F05239D7AB52DB045F5B89EB31348D7B2177EAB214F5EB872E1971B\"},{\"path\":\"hooks\\\\pre-merge-commit.sample\",\"sha256\":\"D3825A70337940EBBD0A5C072984E13245920CDF8898BD225C8D27A6DFC9CB53\"},{\"path\":\"hooks\\\\pre-push.sample\",\"sha256\":\"ECCE9C7E04D3F5DD9D8ADA81753DD1D549A9634B26770042B58DDA00217D086A\"},{\"path\":\"hooks\\\\pre-rebase.sample\",\"sha256\":\"4FEBCE867790052338076F4E66CC47EFB14879D18097D1D61C8261859EAAA7B3\"},{\"path\":\"hooks\\\\pre-receive.sample\",\"sha256\":\"A4C3D2B9C7BB3FD8D1441C31BD4EE71A595D66B44FCF49DDB310252320169989\"},{\"path\":\"hooks\\\\prepare-commit-msg.sample\",\"sha256\":\"E9DDCAA4189FDDD25ED97FC8C789ECA7B6CA16390B2392AE3276F0C8E1AA4619\"},{\"path\":\"hooks\\\\push-to-checkout.sample\",\"sha256\":\"A53D0741798B287C6DD7AFA64AEE473F305E65D3F49463BB9D7408EC3B12BF5F\"},{\"path\":\"hooks\\\\sendemail-validate.sample\",\"sha256\":\"44EBFC923DC5466BC009602F0ECF067B9C65459ABFE8868DDC49B78E6CED7A92\"},{\"path\":\"hooks\\\\update.sample\",\"sha256\":\"8D5F2FA83E103CF08B57EAA67521DF9194F45CBDBCB37DA52AD586097A14D106\"},{\"path\":\"info\\\\exclude\",\"sha256\":\"6671FE83B7A07C8932EE89164D1F2793B2318058EB8B98DC5C06EE0A5A3B0EC1\"},{\"path\":\"objects\\\\1e\\\\189ab93fcb6615a7118d78ee4e01f43d1aa6eb\",\"sha256\":\"DBB2B3235585BA221D78FAC5F0E328AE3C44380FA49DA000D62977D817DCB0A1\"},{\"path\":\"objects\\\\4c\\\\889f32f7d5cb38e07255a00a11a66f1e1741e7\",\"sha256\":\"B532FA9E53BF1423EF38E681D73F7095BD8C20472B647566C47E07CA51D9B064\"},{\"path\":\"objects\\\\6c\\\\ccc000c9eed13c9d3d78b132a0ea431f12a0ee\",\"sha256\":\"885DAE034320B72DD97091B968ACE4155CC5662EFF67D744970759E177DA1C50\"},{\"path\":\"objects\\\\72\\\\e649dd026f59e177de26d7d7d63edd4e3a2930\",\"sha256\":\"1FB9AB99EF90B24F4DFE8045C861B270CC40542A18C1A882AA3266B6CB2CDC25\"},{\"path\":\"objects\\\\90\\\\c52b0a9aa6ec0d2880d20be1127fa21a4da122\",\"sha256\":\"E7353F75A0548E46A18C4CF354308F6FCE82343F881CF64B2303DF4BA9AA6F80\"},{\"path\":\"objects\\\\a0\\\\dbea407a8a72aff391738bfcedc288bde1ceae\",\"sha256\":\"CC4AC6F97678E9B5C7FD4FF3C72CBC1BABC8ABD24053D797A136260553CB8E67\"},{\"path\":\"refs\\\\heads\\\\main\",\"sha256\":\"10C9D3BA4D0C1EBE6BBEEB57D6BABD801A60F5BAAF2023892CD6CE76A6B351C7\"},{\"path\":\"refs\\\\tags\\\\remote-only\",\"sha256\":\"10C9D3BA4D0C1EBE6BBEEB57D6BABD801A60F5BAAF2023892CD6CE76A6B351C7\"}],\"globalConfigHash\":\"E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855\",\"worktree\":[{\"path\":\"work.txt\",\"sha256\":\"4A09127AC6DAE62F3BF8929EE996FB09F98212B9FCA18C818C7BC8E2691E290E\"}]}') { throw 'Pre-fetch guards changed' }\n& git --no-pager --no-optional-locks --no-lazy-fetch --no-replace-objects -c core.fsmonitor=false -c maintenance.auto=false -c gc.auto=0 -c log.showSignature=false fetch --no-tags --no-prune --no-prune-tags --no-recurse-submodules --no-write-fetch-head --no-auto-maintenance --no-write-commit-graph --refmap= -- origin refs/heads/main:refs/remotes/origin/main\n'FETCH_EXIT '+$LASTEXITCODE",
+      "permissions": "require_escalated",
+      "chunk_id": "76783c",
+      "wall_time_seconds": 1.713659,
+      "exit_code": 0,
+      "original_token_count": 59,
+      "output": "From C:\\Users\\Developer.INSCORSOF2\\Documents\\Proyectos-Code\\omarfrancodev\\devcraft-toolkit\\.worktrees\\git-sync-publish\\tests\\.tmp\\sync-application\\repositories\\remote space\n   a0dbea4..90c52b0  main       -> origin/main\nFETCH_EXIT 0\r\n"
+    },
+    {
+      "command": "$env:GIT_CONFIG_GLOBAL='C:/Users/Developer.INSCORSOF2/Documents/Proyectos-Code/omarfrancodev/devcraft-toolkit/.worktrees/git-sync-publish/tests/.tmp/sync-application/repositories/.fixture-global-config'\n$env:GIT_CONFIG_NOSYSTEM='1'\nfunction Read-Git { & git --no-pager --no-optional-locks --no-lazy-fetch --no-replace-objects -c core.fsmonitor=false -c maintenance.auto=false -c gc.auto=0 -c log.showSignature=false @args; if ($LASTEXITCODE -ne 0) { throw 'Git read failed: '+$LASTEXITCODE } }\nfunction Inventory($base) { $resolved=(Resolve-Path -LiteralPath $base).Path; @(Get-ChildItem -LiteralPath $resolved -Recurse -File -Force | ForEach-Object { [ordered]@{path=$_.FullName.Substring($resolved.Length+1);sha256=(Get-FileHash -LiteralPath $_.FullName -Algorithm SHA256).Hash} }) }\n[ordered]@{head=(Read-Git rev-parse --verify HEAD);branch=(Read-Git symbolic-ref -q HEAD);refs=@(Read-Git for-each-ref '--format=%(refname) %(objectname) %(symref)');config=@(Read-Git config --show-origin --list);endpoint=@(Read-Git remote get-url --all origin);status=@(Read-Git status --porcelain=v1 --untracked-files=all);index=@(Read-Git ls-files --stage);operations=@(Get-ChildItem -LiteralPath .git -Force | Where-Object {$_.Name -match '^(MERGE_HEAD|CHERRY_PICK_HEAD|REVERT_HEAD|REBASE_HEAD|rebase-apply|rebase-merge|sequencer|BISECT_LOG|.*\\.lock)$'} | Select-Object -ExpandProperty Name);metadata=(Inventory '.git');remote=(Inventory '../remote space.git');globalConfigHash=(Get-FileHash -LiteralPath '../.fixture-global-config' -Algorithm SHA256).Hash;worktree=@(Get-ChildItem -LiteralPath . -Force | Where-Object {$_.Name -ne '.git'} | ForEach-Object {if ($_.PSIsContainer) {throw 'Unexpected worktree directory; inspect first'}; [ordered]@{path=$_.Name;sha256=(Get-FileHash -LiteralPath $_.FullName -Algorithm SHA256).Hash}})} | ConvertTo-Json -Depth 8 -Compress",
+      "permissions": "require_escalated",
+      "chunk_id": "062060",
+      "wall_time_seconds": 1.3851886,
+      "exit_code": 0,
+      "original_token_count": 2282,
+      "output": "{\"head\":\"a0dbea407a8a72aff391738bfcedc288bde1ceae\",\"branch\":\"refs/heads/main\",\"refs\":[\"refs/heads/keep a0dbea407a8a72aff391738bfcedc288bde1ceae \",\"refs/heads/main a0dbea407a8a72aff391738bfcedc288bde1ceae \",\"refs/remotes/origin/HEAD 90c52b0a9aa6ec0d2880d20be1127fa21a4da122 refs/remotes/origin/main\",\"refs/remotes/origin/main 90c52b0a9aa6ec0d2880d20be1127fa21a4da122 \",\"refs/tags/local-only a0dbea407a8a72aff391738bfcedc288bde1ceae \"],\"config\":[\"file:.git/config\\tcore.repositoryformatversion=0\",\"file:.git/config\\tcore.filemode=false\",\"file:.git/config\\tcore.bare=false\",\"file:.git/config\\tcore.logallrefupdates=true\",\"file:.git/config\\tcore.symlinks=false\",\"file:.git/config\\tcore.ignorecase=true\",\"file:.git/config\\tremote.origin.url=C:\\\\Users\\\\Developer.INSCORSOF2\\\\Documents\\\\Proyectos-Code\\\\omarfrancodev\\\\devcraft-toolkit\\\\.worktrees\\\\git-sync-publish\\\\tests\\\\.tmp\\\\sync-application\\\\repositories\\\\remote space.git\",\"file:.git/config\\tremote.origin.fetch=+refs/heads/*:refs/remotes/origin/*\",\"file:.git/config\\tremote.origin.tagopt=--tags\",\"file:.git/config\\tbranch.main.remote=origin\",\"file:.git/config\\tbranch.main.merge=refs/heads/main\",\"file:.git/config\\tuser.name=Fixture User\",\"file:.git/config\\tuser.email=fixture@example.invalid\",\"file:.git/config\\tfetch.prune=true\",\"command line:\\tcore.fsmonitor=false\",\"command line:\\tmaintenance.auto=false\",\"command line:\\tgc.auto=0\",\"command line:\\tlog.showsignature=false\"],\"endpoint\":[\"C:\\\\Users\\\\Developer.INSCORSOF2\\\\Documents\\\\Proyectos-Code\\\\omarfrancodev\\\\devcraft-toolkit\\\\.worktrees\\\\git-sync-publish\\\\tests\\\\.tmp\\\\sync-application\\\\repositories\\\\remote space.git\"],\"status\":[],\"index\":[\"100644 1e189ab93fcb6615a7118d78ee4e01f43d1aa6eb 0\\twork.txt\"],\"operations\":[],\"metadata\":[{\"path\":\"config\",\"sha256\":\"4871908F7D7339A191CC012BB551CCF4C1DF2CB8567D8B889852887E112A185F\"},{\"path\":\"description\",\"sha256\":\"85AB6C163D43A17EA9CF7788308BCA1466F1B0A8D1CC92E26E9BF63DA4062AEE\"},{\"path\":\"HEAD\",\"sha256\":\"28D25BF82AF4C0E2B72F50959B2BEB859E3E60B9630A5E8C603DAD4DDB2B6E80\"},{\"path\":\"index\",\"sha256\":\"38839BDA4A981BE7DD99054C037B0272E80CFD69615342BE5458AFA4BB6758DD\"},{\"path\":\"packed-refs\",\"sha256\":\"5932563AFBC9BE6FE6C9CA0053A8631C15E37A1420129AFBB715110B94B0FCB1\"},{\"path\":\"hooks\\\\applypatch-msg.sample\",\"sha256\":\"0223497A0B8B033AA58A3A521B8629869386CF7AB0E2F101963D328AA62193F7\"},{\"path\":\"hooks\\\\commit-msg.sample\",\"sha256\":\"1F74D5E9292979B573EBD59741D46CB93FF391ACDD083D340B94370753D92437\"},{\"path\":\"hooks\\\\fsmonitor-watchman.sample\",\"sha256\":\"E0549964E93897B519BD8E333C037E51FFF0F88BA13E086A331592BF801FA1D0\"},{\"path\":\"hooks\\\\post-update.sample\",\"sha256\":\"81765AF2DAEF323061DCBC5E61FC16481CB74B3BAC9AD8A174B186523586F6C5\"},{\"path\":\"hooks\\\\pre-applypatch.sample\",\"sha256\":\"E15C5B469EA3E0A695BEA6F2C82BCF8E62821074939DDD85B77E0007FF165475\"},{\"path\":\"hooks\\\\pre-commit.sample\",\"sha256\":\"57185B7B9F05239D7AB52DB045F5B89EB31348D7B2177EAB214F5EB872E1971B\"},{\"path\":\"hooks\\\\pre-merge-commit.sample\",\"sha256\":\"D3825A70337940EBBD0A5C072984E13245920CDF8898BD225C8D27A6DFC9CB53\"},{\"path\":\"hooks\\\\pre-push.sample\",\"sha256\":\"ECCE9C7E04D3F5DD9D8ADA81753DD1D549A9634B26770042B58DDA00217D086A\"},{\"path\":\"hooks\\\\pre-rebase.sample\",\"sha256\":\"4FEBCE867790052338076F4E66CC47EFB14879D18097D1D61C8261859EAAA7B3\"},{\"path\":\"hooks\\\\pre-receive.sample\",\"sha256\":\"A4C3D2B9C7BB3FD8D1441C31BD4EE71A595D66B44FCF49DDB310252320169989\"},{\"path\":\"hooks\\\\prepare-commit-msg.sample\",\"sha256\":\"E9DDCAA4189FDDD25ED97FC8C789ECA7B6CA16390B2392AE3276F0C8E1AA4619\"},{\"path\":\"hooks\\\\push-to-checkout.sample\",\"sha256\":\"A53D0741798B287C6DD7AFA64AEE473F305E65D3F49463BB9D7408EC3B12BF5F\"},{\"path\":\"hooks\\\\sendemail-validate.sample\",\"sha256\":\"44EBFC923DC5466BC009602F0ECF067B9C65459ABFE8868DDC49B78E6CED7A92\"},{\"path\":\"hooks\\\\update.sample\",\"sha256\":\"8D5F2FA83E103CF08B57EAA67521DF9194F45CBDBCB37DA52AD586097A14D106\"},{\"path\":\"info\\\\exclude\",\"sha256\":\"6671FE83B7A07C8932EE89164D1F2793B2318058EB8B98DC5C06EE0A5A3B0EC1\"},{\"path\":\"logs\\\\HEAD\",\"sha256\":\"6CE38E6EC892B5CCE3477358949D040EF730F4C7F72A1749854419802F2DAEA1\"},{\"path\":\"logs\\\\refs\\\\heads\\\\keep\",\"sha256\":\"B692D74B904D446F1C825C6AEDC42340A8D497EE45A6A8F79627160FC268F150\"},{\"path\":\"logs\\\\refs\\\\heads\\\\main\",\"sha256\":\"6CE38E6EC892B5CCE3477358949D040EF730F4C7F72A1749854419802F2DAEA1\"},{\"path\":\"logs\\\\refs\\\\remotes\\\\origin\\\\HEAD\",\"sha256\":\"6CE38E6EC892B5CCE3477358949D040EF730F4C7F72A1749854419802F2DAEA1\"},{\"path\":\"logs\\\\refs\\\\remotes\\\\origin\\\\main\",\"sha256\":\"401AB9F1F7CEBD2545528FC8B6E61521DCE3AA4CDE5505427485203152F1F4FB\"},{\"path\":\"objects\\\\1e\\\\189ab93fcb6615a7118d78ee4e01f43d1aa6eb\",\"sha256\":\"DBB2B3235585BA221D78FAC5F0E328AE3C44380FA49DA000D62977D817DCB0A1\"},{\"path\":\"objects\\\\4c\\\\889f32f7d5cb38e07255a00a11a66f1e1741e7\",\"sha256\":\"B532FA9E53BF1423EF38E681D73F7095BD8C20472B647566C47E07CA51D9B064\"},{\"path\":\"objects\\\\6c\\\\ccc000c9eed13c9d3d78b132a0ea431f12a0ee\",\"sha256\":\"885DAE034320B72DD97091B968ACE4155CC5662EFF67D744970759E177DA1C50\"},{\"path\":\"objects\\\\72\\\\e649dd026f59e177de26d7d7d63edd4e3a2930\",\"sha256\":\"1FB9AB99EF90B24F4DFE8045C861B270CC40542A18C1A882AA3266B6CB2CDC25\"},{\"path\":\"objects\\\\90\\\\c52b0a9aa6ec0d2880d20be1127fa21a4da122\",\"sha256\":\"E7353F75A0548E46A18C4CF354308F6FCE82343F881CF64B2303DF4BA9AA6F80\"},{\"path\":\"objects\\\\a0\\\\dbea407a8a72aff391738bfcedc288bde1ceae\",\"sha256\":\"CC4AC6F97678E9B5C7FD4FF3C72CBC1BABC8ABD24053D797A136260553CB8E67\"},{\"path\":\"refs\\\\heads\\\\keep\",\"sha256\":\"3B7819DBF3F572EF91A1709954E8B1B6FF739C517347C466B8085334D7EEEA7F\"},{\"path\":\"refs\\\\heads\\\\main\",\"sha256\":\"3B7819DBF3F572EF91A1709954E8B1B6FF739C517347C466B8085334D7EEEA7F\"},{\"path\":\"refs\\\\remotes\\\\origin\\\\HEAD\",\"sha256\":\"2BB6A24AA0FC6C484100F5D51A29BBAD841CD2C755F5D93FAA204E5DBB4EB2B4\"},{\"path\":\"refs\\\\remotes\\\\origin\\\\main\",\"sha256\":\"10C9D3BA4D0C1EBE6BBEEB57D6BABD801A60F5BAAF2023892CD6CE76A6B351C7\"},{\"path\":\"refs\\\\tags\\\\local-only\",\"sha256\":\"3B7819DBF3F572EF91A1709954E8B1B6FF739C517347C466B8085334D7EEEA7F\"}],\"remote\":[{\"path\":\"config\",\"sha256\":\"74C63B4EAE3533B3FF4C0E285897778464D6C04815C33457729279DED1E2A947\"},{\"path\":\"description\",\"sha256\":\"85AB6C163D43A17EA9CF7788308BCA1466F1B0A8D1CC92E26E9BF63DA4062AEE\"},{\"path\":\"HEAD\",\"sha256\":\"28D25BF82AF4C0E2B72F50959B2BEB859E3E60B9630A5E8C603DAD4DDB2B6E80\"},{\"path\":\"hooks\\\\applypatch-msg.sample\",\"sha256\":\"0223497A0B8B033AA58A3A521B8629869386CF7AB0E2F101963D328AA62193F7\"},{\"path\":\"hooks\\\\commit-msg.sample\",\"sha256\":\"1F74D5E9292979B573EBD59741D46CB93FF391ACDD083D340B94370753D92437\"},{\"path\":\"hooks\\\\fsmonitor-watchman.sample\",\"sha256\":\"E0549964E93897B519BD8E333C037E51FFF0F88BA13E086A331592BF801FA1D0\"},{\"path\":\"hooks\\\\post-update.sample\",\"sha256\":\"81765AF2DAEF323061DCBC5E61FC16481CB74B3BAC9AD8A174B186523586F6C5\"},{\"path\":\"hooks\\\\pre-applypatch.sample\",\"sha256\":\"E15C5B469EA3E0A695BEA6F2C82BCF8E62821074939DDD85B77E0007FF165475\"},{\"path\":\"hooks\\\\pre-commit.sample\",\"sha256\":\"57185B7B9F05239D7AB52DB045F5B89EB31348D7B2177EAB214F5EB872E1971B\"},{\"path\":\"hooks\\\\pre-merge-commit.sample\",\"sha256\":\"D3825A70337940EBBD0A5C072984E13245920CDF8898BD225C8D27A6DFC9CB53\"},{\"path\":\"hooks\\\\pre-push.sample\",\"sha256\":\"ECCE9C7E04D3F5DD9D8ADA81753DD1D549A9634B26770042B58DDA00217D086A\"},{\"path\":\"hooks\\\\pre-rebase.sample\",\"sha256\":\"4FEBCE867790052338076F4E66CC47EFB14879D18097D1D61C8261859EAAA7B3\"},{\"path\":\"hooks\\\\pre-receive.sample\",\"sha256\":\"A4C3D2B9C7BB3FD8D1441C31BD4EE71A595D66B44FCF49DDB310252320169989\"},{\"path\":\"hooks\\\\prepare-commit-msg.sample\",\"sha256\":\"E9DDCAA4189FDDD25ED97FC8C789ECA7B6CA16390B2392AE3276F0C8E1AA4619\"},{\"path\":\"hooks\\\\push-to-checkout.sample\",\"sha256\":\"A53D0741798B287C6DD7AFA64AEE473F305E65D3F49463BB9D7408EC3B12BF5F\"},{\"path\":\"hooks\\\\sendemail-validate.sample\",\"sha256\":\"44EBFC923DC5466BC009602F0ECF067B9C65459ABFE8868DDC49B78E6CED7A92\"},{\"path\":\"hooks\\\\update.sample\",\"sha256\":\"8D5F2FA83E103CF08B57EAA67521DF9194F45CBDBCB37DA52AD586097A14D106\"},{\"path\":\"info\\\\exclude\",\"sha256\":\"6671FE83B7A07C8932EE89164D1F2793B2318058EB8B98DC5C06EE0A5A3B0EC1\"},{\"path\":\"objects\\\\1e\\\\189ab93fcb6615a7118d78ee4e01f43d1aa6eb\",\"sha256\":\"DBB2B3235585BA221D78FAC5F0E328AE3C44380FA49DA000D62977D817DCB0A1\"},{\"path\":\"objects\\\\4c\\\\889f32f7d5cb38e07255a00a11a66f1e1741e7\",\"sha256\":\"B532FA9E53BF1423EF38E681D73F7095BD8C20472B647566C47E07CA51D9B064\"},{\"path\":\"objects\\\\6c\\\\ccc000c9eed13c9d3d78b132a0ea431f12a0ee\",\"sha256\":\"885DAE034320B72DD97091B968ACE4155CC5662EFF67D744970759E177DA1C50\"},{\"path\":\"objects\\\\72\\\\e649dd026f59e177de26d7d7d63edd4e3a2930\",\"sha256\":\"1FB9AB99EF90B24F4DFE8045C861B270CC40542A18C1A882AA3266B6CB2CDC25\"},{\"path\":\"objects\\\\90\\\\c52b0a9aa6ec0d2880d20be1127fa21a4da122\",\"sha256\":\"E7353F75A0548E46A18C4CF354308F6FCE82343F881CF64B2303DF4BA9AA6F80\"},{\"path\":\"objects\\\\a0\\\\dbea407a8a72aff391738bfcedc288bde1ceae\",\"sha256\":\"CC4AC6F97678E9B5C7FD4FF3C72CBC1BABC8ABD24053D797A136260553CB8E67\"},{\"path\":\"refs\\\\heads\\\\main\",\"sha256\":\"10C9D3BA4D0C1EBE6BBEEB57D6BABD801A60F5BAAF2023892CD6CE76A6B351C7\"},{\"path\":\"refs\\\\tags\\\\remote-only\",\"sha256\":\"10C9D3BA4D0C1EBE6BBEEB57D6BABD801A60F5BAAF2023892CD6CE76A6B351C7\"}],\"globalConfigHash\":\"E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855\",\"worktree\":[{\"path\":\"work.txt\",\"sha256\":\"4A09127AC6DAE62F3BF8929EE996FB09F98212B9FCA18C818C7BC8E2691E290E\"}]}\r\n"
+    },
+    {
+      "command": "$env:GIT_CONFIG_GLOBAL='C:/Users/Developer.INSCORSOF2/Documents/Proyectos-Code/omarfrancodev/devcraft-toolkit/.worktrees/git-sync-publish/tests/.tmp/sync-application/repositories/.fixture-global-config'\n$env:GIT_CONFIG_NOSYSTEM='1'\nfunction Read-Git { $cmdArgs=$args; 'COMMAND git '+($cmdArgs -join ' '); & git --no-pager --no-optional-locks --no-lazy-fetch --no-replace-objects -c core.fsmonitor=false -c maintenance.auto=false -c gc.auto=0 -c log.showSignature=false @cmdArgs; 'EXIT '+$LASTEXITCODE }\nRead-Git rev-parse --verify 'refs/remotes/origin/main^{commit}'\nRead-Git merge-base --is-ancestor a0dbea407a8a72aff391738bfcedc288bde1ceae 90c52b0a9aa6ec0d2880d20be1127fa21a4da122\nRead-Git merge-base --is-ancestor 90c52b0a9aa6ec0d2880d20be1127fa21a4da122 a0dbea407a8a72aff391738bfcedc288bde1ceae\nRead-Git ls-tree -r 90c52b0a9aa6ec0d2880d20be1127fa21a4da122\nRead-Git rev-parse --is-shallow-repository",
+      "permissions": "require_escalated",
+      "chunk_id": "1b420f",
+      "wall_time_seconds": 1.0752722,
+      "exit_code": 0,
+      "original_token_count": 142,
+      "output": "COMMAND git rev-parse --verify refs/remotes/origin/main^{commit}\r\n90c52b0a9aa6ec0d2880d20be1127fa21a4da122\nEXIT 0\r\nCOMMAND git merge-base --is-ancestor a0dbea407a8a72aff391738bfcedc288bde1ceae 90c52b0a9aa6ec0d2880d20be1127fa21a4da122\r\nEXIT 0\r\nCOMMAND git merge-base --is-ancestor 90c52b0a9aa6ec0d2880d20be1127fa21a4da122 a0dbea407a8a72aff391738bfcedc288bde1ceae\r\nEXIT 1\r\nCOMMAND git ls-tree -r 90c52b0a9aa6ec0d2880d20be1127fa21a4da122\r\n100644 blob 72e649dd026f59e177de26d7d7d63edd4e3a2930\twork.txt\nEXIT 0\r\nCOMMAND git rev-parse --is-shallow-repository\r\nfalse\nEXIT 0\r\n"
+    },
+    {
+      "command": "$env:GIT_CONFIG_GLOBAL='C:/Users/Developer.INSCORSOF2/Documents/Proyectos-Code/omarfrancodev/devcraft-toolkit/.worktrees/git-sync-publish/tests/.tmp/sync-application/repositories/.fixture-global-config'\n$env:GIT_CONFIG_NOSYSTEM='1'\nfunction Read-Git { & git --no-pager --no-optional-locks --no-lazy-fetch --no-replace-objects -c core.fsmonitor=false -c maintenance.auto=false -c gc.auto=0 -c log.showSignature=false @args; if ($LASTEXITCODE -ne 0) { throw 'Git read failed: '+$LASTEXITCODE } }\nfunction Inventory($base) { $resolved=(Resolve-Path -LiteralPath $base).Path; @(Get-ChildItem -LiteralPath $resolved -Recurse -File -Force | ForEach-Object { [ordered]@{path=$_.FullName.Substring($resolved.Length+1);sha256=(Get-FileHash -LiteralPath $_.FullName -Algorithm SHA256).Hash} }) }\n$snapshot=[ordered]@{head=(Read-Git rev-parse --verify HEAD);branch=(Read-Git symbolic-ref -q HEAD);refs=@(Read-Git for-each-ref '--format=%(refname) %(objectname) %(symref)');config=@(Read-Git config --show-origin --list);endpoint=@(Read-Git remote get-url --all origin);status=@(Read-Git status --porcelain=v1 --untracked-files=all);index=@(Read-Git ls-files --stage);operations=@(Get-ChildItem -LiteralPath .git -Force | Where-Object {$_.Name -match '^(MERGE_HEAD|CHERRY_PICK_HEAD|REVERT_HEAD|REBASE_HEAD|rebase-apply|rebase-merge|sequencer|BISECT_LOG|.*\\.lock)$'} | Select-Object -ExpandProperty Name);metadata=(Inventory '.git');remote=(Inventory '../remote space.git');globalConfigHash=(Get-FileHash -LiteralPath '../.fixture-global-config' -Algorithm SHA256).Hash;worktree=@(Get-ChildItem -LiteralPath . -Force | Where-Object {$_.Name -ne '.git'} | ForEach-Object {if ($_.PSIsContainer) {throw 'Unexpected worktree directory; inspect first'}; [ordered]@{path=$_.Name;sha256=(Get-FileHash -LiteralPath $_.FullName -Algorithm SHA256).Hash}})}\n$currentJson=$snapshot | ConvertTo-Json -Depth 8 -Compress\nif ($currentJson -cne '{\"head\":\"a0dbea407a8a72aff391738bfcedc288bde1ceae\",\"branch\":\"refs/heads/main\",\"refs\":[\"refs/heads/keep a0dbea407a8a72aff391738bfcedc288bde1ceae \",\"refs/heads/main a0dbea407a8a72aff391738bfcedc288bde1ceae \",\"refs/remotes/origin/HEAD 90c52b0a9aa6ec0d2880d20be1127fa21a4da122 refs/remotes/origin/main\",\"refs/remotes/origin/main 90c52b0a9aa6ec0d2880d20be1127fa21a4da122 \",\"refs/tags/local-only a0dbea407a8a72aff391738bfcedc288bde1ceae \"],\"config\":[\"file:.git/config\\tcore.repositoryformatversion=0\",\"file:.git/config\\tcore.filemode=false\",\"file:.git/config\\tcore.bare=false\",\"file:.git/config\\tcore.logallrefupdates=true\",\"file:.git/config\\tcore.symlinks=false\",\"file:.git/config\\tcore.ignorecase=true\",\"file:.git/config\\tremote.origin.url=C:\\\\Users\\\\Developer.INSCORSOF2\\\\Documents\\\\Proyectos-Code\\\\omarfrancodev\\\\devcraft-toolkit\\\\.worktrees\\\\git-sync-publish\\\\tests\\\\.tmp\\\\sync-application\\\\repositories\\\\remote space.git\",\"file:.git/config\\tremote.origin.fetch=+refs/heads/*:refs/remotes/origin/*\",\"file:.git/config\\tremote.origin.tagopt=--tags\",\"file:.git/config\\tbranch.main.remote=origin\",\"file:.git/config\\tbranch.main.merge=refs/heads/main\",\"file:.git/config\\tuser.name=Fixture User\",\"file:.git/config\\tuser.email=fixture@example.invalid\",\"file:.git/config\\tfetch.prune=true\",\"command line:\\tcore.fsmonitor=false\",\"command line:\\tmaintenance.auto=false\",\"command line:\\tgc.auto=0\",\"command line:\\tlog.showsignature=false\"],\"endpoint\":[\"C:\\\\Users\\\\Developer.INSCORSOF2\\\\Documents\\\\Proyectos-Code\\\\omarfrancodev\\\\devcraft-toolkit\\\\.worktrees\\\\git-sync-publish\\\\tests\\\\.tmp\\\\sync-application\\\\repositories\\\\remote space.git\"],\"status\":[],\"index\":[\"100644 1e189ab93fcb6615a7118d78ee4e01f43d1aa6eb 0\\twork.txt\"],\"operations\":[],\"metadata\":[{\"path\":\"config\",\"sha256\":\"4871908F7D7339A191CC012BB551CCF4C1DF2CB8567D8B889852887E112A185F\"},{\"path\":\"description\",\"sha256\":\"85AB6C163D43A17EA9CF7788308BCA1466F1B0A8D1CC92E26E9BF63DA4062AEE\"},{\"path\":\"HEAD\",\"sha256\":\"28D25BF82AF4C0E2B72F50959B2BEB859E3E60B9630A5E8C603DAD4DDB2B6E80\"},{\"path\":\"index\",\"sha256\":\"38839BDA4A981BE7DD99054C037B0272E80CFD69615342BE5458AFA4BB6758DD\"},{\"path\":\"packed-refs\",\"sha256\":\"5932563AFBC9BE6FE6C9CA0053A8631C15E37A1420129AFBB715110B94B0FCB1\"},{\"path\":\"hooks\\\\applypatch-msg.sample\",\"sha256\":\"0223497A0B8B033AA58A3A521B8629869386CF7AB0E2F101963D328AA62193F7\"},{\"path\":\"hooks\\\\commit-msg.sample\",\"sha256\":\"1F74D5E9292979B573EBD59741D46CB93FF391ACDD083D340B94370753D92437\"},{\"path\":\"hooks\\\\fsmonitor-watchman.sample\",\"sha256\":\"E0549964E93897B519BD8E333C037E51FFF0F88BA13E086A331592BF801FA1D0\"},{\"path\":\"hooks\\\\post-update.sample\",\"sha256\":\"81765AF2DAEF323061DCBC5E61FC16481CB74B3BAC9AD8A174B186523586F6C5\"},{\"path\":\"hooks\\\\pre-applypatch.sample\",\"sha256\":\"E15C5B469EA3E0A695BEA6F2C82BCF8E62821074939DDD85B77E0007FF165475\"},{\"path\":\"hooks\\\\pre-commit.sample\",\"sha256\":\"57185B7B9F05239D7AB52DB045F5B89EB31348D7B2177EAB214F5EB872E1971B\"},{\"path\":\"hooks\\\\pre-merge-commit.sample\",\"sha256\":\"D3825A70337940EBBD0A5C072984E13245920CDF8898BD225C8D27A6DFC9CB53\"},{\"path\":\"hooks\\\\pre-push.sample\",\"sha256\":\"ECCE9C7E04D3F5DD9D8ADA81753DD1D549A9634B26770042B58DDA00217D086A\"},{\"path\":\"hooks\\\\pre-rebase.sample\",\"sha256\":\"4FEBCE867790052338076F4E66CC47EFB14879D18097D1D61C8261859EAAA7B3\"},{\"path\":\"hooks\\\\pre-receive.sample\",\"sha256\":\"A4C3D2B9C7BB3FD8D1441C31BD4EE71A595D66B44FCF49DDB310252320169989\"},{\"path\":\"hooks\\\\prepare-commit-msg.sample\",\"sha256\":\"E9DDCAA4189FDDD25ED97FC8C789ECA7B6CA16390B2392AE3276F0C8E1AA4619\"},{\"path\":\"hooks\\\\push-to-checkout.sample\",\"sha256\":\"A53D0741798B287C6DD7AFA64AEE473F305E65D3F49463BB9D7408EC3B12BF5F\"},{\"path\":\"hooks\\\\sendemail-validate.sample\",\"sha256\":\"44EBFC923DC5466BC009602F0ECF067B9C65459ABFE8868DDC49B78E6CED7A92\"},{\"path\":\"hooks\\\\update.sample\",\"sha256\":\"8D5F2FA83E103CF08B57EAA67521DF9194F45CBDBCB37DA52AD586097A14D106\"},{\"path\":\"info\\\\exclude\",\"sha256\":\"6671FE83B7A07C8932EE89164D1F2793B2318058EB8B98DC5C06EE0A5A3B0EC1\"},{\"path\":\"logs\\\\HEAD\",\"sha256\":\"6CE38E6EC892B5CCE3477358949D040EF730F4C7F72A1749854419802F2DAEA1\"},{\"path\":\"logs\\\\refs\\\\heads\\\\keep\",\"sha256\":\"B692D74B904D446F1C825C6AEDC42340A8D497EE45A6A8F79627160FC268F150\"},{\"path\":\"logs\\\\refs\\\\heads\\\\main\",\"sha256\":\"6CE38E6EC892B5CCE3477358949D040EF730F4C7F72A1749854419802F2DAEA1\"},{\"path\":\"logs\\\\refs\\\\remotes\\\\origin\\\\HEAD\",\"sha256\":\"6CE38E6EC892B5CCE3477358949D040EF730F4C7F72A1749854419802F2DAEA1\"},{\"path\":\"logs\\\\refs\\\\remotes\\\\origin\\\\main\",\"sha256\":\"401AB9F1F7CEBD2545528FC8B6E61521DCE3AA4CDE5505427485203152F1F4FB\"},{\"path\":\"objects\\\\1e\\\\189ab93fcb6615a7118d78ee4e01f43d1aa6eb\",\"sha256\":\"DBB2B3235585BA221D78FAC5F0E328AE3C44380FA49DA000D62977D817DCB0A1\"},{\"path\":\"objects\\\\4c\\\\889f32f7d5cb38e07255a00a11a66f1e1741e7\",\"sha256\":\"B532FA9E53BF1423EF38E681D73F7095BD8C20472B647566C47E07CA51D9B064\"},{\"path\":\"objects\\\\6c\\\\ccc000c9eed13c9d3d78b132a0ea431f12a0ee\",\"sha256\":\"885DAE034320B72DD97091B968ACE4155CC5662EFF67D744970759E177DA1C50\"},{\"path\":\"objects\\\\72\\\\e649dd026f59e177de26d7d7d63edd4e3a2930\",\"sha256\":\"1FB9AB99EF90B24F4DFE8045C861B270CC40542A18C1A882AA3266B6CB2CDC25\"},{\"path\":\"objects\\\\90\\\\c52b0a9aa6ec0d2880d20be1127fa21a4da122\",\"sha256\":\"E7353F75A0548E46A18C4CF354308F6FCE82343F881CF64B2303DF4BA9AA6F80\"},{\"path\":\"objects\\\\a0\\\\dbea407a8a72aff391738bfcedc288bde1ceae\",\"sha256\":\"CC4AC6F97678E9B5C7FD4FF3C72CBC1BABC8ABD24053D797A136260553CB8E67\"},{\"path\":\"refs\\\\heads\\\\keep\",\"sha256\":\"3B7819DBF3F572EF91A1709954E8B1B6FF739C517347C466B8085334D7EEEA7F\"},{\"path\":\"refs\\\\heads\\\\main\",\"sha256\":\"3B7819DBF3F572EF91A1709954E8B1B6FF739C517347C466B8085334D7EEEA7F\"},{\"path\":\"refs\\\\remotes\\\\origin\\\\HEAD\",\"sha256\":\"2BB6A24AA0FC6C484100F5D51A29BBAD841CD2C755F5D93FAA204E5DBB4EB2B4\"},{\"path\":\"refs\\\\remotes\\\\origin\\\\main\",\"sha256\":\"10C9D3BA4D0C1EBE6BBEEB57D6BABD801A60F5BAAF2023892CD6CE76A6B351C7\"},{\"path\":\"refs\\\\tags\\\\local-only\",\"sha256\":\"3B7819DBF3F572EF91A1709954E8B1B6FF739C517347C466B8085334D7EEEA7F\"}],\"remote\":[{\"path\":\"config\",\"sha256\":\"74C63B4EAE3533B3FF4C0E285897778464D6C04815C33457729279DED1E2A947\"},{\"path\":\"description\",\"sha256\":\"85AB6C163D43A17EA9CF7788308BCA1466F1B0A8D1CC92E26E9BF63DA4062AEE\"},{\"path\":\"HEAD\",\"sha256\":\"28D25BF82AF4C0E2B72F50959B2BEB859E3E60B9630A5E8C603DAD4DDB2B6E80\"},{\"path\":\"hooks\\\\applypatch-msg.sample\",\"sha256\":\"0223497A0B8B033AA58A3A521B8629869386CF7AB0E2F101963D328AA62193F7\"},{\"path\":\"hooks\\\\commit-msg.sample\",\"sha256\":\"1F74D5E9292979B573EBD59741D46CB93FF391ACDD083D340B94370753D92437\"},{\"path\":\"hooks\\\\fsmonitor-watchman.sample\",\"sha256\":\"E0549964E93897B519BD8E333C037E51FFF0F88BA13E086A331592BF801FA1D0\"},{\"path\":\"hooks\\\\post-update.sample\",\"sha256\":\"81765AF2DAEF323061DCBC5E61FC16481CB74B3BAC9AD8A174B186523586F6C5\"},{\"path\":\"hooks\\\\pre-applypatch.sample\",\"sha256\":\"E15C5B469EA3E0A695BEA6F2C82BCF8E62821074939DDD85B77E0007FF165475\"},{\"path\":\"hooks\\\\pre-commit.sample\",\"sha256\":\"57185B7B9F05239D7AB52DB045F5B89EB31348D7B2177EAB214F5EB872E1971B\"},{\"path\":\"hooks\\\\pre-merge-commit.sample\",\"sha256\":\"D3825A70337940EBBD0A5C072984E13245920CDF8898BD225C8D27A6DFC9CB53\"},{\"path\":\"hooks\\\\pre-push.sample\",\"sha256\":\"ECCE9C7E04D3F5DD9D8ADA81753DD1D549A9634B26770042B58DDA00217D086A\"},{\"path\":\"hooks\\\\pre-rebase.sample\",\"sha256\":\"4FEBCE867790052338076F4E66CC47EFB14879D18097D1D61C8261859EAAA7B3\"},{\"path\":\"hooks\\\\pre-receive.sample\",\"sha256\":\"A4C3D2B9C7BB3FD8D1441C31BD4EE71A595D66B44FCF49DDB310252320169989\"},{\"path\":\"hooks\\\\prepare-commit-msg.sample\",\"sha256\":\"E9DDCAA4189FDDD25ED97FC8C789ECA7B6CA16390B2392AE3276F0C8E1AA4619\"},{\"path\":\"hooks\\\\push-to-checkout.sample\",\"sha256\":\"A53D0741798B287C6DD7AFA64AEE473F305E65D3F49463BB9D7408EC3B12BF5F\"},{\"path\":\"hooks\\\\sendemail-validate.sample\",\"sha256\":\"44EBFC923DC5466BC009602F0ECF067B9C65459ABFE8868DDC49B78E6CED7A92\"},{\"path\":\"hooks\\\\update.sample\",\"sha256\":\"8D5F2FA83E103CF08B57EAA67521DF9194F45CBDBCB37DA52AD586097A14D106\"},{\"path\":\"info\\\\exclude\",\"sha256\":\"6671FE83B7A07C8932EE89164D1F2793B2318058EB8B98DC5C06EE0A5A3B0EC1\"},{\"path\":\"objects\\\\1e\\\\189ab93fcb6615a7118d78ee4e01f43d1aa6eb\",\"sha256\":\"DBB2B3235585BA221D78FAC5F0E328AE3C44380FA49DA000D62977D817DCB0A1\"},{\"path\":\"objects\\\\4c\\\\889f32f7d5cb38e07255a00a11a66f1e1741e7\",\"sha256\":\"B532FA9E53BF1423EF38E681D73F7095BD8C20472B647566C47E07CA51D9B064\"},{\"path\":\"objects\\\\6c\\\\ccc000c9eed13c9d3d78b132a0ea431f12a0ee\",\"sha256\":\"885DAE034320B72DD97091B968ACE4155CC5662EFF67D744970759E177DA1C50\"},{\"path\":\"objects\\\\72\\\\e649dd026f59e177de26d7d7d63edd4e3a2930\",\"sha256\":\"1FB9AB99EF90B24F4DFE8045C861B270CC40542A18C1A882AA3266B6CB2CDC25\"},{\"path\":\"objects\\\\90\\\\c52b0a9aa6ec0d2880d20be1127fa21a4da122\",\"sha256\":\"E7353F75A0548E46A18C4CF354308F6FCE82343F881CF64B2303DF4BA9AA6F80\"},{\"path\":\"objects\\\\a0\\\\dbea407a8a72aff391738bfcedc288bde1ceae\",\"sha256\":\"CC4AC6F97678E9B5C7FD4FF3C72CBC1BABC8ABD24053D797A136260553CB8E67\"},{\"path\":\"refs\\\\heads\\\\main\",\"sha256\":\"10C9D3BA4D0C1EBE6BBEEB57D6BABD801A60F5BAAF2023892CD6CE76A6B351C7\"},{\"path\":\"refs\\\\tags\\\\remote-only\",\"sha256\":\"10C9D3BA4D0C1EBE6BBEEB57D6BABD801A60F5BAAF2023892CD6CE76A6B351C7\"}],\"globalConfigHash\":\"E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855\",\"worktree\":[{\"path\":\"work.txt\",\"sha256\":\"4A09127AC6DAE62F3BF8929EE996FB09F98212B9FCA18C818C7BC8E2691E290E\"}]}') { throw 'Pre-merge guards changed' }\n& git --no-pager --no-optional-locks --no-lazy-fetch --no-replace-objects -c core.fsmonitor=false -c maintenance.auto=false -c gc.auto=0 -c log.showSignature=false merge --ff-only --no-autostash --no-squash --no-edit --no-stat 90c52b0a9aa6ec0d2880d20be1127fa21a4da122\n'MERGE_EXIT '+$LASTEXITCODE",
+      "permissions": "require_escalated",
+      "chunk_id": "ec8eb6",
+      "wall_time_seconds": 1.6431952,
+      "exit_code": 0,
+      "original_token_count": 14,
+      "output": "Updating a0dbea4..90c52b0\nFast-forward\nMERGE_EXIT 0\r\n"
+    },
+    {
+      "command": "$env:GIT_CONFIG_GLOBAL='C:/Users/Developer.INSCORSOF2/Documents/Proyectos-Code/omarfrancodev/devcraft-toolkit/.worktrees/git-sync-publish/tests/.tmp/sync-application/repositories/.fixture-global-config'\n$env:GIT_CONFIG_NOSYSTEM='1'\nfunction Read-Git { & git --no-pager --no-optional-locks --no-lazy-fetch --no-replace-objects -c core.fsmonitor=false -c maintenance.auto=false -c gc.auto=0 -c log.showSignature=false @args; if ($LASTEXITCODE -ne 0) { throw 'Git read failed: '+$LASTEXITCODE } }\nfunction Inventory($base) { $resolved=(Resolve-Path -LiteralPath $base).Path; @(Get-ChildItem -LiteralPath $resolved -Recurse -File -Force | ForEach-Object { [ordered]@{path=$_.FullName.Substring($resolved.Length+1);sha256=(Get-FileHash -LiteralPath $_.FullName -Algorithm SHA256).Hash} }) }\n[ordered]@{head=(Read-Git rev-parse --verify HEAD);branch=(Read-Git symbolic-ref -q HEAD);refs=@(Read-Git for-each-ref '--format=%(refname) %(objectname) %(symref)');config=@(Read-Git config --show-origin --list);endpoint=@(Read-Git remote get-url --all origin);status=@(Read-Git status --porcelain=v1 --untracked-files=all);index=@(Read-Git ls-files --stage);operations=@(Get-ChildItem -LiteralPath .git -Force | Where-Object {$_.Name -match '^(MERGE_HEAD|CHERRY_PICK_HEAD|REVERT_HEAD|REBASE_HEAD|rebase-apply|rebase-merge|sequencer|BISECT_LOG|.*\\.lock)$'} | Select-Object -ExpandProperty Name);metadata=(Inventory '.git');remote=(Inventory '../remote space.git');globalConfigHash=(Get-FileHash -LiteralPath '../.fixture-global-config' -Algorithm SHA256).Hash;worktree=@(Get-ChildItem -LiteralPath . -Force | Where-Object {$_.Name -ne '.git'} | ForEach-Object {if ($_.PSIsContainer) {throw 'Unexpected worktree directory; inspect first'}; [ordered]@{path=$_.Name;sha256=(Get-FileHash -LiteralPath $_.FullName -Algorithm SHA256).Hash}})} | ConvertTo-Json -Depth 8 -Compress",
+      "permissions": "require_escalated",
+      "chunk_id": "84e399",
+      "wall_time_seconds": 1.4010096,
+      "exit_code": 0,
+      "original_token_count": 2306,
+      "output": "{\"head\":\"90c52b0a9aa6ec0d2880d20be1127fa21a4da122\",\"branch\":\"refs/heads/main\",\"refs\":[\"refs/heads/keep a0dbea407a8a72aff391738bfcedc288bde1ceae \",\"refs/heads/main 90c52b0a9aa6ec0d2880d20be1127fa21a4da122 \",\"refs/remotes/origin/HEAD 90c52b0a9aa6ec0d2880d20be1127fa21a4da122 refs/remotes/origin/main\",\"refs/remotes/origin/main 90c52b0a9aa6ec0d2880d20be1127fa21a4da122 \",\"refs/tags/local-only a0dbea407a8a72aff391738bfcedc288bde1ceae \"],\"config\":[\"file:.git/config\\tcore.repositoryformatversion=0\",\"file:.git/config\\tcore.filemode=false\",\"file:.git/config\\tcore.bare=false\",\"file:.git/config\\tcore.logallrefupdates=true\",\"file:.git/config\\tcore.symlinks=false\",\"file:.git/config\\tcore.ignorecase=true\",\"file:.git/config\\tremote.origin.url=C:\\\\Users\\\\Developer.INSCORSOF2\\\\Documents\\\\Proyectos-Code\\\\omarfrancodev\\\\devcraft-toolkit\\\\.worktrees\\\\git-sync-publish\\\\tests\\\\.tmp\\\\sync-application\\\\repositories\\\\remote space.git\",\"file:.git/config\\tremote.origin.fetch=+refs/heads/*:refs/remotes/origin/*\",\"file:.git/config\\tremote.origin.tagopt=--tags\",\"file:.git/config\\tbranch.main.remote=origin\",\"file:.git/config\\tbranch.main.merge=refs/heads/main\",\"file:.git/config\\tuser.name=Fixture User\",\"file:.git/config\\tuser.email=fixture@example.invalid\",\"file:.git/config\\tfetch.prune=true\",\"command line:\\tcore.fsmonitor=false\",\"command line:\\tmaintenance.auto=false\",\"command line:\\tgc.auto=0\",\"command line:\\tlog.showsignature=false\"],\"endpoint\":[\"C:\\\\Users\\\\Developer.INSCORSOF2\\\\Documents\\\\Proyectos-Code\\\\omarfrancodev\\\\devcraft-toolkit\\\\.worktrees\\\\git-sync-publish\\\\tests\\\\.tmp\\\\sync-application\\\\repositories\\\\remote space.git\"],\"status\":[],\"index\":[\"100644 72e649dd026f59e177de26d7d7d63edd4e3a2930 0\\twork.txt\"],\"operations\":[],\"metadata\":[{\"path\":\"config\",\"sha256\":\"4871908F7D7339A191CC012BB551CCF4C1DF2CB8567D8B889852887E112A185F\"},{\"path\":\"description\",\"sha256\":\"85AB6C163D43A17EA9CF7788308BCA1466F1B0A8D1CC92E26E9BF63DA4062AEE\"},{\"path\":\"HEAD\",\"sha256\":\"28D25BF82AF4C0E2B72F50959B2BEB859E3E60B9630A5E8C603DAD4DDB2B6E80\"},{\"path\":\"index\",\"sha256\":\"89CC2ACD2F1199C92B68AC49E296A6CAFE3C45C1483EC57E498CFA97757EC48D\"},{\"path\":\"ORIG_HEAD\",\"sha256\":\"3B7819DBF3F572EF91A1709954E8B1B6FF739C517347C466B8085334D7EEEA7F\"},{\"path\":\"packed-refs\",\"sha256\":\"5932563AFBC9BE6FE6C9CA0053A8631C15E37A1420129AFBB715110B94B0FCB1\"},{\"path\":\"hooks\\\\applypatch-msg.sample\",\"sha256\":\"0223497A0B8B033AA58A3A521B8629869386CF7AB0E2F101963D328AA62193F7\"},{\"path\":\"hooks\\\\commit-msg.sample\",\"sha256\":\"1F74D5E9292979B573EBD59741D46CB93FF391ACDD083D340B94370753D92437\"},{\"path\":\"hooks\\\\fsmonitor-watchman.sample\",\"sha256\":\"E0549964E93897B519BD8E333C037E51FFF0F88BA13E086A331592BF801FA1D0\"},{\"path\":\"hooks\\\\post-update.sample\",\"sha256\":\"81765AF2DAEF323061DCBC5E61FC16481CB74B3BAC9AD8A174B186523586F6C5\"},{\"path\":\"hooks\\\\pre-applypatch.sample\",\"sha256\":\"E15C5B469EA3E0A695BEA6F2C82BCF8E62821074939DDD85B77E0007FF165475\"},{\"path\":\"hooks\\\\pre-commit.sample\",\"sha256\":\"57185B7B9F05239D7AB52DB045F5B89EB31348D7B2177EAB214F5EB872E1971B\"},{\"path\":\"hooks\\\\pre-merge-commit.sample\",\"sha256\":\"D3825A70337940EBBD0A5C072984E13245920CDF8898BD225C8D27A6DFC9CB53\"},{\"path\":\"hooks\\\\pre-push.sample\",\"sha256\":\"ECCE9C7E04D3F5DD9D8ADA81753DD1D549A9634B26770042B58DDA00217D086A\"},{\"path\":\"hooks\\\\pre-rebase.sample\",\"sha256\":\"4FEBCE867790052338076F4E66CC47EFB14879D18097D1D61C8261859EAAA7B3\"},{\"path\":\"hooks\\\\pre-receive.sample\",\"sha256\":\"A4C3D2B9C7BB3FD8D1441C31BD4EE71A595D66B44FCF49DDB310252320169989\"},{\"path\":\"hooks\\\\prepare-commit-msg.sample\",\"sha256\":\"E9DDCAA4189FDDD25ED97FC8C789ECA7B6CA16390B2392AE3276F0C8E1AA4619\"},{\"path\":\"hooks\\\\push-to-checkout.sample\",\"sha256\":\"A53D0741798B287C6DD7AFA64AEE473F305E65D3F49463BB9D7408EC3B12BF5F\"},{\"path\":\"hooks\\\\sendemail-validate.sample\",\"sha256\":\"44EBFC923DC5466BC009602F0ECF067B9C65459ABFE8868DDC49B78E6CED7A92\"},{\"path\":\"hooks\\\\update.sample\",\"sha256\":\"8D5F2FA83E103CF08B57EAA67521DF9194F45CBDBCB37DA52AD586097A14D106\"},{\"path\":\"info\\\\exclude\",\"sha256\":\"6671FE83B7A07C8932EE89164D1F2793B2318058EB8B98DC5C06EE0A5A3B0EC1\"},{\"path\":\"logs\\\\HEAD\",\"sha256\":\"C1A2F9F4E24A55D07571999087B898955389B3D0715BB3742E36DC98E2AF71F8\"},{\"path\":\"logs\\\\refs\\\\heads\\\\keep\",\"sha256\":\"B692D74B904D446F1C825C6AEDC42340A8D497EE45A6A8F79627160FC268F150\"},{\"path\":\"logs\\\\refs\\\\heads\\\\main\",\"sha256\":\"C1A2F9F4E24A55D07571999087B898955389B3D0715BB3742E36DC98E2AF71F8\"},{\"path\":\"logs\\\\refs\\\\remotes\\\\origin\\\\HEAD\",\"sha256\":\"6CE38E6EC892B5CCE3477358949D040EF730F4C7F72A1749854419802F2DAEA1\"},{\"path\":\"logs\\\\refs\\\\remotes\\\\origin\\\\main\",\"sha256\":\"401AB9F1F7CEBD2545528FC8B6E61521DCE3AA4CDE5505427485203152F1F4FB\"},{\"path\":\"objects\\\\1e\\\\189ab93fcb6615a7118d78ee4e01f43d1aa6eb\",\"sha256\":\"DBB2B3235585BA221D78FAC5F0E328AE3C44380FA49DA000D62977D817DCB0A1\"},{\"path\":\"objects\\\\4c\\\\889f32f7d5cb38e07255a00a11a66f1e1741e7\",\"sha256\":\"B532FA9E53BF1423EF38E681D73F7095BD8C20472B647566C47E07CA51D9B064\"},{\"path\":\"objects\\\\6c\\\\ccc000c9eed13c9d3d78b132a0ea431f12a0ee\",\"sha256\":\"885DAE034320B72DD97091B968ACE4155CC5662EFF67D744970759E177DA1C50\"},{\"path\":\"objects\\\\72\\\\e649dd026f59e177de26d7d7d63edd4e3a2930\",\"sha256\":\"1FB9AB99EF90B24F4DFE8045C861B270CC40542A18C1A882AA3266B6CB2CDC25\"},{\"path\":\"objects\\\\90\\\\c52b0a9aa6ec0d2880d20be1127fa21a4da122\",\"sha256\":\"E7353F75A0548E46A18C4CF354308F6FCE82343F881CF64B2303DF4BA9AA6F80\"},{\"path\":\"objects\\\\a0\\\\dbea407a8a72aff391738bfcedc288bde1ceae\",\"sha256\":\"CC4AC6F97678E9B5C7FD4FF3C72CBC1BABC8ABD24053D797A136260553CB8E67\"},{\"path\":\"refs\\\\heads\\\\keep\",\"sha256\":\"3B7819DBF3F572EF91A1709954E8B1B6FF739C517347C466B8085334D7EEEA7F\"},{\"path\":\"refs\\\\heads\\\\main\",\"sha256\":\"10C9D3BA4D0C1EBE6BBEEB57D6BABD801A60F5BAAF2023892CD6CE76A6B351C7\"},{\"path\":\"refs\\\\remotes\\\\origin\\\\HEAD\",\"sha256\":\"2BB6A24AA0FC6C484100F5D51A29BBAD841CD2C755F5D93FAA204E5DBB4EB2B4\"},{\"path\":\"refs\\\\remotes\\\\origin\\\\main\",\"sha256\":\"10C9D3BA4D0C1EBE6BBEEB57D6BABD801A60F5BAAF2023892CD6CE76A6B351C7\"},{\"path\":\"refs\\\\tags\\\\local-only\",\"sha256\":\"3B7819DBF3F572EF91A1709954E8B1B6FF739C517347C466B8085334D7EEEA7F\"}],\"remote\":[{\"path\":\"config\",\"sha256\":\"74C63B4EAE3533B3FF4C0E285897778464D6C04815C33457729279DED1E2A947\"},{\"path\":\"description\",\"sha256\":\"85AB6C163D43A17EA9CF7788308BCA1466F1B0A8D1CC92E26E9BF63DA4062AEE\"},{\"path\":\"HEAD\",\"sha256\":\"28D25BF82AF4C0E2B72F50959B2BEB859E3E60B9630A5E8C603DAD4DDB2B6E80\"},{\"path\":\"hooks\\\\applypatch-msg.sample\",\"sha256\":\"0223497A0B8B033AA58A3A521B8629869386CF7AB0E2F101963D328AA62193F7\"},{\"path\":\"hooks\\\\commit-msg.sample\",\"sha256\":\"1F74D5E9292979B573EBD59741D46CB93FF391ACDD083D340B94370753D92437\"},{\"path\":\"hooks\\\\fsmonitor-watchman.sample\",\"sha256\":\"E0549964E93897B519BD8E333C037E51FFF0F88BA13E086A331592BF801FA1D0\"},{\"path\":\"hooks\\\\post-update.sample\",\"sha256\":\"81765AF2DAEF323061DCBC5E61FC16481CB74B3BAC9AD8A174B186523586F6C5\"},{\"path\":\"hooks\\\\pre-applypatch.sample\",\"sha256\":\"E15C5B469EA3E0A695BEA6F2C82BCF8E62821074939DDD85B77E0007FF165475\"},{\"path\":\"hooks\\\\pre-commit.sample\",\"sha256\":\"57185B7B9F05239D7AB52DB045F5B89EB31348D7B2177EAB214F5EB872E1971B\"},{\"path\":\"hooks\\\\pre-merge-commit.sample\",\"sha256\":\"D3825A70337940EBBD0A5C072984E13245920CDF8898BD225C8D27A6DFC9CB53\"},{\"path\":\"hooks\\\\pre-push.sample\",\"sha256\":\"ECCE9C7E04D3F5DD9D8ADA81753DD1D549A9634B26770042B58DDA00217D086A\"},{\"path\":\"hooks\\\\pre-rebase.sample\",\"sha256\":\"4FEBCE867790052338076F4E66CC47EFB14879D18097D1D61C8261859EAAA7B3\"},{\"path\":\"hooks\\\\pre-receive.sample\",\"sha256\":\"A4C3D2B9C7BB3FD8D1441C31BD4EE71A595D66B44FCF49DDB310252320169989\"},{\"path\":\"hooks\\\\prepare-commit-msg.sample\",\"sha256\":\"E9DDCAA4189FDDD25ED97FC8C789ECA7B6CA16390B2392AE3276F0C8E1AA4619\"},{\"path\":\"hooks\\\\push-to-checkout.sample\",\"sha256\":\"A53D0741798B287C6DD7AFA64AEE473F305E65D3F49463BB9D7408EC3B12BF5F\"},{\"path\":\"hooks\\\\sendemail-validate.sample\",\"sha256\":\"44EBFC923DC5466BC009602F0ECF067B9C65459ABFE8868DDC49B78E6CED7A92\"},{\"path\":\"hooks\\\\update.sample\",\"sha256\":\"8D5F2FA83E103CF08B57EAA67521DF9194F45CBDBCB37DA52AD586097A14D106\"},{\"path\":\"info\\\\exclude\",\"sha256\":\"6671FE83B7A07C8932EE89164D1F2793B2318058EB8B98DC5C06EE0A5A3B0EC1\"},{\"path\":\"objects\\\\1e\\\\189ab93fcb6615a7118d78ee4e01f43d1aa6eb\",\"sha256\":\"DBB2B3235585BA221D78FAC5F0E328AE3C44380FA49DA000D62977D817DCB0A1\"},{\"path\":\"objects\\\\4c\\\\889f32f7d5cb38e07255a00a11a66f1e1741e7\",\"sha256\":\"B532FA9E53BF1423EF38E681D73F7095BD8C20472B647566C47E07CA51D9B064\"},{\"path\":\"objects\\\\6c\\\\ccc000c9eed13c9d3d78b132a0ea431f12a0ee\",\"sha256\":\"885DAE034320B72DD97091B968ACE4155CC5662EFF67D744970759E177DA1C50\"},{\"path\":\"objects\\\\72\\\\e649dd026f59e177de26d7d7d63edd4e3a2930\",\"sha256\":\"1FB9AB99EF90B24F4DFE8045C861B270CC40542A18C1A882AA3266B6CB2CDC25\"},{\"path\":\"objects\\\\90\\\\c52b0a9aa6ec0d2880d20be1127fa21a4da122\",\"sha256\":\"E7353F75A0548E46A18C4CF354308F6FCE82343F881CF64B2303DF4BA9AA6F80\"},{\"path\":\"objects\\\\a0\\\\dbea407a8a72aff391738bfcedc288bde1ceae\",\"sha256\":\"CC4AC6F97678E9B5C7FD4FF3C72CBC1BABC8ABD24053D797A136260553CB8E67\"},{\"path\":\"refs\\\\heads\\\\main\",\"sha256\":\"10C9D3BA4D0C1EBE6BBEEB57D6BABD801A60F5BAAF2023892CD6CE76A6B351C7\"},{\"path\":\"refs\\\\tags\\\\remote-only\",\"sha256\":\"10C9D3BA4D0C1EBE6BBEEB57D6BABD801A60F5BAAF2023892CD6CE76A6B351C7\"}],\"globalConfigHash\":\"E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855\",\"worktree\":[{\"path\":\"work.txt\",\"sha256\":\"1C61145B64BEB6E7638E9D01F3F6A82B85C247E610FBC69D237702CDAD80884D\"}]}\r\n"
+    },
+    {
+      "command": "$env:GIT_CONFIG_GLOBAL='C:/Users/Developer.INSCORSOF2/Documents/Proyectos-Code/omarfrancodev/devcraft-toolkit/.worktrees/git-sync-publish/tests/.tmp/sync-application/repositories/.fixture-global-config'\n$env:GIT_CONFIG_NOSYSTEM='1'\nfunction Read-Git { $cmdArgs=$args; 'COMMAND git '+($cmdArgs -join ' '); & git --no-pager --no-optional-locks --no-lazy-fetch --no-replace-objects -c core.fsmonitor=false -c maintenance.auto=false -c gc.auto=0 -c log.showSignature=false @cmdArgs; 'EXIT '+$LASTEXITCODE }\nRead-Git diff --no-ext-diff --no-textconv --quiet 90c52b0a9aa6ec0d2880d20be1127fa21a4da122 --\nRead-Git diff --cached --no-ext-diff --no-textconv --quiet 90c52b0a9aa6ec0d2880d20be1127fa21a4da122 --\nRead-Git rev-parse --verify ORIG_HEAD\nRead-Git symbolic-ref -q refs/remotes/origin/HEAD\nGet-Content -LiteralPath .git/logs/HEAD -Tail 1\nGet-Content -LiteralPath .git/logs/refs/heads/main -Tail 1\nGet-Content -LiteralPath .git/logs/refs/remotes/origin/main -Tail 1",
+      "permissions": "require_escalated",
+      "chunk_id": "8e9025",
+      "wall_time_seconds": 1.0759196,
+      "exit_code": 0,
+      "original_token_count": 286,
+      "output": "COMMAND git diff --no-ext-diff --no-textconv --quiet 90c52b0a9aa6ec0d2880d20be1127fa21a4da122\r\nEXIT 0\r\nCOMMAND git diff --cached --no-ext-diff --no-textconv --quiet 90c52b0a9aa6ec0d2880d20be1127fa21a4da122\r\nEXIT 0\r\nCOMMAND git rev-parse --verify ORIG_HEAD\r\na0dbea407a8a72aff391738bfcedc288bde1ceae\nEXIT 0\r\nCOMMAND git symbolic-ref -q refs/remotes/origin/HEAD\r\nrefs/remotes/origin/main\nEXIT 0\r\na0dbea407a8a72aff391738bfcedc288bde1ceae 90c52b0a9aa6ec0d2880d20be1127fa21a4da122 Fixture User <fixture@example.invalid> 1792958820 -0600\tmerge 90c52b0a9aa6ec0d2880d20be1127fa21a4da122: Fast-forward\r\na0dbea407a8a72aff391738bfcedc288bde1ceae 90c52b0a9aa6ec0d2880d20be1127fa21a4da122 Fixture User <fixture@example.invalid> 1792958820 -0600\tmerge 90c52b0a9aa6ec0d2880d20be1127fa21a4da122: Fast-forward\r\na0dbea407a8a72aff391738bfcedc288bde1ceae 90c52b0a9aa6ec0d2880d20be1127fa21a4da122 Fixture User <fixture@example.invalid> 1792958789 -0600\tfetch --no-tags --no-prune --no-prune-tags --no-recurse-submodules --no-write-fetch-head --no-auto-maintenance --no-write-commit-graph --refmap= -- origin refs/heads/main:refs/remotes/origin/main: fast-forward\r\n"
+    }
+  ],
+  "limits": [
+    "Native skill invocation unavailable; followed explicitly owned copied standalone resources manually.",
+    "Initial sandboxed protected status exited 128 (worktree access error); explicit --work-tree attempt also failed with permission denied. Identical protected status and subsequent operations succeeded under require_escalated; controls were retained and no retry of a mutating command occurred.",
+    "Fetch and merge each ran once and exited 0. Snapshot proves observed remote tip, not perpetual freshness.",
+    "Only separately authorized actor-result.json is written outside Git sync effects. Audit instrumentation writes are excluded from its self-referential command list."
+  ]
+}

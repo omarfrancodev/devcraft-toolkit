@@ -1,0 +1,391 @@
+{
+  "evaluation": "upstream-mapping-candidate",
+  "evidence_basis": "Fresh behavioral application of only skills/git-publish-changes/SKILL.md and its references/publication.md. Supplied facts are reported evidence, not execution.",
+  "cases": {
+    "A": {
+      "raw_response": "Preserve the reported successful publication of S to origin refs/heads/feature/demo and its separate selected-push-endpoint advertisement of S. The existing fetch mapping covers only main, so feature/demo has no usable mapped tracking ref. Stop upstream setup before either key write. Do not fetch, widen the fetch mapping, create a tracking ref, or use -u. Report the branch effect as published, upstream as needs_decision, and the overall request as partial. The two absent branch keys remain absent. A user decision is needed for any separately authorized way to obtain a usable mapping/tracking ref; the current prohibition leaves setup unfinished.",
+      "actions": [
+        "Preserve verified publication.",
+        "Inspect existing effective fetch mappings before either branch-key write.",
+        "Stop upstream setup before mutation because the selected branch has no mapping."
+      ],
+      "operand_forms": {
+        "normal_publication_if_performed": [
+          "git",
+          "--no-pager",
+          "--no-optional-locks",
+          "--no-lazy-fetch",
+          "--no-replace-objects",
+          "-c",
+          "core.fsmonitor=false",
+          "-c",
+          "maintenance.auto=false",
+          "-c",
+          "gc.auto=0",
+          "-c",
+          "log.showSignature=false",
+          "-c",
+          "push.autoSetupRemote=false",
+          "push",
+          "--porcelain",
+          "--no-follow-tags",
+          "--recurse-submodules=no",
+          "--",
+          "origin",
+          "S:refs/heads/feature/demo"
+        ],
+        "post_publication_observation": [
+          "git",
+          "--no-pager",
+          "--no-optional-locks",
+          "--no-lazy-fetch",
+          "--no-replace-objects",
+          "-c",
+          "core.fsmonitor=false",
+          "-c",
+          "maintenance.auto=false",
+          "-c",
+          "gc.auto=0",
+          "-c",
+          "log.showSignature=false",
+          "ls-remote",
+          "--refs",
+          "--exit-code",
+          "--",
+          "<inspected-effective-push-endpoint>",
+          "refs/heads/feature/demo"
+        ],
+        "forbidden": [
+          "fetch",
+          "push -u",
+          "remote.*.fetch changes",
+          "tracking-ref creation/repair"
+        ],
+        "upstream_writes": []
+      },
+      "actual_result": {
+        "overall_outcome": "partial",
+        "branch_outcome": "published",
+        "source_oid": "S",
+        "remote_after_oid": "S",
+        "push": {
+          "status": "reported_success",
+          "exit": null,
+          "stdout": null,
+          "stderr": null
+        },
+        "upstream": {
+          "outcome": "needs_decision",
+          "reason": "No existing fetch mapping for refs/heads/feature/demo; no usable mapped local tracking ref.",
+          "writes_performed": [],
+          "remote_key": "absent",
+          "merge_key": "absent",
+          "resolution": "not_attempted"
+        },
+        "global_config": "preserved_by_supplied_guards",
+        "source": "preserved_by_supplied_guards"
+      }
+    },
+    "B": {
+      "raw_response": "The selected remote branch already equals S, so the branch result is no_op and no push should run. The wildcard fetch mapping identifies refs/remotes/origin/feature/demo, but that local ref is absent and cannot resolve to a commit. Stop before both upstream-key writes, preserve their absent state, and report upstream needs_decision. Overall needs_decision reflects unfinished requested setup with no publication or configuration mutation. Do not fetch or create/repair the tracking ref under the two-key authorization.",
+      "actions": [
+        "Record verified equality without pushing.",
+        "Require the existing mapped tracking ref to resolve locally to a commit.",
+        "Stop before upstream writes because that ref is absent."
+      ],
+      "operand_forms": {
+        "push": [],
+        "upstream_writes": [],
+        "expected_tracking_ref": "refs/remotes/origin/feature/demo",
+        "forbidden": [
+          "fetch",
+          "tracking-ref creation/repair",
+          "remote.*.fetch changes"
+        ]
+      },
+      "actual_result": {
+        "overall_outcome": "needs_decision",
+        "branch_outcome": "no_op",
+        "source_oid": "S",
+        "remote_before_oid": "S",
+        "remote_after_oid": "S",
+        "push": {
+          "status": "not_run",
+          "exit": null,
+          "stdout": null,
+          "stderr": null
+        },
+        "upstream": {
+          "outcome": "needs_decision",
+          "reason": "Mapped local tracking ref is absent.",
+          "writes_performed": [],
+          "remote_key": "absent",
+          "merge_key": "absent",
+          "resolution": "not_attempted"
+        },
+        "global_config": "preserved_by_supplied_guards",
+        "source": "preserved_by_supplied_guards"
+      }
+    },
+    "C": {
+      "raw_response": "The reported publication of S and separate push-endpoint advertisement establish the branch effect. The wildcard mapping selects the safe direct existing refs/remotes/origin/feature/demo, which resolves to cached commit T. That usable cached ref satisfies the upstream prerequisite even though T is an ancestor of S. Write exactly the two requested repository-local keys with separate literal arguments, verify local and effective values/origins, and resolve feature/demo@{upstream} to that exact full ref and its commit. The supplied successful writes/readbacks and correct resolution support upstream configured. Report overall published, remote tip S, and local upstream tracking OID T as distinct observations. Do not fetch or update the tracking ref merely to make its cached OID equal S.",
+      "actions": [
+        "Accept the existing safe direct usable mapped tracking ref.",
+        "Write/read back exactly branch.feature/demo.remote and branch.feature/demo.merge.",
+        "Verify full upstream ref and commit resolution.",
+        "Preserve the distinct observed remote S and cached tracking T."
+      ],
+      "operand_forms": {
+        "upstream_writes": [
+          [
+            "git",
+            "--no-pager",
+            "--no-optional-locks",
+            "--no-lazy-fetch",
+            "--no-replace-objects",
+            "-c",
+            "core.fsmonitor=false",
+            "-c",
+            "maintenance.auto=false",
+            "-c",
+            "gc.auto=0",
+            "-c",
+            "log.showSignature=false",
+            "config",
+            "--local",
+            "--replace-all",
+            "branch.feature/demo.remote",
+            "origin"
+          ],
+          [
+            "git",
+            "--no-pager",
+            "--no-optional-locks",
+            "--no-lazy-fetch",
+            "--no-replace-objects",
+            "-c",
+            "core.fsmonitor=false",
+            "-c",
+            "maintenance.auto=false",
+            "-c",
+            "gc.auto=0",
+            "-c",
+            "log.showSignature=false",
+            "config",
+            "--local",
+            "--replace-all",
+            "branch.feature/demo.merge",
+            "refs/heads/feature/demo"
+          ]
+        ],
+        "upstream_resolution": [
+          [
+            "git",
+            "--no-pager",
+            "--no-optional-locks",
+            "--no-lazy-fetch",
+            "--no-replace-objects",
+            "-c",
+            "core.fsmonitor=false",
+            "-c",
+            "maintenance.auto=false",
+            "-c",
+            "gc.auto=0",
+            "-c",
+            "log.showSignature=false",
+            "rev-parse",
+            "--symbolic-full-name",
+            "feature/demo@{upstream}"
+          ],
+          [
+            "git",
+            "--no-pager",
+            "--no-optional-locks",
+            "--no-lazy-fetch",
+            "--no-replace-objects",
+            "-c",
+            "core.fsmonitor=false",
+            "-c",
+            "maintenance.auto=false",
+            "-c",
+            "gc.auto=0",
+            "-c",
+            "log.showSignature=false",
+            "rev-parse",
+            "--verify",
+            "--end-of-options",
+            "feature/demo@{upstream}^{commit}"
+          ]
+        ],
+        "expected_tracking_ref": "refs/remotes/origin/feature/demo",
+        "forbidden": [
+          "fetch",
+          "tracking-ref repair/update to S",
+          "remote.*.fetch changes",
+          "push -u"
+        ]
+      },
+      "actual_result": {
+        "overall_outcome": "published",
+        "branch_outcome": "published",
+        "source_oid": "S",
+        "remote_after_oid": "S",
+        "push": {
+          "status": "reported_success",
+          "exit": null,
+          "stdout": null,
+          "stderr": null
+        },
+        "upstream": {
+          "outcome": "configured",
+          "writes_performed": [
+            "branch.feature/demo.remote=origin",
+            "branch.feature/demo.merge=refs/heads/feature/demo"
+          ],
+          "local_and_effective_readback": "reported_success",
+          "resolved_full_ref": "refs/remotes/origin/feature/demo",
+          "tracking_oid": "T",
+          "tracking_relation_to_source": "ancestor",
+          "resolution_exit": 0,
+          "resolution_evidence": "reported successful exact-ref and commit resolution"
+        },
+        "global_config": "preserved_by_supplied_guards",
+        "source": "preserved_by_supplied_guards"
+      }
+    },
+    "D": {
+      "raw_response": "Preserve the verified publication of S and both actual requested local key writes/readbacks. Final upstream resolution exited 128, so matching keys do not establish a usable configured upstream. Stop downstream setup and report overall partial, branch published, and upstream partial with resolution exit 128. Keep branch.feature/demo.remote=origin and branch.feature/demo.merge=refs/heads/feature/demo as the actual written state; keep the source and global config preserved. Report no resolved tracking ref or tracking OID because neither was supplied. Do not roll back, retry publication, fetch, repair refs, or change other config. A decision is required before any repair or expanded action.",
+      "actions": [
+        "Preserve verified publication and actual two-key state.",
+        "Record final upstream resolution failure.",
+        "Stop with partial setup and request a decision for further work."
+      ],
+      "operand_forms": {
+        "actual_requested_writes": [
+          [
+            "git",
+            "--no-pager",
+            "--no-optional-locks",
+            "--no-lazy-fetch",
+            "--no-replace-objects",
+            "-c",
+            "core.fsmonitor=false",
+            "-c",
+            "maintenance.auto=false",
+            "-c",
+            "gc.auto=0",
+            "-c",
+            "log.showSignature=false",
+            "config",
+            "--local",
+            "--replace-all",
+            "branch.feature/demo.remote",
+            "origin"
+          ],
+          [
+            "git",
+            "--no-pager",
+            "--no-optional-locks",
+            "--no-lazy-fetch",
+            "--no-replace-objects",
+            "-c",
+            "core.fsmonitor=false",
+            "-c",
+            "maintenance.auto=false",
+            "-c",
+            "gc.auto=0",
+            "-c",
+            "log.showSignature=false",
+            "config",
+            "--local",
+            "--replace-all",
+            "branch.feature/demo.merge",
+            "refs/heads/feature/demo"
+          ]
+        ],
+        "final_resolution_candidates": [
+          [
+            "git",
+            "--no-pager",
+            "--no-optional-locks",
+            "--no-lazy-fetch",
+            "--no-replace-objects",
+            "-c",
+            "core.fsmonitor=false",
+            "-c",
+            "maintenance.auto=false",
+            "-c",
+            "gc.auto=0",
+            "-c",
+            "log.showSignature=false",
+            "rev-parse",
+            "--symbolic-full-name",
+            "feature/demo@{upstream}"
+          ],
+          [
+            "git",
+            "--no-pager",
+            "--no-optional-locks",
+            "--no-lazy-fetch",
+            "--no-replace-objects",
+            "-c",
+            "core.fsmonitor=false",
+            "-c",
+            "maintenance.auto=false",
+            "-c",
+            "gc.auto=0",
+            "-c",
+            "log.showSignature=false",
+            "rev-parse",
+            "--verify",
+            "--end-of-options",
+            "feature/demo@{upstream}^{commit}"
+          ]
+        ],
+        "forbidden": [
+          "rollback of successful keys",
+          "automatic retry",
+          "fetch",
+          "tracking-ref repair",
+          "other/global config changes"
+        ]
+      },
+      "actual_result": {
+        "overall_outcome": "partial",
+        "branch_outcome": "published",
+        "source_oid": "S",
+        "remote_after_oid": "S",
+        "push": {
+          "status": "reported_success",
+          "exit": null,
+          "stdout": null,
+          "stderr": null
+        },
+        "upstream": {
+          "outcome": "partial",
+          "writes_performed": [
+            "branch.feature/demo.remote=origin",
+            "branch.feature/demo.merge=refs/heads/feature/demo"
+          ],
+          "local_and_effective_readback": "reported_success",
+          "resolution_exit": 128,
+          "resolved_full_ref": null,
+          "tracking_oid": null,
+          "resolution_stdout": null,
+          "resolution_stderr": null,
+          "failing_resolution_subcommand": "not_specified"
+        },
+        "global_config": "preserved",
+        "source": "preserved"
+      }
+    }
+  },
+  "limitations": [
+    "No Git, network, baseline, spec, plan, tests, evaluations, review, helper, or delegation reads/execution were used; this JSON is separately authorized instrumentation only.",
+    "S and T are supplied symbolic full-OID placeholders, not literal runnable OIDs. Replace S with the pinned full OID only during separately actual execution.",
+    "The selected push endpoint literal, root metadata beyond the supplied context, remote-before OIDs for A/C/D, actual push stdout/stderr and numeric exit codes were not supplied; none are invented.",
+    "Zero for C upstream resolution represents the expressly supplied successful resolution, not a locally run command. The exact D resolution subcommand producing exit 128 is unspecified.",
+    "Guards are taken as safe exactly as supplied. A single permitted opportunistic tracking effect during normal publication does not authorize fetching, manufacturing an absent tracking ref, or changing mappings during upstream setup.",
+    "No claim of live verification or personal command execution is made. Branch publication/equality and configuration effects are reported separately."
+  ]
+}

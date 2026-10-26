@@ -1,6 +1,6 @@
 ---
 name: using-devcraft-toolkit
-description: Use when a request concerns an installed Devcraft Toolkit capability, local Git preparation, Git history reporting, repository context, project validation, or shared development support.
+description: Use when a request concerns an installed Devcraft Toolkit capability, local Git preparation, Git history reporting, branch synchronization or publication, repository context, project validation, or shared development support.
 ---
 
 # Using Devcraft Toolkit
@@ -34,7 +34,9 @@ When duplicate copies have materially unresolved ownership or selection, ask one
 - Index staging proposals or explicitly requested staging: use `git-stage-changes` with its analyzer/safety/context closure when installed. Delegate exact target, permission and postcondition decisions; a partial path never implies whole-file staging.
 - Coordinated commit proposals or explicitly requested commit creation: use `git-commit-builder` with its complete planner/stage/safety/validation/progress closure when installed. It delegates analyzer/context/formatter through those dependencies. Planning remains read-only; an explicit commit request authorizes only its selected workflow. Missing required dependencies make it unavailable, without imitation, substitution or automatic installation.
 - Git activity reporting from local commit history: use `git-activity-report` when installed with `git-working-directory-policy` and `natural-language-report-writer`. Delegate period/timezone, author/date-basis selection, pinned history, coverage and report output to the coordinator. Use the selected installation's exact discovered identifiers; missing/foreign dependencies make reporting unavailable. Do not replace history inspection with supplied-facts writing, run an unrelated mutation preflight or infer file/publication permission.
-- Publication coordination is planned and unavailable in this distribution. State that clearly; do not emulate it or modify another installation. Available local staging/commit capabilities grant no publication permission.
+- Current-branch synchronization assessment or explicitly requested fetch/fast-forward: use `git-sync-branch` with its owned context/safety closure. Delegate offline inspect, explicit advertisement-only observe and authorized one-branch fetch/fast-forward separately; divergence never implies merge/rebase or push.
+- Current-branch publication assessment or explicitly requested normal push: use `git-publish-changes` with its owned context/safety closure. Delegate exact pinned source/destination, effect/freshness gates and verification. Inspection stays offline; publication never implies fetch or upstream setup. Only expressly requested setup permits its two local branch keys after verified publication/equality. Neither route requires the other skill; missing/foreign dependencies make it unavailable and ambiguous ownership needs a focused choice.
+- Publication coordination (`git-publish-work`), PR management and promotion are planned and unavailable in this distribution. State that clearly; do not emulate it or modify another installation. Available local staging/commit capabilities grant no publication permission. A standalone push is distinct from that planned coordinator.
 - Any request outside toolkit scope: handle it without loading this entry.
 
 If a requested capability is absent, report the actual limitation and offer only an in-scope available alternative when one exists. Catalog entries and dependencies do not grant tools, permissions, authorization, or automatic installation.

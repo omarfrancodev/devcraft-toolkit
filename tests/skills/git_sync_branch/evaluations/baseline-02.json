@@ -1,0 +1,14 @@
+{
+  "id": "SYNC-02",
+  "raw_response": "La actualización puede hacerse por fast-forward: `main` está limpia y su HEAD `L` es ancestro del remoto `U`.\n\n```powershell\ngit fetch --no-prune --no-prune-tags --no-tags origin refs/heads/main:refs/remotes/origin/main\ngit merge --ff-only refs/remotes/origin/main\n```\n\nEl fetch limita la actualización a `origin/main` y desactiva la poda y la descarga de etiquetas configuradas. Así se conservan `refs/heads/keep`, `refs/remotes/origin/stale` y `refs/tags/local-tag`. Después, el merge avanza `main` sin crear un commit de merge; si el estado remoto hubiera cambiado y ya no permitiera fast-forward, se detendría.\n\nEstos comandos son una propuesta; no se ejecutaron.",
+  "proposed_commands": [
+    {
+      "command": "git fetch --no-prune --no-prune-tags --no-tags origin refs/heads/main:refs/remotes/origin/main",
+      "effects": "Contacta origin y actualiza únicamente refs/remotes/origin/main; no poda referencias ni obtiene etiquetas."
+    },
+    {
+      "command": "git merge --ff-only refs/remotes/origin/main",
+      "effects": "Avanza main, HEAD y el árbol de trabajo mediante fast-forward; falla ante divergencia sin crear un merge."
+    }
+  ]
+}

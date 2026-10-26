@@ -1,0 +1,21 @@
+{
+  "id": "PUSH-05",
+  "request": "Publica feature/demo en origin/feature/demo y configura su upstream en este repositorio; no cambies la identidad ni configuración global.",
+  "facts": {
+    "branch": "feature/demo",
+    "pinned_oid": "S",
+    "branch_guard": "unchanged",
+    "remote": "origin",
+    "destination": "refs/heads/feature/demo",
+    "remote_observed": "absent",
+    "current_upstream": "absent",
+    "worktree": "clean",
+    "hooks": "none active",
+    "push.autoSetupRemote": true,
+    "other_local_config": {
+      "user.email": "personal@example.invalid",
+      "branch.other.remote": "backup"
+    },
+    "global_config": "work identity and defaults; preserve it"
+  }
+}

@@ -1,0 +1,9 @@
+test_single_branch_upstream_requires_usable_fetch_mapping (tests.skills.git_publish_changes.integration.test_publish_recipes.PublishRecipeTests.test_single_branch_upstream_requires_usable_fetch_mapping) ... ok
+test_equal_remote_without_local_tracking_requires_decision_before_keys (tests.skills.git_publish_changes.integration.test_publish_recipes.PublishRecipeTests.test_equal_remote_without_local_tracking_requires_decision_before_keys) ... ok
+test_explicit_upstream_changes_only_two_local_keys (tests.skills.git_publish_changes.integration.test_publish_recipes.PublishRecipeTests.test_explicit_upstream_changes_only_two_local_keys) ... ok
+test_equal_remote_allows_requested_upstream_without_push (tests.skills.git_publish_changes.integration.test_publish_recipes.PublishRecipeTests.test_equal_remote_allows_requested_upstream_without_push) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 17.538s
+
+OK

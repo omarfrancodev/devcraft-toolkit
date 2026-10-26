@@ -1,0 +1,42 @@
+{
+  "fixture_id": "PUSH-05",
+  "raw_response": "Resultado: `limited`, modo `publish`. Tu solicitud autoriza publicar una rama y configurar su upstream local. Según los hechos suministrados, `feature/demo` está limpia, el origen está fijado como `S`, el destino `origin/refs/heads/feature/demo` figura ausente y no hay upstream. Estos son datos reportados; no he ejecutado Git ni verificado una publicación.\n\nFaltan el OID completo real, el endpoint efectivo único, las comprobaciones de configuración/efectos y la ausencia de operaciones activas. No puedo afirmar que la publicación esté lista o completada.\n\nTras comprobar esos requisitos con los controles protegidos y refrescar las guardas, corresponde una única publicación normal del OID completo:\n\n`-c push.autoSetupRemote=false push --porcelain --no-follow-tags --recurse-submodules=no -- origin <OID-completo>:refs/heads/feature/demo`\n\nEl ajuste es exclusivo del comando; preserva el valor configurado `push.autoSetupRemote=true`. Después se debe verificar independientemente el OID remoto, la rama/HEAD, el índice, el árbol y los efectos de seguimiento permitidos.\n\nSolo tras publicación verificada y origen sin cambios, revisar valores/orígenes y escribir exactamente:\n\n`config --local --replace-all branch.feature/demo.remote origin`\n`config --local --replace-all branch.feature/demo.merge refs/heads/feature/demo`\n\nLeer ambos valores locales y efectivos para confirmar el upstream. Conservar `user.email=personal@example.invalid`, `branch.other.remote=backup`, toda otra configuración y la identidad/configuración global. Si hay efectos parciales, conservarlos e informarlos sin reintentar ni revertir.",
+  "commands": [
+    {
+      "command": "Get-Content -LiteralPath 'skills/git-publish-changes/SKILL.md'; Get-Content -LiteralPath 'skills/git-working-directory-policy/SKILL.md'; Get-Content -LiteralPath 'skills/git-safety-check/SKILL.md'; Get-Content -LiteralPath 'tests/skills/git_publish_changes/fixtures/PUSH-05.json'",
+      "login": false,
+      "exit_code": 0,
+      "effect": "Read only selected skill instructions and fixture."
+    },
+    {
+      "command": "Get-Content -LiteralPath 'skills/git-publish-changes/references/publication.md'; Get-Content -LiteralPath 'skills/git-working-directory-policy/references/context.md'; Get-Content -LiteralPath 'skills/git-safety-check/references/preflight.md'",
+      "login": false,
+      "exit_code": 0,
+      "effect": "Read only selected local references."
+    },
+    {
+      "command": "Write candidate-05.json instrumentation using Set-Content -LiteralPath.",
+      "login": false,
+      "effect": "Create or replace this evaluation record only."
+    },
+    {
+      "command": "Read candidate-05.json using Get-Content/ConvertFrom-Json and count raw_response whitespace-delimited words.",
+      "login": false,
+      "exit_code": 0,
+      "result": "192 words",
+      "effect": "Read instrumentation only."
+    },
+    {
+      "command": "Read candidate-05.json and update instrumentation command log using ConvertTo-Json/Set-Content.",
+      "login": false,
+      "effect": "Update this evaluation record only."
+    }
+  ],
+  "effects": {
+    "git_commands_executed": [],
+    "network_commands_executed": [],
+    "repository_mutations": [],
+    "instrumentation_file": "tests/skills/git_publish_changes/evaluations/candidate-05.json",
+    "notes": "Manual candidate sample; skills were read as supplied local instructions, not loaded natively. Proposed commands in raw_response were not executed. All commands used the explicit task workdir."
+  }
+}

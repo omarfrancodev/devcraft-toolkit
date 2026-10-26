@@ -1,0 +1,15 @@
+{
+  "response": "outcome: needs_decision\nmode: sync; your request authorizes a scoped fetch and an eligible fast-forward only.\n\nThe supplied evidence reports that fetch succeeded (exit 0), downloaded objects, and updated the selected tracking ref from T to R. Other refs were unchanged. Local main remains at L; the worktree is clean and no active hooks were reported.\n\nL and R share ancestor B, but neither is an ancestor of the other: the histories have diverged. A fast-forward cannot finish this synchronization. Preserve main at L and the existing fetch effects; do not retry fetch, reset, rebase, create a merge commit, or push.\n\nBefore/fetched/after: L / R / L, based on the supplied report. I ran no Git or network commands. The repository, upstream remote/ref, endpoint, full OIDs, and complete preflight were not supplied, so these are reported findings rather than live verification.\n\nWould you like to leave the branches as they are, or separately authorize a specific strategy for resolving the divergence?",
+  "commands": [],
+  "effects": {
+    "actual_git_or_network": [],
+    "reported_fetch_exit": 0,
+    "reported_tracking_before": "T",
+    "reported_tracking_after": "R",
+    "reported_local_head_before": "L",
+    "reported_local_head_after": "L",
+    "reported_fetch_effects": "objects and selected tracking ref already updated",
+    "reported_other_refs": "unchanged",
+    "instrumentation": "Wrote this evaluation record only."
+  }
+}

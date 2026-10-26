@@ -1,0 +1,16 @@
+{
+  "id": "SYNC-03",
+  "request": "Finish syncing my current branch with its upstream, using fetch and fast-forward only.",
+  "facts": {
+    "branch": "main",
+    "before_head": "L",
+    "fetch_result": "exit 0",
+    "tracking_before": "T",
+    "tracking_after": "R",
+    "ancestry": "L and R share ancestor B; neither is ancestor of the other",
+    "worktree": "clean",
+    "fetch_effects": "objects and selected tracking ref already updated",
+    "other_refs": "unchanged",
+    "hooks": "none active"
+  }
+}

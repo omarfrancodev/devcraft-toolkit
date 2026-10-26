@@ -1,0 +1,11 @@
+{
+  "response": "The push exited with code 1 after the connection was lost, but its remote result is unknown: the update may have reached the server. Local HEAD remains S. R is the recorded remote value from before the push; remote verification is currently unavailable, so neither success nor failure of the remote update is established. When connectivity returns, propose git ls-remote <push-remote> refs/heads/main, substituting the actual push target. This reads the current remote branch without changing it. If it reports S, main currently matches the intended source; if R, it currently matches the recorded prior value; any other value needs investigation. What remains is remote verification and reporting that result. Do not retry the push automatically; no retry was requested.",
+  "commands": [
+    "git ls-remote <push-remote> refs/heads/main"
+  ],
+  "effects": [
+    "Proposed only; no Git or network command executed.",
+    "Read current remote main when verification becomes available; no remote or local Git changes.",
+    "No automatic retry; publication result remains unverified."
+  ]
+}
