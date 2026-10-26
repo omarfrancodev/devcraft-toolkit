@@ -1,6 +1,6 @@
 # Hosted Pull Requests and Explicit Promotion Design
 
-Status: proposed for approval. Implementation order: git-manage-pull-request, then git-promote.
+Status: approved. Implementation order: git-manage-pull-request, then git-promote.
 
 ## Intent and decisions
 
