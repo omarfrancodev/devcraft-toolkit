@@ -31,7 +31,7 @@ Preview.2 automated checks: 78 tests discovered, 77 passed and one Windows symli
 
 ## Remote-first suite validation
 
-The consumer path now starts with the complete native suite from the public repository. [Individual skills](installation/individual-skills.md) are an alternative; [local/developer installation](installation/development.md) is separate. Default-source recipes use integrated metadata; [release-pinned sources](releases/v0.1.0-preview.5.md#version-pinned-sources) are separate from [historical pre-integration sources](installation/preview.md).
+The consumer path now starts with the complete native suite from the public repository. [Individual skills](installation/individual-skills.md) are an alternative; [local/developer installation](installation/development.md) is separate. Default-source recipes use integrated metadata; [release-pinned sources](releases/v0.1.0-preview.6.md#version-pinned-sources) are separate from [historical pre-integration sources](installation/preview.md).
 
 The [remote evaluation](../tests/integration/distribution/evaluations/2026-10-23-remote-suite/remote.md) fetched public reference b05a8c4367dc02e33ac9d19a8eb98e0bdb31c04e, installed the suite through Codex and Claude's actual remote marketplace flows, and compared every installed skill resource against that source. It also copied an independent formatter for Codex and the complete project fallback for Kiro through the pinned external CLI. The corrected run's 29 commands exited 0; its native outcomes remain limited.
 
@@ -113,9 +113,9 @@ A fresh actor manually loaded only copied coordinator/context/writer resources, 
 
 No authenticated native invocation or cross-client lifecycle gate is closed by these manual evaluations. Preview.4 remains its original eleven-skill snapshot. The [preview.5 release](releases/v0.1.0-preview.5.md) preserves these validation boundaries; publication does not establish native compatibility.
 
-## Scoped synchronization/publication candidate: 2026-10-25
+## Scoped synchronization/publication preview.6: 2026-10-25
 
-Unpublished preview.6 adds two independent context/safety closures, bringing candidate source to fourteen available/three planned. [Sync evidence](../tests/skills/git_sync_branch/evaluations/2026-10-25.md) and [publication evidence](../tests/skills/git_publish_changes/evaluations/2026-10-25.md) retain five no-guidance and five candidate supplied-fact samples each, raw outcomes, gaps and owner Git recipe controls. Baseline successes and fixture corrections remain visible.
+The preview.6 release adds two independent context/safety closures, bringing the distribution to fourteen available/three planned. [Sync evidence](../tests/skills/git_sync_branch/evaluations/2026-10-25.md) and [publication evidence](../tests/skills/git_publish_changes/evaluations/2026-10-25.md) retain five no-guidance and five candidate supplied-fact samples each, raw outcomes, gaps and owner Git recipe controls. Baseline successes and fixture corrections remain visible.
 
 Actual actors manually used copied three-folder resources against owned local bare repositories. Parent verification checked exact fast-forward tree/index and protected references/config, then a separate exact branch push with only requested upstream keys and preserved local state. These are local Git applications, not authenticated SSH/HTTPS, native loader activation, hosting APIs or IDE sessions. The discarded acknowledgment recipe demonstrates missing observation after an actual push, not a fault-injected broken transport. Raw pinned-source controls do not authorize proceeding after detected source movement.
 
@@ -124,3 +124,7 @@ Entry routing uses supplied discovery/ownership facts, not native metadata. Hist
 Final candidate verification discovered 138 tests: 137 passed and one existing Windows symlink privilege skip. Both validators and new-skill quick validations passed. One independent review found two Important preservation defects; ignored-file and symbolic tracking regressions failed before the single fix pass and passed afterward with the full suite. No minor findings remain deferred. Actual copied-resource applications preceded these last guards; the added real Git controls and supplied-fact behavior test them without claiming repeated native or authenticated application.
 
 The subsequent [upstream review follow-up](../tests/skills/git_publish_changes/evaluations/upstream-mapping-review.md) requires a usable existing fetch mapping/tracking ref before setup and actual upstream resolution after two-key writes. A fresh run with declared PyYAML available passed 139 of 140 tests, with the existing Windows skip; the reviewer's separate environment failures remain separately reported. No authenticated/native claim is added.
+
+## Preview.6 release preparation
+
+The [release page](releases/v0.1.0-preview.6.md) and [pre-merge preparation](../tests/integration/distribution/evaluations/2026-10-25-preview6-release/preparation.md) retain same-merge source preparation and exact-revision archive validation. The approving PR re-review resolved the upstream defect and passed its repeat suite with declared local environment limits. Publishing does not close native or authenticated activation gates, and historical client probes remain revision-specific.

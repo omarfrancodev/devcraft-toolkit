@@ -4,7 +4,7 @@ Use this route only when you want selected capabilities instead of the native su
 
 ## Remote source and requirements
 
-The default remote source uses the integrated package. For a fixed version use the [release-pinned source](../releases/v0.1.0-preview.5.md#version-pinned-sources). CLI examples use Node.js >=22.20.0, npm and Skills CLI 1.7.4. Complete-folder manual copying is available in [development/reference](development.md#manual-complete-folder-copying).
+The default remote source uses the integrated package. For a fixed version use the [release-pinned source](../releases/v0.1.0-preview.6.md#version-pinned-sources). CLI examples use Node.js >=22.20.0, npm and Skills CLI 1.7.4. Complete-folder manual copying is available in [development/reference](development.md#manual-complete-folder-copying).
 
 Crew uses its [native individual/full importer](kiro-crew.md), not an assumed external installer selector. Its default user store is `~/.kiro/crew/skills/`; active-project `.kiro/skills/` requires Crew's project-skill enablement and trust. Use exact imported paths and dependencies.
 
@@ -33,7 +33,7 @@ The leading npm `--yes` permits acquisition of the pinned CLI; Skills remains in
 
 ## Source inventory and dependency selection
 
-The fourteen-name table and command describe unpublished candidate `0.1.0-preview.6`, adding `git-sync-branch` and `git-publish-changes`. Use a source revision containing those resources; until integration, use the [development route](development.md) with this branch. Do not run the fourteen-name selection against published preview.5, which has twelve skills including `git-activity-report` and lacks both remote-operation skills. Preview.4 has eleven skills and cannot supply the report coordinator. Preview.3 contains nine skills: its full-set selection omits `git-stage-changes` and `git-commit-builder`. Preview.2 contains seven and also lacks analysis/planning. Old tags retain their original inventories.
+Version `0.1.0-preview.6` contains fourteen skills, adding `git-sync-branch` and `git-publish-changes`. Select this tag or a later revision containing these capabilities for the table and fourteen-name command below. Preview.5 has twelve skills, including `git-activity-report`, and lacks both remote-operation skills. Preview.4 has eleven and cannot supply the report coordinator. Preview.3 contains nine skills: its full-set selection omits staging/commit construction. Preview.2 contains seven and also lacks analysis/planning. Old tags retain their original inventories.
 
 ## Explicit dependency selection
 
@@ -58,7 +58,7 @@ The installer does not resolve `catalog.json` dependencies. A bare entry install
 
 ## Complete skill-set fallback
 
-When the native project suite is unavailable (notably Kiro's project Power), select all fourteen candidate skills explicitly:
+When the native project suite is unavailable (notably Kiro's project Power), select all fourteen skills explicitly:
 
 ```powershell
 $toolkitSkills = @('using-devcraft-toolkit', 'git-working-directory-policy', 'git-safety-check', 'conventional-commits-style', 'todo-workflow-controller', 'natural-language-report-writer', 'validation-discovery', 'git-analyze-changes', 'git-plan-commits', 'git-stage-changes', 'git-commit-builder', 'git-activity-report', 'git-sync-branch', 'git-publish-changes')

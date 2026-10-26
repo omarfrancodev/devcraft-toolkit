@@ -4,7 +4,9 @@ Release dates use the GitHub publication date in America/Mexico_City. Pre-releas
 
 ## unreleased
 
-Candidate source version: `0.1.0-preview.6` (not published).
+## 0.1.0-preview.6 — 2026-10-25
+
+Experimental scoped branch synchronization and publication. Fourteen skills are available; native activation remains partially validated.
 
 ### Added
 
@@ -16,8 +18,9 @@ Candidate source version: `0.1.0-preview.6` (not published).
 
 ### Changed
 
-- Add ownership-aware optional entry routes and explicit three-skill standalone selections; current candidate inventory is fourteen available/three planned.
-- Keep published preview.5's twelve-skill inventory and historical native evidence separate. PR management/promotion are next, then full publication coordination.
+- Add ownership-aware optional entry routes and explicit three-skill standalone selections; release inventory is fourteen available/three planned.
+- Align existing manifest versions and consumer source pointers on `0.1.0-preview.6`; changelog and release preparation belong to PR #8 and its exact merge commit.
+- Keep preview.5's twelve-skill inventory and historical native evidence separate. PR management/promotion are next, then full publication coordination.
 
 ## 0.1.0-preview.5 — 2026-10-25
 
