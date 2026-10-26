@@ -1,12 +1,12 @@
 # Devcraft Toolkit
 
-A modular toolkit of composable skills for repository context, Git inspection and planning, exact authorized staging, requested local commits, scoped branch synchronization and publication, project validation, reporting, and portable progress tracking. Compatibility is recorded only for harnesses actually exercised.
+A modular toolkit of composable skills for repository context, Git inspection and planning, exact authorized staging, requested local commits, scoped branch synchronization and publication, hosted PR/MR management and explicit promotion, project validation, reporting, and portable progress tracking. Compatibility is recorded only for harnesses actually exercised.
 
-The distribution includes fourteen available skills: `using-devcraft-toolkit`, `git-working-directory-policy`, `git-safety-check`, `conventional-commits-style`, `todo-workflow-controller`, `natural-language-report-writer`, `validation-discovery`, `git-analyze-changes`, `git-plan-commits`, `git-stage-changes`, `git-commit-builder`, `git-activity-report`, `git-sync-branch`, and `git-publish-changes`. Publication coordination remains planned and unavailable in this distribution. CCR integration is outside the current scope.
+Current candidate source (`0.1.0-preview.7`, unpublished) includes sixteen available skills: `using-devcraft-toolkit`, `git-working-directory-policy`, `git-safety-check`, `conventional-commits-style`, `todo-workflow-controller`, `natural-language-report-writer`, `validation-discovery`, `git-analyze-changes`, `git-plan-commits`, `git-stage-changes`, `git-commit-builder`, `git-activity-report`, `git-sync-branch`, `git-publish-changes`, `git-manage-pull-request`, and `git-promote`. Publication coordination remains planned and unavailable in this distribution. CCR integration is outside the current scope.
 
 Skill definitions and default templates use English. User-facing content follows an explicit language preference or the language of the user's request, defaulting to English when neither can be determined. Tests are maintained outside individual skill directories, grouped by the owning skill and then by test scope; repository infrastructure and cross-skill coverage have separate shared groups.
 
-The [catalog](catalog.json) records all seventeen target capabilities and marks each as `available` or `planned`. Fourteen are available and three remain planned. See [installation](docs/installation.md), [architecture](docs/architecture.md), [language behavior](docs/language.md), and [compatibility evidence](docs/compatibility.md).
+The [catalog](catalog.json) records all seventeen target capabilities and marks each as `available` or `planned`. Sixteen are available and only `git-publish-work` remains planned. See [installation](docs/installation.md), [architecture](docs/architecture.md), [language behavior](docs/language.md), and [compatibility evidence](docs/compatibility.md).
 
 The [capability roadmap](docs/roadmap.md) links the self-contained designs and plans for upcoming increments.
 
@@ -16,7 +16,7 @@ Install the complete toolkit directly from GitHub using your client's documented
 
 Choose [Codex](docs/installation/codex.md), [Copilot CLI](docs/installation/copilot-cli.md), [Copilot in VS Code](docs/installation/copilot-vscode.md), [Claude Code](docs/installation/claude-code.md), [Kiro CLI V3](docs/installation/kiro-cli.md), [Kiro IDE](docs/installation/kiro.md), or [Kiro Crew](docs/installation/kiro-crew.md). The [installation overview](docs/installation.md) explains scope and the Kiro project fallback.
 
-The default-branch recipes use the integrated package. See [preview.6 release details](docs/releases/v0.1.0-preview.6.md) for version-pinned source options; [earlier preview sources](docs/installation/preview.md) are historical evidence. Native activation remains partially validated; no official catalog listing is claimed.
+The default-branch recipes use the integrated package, currently published preview.6 with fourteen skills. The two hosted capabilities require this candidate checkout until integrated; use the [development source route](docs/installation/development.md). See [preview.6 release details](docs/releases/v0.1.0-preview.6.md) for version-pinned source options; [earlier preview sources](docs/installation/preview.md) are historical evidence. Native activation remains partially validated; no official catalog listing is claimed.
 
 Need selected capabilities instead? Use [individual skill installation](docs/installation/individual-skills.md). Package contributors and manual-copy users can use [local development/reference](docs/installation/development.md).
 
@@ -27,3 +27,9 @@ Need selected capabilities instead? Use [individual skill installation](docs/ins
 Synchronization performs an explicitly requested one-branch fetch and eligible fast-forward only. Publication sends one pinned commit to one branch and verifies its effective endpoint. Each has an independent context/safety closure of three skills and defaults to offline inspection. Ignored-file collisions and symbolic tracking destinations stop affected writes. Requested upstream setup requires an existing usable mapping/ref and actual resolution; incomplete setup preserves verified publication and actual state. See the [design](docs/superpowers/specs/2026-10-25-git-sync-publish-design.md), [plan](docs/superpowers/plans/2026-10-25-git-sync-publish.md) and [roadmap](docs/roadmap.md).
 
 Earlier [preview.5](docs/releases/v0.1.0-preview.5.md) retains twelve skills with local-history reporting. [Preview.4](docs/releases/v0.1.0-preview.4.md) retains eleven skills with staging and local commit construction, [preview.3](docs/releases/v0.1.0-preview.3.md) has nine, [preview.2](docs/releases/v0.1.0-preview.2.md) has seven, and preview.1 is source-only. Historical native registration/resource evidence does not establish activation of added skills.
+
+## Hosted request candidate
+
+`git-manage-pull-request` proposes or observes a selected PR/MR and may create it or edit selected title/body fields when explicitly requested. Its direct closure has two folders: management and context. `git-promote` adds a third folder and may perform one expressly requested source-conditional normal merge of an existing request after current policy/review/check gates. Both default to offline assessment, preserve local work and do not imply push, branch cleanup, release or deployment.
+
+See the [approved design](docs/superpowers/specs/2026-10-25-git-pr-promotion-design.md), [plan](docs/superpowers/plans/2026-10-25-git-pr-promotion.md), [standalone selections](docs/installation/individual-skills.md) and [evidence limits](docs/compatibility.md). Preview.7 is not published; preview.6 and historical native probes retain their original inventories.

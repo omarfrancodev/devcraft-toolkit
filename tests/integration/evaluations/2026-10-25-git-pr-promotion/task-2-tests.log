@@ -1,0 +1,14 @@
+test_promotion_available_with_exact_three_skill_closure (test_package.PromotionPackageTests.test_promotion_available_with_exact_three_skill_closure) ... ok
+test_actual_merge_graph_and_descendant_containment (test_promotion_controls.PromotionControls.test_actual_merge_graph_and_descendant_containment) ... ok
+test_already_merged_and_hypothetical_sha_are_distinct (test_promotion_controls.PromotionControls.test_already_merged_and_hypothetical_sha_are_distinct) ... ok
+test_lost_ack_or_pending_is_not_false_merged (test_promotion_controls.PromotionControls.test_lost_ack_or_pending_is_not_false_merged) ... ok
+test_merge_uses_exact_source_precondition_and_normal_flags (test_promotion_controls.PromotionControls.test_merge_uses_exact_source_precondition_and_normal_flags) ... ok
+test_rewritten_target_does_not_claim_containment (test_promotion_controls.PromotionControls.test_rewritten_target_does_not_claim_containment) ... ok
+test_source_conflict_does_not_mutate_or_retry (test_promotion_controls.PromotionControls.test_source_conflict_does_not_mutate_or_retry) ... ok
+test_strict_target_and_unsupported_method_or_cleanup_need_decision (test_promotion_controls.PromotionControls.test_strict_target_and_unsupported_method_or_cleanup_need_decision) ... ok
+test_unknown_or_wrong_revision_gates_are_not_ready (test_promotion_controls.PromotionControls.test_unknown_or_wrong_revision_gates_are_not_ready) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 16.758s
+
+OK

@@ -33,7 +33,13 @@ The leading npm `--yes` permits acquisition of the pinned CLI; Skills remains in
 
 ## Source inventory and dependency selection
 
-Version `0.1.0-preview.6` contains fourteen skills, adding `git-sync-branch` and `git-publish-changes`. Select this tag or a later revision containing these capabilities for the table and fourteen-name command below. Preview.5 has twelve skills, including `git-activity-report`, and lacks both remote-operation skills. Preview.4 has eleven and cannot supply the report coordinator. Preview.3 contains nine skills: its full-set selection omits staging/commit construction. Preview.2 contains seven and also lacks analysis/planning. Old tags retain their original inventories.
+Current candidate source `0.1.0-preview.7` is unpublished and has sixteen available skills. The table and complete selection below describe this candidate. Until it is integrated, the default GitHub/main source and pinned preview.6 have fourteen and do not contain hosted management/promotion. For these new selections, choose a candidate checkout that actually contains both folders:
+
+```powershell
+$toolkitSource = (Resolve-Path -LiteralPath (Read-Host 'Path to the candidate Devcraft Toolkit checkout')).Path
+```
+
+Use the same local source with the [development native-suite route](development.md) when testing the complete candidate plugin. Source selection does not establish native activation. Published preview.6 retains fourteen; preview.5 twelve; preview.4 eleven; preview.3 nine; preview.2 seven. Old tags retain their original inventories and resource evidence.
 
 ## Explicit dependency selection
 
@@ -48,20 +54,22 @@ Version `0.1.0-preview.6` contains fourteen skills, adding `git-sync-branch` and
 | `validation-discovery` | That name only |
 | `git-sync-branch` | `git-sync-branch git-working-directory-policy git-safety-check` |
 | `git-publish-changes` | `git-publish-changes git-working-directory-policy git-safety-check` |
+| `git-manage-pull-request` | `git-manage-pull-request git-working-directory-policy` |
+| `git-promote` | `git-promote git-manage-pull-request git-working-directory-policy` |
 | `git-activity-report` | `git-activity-report git-working-directory-policy natural-language-report-writer` |
 | `git-analyze-changes` | `git-analyze-changes git-working-directory-policy` |
 | `git-plan-commits` | `git-plan-commits git-analyze-changes git-working-directory-policy conventional-commits-style` |
 | `git-stage-changes` | `git-stage-changes git-analyze-changes git-safety-check git-working-directory-policy` |
 | `git-commit-builder` | `git-commit-builder git-plan-commits git-stage-changes git-safety-check validation-discovery todo-workflow-controller git-analyze-changes git-working-directory-policy conventional-commits-style` |
 
-The installer does not resolve `catalog.json` dependencies. A bare entry installs only the entry. Supply every listed name explicitly. All resources, including local references and assets, belong to the installed folder. Three planned capabilities have no installable SKILL.md.
+The installer does not resolve `catalog.json` dependencies. A bare entry installs only the entry. Supply every listed name explicitly. All resources, including local references and assets, belong to the installed folder. The remaining planned `git-publish-work` has no installable SKILL.md.
 
 ## Complete skill-set fallback
 
-When the native project suite is unavailable (notably Kiro's project Power), select all fourteen skills explicitly:
+When the native project suite is unavailable (notably Kiro's project Power), select all sixteen candidate skills explicitly from the selected candidate source:
 
 ```powershell
-$toolkitSkills = @('using-devcraft-toolkit', 'git-working-directory-policy', 'git-safety-check', 'conventional-commits-style', 'todo-workflow-controller', 'natural-language-report-writer', 'validation-discovery', 'git-analyze-changes', 'git-plan-commits', 'git-stage-changes', 'git-commit-builder', 'git-activity-report', 'git-sync-branch', 'git-publish-changes')
+$toolkitSkills = @('using-devcraft-toolkit', 'git-working-directory-policy', 'git-safety-check', 'conventional-commits-style', 'todo-workflow-controller', 'natural-language-report-writer', 'validation-discovery', 'git-analyze-changes', 'git-plan-commits', 'git-stage-changes', 'git-commit-builder', 'git-activity-report', 'git-sync-branch', 'git-publish-changes', 'git-manage-pull-request', 'git-promote')
 npx --yes skills@1.7.4 add "$toolkitSource" --skill $toolkitSkills --agent "$toolkitAgent" --copy
 ```
 

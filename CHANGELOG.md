@@ -4,6 +4,17 @@ Release dates use the GitHub publication date in America/Mexico_City. Pre-releas
 
 ## unreleased
 
+### Added
+
+- Add `git-manage-pull-request` for offline proposals, explicit hosted inspection, one requested creation or selected title/body patch with exact fork identity, complete duplicate search and bounded verification.
+- Add `git-promote` for explicit source-conditional ordinary merge of an existing request, current scoped review/check/policy gates and real-result/target-containment verification; no implicit queue, cleanup, release or deployment.
+- Retain owner-scoped baseline/candidate/gap evaluations, copied-resource emulated applications, real Git graph controls and transport regression evidence outside installed skill folders.
+
+### Changed
+
+- Add independent ownership-aware entry routes and exact two-/three-folder standalone selections. Current candidate inventory is sixteen available/one planned; `git-publish-work` is next.
+- Advance both existing manifest versions to candidate `0.1.0-preview.7` (unpublished). Published preview.6 and historical native/provider evidence retain their original scope.
+
 ## 0.1.0-preview.6 — 2026-10-25
 
 Experimental scoped branch synchronization and publication. Fourteen skills are available; native activation remains partially validated.

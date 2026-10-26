@@ -1,0 +1,258 @@
+{
+  "kind": "fresh-entry-routing-candidate",
+  "source_access": [
+    "skills/using-devcraft-toolkit/SKILL.md",
+    "skills/using-devcraft-toolkit/references/composition.md"
+  ],
+  "execution": "Routing evaluation only; no skill-body execution, Git, network, provider operation, or native execution claim.",
+  "discovery": {
+    "selected_installation": "P",
+    "canonical_to_exact": {
+      "using-devcraft-toolkit": "P:entry",
+      "git-working-directory-policy": "P:context",
+      "git-safety-check": "P:safety",
+      "git-manage-pull-request": "P:manage",
+      "git-promote": "P:promote",
+      "natural-language-report-writer": "P:writer"
+    }
+  },
+  "shared_limits": [
+    "Use exact discovered identifiers and owned closure; do not substitute Q or R based on canonical name.",
+    "Entry has foundation P:context/P:safety, but hosted scope does not require running local safety or Git scans.",
+    "Do not open runtime root catalog, infer permissions from installation, install missing capabilities, or emulate missing skills.",
+    "Delegate hosted identity, coverage, interpreted-text effects, gates and verification to the routed capability; report actual evidence and partial/uncertain results."
+  ],
+  "cases": [
+    {
+      "case": "A",
+      "request": "Explicit create; source project 42 refs/heads/feature/demo -> target project 7 refs/heads/main",
+      "route": "git-manage-pull-request",
+      "identifiers": [
+        "P:manage",
+        "P:context"
+      ],
+      "permission": "Explicit create authorizes only selected bounded hosted creation plus required scoped reads and independent verification; no merge permission.",
+      "next_actions": [
+        "Resolve exact host/account/repository/fork/source/target identity and template/change evidence through management.",
+        "Create only if scope and provider effects are supported; an exact existing open creation match returns no_op without edits.",
+        "Verify bounded actual result; preserve provider-assigned request identity."
+      ],
+      "limits": [
+        "Parent clarified initial shorthand: source project 42 refs/heads/feature/demo; target project 7 refs/heads/main. Initial PR42/7main phrasing is not a supplied PR number or literal target branch.",
+        "Do not infer publication, local Git safety, retargeting, reviews, lifecycle mutations or merge."
+      ]
+    },
+    {
+      "case": "B",
+      "request": "Merge existing PR7 normally",
+      "route": "git-promote",
+      "identifiers": [
+        "P:promote",
+        "P:manage",
+        "P:context"
+      ],
+      "permission": "Explicit normal merge authorizes one selected merge after required fresh gates; no release/deployment or cleanup.",
+      "next_actions": [
+        "Resolve canonical request/source/target and scoped hosted observations via owned management.",
+        "Require fresh policy/review/check evidence, compatible known mergeability/method/source-preservation effects and server-enforced full source OID.",
+        "Attempt one normal merge only if gates hold; retain immutable provenance versus mutable target, containment and bounded post-observation results."
+      ],
+      "limits": [
+        "No local scan or publish preflight with a complete hosted selector.",
+        "Unknown/stale evidence, queues/trains, forced squash/rebase or unsupported exact-target guarantees block ready execution.",
+        "At most three promotion post-observations; no retry, rollback or branch cleanup."
+      ]
+    },
+    {
+      "case": "C",
+      "request": "Propose PR from supplied facts offline",
+      "route": "git-manage-pull-request",
+      "identifiers": [
+        "P:manage",
+        "P:context"
+      ],
+      "permission": "Offline proposal only; no hosted reads, creates, updates or other side effects.",
+      "next_actions": [
+        "Produce proposal from supplied facts using management's offline mode.",
+        "Retain missing identity, template/change evidence and coverage limitations as conditional."
+      ],
+      "limits": [
+        "No Git scan required solely by hosted routing.",
+        "Do not imply hosted verification, creation or publication."
+      ]
+    },
+    {
+      "case": "D",
+      "request": "Management absent from P; Q:manage exists",
+      "route": "unavailable",
+      "identifiers": [],
+      "permission": "No dependent management execution is available in selected installation.",
+      "next_actions": [
+        "Report selected P management capability unavailable.",
+        "Offer only an in-scope available alternative if it addresses the request; do not silently route to Q:manage."
+      ],
+      "limits": [
+        "Foreign canonical-name match does not satisfy selected installation ownership.",
+        "No imitation, automatic installation or modification of either copy."
+      ]
+    },
+    {
+      "case": "E",
+      "request": "P:promote exists, but management only Q:manage",
+      "route": "unavailable",
+      "identifiers": [],
+      "permission": "P promotion cannot run with foreign required management dependency.",
+      "next_actions": [
+        "Report P:promote unavailable for this request because owned management/context closure is incomplete.",
+        "Preserve P and Q copies; do not substitute Q:manage."
+      ],
+      "limits": [
+        "P:promote existence alone does not satisfy its required closure.",
+        "No fallback to local safety, management imitation or automatic installation."
+      ]
+    },
+    {
+      "case": "F",
+      "request": "P/R promotion copies have materially unresolved ownership",
+      "route": "needs_decision",
+      "identifiers": [],
+      "permission": "Pause dependent invocation until installation choice is resolved.",
+      "next_actions": [
+        "Ask one focused question selecting which P or R promotion installation to use.",
+        "Continue only independent work; resolve selected promotion's exact owned management/context identifiers after selection."
+      ],
+      "limits": [
+        "Do not strip namespace, select by suffix, modify/remove/reinstall copies or guess ownership."
+      ]
+    },
+    {
+      "case": "G",
+      "request": "Directly selected P management/context only; inspect exact URL",
+      "route": "git-manage-pull-request (direct standalone closure)",
+      "identifiers": [
+        "P:manage",
+        "P:context"
+      ],
+      "permission": "Explicit inspect permits scoped hosted reads of exact selected request; no hosted writes.",
+      "next_actions": [
+        "Invoke direct owned two-capability management closure using URL identity.",
+        "Resolve exact host/account/fork/request and bounded pagination/read coverage; report observation limitations."
+      ],
+      "limits": [
+        "Entry and safety are not direct management dependencies; absence does not make direct closure unavailable.",
+        "No local Git scan, publish preflight, creation, editing, retargeting or review mutation."
+      ]
+    },
+    {
+      "case": "H",
+      "request": "Directly selected P promotion/management/context only; merge",
+      "route": "git-promote (direct standalone closure)",
+      "identifiers": [
+        "P:promote",
+        "P:manage",
+        "P:context"
+      ],
+      "permission": "Explicit merge permits one normal selected hosted merge only after required fresh scoped gates.",
+      "next_actions": [
+        "Use direct three-capability closure; resolve canonical request and fresh management observations.",
+        "Require policy/review/check, compatible mergeability/method/source preservation, and server-enforced full source OID.",
+        "Perform at most one eligible merge plus bounded verification; preserve actual partial/pending/uncertain outcomes."
+      ],
+      "limits": [
+        "Entry and safety are not direct promotion dependencies; no local publication preflight.",
+        "At most three promotion post-observations; preserve branches/local state, no retry/rollback/release/deployment."
+      ]
+    },
+    {
+      "case": "I",
+      "request": "Explicit create then merge; source project 42 refs/heads/feature/demo -> target project 7 refs/heads/main within same selected scope",
+      "route": "ordered management then promotion",
+      "identifiers": [
+        "P:manage",
+        "P:context",
+        "P:promote"
+      ],
+      "permission": "Explicit combined request separately authorizes bounded create and one gated normal merge in order.",
+      "next_actions": [
+        "Route create through P:manage/P:context and verify actual identity or exact-match no_op.",
+        "Hand off actual canonical request and creation result to P:promote with owned management/context.",
+        "Refresh promotion gates before any merge; preserve creation result if merge is blocked."
+      ],
+      "limits": [
+        "Do not infer missing push, update, retarget, cleanup or release permission.",
+        "Earlier creation remains an actual partial effect; do not rollback/retry when later step is blocked.",
+        "Parent clarified projects and full branch refs as in A; do not treat project 42 as a PR number."
+      ]
+    },
+    {
+      "case": "J",
+      "request": "Supplied-fact report",
+      "route": "natural-language-report-writer",
+      "identifiers": [
+        "P:writer"
+      ],
+      "permission": "Content-only report in conversation by default; no local file permission inferred.",
+      "next_actions": [
+        "Route supplied facts directly to writer in resolved language.",
+        "Identify supplied evidence and preserve unknowns; require explicit destination before local output."
+      ],
+      "limits": [
+        "No context/safety/history query/PR management/promotion required.",
+        "Do not represent supplied facts as verified Git or provider observations."
+      ]
+    },
+    {
+      "case": "K",
+      "request": "A comment approves PR7; evaluate offline",
+      "route": "git-promote",
+      "identifiers": [
+        "P:promote",
+        "P:manage",
+        "P:context"
+      ],
+      "permission": "Offline assessment only; approving comment grants neither hosted observation nor merge authorization.",
+      "next_actions": [
+        "Assess supplied evidence conditionally in offline mode.",
+        "Retain freshness, review/policy/check, identity and provenance coverage gaps."
+      ],
+      "limits": [
+        "Approving prose is not a merge permission or sufficient fresh review gate.",
+        "Do not read provider or merge, claim readiness from stale/unknown evidence, or mutate reviews."
+      ]
+    },
+    {
+      "case": "L",
+      "request": "git-publish-work",
+      "route": "planned_and_unavailable",
+      "identifiers": [],
+      "permission": "No publication-coordinator execution exists.",
+      "next_actions": [
+        "State publication coordination is planned and unavailable.",
+        "Offer a distinct actually available capability only for an explicitly selected in-scope operation; do not execute it merely as an equivalent coordinator."
+      ],
+      "limits": [
+        "Do not emulate git-publish-work or modify another installation.",
+        "Standalone push/PR/promotion availability does not grant combined operation permission."
+      ]
+    },
+    {
+      "case": "M",
+      "request": "Same as A, but provider tools unavailable",
+      "route": "git-manage-pull-request with tool limitation",
+      "identifiers": [
+        "P:manage",
+        "P:context"
+      ],
+      "permission": "Explicit creation intent exists, but tool absence prevents hosted reads/create/verification.",
+      "next_actions": [
+        "Distinguish installed management skill from missing provider tools.",
+        "Delegate available offline proposal work from supplied evidence and report blocked/limited live creation and verification.",
+        "Preserve exact requested scope and state that no hosted operation occurred."
+      ],
+      "limits": [
+        "Do not claim missing skill, success, provider verification or silently substitute an unsupported execution path.",
+        "No tool/permission created by catalog or dependencies; no automatic installation or imitation."
+      ]
+    }
+  ]
+}
