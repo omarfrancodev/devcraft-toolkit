@@ -98,7 +98,7 @@ Task 2 consumes the exact fixture interfaces above. An owned real Git graph supp
   Expected: documented dependency sets equal the catalog's actual transitive closures; sixteen available/one planned; no placeholders or historical probe rewriting.
 - [x] **Step 3: Run final gates and retain receipts.** Before the final source/evidence commit, run full unittest discovery, both validators, both new-skill quick validations, complete-base whitespace and changed-document local target checks. Retain exact pass/skip counts, baseline/candidate/application evidence and ledger. Then task-done runs the complete task verification command on the committed tree.
   Expected: all runnable tests pass, the existing Windows symlink privilege skip is explicit, and no intermediate installation mismatch remains.
-- [ ] **Step 4: Commit and final review.** Commit `feat: compose request management and promotion`. Dispatch one fresh whole-branch reviewer with spec/plan, Review Focus verbatim and ledger rulings. Re-grade by user impact; one material fix pass with reproduced RED/GREEN and green suite, ledger minor deferrals/rulings. Preserve local branch/worktree; no implementation push/PR/merge/release.
+- [x] **Step 4: Commit and final review.** Commit `feat: compose request management and promotion`. Dispatch one fresh whole-branch reviewer with spec/plan, Review Focus verbatim and ledger rulings. Re-grade by user impact; one material fix pass with reproduced RED/GREEN and green suite, ledger minor deferrals/rulings. Preserve local branch/worktree; no implementation push/PR/merge/release.
 
 ## Self-review
 
