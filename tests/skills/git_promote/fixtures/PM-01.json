@@ -1,0 +1,27 @@
+{
+  "id": "PM-01",
+  "request": "Evalúa esta promoción con los datos suministrados.",
+  "facts": {
+    "provider": "github",
+    "host": "github.fixture.invalid",
+    "account": "fixture-user",
+    "source_project": 42,
+    "target_project": 7,
+    "source_ref": "refs/heads/feature/demo",
+    "target_ref": "refs/heads/main",
+    "source_oid": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "target_oid": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "request_id": 7,
+    "state": "open",
+    "draft": false,
+    "mergeable": true,
+    "comment": {
+      "body": "Approved; looks mergeable",
+      "author": "reviewer",
+      "head_oid": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    },
+    "review_policy": "unknown",
+    "checks": "unknown",
+    "network_requested": false
+  }
+}

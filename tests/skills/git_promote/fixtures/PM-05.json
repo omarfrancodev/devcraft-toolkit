@@ -1,0 +1,40 @@
+{
+  "id": "PM-05",
+  "request": "Merge the selected GitLab MR exactly into the observed target OID and preserve both branches.",
+  "facts": {
+    "provider": "gitlab",
+    "host": "gitlab.fixture.invalid",
+    "account": "fixture-user",
+    "source_project": 42,
+    "target_project": 7,
+    "source_ref": "refs/heads/feature/demo",
+    "target_ref": "refs/heads/main",
+    "source_oid": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "target_oid": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "request_id": 7,
+    "state": "open",
+    "draft": false,
+    "mergeable": true,
+    "request_iid": 7,
+    "project_policy": {
+      "merge_method": "ff",
+      "squash_required": true,
+      "auto_delete_source": true
+    },
+    "merge_tool": {
+      "sha": true,
+      "atomic_target_oid": false,
+      "auto_merge": true
+    },
+    "review": {
+      "state": "not_required",
+      "source": "project-policy",
+      "head_oid": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    },
+    "checks": {
+      "state": "satisfied",
+      "source": "project-policy",
+      "head_oid": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    }
+  }
+}

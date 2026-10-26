@@ -44,7 +44,7 @@ class HostedFixture:
         self.events.append({"op":op,"payload":deepcopy(payload),"status":status,"result":deepcopy(result)})
         self.save()
     def capabilities(self):
-        result={"emulated":True,"provider":self.state["provider"],"host":self.state["scope"]["host"],"account":self.state["account"],"operations":["capabilities","read","list","create","update"],"input":"JSON stdin; writes carry scope/title/body or request_id plus selected fields","auth":"owned fixture only; no real account"}
+        result={"emulated":True,"provider":self.state["provider"],"host":self.state["scope"]["host"],"account":self.state["account"],"operations":["capabilities","read","list","create","update","merge"],"atomic_target_oid":False,"merge_input":"request_id plus GitHub sha/merge_method=merge; GitLab sha/squash=false/auto_merge=false/should_remove_source_branch=false","input":"JSON stdin; writes carry scope/title/body or request_id plus selected fields","auth":"owned fixture only; no real account"}
         self._event("capabilities",{},result);return result
     def raw_request(self,request):
         s=request["scope"];common={"id":10000+request["id"],"title":request["title"],"draft":request["draft"],"mergeable":request.get("mergeable"),"merge_commit_sha":request.get("merge_oid") or "c"*40,"_complete":True}
@@ -55,6 +55,9 @@ class HostedFixture:
     def read(self):
         selected=next((q for q in self.state["requests"] if q["id"]==self.state["selected_id"]),None)
         result={"emulated":True,"provider":self.state["provider"],"account":self.state["account"],"scope":deepcopy(self.state["scope"]),"request":self._normalized(selected) if selected else None,"gates":deepcopy(self.state["gates"]),"template":self.state["template"],"compare":deepcopy(self.state["compare"]),"complete":self.state["observation_complete"]}
+        graph=self.state.get("graph")
+        if graph and selected and selected["state"]=="merged":
+            result["commit_evidence"]={"source":"owned_real_git_graph_fixture","merge_oid":selected["merge_oid"],"parents":graph["merge_parents"],"observed_target_oid":self.state["scope"]["target_oid"],"target_contains_merge":graph["containment"].get(self.state["scope"]["target_oid"])}
         self._event("read",{"request_id":self.state["selected_id"]},{"id":selected["id"] if selected else None});return result
     def list_requests(self):
         result={"items":[self._normalized(q) for q in self.state["requests"]],"complete":self.state["listing_complete"],"next_cursor":None if self.state["listing_complete"] else "page-2"}
@@ -89,6 +92,27 @@ class HostedFixture:
         self._apply_text(q,payload);self.state["selected_id"]=q["id"]
         fault=self.state["faults"].pop("update",None);self._event("update",{"request_id":request_id,**payload},{"id":q["id"]},0 if fault=="lost_ack" else 200)
         if fault=="lost_ack":raise ProviderFailure(0,"lost acknowledgment")
+        return self._normalized(q)
+
+    def merge(self,request_id,payload):
+        q=next((q for q in self.state["requests"] if q["id"]==request_id),None)
+        if q is None:raise ProviderFailure(404,"request not found")
+        operand={"request_id":request_id,"operands":deepcopy(payload)}
+        if payload.get("sha")!=self.state["scope"]["source_oid"]:
+            self._event("merge",operand,status=409);raise ProviderFailure(409,"source precondition failed")
+        expected=({"sha":payload["sha"],"merge_method":"merge"} if self.state["provider"]=="github" else {"sha":payload["sha"],"squash":False,"auto_merge":False,"should_remove_source_branch":False})
+        if payload!=expected:
+            self._event("merge",operand,status=422);raise ProviderFailure(422,"unsupported normal merge operands")
+        if q["state"]!="open":
+            self._event("merge",operand,status=409);raise ProviderFailure(409,"request not open")
+        graph=self.state.get("graph")
+        if not graph:raise ProviderFailure(422,"owned graph required")
+        fault=self.state["faults"].pop("merge",None)
+        if fault=="pending":
+            self.state["pending"]=True;self._event("merge",operand,{"status":"pending"},202);return {"status":"pending"}
+        q["state"]="merged";q["merge_oid"]=graph["M"];self.state["scope"]["target_oid"]=graph["M"]
+        self._event("merge",operand,{"merged":True,"merge_oid":graph["M"]},0 if fault=="lost_ack" else 200)
+        if fault=="lost_ack":raise ProviderFailure(0,"lost merge acknowledgment")
         return self._normalized(q)
 
 @contextmanager
