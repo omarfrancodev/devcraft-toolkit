@@ -4,7 +4,7 @@ Use this route only when you want selected capabilities instead of the native su
 
 ## Remote source and requirements
 
-The default remote source uses the integrated package. For a fixed version use the [release-pinned source](../releases/v0.1.0-preview.6.md#version-pinned-sources). CLI examples use Node.js >=22.20.0, npm and Skills CLI 1.7.4. Complete-folder manual copying is available in [development/reference](development.md#manual-complete-folder-copying).
+The default remote source uses the integrated package. For a fixed version use the [release-pinned source](../releases/v0.1.0-preview.7.md#version-pinned-sources). CLI examples use Node.js >=22.20.0, npm and Skills CLI 1.7.4. Complete-folder manual copying is available in [development/reference](development.md#manual-complete-folder-copying).
 
 Crew uses its [native individual/full importer](kiro-crew.md), not an assumed external installer selector. Its default user store is `~/.kiro/crew/skills/`; active-project `.kiro/skills/` requires Crew's project-skill enablement and trust. Use exact imported paths and dependencies.
 
@@ -33,13 +33,9 @@ The leading npm `--yes` permits acquisition of the pinned CLI; Skills remains in
 
 ## Source inventory and dependency selection
 
-Current candidate source `0.1.0-preview.7` is unpublished and has sixteen available skills. The table and complete selection below describe this candidate. Until it is integrated, the default GitHub/main source and pinned preview.6 have fourteen and do not contain hosted management/promotion. For these new selections, choose a candidate checkout that actually contains both folders:
+Version `0.1.0-preview.7` contains sixteen available skills. Default GitHub/main recipes deliver the integrated suite; set `$toolkitSource = 'https://github.com/omarfrancodev/devcraft-toolkit/tree/v0.1.0-preview.7'` for this fixed version and retain target/scope and explicit dependencies. Local-source testing remains an optional [development route](development.md), not a consumer requirement.
 
-```powershell
-$toolkitSource = (Resolve-Path -LiteralPath (Read-Host 'Path to the candidate Devcraft Toolkit checkout')).Path
-```
-
-Use the same local source with the [development native-suite route](development.md) when testing the complete candidate plugin. Source selection does not establish native activation. Published preview.6 retains fourteen; preview.5 twelve; preview.4 eleven; preview.3 nine; preview.2 seven. Old tags retain their original inventories and resource evidence.
+Source selection does not establish native activation. Preview.6 retains fourteen; preview.5 twelve; preview.4 eleven; preview.3 nine; preview.2 seven. Old tags retain their original inventories and resource evidence.
 
 ## Explicit dependency selection
 
@@ -66,7 +62,7 @@ The installer does not resolve `catalog.json` dependencies. A bare entry install
 
 ## Complete skill-set fallback
 
-When the native project suite is unavailable (notably Kiro's project Power), select all sixteen candidate skills explicitly from the selected candidate source:
+When the native project suite is unavailable (notably Kiro's project Power), select all sixteen available skills explicitly from the selected source:
 
 ```powershell
 $toolkitSkills = @('using-devcraft-toolkit', 'git-working-directory-policy', 'git-safety-check', 'conventional-commits-style', 'todo-workflow-controller', 'natural-language-report-writer', 'validation-discovery', 'git-analyze-changes', 'git-plan-commits', 'git-stage-changes', 'git-commit-builder', 'git-activity-report', 'git-sync-branch', 'git-publish-changes', 'git-manage-pull-request', 'git-promote')

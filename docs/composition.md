@@ -70,7 +70,7 @@ Preserve each skill's actual outcome, scope, redacted endpoint, OIDs, freshness/
 
 ## Hosted request management and explicit promotion
 
-Current candidate source (unpublished preview.7) adds `git-manage-pull-request`, requiring only context, and `git-promote`, requiring management and its context dependency. Direct standalone closures have two and three folders respectively; neither requires the entry, safety preflight, sync/push or a reviewer. The entry adds optional routes without changing its hard foundation. Resolve selected-installation ownership and exact invocation identifiers; missing/foreign resources remain unavailable and unresolved copies need a choice.
+The preview.7 distribution adds `git-manage-pull-request`, requiring only context, and `git-promote`, requiring management and its context dependency. Direct standalone closures have two and three folders respectively; neither requires the entry, safety preflight, sync/push or a reviewer. The entry adds optional routes without changing its hard foundation. Resolve selected-installation ownership and exact invocation identifiers; missing/foreign resources remain unavailable and unresolved copies need a choice.
 
 Management defaults to offline proposal. Explicit inspection permits reads; explicit creation or selected title/body update permits one bounded write and independent verification. Complete canonical fork/request identity, pagination, change/template evidence, concurrent old fields and provider-interpreted text effects remain gates. An existing exact open request is no_op for create, without automatic editing. No retarget, lifecycle, approval or reviewer mutation follows.
 

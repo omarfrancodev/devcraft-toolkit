@@ -4,16 +4,24 @@ Release dates use the GitHub publication date in America/Mexico_City. Pre-releas
 
 ## unreleased
 
+## 0.1.0-preview.7 — 2026-10-26
+
+Experimental hosted PR/MR management and explicitly requested promotion. Sixteen skills are available; authenticated provider execution and native activation remain separately unverified.
+
 ### Added
 
 - Add `git-manage-pull-request` for offline proposals, explicit hosted inspection, one requested creation or selected title/body patch with exact fork identity, complete duplicate search and bounded verification.
 - Add `git-promote` for explicit source-conditional ordinary merge of an existing request, current scoped review/check/policy gates and real-result/target-containment verification; no implicit queue, cleanup, release or deployment.
 - Retain owner-scoped baseline/candidate/gap evaluations, copied-resource emulated applications, real Git graph controls and transport regression evidence outside installed skill folders.
 
+### Fixed
+
+- Preserve null/absent actual merge results in hosted fixtures and withhold prepared graph evidence when the observed result cannot be tied to it; two RED/GREEN regressions cover the review follow-up.
+
 ### Changed
 
-- Add independent ownership-aware entry routes and exact two-/three-folder standalone selections. Current candidate inventory is sixteen available/one planned; `git-publish-work` is next.
-- Advance both existing manifest versions to candidate `0.1.0-preview.7` (unpublished). Published preview.6 and historical native/provider evidence retain their original scope.
+- Add independent ownership-aware entry routes and exact two-/three-folder standalone selections. Release inventory is sixteen available/one planned; `git-publish-work` is next.
+- Align both existing manifests and consumer source pointers on `0.1.0-preview.7`; versioned changelog and release preparation are included in PR #9 before its merge. Preview.6 and historical native/provider evidence retain their original scope.
 
 ## 0.1.0-preview.6 — 2026-10-25
 
