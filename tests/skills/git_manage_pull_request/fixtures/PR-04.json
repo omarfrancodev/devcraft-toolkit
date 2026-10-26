@@ -1,0 +1,16 @@
+{
+  "id": "PR-04",
+  "request": "Update only the description of github.fixture.invalid/org/repo PR 12 with the approved summary.",
+  "facts": {
+    "selected_fields": [
+      "body"
+    ],
+    "approved_body": "Adds invoice totals; tests not run.",
+    "body_at_initial_read": "old description",
+    "body_at_fresh_read": "new maintainer edits",
+    "title_at_fresh_read": "Maintainer title",
+    "head_before_and_now": "S",
+    "base_before_and_now": "B",
+    "atomic_metadata_guard": "unavailable"
+  }
+}

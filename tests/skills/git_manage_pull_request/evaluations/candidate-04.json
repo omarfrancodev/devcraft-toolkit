@@ -1,0 +1,37 @@
+{
+  "fixture_id": "PR-04",
+  "outcome": "needs_decision",
+  "raw_response": "The description update is paused because the supplied fresh read differs from the initially inspected description. For GitHub host github.fixture.invalid, repository org/repo, PR 12, the selected body changed from 'old description' to 'new maintainer edits'. The approved replacement is 'Adds invoice totals; tests not run.'. The unchanged source S and target B do not invalidate the detected concurrent body edit or authorize overwriting it. Ask the user whether to replace the fresh maintainer text with the approved body, or retain/incorporate the maintainer edits. No patch is proposed for immediate execution. Preserve the fresh title 'Maintainer title', all unselected metadata, and lifecycle/draft state. Only body is authorized. The selected owned management/context pair is available; the explicit hosted selector requires no local Git scan, status, identity check, or publication preflight. This evaluation uses supplied fixture evidence only, with no provider reads or writes. If the user resolves the concurrent-edit decision, first discover the actual selected provider schema and supported authenticated host/account, bind stable repository/request identity and source/target refs and OIDs, then refresh affected fields immediately before one selected body patch. The logical operand form is a structured selector {provider: GitHub, host: github.fixture.invalid, target_repository: org/repo, pull_request_number: 12, account: resolved_authenticated_account} and a separate patch {body: 'Adds invoice totals; tests not run.'}; these are conceptual operands, not an invented executable tool schema. Do not include title or a stale full object, and do not shell-evaluate the text. Atomic metadata guards are unavailable, so do not promise compare-and-swap protection. If strict atomic preservation is required, stop without mutation; otherwise disclose the remaining read/write race before any later authorized mutation. After a permitted single attempt, capture its result and independently reread the exact request to verify body, title, identity, refs/OIDs and preserved lifecycle. Unexpected effects or uncertain acknowledgment require bounded read reconciliation, never a retry, rollback or second write. The exact approved text is retained in memory; no template rewrite is needed for this selected literal body replacement. Fallback template was read; no project template or implementation evidence was inspected. English follows the request, and 'tests not run' is supplied approved wording, not an actual validation execution result.",
+  "proposed_actions": [
+    "Pause the dependent update upon detecting the concurrent selected-field edit.",
+    "Obtain a decision on overwriting versus retaining/incorporating the fresh maintainer body.",
+    "Only after resolution, resolve actual provider capabilities and canonical identity, refresh guards, disclose unsupported atomic protection, and conditionally attempt at most one body-only patch followed by independent verification."
+  ],
+  "operand_forms": {
+    "selector": {
+      "provider": "GitHub",
+      "host": "github.fixture.invalid",
+      "target_repository": "org/repo",
+      "pull_request_number": 12,
+      "account": "unresolved; must be observed before execution"
+    },
+    "selected_fields": ["body"],
+    "initial_body": "old description",
+    "fresh_body": "new maintainer edits",
+    "desired_patch": {"body": "Adds invoice totals; tests not run."},
+    "preserved_title": "Maintainer title",
+    "source_oid_supplied": "S",
+    "target_oid_supplied": "B",
+    "execution_status": "conceptual structured operands only; actual provider schema undiscovered"
+  },
+  "limits": [
+    "All request state is supplied fixture evidence, not independent provider observation.",
+    "No Git, network, provider action, or hosted mutation was executed.",
+    "Concurrent selected-body change requires a decision; stable OIDs do not remove this gate.",
+    "Atomic metadata guard is unavailable, leaving a read/write race after any future refresh.",
+    "Authenticated account, stable repository IDs, full refs, actual connector capability and lifecycle state remain unobserved.",
+    "Only body replacement is authorized; no title, lifecycle, reviewer, approval, label, comment, branch, push, or merge action follows.",
+    "No real tests or implementation coverage checks were performed.",
+    "This JSON is separately authorized evaluation instrumentation, not a management-flow receipt or proposal artifact."
+  ]
+}

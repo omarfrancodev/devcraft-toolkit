@@ -1,0 +1,190 @@
+{
+  "fixture": "devcraft-hosted-emulation",
+  "provider": "github",
+  "account": "fixture-user",
+  "scope": {
+    "provider": "github",
+    "host": "github.fixture.invalid",
+    "source_project": 42,
+    "target_project": 7,
+    "source_ref": "refs/heads/feature/demo",
+    "target_ref": "refs/heads/main",
+    "source_oid": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "target_oid": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+  },
+  "requests": [
+    {
+      "id": 7,
+      "scope": {
+        "provider": "github",
+        "host": "github.fixture.invalid",
+        "source_project": 42,
+        "target_project": 7,
+        "source_ref": "refs/heads/feature/demo",
+        "target_ref": "refs/heads/main",
+        "source_oid": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "target_oid": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+      },
+      "title": "AÃ±adir totales de facturas",
+      "body": "Se aÃ±adieron totales de facturas. Las validaciones no se ejecutaron.",
+      "draft": false,
+      "state": "open",
+      "mergeable": true,
+      "merge_oid": null,
+      "labels": [
+        "keep"
+      ],
+      "reviewers": [
+        "existing-reviewer"
+      ],
+      "approvals": 0
+    }
+  ],
+  "selected_id": 7,
+  "next_id": 8,
+  "events": [
+    {
+      "op": "capabilities",
+      "payload": {},
+      "status": 200,
+      "result": {
+        "emulated": true,
+        "provider": "github",
+        "host": "github.fixture.invalid",
+        "account": "fixture-user",
+        "operations": [
+          "capabilities",
+          "read",
+          "list",
+          "create",
+          "update"
+        ],
+        "input": "JSON stdin; writes carry scope/title/body or request_id plus selected fields",
+        "auth": "owned fixture only; no real account"
+      }
+    },
+    {
+      "op": "read",
+      "payload": {
+        "request_id": null
+      },
+      "status": 200,
+      "result": {
+        "id": null
+      }
+    },
+    {
+      "op": "list",
+      "payload": {},
+      "status": 200,
+      "result": {
+        "count": 0,
+        "complete": true
+      }
+    },
+    {
+      "op": "read",
+      "payload": {
+        "request_id": null
+      },
+      "status": 200,
+      "result": {
+        "id": null
+      }
+    },
+    {
+      "op": "create",
+      "payload": {
+        "account": "fixture-user",
+        "scope": {
+          "provider": "github",
+          "host": "github.fixture.invalid",
+          "source_project": 42,
+          "target_project": 7,
+          "source_ref": "refs/heads/feature/demo",
+          "target_ref": "refs/heads/main",
+          "source_oid": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "target_oid": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        "title": "AÃ±adir totales de facturas",
+        "body": "## Resumen\n\nSe aÃ±adieron totales de facturas.\n\n## Cambios\n\n- Se incorporaron totales de facturas segÃºn la comparaciÃ³n completa observada.\n\n## ValidaciÃ³n\n\nLas validaciones no se ejecutaron. Evidencia de comparaciÃ³n: not_run.\n\n## Consideraciones\n\nComparaciÃ³n completa del proyecto 42, refs/heads/feature/demo (aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa), al proyecto 7, refs/heads/main (bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb). No se observaron otros cambios ni evidencia de ejecuciÃ³n local de validaciones.",
+        "draft": false
+      },
+      "status": 201,
+      "result": {
+        "id": 7
+      }
+    },
+    {
+      "op": "read",
+      "payload": {
+        "request_id": 7
+      },
+      "status": 200,
+      "result": {
+        "id": 7
+      }
+    },
+    {
+      "op": "update",
+      "payload": {
+        "request_id": 7,
+        "body": "Se aÃ±adieron totales de facturas. Las validaciones no se ejecutaron."
+      },
+      "status": 200,
+      "result": {
+        "id": 7
+      }
+    },
+    {
+      "op": "read",
+      "payload": {
+        "request_id": 7
+      },
+      "status": 200,
+      "result": {
+        "id": 7
+      }
+    }
+  ],
+  "faults": {},
+  "listing_complete": true,
+  "observation_complete": true,
+  "template": null,
+  "compare": {
+    "complete": true,
+    "source_oid": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "target_oid": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "changes": [
+      "Adds invoice totals"
+    ],
+    "validation": "not_run"
+  },
+  "gates": {
+    "merge_method": "merge",
+    "allow_merge_commit": true,
+    "squash_required": false,
+    "source_cleanup": false,
+    "review": {
+      "state": "not_required",
+      "source": "fixture_project_policy",
+      "head_oid": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    },
+    "checks": {
+      "state": "satisfied",
+      "source": "fixture_project_policy",
+      "head_oid": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "required": [
+        "unit"
+      ],
+      "records": [
+        {
+          "name": "unit",
+          "head_oid": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ]
+    }
+  }
+}
