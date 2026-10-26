@@ -1,0 +1,14 @@
+test_branch_commit_push_uses_final_source_preserving_main_and_config (test_composition_controls.PublicationControls.test_branch_commit_push_uses_final_source_preserving_main_and_config) ... ok
+test_duplicate_and_lost_creation_preserve_exact_request_identity (test_composition_controls.PublicationControls.test_duplicate_and_lost_creation_preserve_exact_request_identity) ... ok
+test_emulated_transport_observes_actual_published_tip (test_composition_controls.PublicationControls.test_emulated_transport_observes_actual_published_tip) ... ok
+test_existing_commit_publication_does_not_create_commit_or_tracking_config (test_composition_controls.PublicationControls.test_existing_commit_publication_does_not_create_commit_or_tracking_config) ... ok
+test_lost_push_receipt_is_resolved_by_observation_not_second_write (test_composition_controls.PublicationControls.test_lost_push_receipt_is_resolved_by_observation_not_second_write) ... ok
+test_pending_promotion_has_no_merged_receipt (test_composition_controls.PublicationControls.test_pending_promotion_has_no_merged_receipt) ... ok
+test_rejected_push_keeps_earlier_branch_and_commit (test_composition_controls.PublicationControls.test_rejected_push_keeps_earlier_branch_and_commit) ... ok
+test_optional_publication_union_is_fifteen_folders (test_package.PublicationPackage.test_optional_publication_union_is_fifteen_folders) ... ok
+test_publication_available_with_five_folder_closure (test_package.PublicationPackage.test_publication_available_with_five_folder_closure) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 19.202s
+
+OK

@@ -19,3 +19,13 @@ Historical published changelog entries equal the base exactly. The historical fo
 ## Full precommit gate
 
 `python -B -m unittest discover -s tests -p test_*.py -v`: 188 discovered, 187 passed, one existing Windows WinError 1314 symlink privilege skip; exit 0, 281.612 seconds. See [complete output](full-tests-precommit.log). Changed/new Markdown check covered 49 files and 144 local targets with no missing destinations; fragment anchors and external pages were outside that check.
+
+## Committed-tree task gate
+
+At 3a68a4d519017785e19ca1b9d585da1a79a05a97, task-done ran the full command again: 188 discovered, 187 passed, the same one Windows symlink privilege skip; exit 0 in 153.688 seconds. See [Task 3 output](task-3-tests.log). [Task 1](task-1-tests.log) and [Task 2](task-2-tests.log) retain their final owner gates. Source review uses the complete base-to-3a68a4d range; subsequent retained evidence does not broaden native/authenticated coverage.
+
+## Independent review
+
+One fresh whole-branch reviewer on gpt-6-astra/high assessed the approved source range and all five Review Focus invariants: zero Critical, Important or Minor findings, no corrective pass. See [report](final-review.md) and [execution ledger](execution-ledger.md). The author retained the two explicit deferred/excluded scope rulings; neither claims native/authenticated acceptance or unsupported branch/concurrency behavior. Final evidence/checkbox retention introduces no product code changes beyond the reviewed source.
+
+Final retained-document link pass: 51 changed/new Markdown files, 154 local targets, zero missing destinations. Final full-suite/owner logs, review and ledger are retained before deleting only this plan’s ignored workspace.

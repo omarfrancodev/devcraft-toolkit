@@ -98,3 +98,7 @@ Test-only `branch_snapshot(repo: Path) -> dict` returns semantic whole-index ent
 ## Self-review
 
 All approved behavior maps to an owner task and every Review Focus has real controls plus consumer cases. Branch results feed coordinator state directly; Task 3 consumes catalog closures and adds no runtime schema. The approved source inventory expands only at integration, with a documented intermediate validator mismatch. Baseline 162 discovered/161 passed/one Windows symlink skip is already recorded in the spec; no redundant initial rerun or dependency installation is planned. Plan and implementation are explicitly authorized in sequence.
+
+## Execution result
+
+All three tasks completed in order. Full committed-tree gate: 188 tests, 187 passed, one Windows symlink privilege skip. Both validators, new-skill quick checks and installation closure equality passed. One fresh whole-branch review found no actionable issues. See the retained [verification](../../../tests/integration/evaluations/2026-10-26-git-work-publication/verification.md), [ledger](../../../tests/integration/evaluations/2026-10-26-git-work-publication/execution-ledger.md) and [review](../../../tests/integration/evaluations/2026-10-26-git-work-publication/final-review.md). Candidate preview.8 remains unpublished; branch/worktree are preserved for a later integration decision.
