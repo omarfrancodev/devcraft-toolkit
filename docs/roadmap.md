@@ -18,7 +18,7 @@ The [seven-client extension](../tests/integration/distribution/evaluations/2026-
 
 ## Git coordinators
 
-Local commit construction is available in preview.4 with bounded index/commit writes. Git-history activity reporting is available in preview.5 through context and report-writer composition. Scoped synchronization and standalone push are available in preview.6 with independent context/safety closures and bounded explicit authorization. Hosted PR management and explicit promotion are available in preview.7; full publication coordination is next. Planned capabilities have no discoverable skill placeholders and are not emulated by the entry.
+Local commit construction is available in preview.4 with bounded index/commit writes. Git-history activity reporting is available in preview.5 through context and report-writer composition. Scoped synchronization and standalone push are available in preview.6 with independent context/safety closures and bounded explicit authorization. Hosted PR management and explicit promotion are available in preview.7. Independent work-branch creation and full publication coordination are available in unpublished candidate preview.8; all eighteen current target capabilities are implemented. Installed capabilities retain their owned dependencies and explicit authorization boundaries.
 
 ## Deferred capabilities
 
