@@ -2,7 +2,7 @@
 
 Install **Devcraft Toolkit as a complete suite** using the route for your client. Native plugins/Powers include all available skills and resources from the selected revision. Crew imports the complete set through its own dashboard; CLI-only Kiro has a full-set alternative. These routes need no user-managed clone.
 
-The default-branch recipes below use the integrated remote package. [v0.1.0-preview.7 release details](releases/v0.1.0-preview.7.md) provide version-pinned source options and download verification. The earlier `v0.1.0-preview.1` is source-only and cannot serve as a native plugin source. [Historical pre-integration sources](installation/preview.md) describe earlier probes, not the current release's native acceptance.
+The default-branch recipes below use the integrated remote package. [v0.1.0-preview.8 release details](releases/v0.1.0-preview.8.md) provide version-pinned source options and download verification. The earlier `v0.1.0-preview.1` is source-only and cannot serve as a native plugin source. [Historical pre-integration sources](installation/preview.md) describe earlier probes, not the current release's native acceptance.
 
 ## Install the complete suite
 
@@ -32,4 +32,7 @@ For updates and removal use the selected client's guide and the same installatio
 
 ## Source inventory
 
-Version `0.1.0-preview.7` has sixteen skills, adding `git-manage-pull-request` and `git-promote`; only `git-publish-work` remains planned. Default-branch recipes use the integrated suite; use this tag for fixed complete/individual selections. Preview.6 retains fourteen and lacks these hosted capabilities; preview.5 has twelve, preview.4 eleven, preview.3 nine and preview.2 seven. Select a revision that contains the requested capabilities. Source selection and publication do not establish native activation. Historical tags and native resource evidence remain version-specific; installation does not authorize a runtime write.
+Version `0.1.0-preview.8` has eighteen skills, adding `git-create-work-branch` and `git-publish-work`. Default-branch recipes use the integrated suite; use this tag for fixed complete/individual selections. Preview.7 retains sixteen and lacks the two additions; preview.6 retains fourteen without hosted management/promotion; preview.5 has twelve, preview.4 eleven, preview.3 nine and preview.2 seven. Select a revision that contains the requested capabilities. Source selection and publication do not establish native activation. Historical tags and native resource evidence remain version-specific; installation does not authorize a runtime write.
+
+
+Release `0.1.0-preview.8` has eighteen available skills and no planned entries. Native remote suite installation includes the complete selected revision without a new installer. Local contributor checks remain an optional [development route](installation/development.md). [Individual selections](installation/individual-skills.md) distinguish mandatory and conditional closures.

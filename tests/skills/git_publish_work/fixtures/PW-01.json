@@ -1,0 +1,5 @@
+{
+  "id": "PW-01",
+  "request": "Publish the existing commits on my current feature/demo to origin refs/heads/feature/demo. Do not change upstream.",
+  "facts": "Selected current work branch feature/demo at aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa. Clean state; exact remote/destination observed; push tools/effects available and authorized. Selected installation contains only git-publish-work, git-publish-changes, todo-workflow-controller, git-working-directory-policy, git-safety-check. No commit, branch, sync or hosting skills installed. No fetch or PR requested."
+}

@@ -1,0 +1,5 @@
+{
+  "id": "PW-03",
+  "request": "Prepare selected README edits on a new work branch, push and open a PR.",
+  "facts": "On main. Excluded notes.txt dirty must remain uncommitted. Existing push owner requires clean index/worktree. Selected installation lacks PR management; another foreign plugin offers same name. Required validation is reported failed. Branch owner available. No cleanup, stash or broadening selected. Native question/progress tools absent."
+}

@@ -4,6 +4,27 @@ Release dates use the GitHub publication date in America/Mexico_City. Pre-releas
 
 ## unreleased
 
+## 0.1.0-preview.8 — 2026-10-29
+
+### Added
+
+#### Git operations
+
+- Add independent `git-create-work-branch` for one requested local create-and-switch at pinned current committed HEAD, preserving dirty/partially staged work and actual partial hook effects.
+- Add `git-publish-work` for selected branch/commit/push/PR coordination, with conditional owners, known-blocker forecasts, explicit sync/merge/upstream scope and fresh evidence on continuation.
+
+#### Validation
+
+- Retain owner-grouped real Git controls, fresh baseline/candidate evaluations and independently inspected copied-resource applications with emulated hosting.
+
+### Changed
+
+#### Catalog and distribution
+
+- Record eighteen available capabilities and zero planned names in a current approved inventory; validate nonempty unique names and exact catalog equality without a fixed count. Preserve historical specifications and releases.
+- Add optional entry routes and exact two-/five-folder mandatory installation selections, with a fifteen-folder optional publication union.
+- Align both existing manifests at `0.1.0-preview.8` and prepare changelog, release notes and consumer source pointers in PR #10 before merge. Preview.7 retains sixteen skills; native/authenticated validation stays open.
+
 ## 0.1.0-preview.7 — 2026-10-26
 
 Experimental hosted PR/MR management and explicitly requested promotion. Sixteen skills are available; authenticated provider execution and native activation remain separately unverified.

@@ -1,0 +1,16 @@
+test_detached_and_missing_identity_do_not_need_commits (test_branch_controls.BranchControls.test_detached_and_missing_identity_do_not_need_commits) ... ok
+test_dirty_partial_index_and_all_working_bytes_survive (test_branch_controls.BranchControls.test_dirty_partial_index_and_all_working_bytes_survive) ... ok
+test_linked_worktree_preserves_other_worktree (test_branch_controls.BranchControls.test_linked_worktree_preserves_other_worktree) ... ok
+test_literal_names_and_existing_refs_do_not_expand_or_reset (test_branch_controls.BranchControls.test_literal_names_and_existing_refs_do_not_expand_or_reset) ... ok
+test_no_tracking_even_with_auto_setup_config (test_branch_controls.BranchControls.test_no_tracking_even_with_auto_setup_config) ... ok
+test_pinned_operand_does_not_follow_source_movement (test_branch_controls.BranchControls.test_pinned_operand_does_not_follow_source_movement) ... ok
+test_post_checkout_failure_can_leave_new_branch_selected (test_branch_controls.BranchControls.test_post_checkout_failure_can_leave_new_branch_selected) ... ok
+test_reference_hook_effects_are_not_hidden (test_branch_controls.BranchControls.test_reference_hook_effects_are_not_hidden) ... ok
+test_submodule_work_is_not_recursed (test_branch_controls.BranchControls.test_submodule_work_is_not_recursed) ... ok
+test_unborn_and_operation_markers_are_observable (test_branch_controls.BranchControls.test_unborn_and_operation_markers_are_observable) ... ok
+test_branch_available_with_two_folder_closure (test_package.BranchPackageTests.test_branch_available_with_two_folder_closure) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 17.733s
+
+OK

@@ -1,0 +1,5 @@
+{
+  "id": "WB-01",
+  "request": "Create feature/parser from my current work on main. Use the current commit and keep all edits.",
+  "facts": "HEAD main at aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa; README has staged version A and different unstaged version B; tracked deleted path; untracked dise\u00f1o.txt; ignored .env; another branch release exists. No active operations. Context owned by toolkit is available. Missing commit identity. No network selected."
+}

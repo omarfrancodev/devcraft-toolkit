@@ -1,0 +1,5 @@
+{
+  "id": "WB-03",
+  "request": "Create feature/parser from the current detached commit.",
+  "facts": "Detached HEAD has an existing commit bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb. Separate comparison repository has unborn HEAD. Context available; no hooks/operations; no identity. State which repository can proceed and what the other needs."
+}

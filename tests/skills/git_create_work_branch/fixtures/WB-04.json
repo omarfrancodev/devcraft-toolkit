@@ -1,0 +1,5 @@
+{
+  "id": "WB-04",
+  "request": "Create feature/parser then continue to commit my edits.",
+  "facts": "Preflight pinned source cccccccccccccccccccccccccccccccccccccccc. Immediately before write source moves to dddddddddddddddddddddddddddddddddddddddd. A separate run attempted switch once: exit 1; post-checkout printed failure, actual HEAD is feature/parser at pinned source, index/files unchanged. Explain both outcomes and next operations."
+}

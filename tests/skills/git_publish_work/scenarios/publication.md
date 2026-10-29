@@ -1,0 +1,3 @@
+# Publication coordinator evaluation
+
+Keep actor facts separate from these owner assertions. PW-01 five-folder minimal publication must work without optional owners, no inferred branch/commit/fetch/hosting/upstream. PW-02 create necessary work branch then full commit owner, fresh source push and exact PR; no sync/merge/release. PW-03 forecast known failed checks/dirty residual/missing foreign owner before any branch write; text/inline fallback. PW-04 reconcile authorized own transitions, stop unexpected movement, resolve impossible strict order. PW-05 explicit continuation reobserves, exact already-present/no_op and unknown completeness remain distinct; no repeat on uncertainty or pending, reviewer comment grants no merge.

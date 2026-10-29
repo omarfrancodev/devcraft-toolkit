@@ -1,0 +1,5 @@
+# Work publication routing evaluation
+
+Actor input: ../fixtures/work-publication.json; assertions remained with the evaluator. Both actors read only the entry and its local composition reference. Baseline correctly retained push/report direct routes and ownership restrictions, but had no branch route and declared discovered coordinator unavailable. Updated candidate routes branch to exact toolkit:git-create-work-branch/context; selected multi-step flow to toolkit:git-publish-work with conditional owners; push and supplied-fact report remain direct. Its minimal five-folder case supports existing-commit coordination without optional owners, missing selected commit/PR owners block that flow, foreign branch ownership remains unavailable and ambiguous coordinator ownership needs one selection. No repository state or permission is invented. Branch necessity cannot be established without actual role facts, so that conditional decision stays with the coordinator.
+
+This is supplied-discovery behavior evidence, not native namespace discovery or actual skill invocation.

@@ -35,7 +35,7 @@ class DistributionValidationTests(unittest.TestCase):
         root.mkdir()
         shutil.copy2(ROOT / "catalog.json", root / "catalog.json")
         shutil.copytree(ROOT / "skills", root / "skills")
-        inventory = Path("docs/superpowers/specs/2026-10-16-bootstrap-foundation-design.md")
+        inventory = Path("docs/capability-inventory.md")
         (root / inventory).parent.mkdir(parents=True)
         shutil.copy2(ROOT / inventory, root / inventory)
         identity = {

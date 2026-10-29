@@ -1,0 +1,16 @@
+These are routing decisions from supplied discovery facts only. No repository, Git, provider, or skill operation is executed, and no readiness or completion is established.
+
+For the selected installation owning all eighteen capabilities:
+
+- **Create a work branch:** route to `toolkit:git-create-work-branch`, with `toolkit:git-working-directory-policy`. Delegate literal naming, pinned current committed HEAD, dirty-work preservation, authorization and verification. This request does not select publication.
+- **Prepare changes, push and open a PR:** route to `toolkit:git-publish-work`. Its mandatory closure is `toolkit:git-publish-changes`, `toolkit:todo-workflow-controller`, `toolkit:git-working-directory-policy` and `toolkit:git-safety-check`, plus the coordinator itself. Selected commit preparation uses `toolkit:git-commit-builder` with `toolkit:git-plan-commits`, `toolkit:git-stage-changes`, `toolkit:git-analyze-changes`, `toolkit:conventional-commits-style`, `toolkit:validation-discovery` and the shared progress/safety/context dependencies. Opening the PR uses `toolkit:git-manage-pull-request` with context. Delegate exact selections, permission boundaries, identities, downstream blocker forecasts, fresh final source and actual owner receipts. Do not infer branch creation, sync, upstream configuration or merge from this request.
+- **Push existing commits only:** route directly to `toolkit:git-publish-changes`, with `toolkit:git-working-directory-policy` and `toolkit:git-safety-check`. This selects the publisher rather than the multi-step coordinator. Delegate exact source/destination, authorization, cleanliness, freshness and verification; do not add preparation, fetch, PR creation or upstream setup.
+- **Write a report from supplied facts:** route directly to `toolkit:natural-language-report-writer`. Return content in the conversation unless a local destination is explicitly selected. Do not inspect Git history or run a safety preflight.
+
+For the separate discovery cases:
+
+- **Coordinator with only its five-folder closure:** coordinated publication of existing commits is available through `toolkit:git-publish-work`; the direct publisher route also remains available. Work-branch creation is unavailable, and preparation requiring commits plus PR creation is unavailable because those selected owners are absent. Forecast those missing capabilities before any earlier writes. Their absence does not block the minimal existing-commit flow. Report writing requires its own discovered writer; this closure alone does not establish one.
+- **Only a foreign branch skill available:** branch creation is unavailable in the selected installation. Do not substitute the foreign copy, imitate the capability or install it automatically.
+- **Two indistinguishable coordinator owners:** pause coordinator-dependent routing and ask one focused question: “Which installation should own this publication workflow?” Do not choose by name suffix, modify either copy or guess an invocation identifier. Independent, unambiguously owned routes may continue.
+
+No live repository facts were supplied. Execution gates and outcomes remain for the selected owners to establish.

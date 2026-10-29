@@ -4,7 +4,7 @@ Use this route only when you want selected capabilities instead of the native su
 
 ## Remote source and requirements
 
-The default remote source uses the integrated package. For a fixed version use the [release-pinned source](../releases/v0.1.0-preview.7.md#version-pinned-sources). CLI examples use Node.js >=22.20.0, npm and Skills CLI 1.7.4. Complete-folder manual copying is available in [development/reference](development.md#manual-complete-folder-copying).
+The default remote source uses the integrated package. For a fixed version use the [release-pinned source](../releases/v0.1.0-preview.8.md#version-pinned-sources). CLI examples use Node.js >=22.20.0, npm and Skills CLI 1.7.4. Complete-folder manual copying is available in [development/reference](development.md#manual-complete-folder-copying).
 
 Crew uses its [native individual/full importer](kiro-crew.md), not an assumed external installer selector. Its default user store is `~/.kiro/crew/skills/`; active-project `.kiro/skills/` requires Crew's project-skill enablement and trust. Use exact imported paths and dependencies.
 
@@ -33,9 +33,9 @@ The leading npm `--yes` permits acquisition of the pinned CLI; Skills remains in
 
 ## Source inventory and dependency selection
 
-Version `0.1.0-preview.7` contains sixteen available skills. Default GitHub/main recipes deliver the integrated suite; set `$toolkitSource = 'https://github.com/omarfrancodev/devcraft-toolkit/tree/v0.1.0-preview.7'` for this fixed version and retain target/scope and explicit dependencies. Local-source testing remains an optional [development route](development.md), not a consumer requirement.
+Version `0.1.0-preview.8` contains eighteen available skills. Default GitHub/main recipes deliver the integrated suite; set `$toolkitSource = 'https://github.com/omarfrancodev/devcraft-toolkit/tree/v0.1.0-preview.8'` for this fixed version and retain target/scope and explicit dependencies. Local-source testing remains an optional [development route](development.md), not a consumer requirement.
 
-Source selection does not establish native activation. Preview.6 retains fourteen; preview.5 twelve; preview.4 eleven; preview.3 nine; preview.2 seven. Old tags retain their original inventories and resource evidence.
+Source selection does not establish native activation. Preview.7 retains sixteen; preview.6 retains fourteen; preview.5 twelve; preview.4 eleven; preview.3 nine; preview.2 seven. Old tags retain their original inventories and resource evidence.
 
 ## Explicit dependency selection
 
@@ -48,6 +48,8 @@ Source selection does not establish native activation. Preview.6 retains fourtee
 | `todo-workflow-controller` | That name only |
 | `natural-language-report-writer` | That name only |
 | `validation-discovery` | That name only |
+| `git-create-work-branch` | `git-create-work-branch git-working-directory-policy` |
+| `git-publish-work` | `git-publish-work git-publish-changes todo-workflow-controller git-working-directory-policy git-safety-check` |
 | `git-sync-branch` | `git-sync-branch git-working-directory-policy git-safety-check` |
 | `git-publish-changes` | `git-publish-changes git-working-directory-policy git-safety-check` |
 | `git-manage-pull-request` | `git-manage-pull-request git-working-directory-policy` |
@@ -58,14 +60,14 @@ Source selection does not establish native activation. Preview.6 retains fourtee
 | `git-stage-changes` | `git-stage-changes git-analyze-changes git-safety-check git-working-directory-policy` |
 | `git-commit-builder` | `git-commit-builder git-plan-commits git-stage-changes git-safety-check validation-discovery todo-workflow-controller git-analyze-changes git-working-directory-policy conventional-commits-style` |
 
-The installer does not resolve `catalog.json` dependencies. A bare entry installs only the entry. Supply every listed name explicitly. All resources, including local references and assets, belong to the installed folder. The remaining planned `git-publish-work` has no installable SKILL.md.
+The installer does not resolve `catalog.json` dependencies. A bare entry installs only the entry. Supply every listed name explicitly. All resources, including local references and assets, belong to the installed folder. Both additions are included in preview.8; preview.7 does not provide them.
 
 ## Complete skill-set fallback
 
-When the native project suite is unavailable (notably Kiro's project Power), select all sixteen available skills explicitly from the selected source:
+When the native project suite is unavailable (notably Kiro's project Power), select all eighteen current-source skills explicitly. Use the default remote source or the fixed preview.8 source above. Preview.7 has only sixteen and cannot satisfy this selection:
 
 ```powershell
-$toolkitSkills = @('using-devcraft-toolkit', 'git-working-directory-policy', 'git-safety-check', 'conventional-commits-style', 'todo-workflow-controller', 'natural-language-report-writer', 'validation-discovery', 'git-analyze-changes', 'git-plan-commits', 'git-stage-changes', 'git-commit-builder', 'git-activity-report', 'git-sync-branch', 'git-publish-changes', 'git-manage-pull-request', 'git-promote')
+$toolkitSkills = @('using-devcraft-toolkit', 'git-working-directory-policy', 'git-safety-check', 'conventional-commits-style', 'todo-workflow-controller', 'natural-language-report-writer', 'validation-discovery', 'git-analyze-changes', 'git-plan-commits', 'git-stage-changes', 'git-commit-builder', 'git-activity-report', 'git-sync-branch', 'git-publish-changes', 'git-manage-pull-request', 'git-promote', 'git-create-work-branch', 'git-publish-work')
 npx --yes skills@1.7.4 add "$toolkitSource" --skill $toolkitSkills --agent "$toolkitAgent" --copy
 ```
 
@@ -80,3 +82,9 @@ Do not silently choose between a plugin and a standalone copy with the same name
 For copy updates, inspect the selected newer source and authorize replacement, then explicitly add it again. For remotely tracked updates inspect `skills@1.7.4 update --help` and the recorded source/lock before acting. Remove only the named skill with the same selector and scope, for example `npx --yes skills@1.7.4 remove natural-language-report-writer --agent codex`; add `--global` for user removal. Preserve other scopes, locks and unrelated content.
 
 [Local filesystem evidence](../../tests/integration/distribution/evaluations/2026-10-23-installation/filesystem.md) and [compatibility limits](../compatibility.md) distinguish file placement from native activation.
+
+## Conditional publication selections
+
+The branch row above is its complete two-folder closure. The publication row is the complete five-folder mandatory closure and supports existing-commit publication without branch/commit/sync/hosting owners. For selected preparation also include the complete rows for `git-create-work-branch` and `git-commit-builder`; for selected PR/MR work add `git-manage-pull-request`; add `git-sync-branch` only for selected synchronization and `git-promote` only for explicit merge.
+
+The complete optional publication union is exactly: `git-publish-work git-publish-changes todo-workflow-controller git-working-directory-policy git-safety-check git-create-work-branch git-commit-builder git-plan-commits git-stage-changes git-analyze-changes conventional-commits-style validation-discovery git-sync-branch git-manage-pull-request git-promote` (fifteen folders). Entry, activity-report and report-writer are unnecessary for that flow. This documented union adds no installer schema, automatic dependency resolution or runtime catalog. All selected folders/resources must come from the chosen owned source installation. Missing conditional owners stop their selected flow rather than unrelated basic publication.

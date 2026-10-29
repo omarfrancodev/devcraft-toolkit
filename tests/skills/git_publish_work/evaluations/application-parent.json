@@ -1,0 +1,185 @@
+{
+  "outcome": "passed",
+  "actual_source": "4716a4d44aa844a9430e6273f7bd211749560c2a",
+  "main_preserved": "ed35b20fd40acea3f90f44204af875160111c73e",
+  "local_state": {
+    "head": "4716a4d44aa844a9430e6273f7bd211749560c2a",
+    "symbolic": "refs/heads/feature/parser",
+    "refs": {
+      "refs/heads/feature/parser": "4716a4d44aa844a9430e6273f7bd211749560c2a",
+      "refs/heads/main": "ed35b20fd40acea3f90f44204af875160111c73e",
+      "refs/remotes/origin/HEAD": "symref:refs/remotes/origin/main",
+      "refs/remotes/origin/feature/parser": "4716a4d44aa844a9430e6273f7bd211749560c2a",
+      "refs/remotes/origin/main": "ed35b20fd40acea3f90f44204af875160111c73e"
+    },
+    "index": "3130303634342063333164383437376130666533656230633964393333396364353766373165643034363765326534203009776f726b2e74787400",
+    "files": {
+      "working-mode:work.txt": "438",
+      "working:work.txt": "5fd64099c415e0bbce33ff151a0e588c262f378839c68f1d15a4abd53615f376"
+    },
+    "config": "636f72652e7265706f7369746f7279666f726d617476657273696f6e0a3000636f72652e66696c656d6f64650a66616c736500636f72652e626172650a66616c736500636f72652e6c6f67616c6c726566757064617465730a7472756500636f72652e73796d6c696e6b730a66616c736500636f72652e69676e6f7265636173650a747275650072656d6f74652e6f726967696e2e75726c0a433a5c55736572735c446576656c6f7065722e494e53434f52534f46325c446f63756d656e74735c50726f796563746f732d436f64655c6f6d61726672616e636f6465765c64657663726166742d746f6f6c6b69745c2e776f726b74726565735c7075626c6973682d776f726b5c74657374735c2e746d705c7075626c69636174696f6e2d6170706c69636174696f6e5c6769745c72656d6f74652073706163652e6769740072656d6f74652e6f726967696e2e66657463680a2b726566732f68656164732f2a3a726566732f72656d6f7465732f6f726967696e2f2a006272616e63682e6d61696e2e72656d6f74650a6f726967696e006272616e63682e6d61696e2e6d657267650a726566732f68656164732f6d61696e00757365722e6e616d650a46697874757265205573657200757365722e656d61696c0a66697874757265406578616d706c652e696e76616c696400"
+  },
+  "remote_refs": {
+    "refs/heads/feature/parser": "4716a4d44aa844a9430e6273f7bd211749560c2a",
+    "refs/heads/main": "ed35b20fd40acea3f90f44204af875160111c73e"
+  },
+  "mutations": [
+    [
+      44,
+      "switch",
+      [
+        "git.exe",
+        "--no-pager",
+        "--no-optional-locks",
+        "--no-lazy-fetch",
+        "--no-replace-objects",
+        "-c",
+        "core.fsmonitor=false",
+        "-c",
+        "core.untrackedCache=false",
+        "-c",
+        "core.splitIndex=false",
+        "-c",
+        "submodule.recurse=false",
+        "-c",
+        "maintenance.auto=false",
+        "-c",
+        "gc.auto=0",
+        "-c",
+        "log.showSignature=false",
+        "switch",
+        "--no-guess",
+        "--no-track",
+        "--no-recurse-submodules",
+        "--no-overwrite-ignore",
+        "-c",
+        "feature/parser",
+        "ed35b20fd40acea3f90f44204af875160111c73e"
+      ]
+    ],
+    [
+      71,
+      "commit",
+      [
+        "git.exe",
+        "--no-pager",
+        "--no-optional-locks",
+        "--no-lazy-fetch",
+        "--no-replace-objects",
+        "-c",
+        "core.fsmonitor=false",
+        "-c",
+        "core.untrackedCache=false",
+        "-c",
+        "core.splitIndex=false",
+        "-c",
+        "submodule.recurse=false",
+        "-c",
+        "maintenance.auto=false",
+        "-c",
+        "gc.auto=0",
+        "-c",
+        "log.showSignature=false",
+        "commit",
+        "--file=-",
+        "--cleanup=verbatim"
+      ]
+    ],
+    [
+      95,
+      "push",
+      [
+        "git.exe",
+        "--no-pager",
+        "--no-optional-locks",
+        "--no-lazy-fetch",
+        "--no-replace-objects",
+        "-c",
+        "core.fsmonitor=false",
+        "-c",
+        "core.untrackedCache=false",
+        "-c",
+        "core.splitIndex=false",
+        "-c",
+        "submodule.recurse=false",
+        "-c",
+        "maintenance.auto=false",
+        "-c",
+        "gc.auto=0",
+        "-c",
+        "log.showSignature=false",
+        "-c",
+        "push.autoSetupRemote=false",
+        "push",
+        "--porcelain",
+        "--no-follow-tags",
+        "--recurse-submodules=no",
+        "--",
+        "origin",
+        "4716a4d44aa844a9430e6273f7bd211749560c2a:refs/heads/feature/parser"
+      ]
+    ]
+  ],
+  "provider_writes": [
+    {
+      "op": "create",
+      "payload": {
+        "scope": {
+          "provider": "github",
+          "host": "github.fixture.invalid",
+          "source_project": 42,
+          "target_project": 7,
+          "source_ref": "refs/heads/feature/parser",
+          "target_ref": "refs/heads/main",
+          "source_oid": "4716a4d44aa844a9430e6273f7bd211749560c2a",
+          "target_oid": "ed35b20fd40acea3f90f44204af875160111c73e"
+        },
+        "title": "Document selected parser input support",
+        "body": "## Summary\n\nRecord selected parser input support in work.txt.\n\n## Changes\n\nAdd the line `Parser accepts selected input.` to work.txt. The published compare covers this file only; no parser implementation change is claimed.\n\n## Validation\n\nNo applicable project validation command was detected (the worktree contains only work.txt). Automated tests: not_run. Independently verified the commit parent, complete tree, literal message and identity; clean index/worktree; and the published source OID 4716a4d44aa844a9430e6273f7bd211749560c2a using a separate remote query. Provider compare also reports validation as not_run; its check records reference another revision and are not evidence for this change.\n\n## Considerations\n\nOwned disposable fixture and emulated GitHub provider only. Source project 42 feature/parser targets project 7 org/repo main. No synchronization, upstream setup, merge or release was requested.",
+        "draft": false
+      },
+      "status": 201,
+      "result": {
+        "id": 7
+      }
+    }
+  ],
+  "request": {
+    "id": 7,
+    "scope": {
+      "provider": "github",
+      "host": "github.fixture.invalid",
+      "source_project": 42,
+      "target_project": 7,
+      "source_ref": "refs/heads/feature/parser",
+      "target_ref": "refs/heads/main",
+      "source_oid": "4716a4d44aa844a9430e6273f7bd211749560c2a",
+      "target_oid": "ed35b20fd40acea3f90f44204af875160111c73e"
+    },
+    "title": "Document selected parser input support",
+    "body": "## Summary\n\nRecord selected parser input support in work.txt.\n\n## Changes\n\nAdd the line `Parser accepts selected input.` to work.txt. The published compare covers this file only; no parser implementation change is claimed.\n\n## Validation\n\nNo applicable project validation command was detected (the worktree contains only work.txt). Automated tests: not_run. Independently verified the commit parent, complete tree, literal message and identity; clean index/worktree; and the published source OID 4716a4d44aa844a9430e6273f7bd211749560c2a using a separate remote query. Provider compare also reports validation as not_run; its check records reference another revision and are not evidence for this change.\n\n## Considerations\n\nOwned disposable fixture and emulated GitHub provider only. Source project 42 feature/parser targets project 7 org/repo main. No synchronization, upstream setup, merge or release was requested.",
+    "draft": false,
+    "state": "open",
+    "mergeable": true,
+    "merge_oid": null,
+    "labels": [
+      "keep"
+    ],
+    "reviewers": [
+      "existing-reviewer"
+    ],
+    "approvals": 0
+  },
+  "checks": [
+    "independent Git trace: exactly branch then commit then push",
+    "one provider creation with published source",
+    "commit parent equals original main",
+    "clean exact committed tree/index",
+    "all working bytes and local config preserved",
+    "exact remote ref set",
+    "13 copied folders byte-equal",
+    "exact local refs: originals plus selected branch and expected opportunistic tracking ref",
+    "owned global configuration still exact original empty bytes"
+  ],
+  "limits": "Manually followed copied instructions; owned real Git and emulated hosting only. Parent initial trace reader omitted --file=- and was corrected from actual argv; no fixture mutation replayed. Direct parent reads independently establish final state; audit trace is preauthorized outside checkout."
+}

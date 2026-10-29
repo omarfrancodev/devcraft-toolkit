@@ -1,0 +1,48 @@
+{
+  "root": "C:\\Users\\Developer.INSCORSOF2\\Documents\\Proyectos-Code\\omarfrancodev\\devcraft-toolkit\\.worktrees\\publish-work\\tests\\.tmp\\publication-application",
+  "repository": "C:\\Users\\Developer.INSCORSOF2\\Documents\\Proyectos-Code\\omarfrancodev\\devcraft-toolkit\\.worktrees\\publish-work\\tests\\.tmp\\publication-application\\git\\client",
+  "remote": "C:\\Users\\Developer.INSCORSOF2\\Documents\\Proyectos-Code\\omarfrancodev\\devcraft-toolkit\\.worktrees\\publish-work\\tests\\.tmp\\publication-application\\git\\remote space.git",
+  "before": {
+    "head": "ed35b20fd40acea3f90f44204af875160111c73e",
+    "symbolic": "refs/heads/main",
+    "refs": {
+      "refs/heads/main": "ed35b20fd40acea3f90f44204af875160111c73e",
+      "refs/remotes/origin/HEAD": "symref:refs/remotes/origin/main",
+      "refs/remotes/origin/main": "ed35b20fd40acea3f90f44204af875160111c73e"
+    },
+    "index": "3130303634342031653138396162393366636236363135613731313864373865653465303166343364316161366562203009776f726b2e74787400",
+    "files": {
+      "working-mode:work.txt": "438",
+      "working:work.txt": "5fd64099c415e0bbce33ff151a0e588c262f378839c68f1d15a4abd53615f376"
+    },
+    "config": "636f72652e7265706f7369746f7279666f726d617476657273696f6e0a3000636f72652e66696c656d6f64650a66616c736500636f72652e626172650a66616c736500636f72652e6c6f67616c6c726566757064617465730a7472756500636f72652e73796d6c696e6b730a66616c736500636f72652e69676e6f7265636173650a747275650072656d6f74652e6f726967696e2e75726c0a433a5c55736572735c446576656c6f7065722e494e53434f52534f46325c446f63756d656e74735c50726f796563746f732d436f64655c6f6d61726672616e636f6465765c64657663726166742d746f6f6c6b69745c2e776f726b74726565735c7075626c6973682d776f726b5c74657374735c2e746d705c7075626c69636174696f6e2d6170706c69636174696f6e5c6769745c72656d6f74652073706163652e6769740072656d6f74652e6f726967696e2e66657463680a2b726566732f68656164732f2a3a726566732f72656d6f7465732f6f726967696e2f2a006272616e63682e6d61696e2e72656d6f74650a6f726967696e006272616e63682e6d61696e2e6d657267650a726566732f68656164732f6d61696e00757365722e6e616d650a46697874757265205573657200757365722e656d61696c0a66697874757265406578616d706c652e696e76616c696400"
+  },
+  "remote_before": {
+    "refs/heads/main": "ed35b20fd40acea3f90f44204af875160111c73e"
+  },
+  "scope": {
+    "provider": "github",
+    "host": "github.fixture.invalid",
+    "source_project": 42,
+    "target_project": 7,
+    "source_ref": "refs/heads/feature/parser",
+    "target_ref": "refs/heads/main",
+    "source_oid": null,
+    "target_oid": "ed35b20fd40acea3f90f44204af875160111c73e"
+  },
+  "folders": [
+    "conventional-commits-style",
+    "git-analyze-changes",
+    "git-commit-builder",
+    "git-create-work-branch",
+    "git-manage-pull-request",
+    "git-plan-commits",
+    "git-publish-changes",
+    "git-publish-work",
+    "git-safety-check",
+    "git-stage-changes",
+    "git-working-directory-policy",
+    "todo-workflow-controller",
+    "validation-discovery"
+  ]
+}
