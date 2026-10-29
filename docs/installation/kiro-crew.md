@@ -8,7 +8,7 @@ by this route. IDE/CLI Power inheritance into Crew is not established here.
 
 1. Open Settings > Skills > Discover.
 2. Enter `omarfrancodev/devcraft-toolkit`, or select the
-   [release-pinned source](../releases/v0.1.0-preview.7.md#version-pinned-sources).
+   [release-pinned source](../releases/v0.1.0-preview.8.md#version-pinned-sources).
 3. Select/import all available skill directories from the chosen revision. The interface may confirm
    each import separately; this is a complete skill set, not an atomic plugin.
 4. Inspect each imported source revision, actual discovery path and all bundled

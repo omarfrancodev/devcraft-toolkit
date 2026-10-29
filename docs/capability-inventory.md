@@ -29,4 +29,4 @@ Installed capabilities do not read this document or the root catalog. Historical
 
 ## Current delivery
 
-Eighteen available capabilities, zero planned names. Work-branch creation and publication coordination are candidate `0.1.0-preview.8`, not yet published. Preview.7 retains sixteen capabilities. See the [roadmap](roadmap.md), [design](superpowers/specs/2026-10-26-git-work-publication-design.md) and [installation selections](installation/individual-skills.md) for scope and source requirements.
+Eighteen available capabilities, zero planned names. Work-branch creation and publication coordination are delivered in `0.1.0-preview.8`. Preview.7 retains sixteen capabilities. See the [roadmap](roadmap.md), [design](superpowers/specs/2026-10-26-git-work-publication-design.md) and [installation selections](installation/individual-skills.md) for scope and source requirements.
