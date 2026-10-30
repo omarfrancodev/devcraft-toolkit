@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "devcraft-toolkit",
-  "version": "0.1.0-preview.8",
+  "version": "0.1.0-preview.9",
   "description": "Composable Git and development skills for coding agents.",
   "author": {
     "name": "omarfrancodev"
@@ -11,5 +11,21 @@
     "commit",
     "report",
     "validation"
-  ]
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Devcraft Toolkit",
+        "shortDescription": "Composable Git tools",
+        "longDescription": "Composable Git and development skills for coding agents.",
+        "developerName": "omarfrancodev",
+        "category": "Developer Tools",
+        "websiteURL": "https://github.com/omarfrancodev/devcraft-toolkit",
+        "logo": "./assets/logo.png",
+        "composerIcon": "./assets/logo.png"
+      }
+    }
+  },
+  "homepage": "https://github.com/omarfrancodev/devcraft-toolkit",
+  "repository": "https://github.com/omarfrancodev/devcraft-toolkit"
 }

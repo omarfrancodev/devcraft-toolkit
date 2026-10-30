@@ -1,0 +1,57 @@
+{
+  "date": "2026-10-30",
+  "client": "2.1.300 (Claude Code)",
+  "scope": "local metadata only; no installation, model invocation, or UI claim",
+  "metadataSha256": {
+    "plugin.json": "e0e185c97fa5c756342a57af7559376b46b6223c1e79825917efce2dc4cdd666",
+    ".claude-plugin/plugin.json": "f0a28ff0e2a51c8c33c75bfc89558c20f6bc54fb8ae81638ee244d9870d8cd8f",
+    ".claude-plugin/marketplace.json": "b0ca1af1f96fb7ada6f2452d3c311257ad619a9cc263b4fab02cdb64ee54903b",
+    ".agents/plugins/marketplace.json": "f8d1887ddba62216e4a99a3cf2f24b0b1fdffb8527a00432a90dd504d994d340"
+  },
+  "checks": [
+    {
+      "command": "claude plugin validate .claude-plugin/plugin.json --json --strict",
+      "exit": 0,
+      "report": {
+        "success": true,
+        "strict": true,
+        "target": "<package-root>\\.claude-plugin\\plugin.json",
+        "manifest": {
+          "file": "<package-root>\\.claude-plugin\\plugin.json",
+          "type": "plugin",
+          "errors": [],
+          "warnings": [],
+          "notes": [],
+          "gatingHooks": []
+        },
+        "contents": [],
+        "advice": [
+          {
+            "file": "<package-root>\\README.md",
+            "message": "This README has no line that installs \"devcraft-toolkit\" from a marketplace. Add the install line, which works in one step on Claude Code 2.1.275 or later. Validate the folder that holds its marketplace.json to have <owner>/<repo> filled in, and the name its marketplace lists it under.",
+            "installLine": "/plugin install devcraft-toolkit --marketplace <owner>/<repo>"
+          }
+        ]
+      }
+    },
+    {
+      "command": "claude plugin validate .claude-plugin/marketplace.json --json --strict",
+      "exit": 0,
+      "report": {
+        "success": true,
+        "strict": true,
+        "target": "<package-root>\\.claude-plugin\\marketplace.json",
+        "manifest": {
+          "file": "<package-root>\\.claude-plugin\\marketplace.json",
+          "type": "marketplace",
+          "errors": [],
+          "warnings": [],
+          "notes": [],
+          "gatingHooks": []
+        },
+        "contents": [],
+        "advice": []
+      }
+    }
+  ]
+}

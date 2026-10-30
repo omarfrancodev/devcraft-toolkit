@@ -2,7 +2,7 @@
 
 ## Install the complete remote suite
 
-The default-source recipe uses the integrated package; [release details](../releases/v0.1.0-preview.8.md#version-pinned-sources) describe version-pinned installation. Run in the installed Codex CLI:
+The default-source recipe uses the integrated package; [release details](../releases/v0.1.0-preview.9.md#version-pinned-sources) describe version-pinned installation. Run in the installed Codex CLI:
 
 ```sh
 codex plugin marketplace add omarfrancodev/devcraft-toolkit
@@ -44,3 +44,31 @@ Remove the selected suite with `codex plugin remove devcraft-toolkit@devcraft-to
 ## Optional routes
 
 [Individual skills](individual-skills.md) use selector `codex`. [Local development](development.md) covers local marketplace sources and their different update behavior. Shared `.agents/skills` discovery roots are not cross-client access control.
+
+## Plugin presentation
+
+The Codex marketplace entry declares `Developer Tools`. Root `plugin.json` supplies
+listing metadata through `extensions.com.openai.interface`, including the display
+name, project website and category. Both `logo` (listing) and `composerIcon`
+(composer) use `./assets/logo.png`; `assets/logo.svg` is the editable source.
+Paths resolve from the plugin root, not the manifest directory. Claude's
+compatibility manifest declares its own fields; see [metadata across clients](metadata.md).
+
+For this package, the offline distribution validator requires the declared
+presentation, matching category and packaged PNG icons under `assets/`. It checks
+path containment, a 5 MiB file limit, square dimensions from 48 to 4096 pixels,
+PNG signature and chunk integrity. It does not render images or establish their
+appearance in the desktop app.
+
+Refresh the marketplace and inspect the installed revision after a published
+presentation update, then restart the app. A version-pinned installation keeps its
+selected version until deliberately changed. Editing the repository does not
+change an already installed plugin cache.
+
+See OpenAI's [package guide](https://developers.openai.com/plugins/build/plugins)
+and [listing metadata reference](https://developers.openai.com/plugins/deploy/submission).
+
+Each available skill also supplies a concise selector title and description in
+its own `agents/openai.yaml`. These labels omit the plugin prefix while preserving
+canonical names and namespaces. See [skill labels](metadata.md#skill-labels-in-codex)
+for the package contract and update/reload requirements.

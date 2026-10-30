@@ -2,7 +2,7 @@
 
 ## Install the complete remote suite
 
-Use a **Copilot** harness session in VS Code. The default-source recipe uses the integrated package. See [release details](../releases/v0.1.0-preview.8.md#version-pinned-sources) for source selection and the retained native-validation limits.
+Use a **Copilot** harness session in VS Code. The default-source recipe uses the integrated package. See [release details](../releases/v0.1.0-preview.9.md#version-pinned-sources) for source selection and the retained native-validation limits.
 
 1. In VS Code Settings, add `omarfrancodev/devcraft-toolkit` to `chat.plugins.marketplaces`. Preserve existing entries; this setting is currently experimental.
 2. Open Agent Customizations > Plugins, or the Agent Plugins view.
@@ -32,3 +32,12 @@ Copilot slash commands and Agent Customizations currently have different invento
 [Individual skills](individual-skills.md) use selector `github-copilot`. [Local development](development.md) documents local plugin locations separately.
 
 The [official plugin guide](https://code.visualstudio.com/docs/agent-customization/agent-plugins) documents these interfaces. An isolated authenticated Copilot session was unavailable; this route is documented, not a native activation pass. [Compatibility](../compatibility.md) preserves that limit.
+
+## Presentation metadata
+
+The suite supplies portable author, description, homepage, repository and
+keywords, plus category and tags in the shared marketplace. The reviewed VS Code
+authoring reference does not establish a plugin-specific image field or guarantee
+that every catalog label is rendered in the UI. This package remains an Agent
+Plugins bundle; no VS Code extension manifest is added for branding.
+See [metadata across clients](metadata.md) for the per-client contract.

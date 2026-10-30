@@ -1,0 +1,3 @@
+interface:
+  display_name: "Git Stage Changes"
+  short_description: "Stage an exact selection while preserving other work"

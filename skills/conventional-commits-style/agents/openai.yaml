@@ -1,0 +1,3 @@
+interface:
+  display_name: "Conventional Commits Style"
+  short_description: "Format clear messages using Conventional Commits"

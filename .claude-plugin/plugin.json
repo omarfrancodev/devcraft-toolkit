@@ -1,8 +1,18 @@
 {
   "name": "devcraft-toolkit",
-  "version": "0.1.0-preview.8",
+  "version": "0.1.0-preview.9",
   "description": "Composable Git and development skills for coding agents.",
   "author": {
     "name": "omarfrancodev"
-  }
+  },
+  "homepage": "https://github.com/omarfrancodev/devcraft-toolkit",
+  "repository": "https://github.com/omarfrancodev/devcraft-toolkit",
+  "displayName": "Devcraft Toolkit",
+  "keywords": [
+    "git",
+    "commit",
+    "report",
+    "validation"
+  ],
+  "icon": "./assets/logo.png"
 }

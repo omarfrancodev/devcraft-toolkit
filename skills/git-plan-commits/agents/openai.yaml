@@ -1,0 +1,3 @@
+interface:
+  display_name: "Git Plan Commits"
+  short_description: "Propose focused commit groups from local changes"

@@ -7,7 +7,17 @@
     {
       "name": "devcraft-toolkit",
       "source": "./",
-      "description": "Composable Git and development skills for coding agents."
+      "description": "Composable Git and development skills for coding agents.",
+      "category": "Developer Tools",
+      "tags": [
+        "git",
+        "commit",
+        "report",
+        "validation"
+      ]
     }
-  ]
+  ],
+  "metadata": {
+    "description": "Composable Git and development skills for coding agents."
+  }
 }

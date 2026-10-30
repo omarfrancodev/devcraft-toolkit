@@ -1,0 +1,3 @@
+interface:
+  display_name: "Git Working Directory Policy"
+  short_description: "Identify the repository, worktree, branch and identity"

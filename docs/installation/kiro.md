@@ -19,7 +19,7 @@ makes this field optional, while [Kiro's Power authoring guide](https://kiro.dev
 lists it as required for activation. This package follows Kiro's guidance; its
 offline validator requires a non-empty array of non-empty strings. Consumers
 do not need to edit the downloaded manifest. The Claude compatibility manifest
-keeps its minimal common metadata.
+also carries discovery keywords with client-specific semantics.
 
 The historical b05a8c4 payload predates this correction and omits these keywords.
 Its earlier registration/resource checks do not validate the new manifest.
@@ -29,7 +29,7 @@ inventory and activate it with a relevant request that reads bundled resources;
 compare an unrelated control project. These checks remain pending under
 [compatibility](../compatibility.md#kiro-keywords-correction-f001).
 
-The reviewed import interface does not establish how to pin a Git ref. Do not assume a branch/tree URL works: the [release source note](../releases/v0.1.0-preview.8.md#version-pinned-sources) keeps pinned Power import unverified.
+The reviewed import interface does not establish how to pin a Git ref. Do not assume a branch/tree URL works: the [release source note](../releases/v0.1.0-preview.9.md#version-pinned-sources) keeps pinned Power import unverified.
 
 ## CLI and Crew are separate clients
 
@@ -50,3 +50,12 @@ Use the installed Power's update/removal controls in Kiro IDE and observe scope/
 [Individual skills](individual-skills.md) use the third-party selector `kiro-cli` to write Kiro's shared folders. [Local development](development.md) covers folder imports separately.
 
 The [official Power installation guide](https://kiro.dev/docs/powers/installation/) establishes the remote import route. No isolated Kiro IDE session was available; [native activation remains blocked](../compatibility.md).
+
+## Presentation metadata
+
+The portable manifest includes homepage and repository links as well as the
+existing author, description and activation keywords. Kiro IDE 1.4.26+ documents
+installed-manifest metadata in the Power list and details view. No custom icon
+or category field is established by the reviewed Power authoring format; the
+OpenAI logo extension does not configure Kiro. See [metadata across clients](metadata.md)
+for supported fields and the separate CLI/Crew routes.

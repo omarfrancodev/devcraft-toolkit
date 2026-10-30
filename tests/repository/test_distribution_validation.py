@@ -5,10 +5,12 @@ from __future__ import annotations
 import importlib.util
 import json
 import shutil
+import struct
 import subprocess
 import sys
 import tempfile
 import unittest
+import zlib
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -35,6 +37,14 @@ class DistributionValidationTests(unittest.TestCase):
         root.mkdir()
         shutil.copy2(ROOT / "catalog.json", root / "catalog.json")
         shutil.copytree(ROOT / "skills", root / "skills")
+        # Fixture presentation is independent of the package's authoring labels.
+        catalog = json.loads((root / "catalog.json").read_text(encoding="utf-8"))
+        for index, entry in enumerate(catalog["skills"]):
+            if entry["status"] == "available":
+                self.write_json(root / entry["path"] / "agents/openai.yaml", {
+                    "interface": {"display_name": f"Capability {index + 1}",
+                                  "short_description": "Inspect selected development work safely"},
+                })
         inventory = Path("docs/capability-inventory.md")
         (root / inventory).parent.mkdir(parents=True)
         shutil.copy2(ROOT / inventory, root / inventory)
@@ -43,13 +53,32 @@ class DistributionValidationTests(unittest.TestCase):
             "version": "0.1.0-preview.2",
             "description": "Composable Git and development skills for coding agents.",
             "author": {"name": "omarfrancodev"},
+            "homepage": "https://github.com/omarfrancodev/devcraft-toolkit",
+            "repository": "https://github.com/omarfrancodev/devcraft-toolkit",
         }
+        (root / "assets").mkdir()
+        self.write_png(root / "assets/logo.png")
         self.write_json(root / "plugin.json", {
             "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
             **identity,
             "keywords": ["git", "commit", "report", "validation"],
+            "extensions": {"com.openai": {"interface": {
+                "displayName": "Devcraft Toolkit",
+                "shortDescription": "Composable Git tools",
+                "longDescription": identity["description"],
+                "developerName": "omarfrancodev",
+                "category": "Developer Tools",
+                "websiteURL": "https://github.com/omarfrancodev/devcraft-toolkit",
+                "logo": "./assets/logo.png",
+                "composerIcon": "./assets/logo.png",
+            }}},
         })
-        self.write_json(root / ".claude-plugin/plugin.json", identity)
+        self.write_json(root / ".claude-plugin/plugin.json", {
+            **identity,
+            "displayName": "Devcraft Toolkit",
+            "keywords": ["git", "commit", "report", "validation"],
+            "icon": "./assets/logo.png",
+        })
         self.write_json(root / ".agents/plugins/marketplace.json", {
             "name": "devcraft-toolkit",
             "interface": {"displayName": "Devcraft Toolkit"},
@@ -57,19 +86,268 @@ class DistributionValidationTests(unittest.TestCase):
                 "name": "devcraft-toolkit",
                 "source": {"source": "local", "path": "./"},
                 "policy": {"installation": "AVAILABLE", "authentication": "ON_INSTALL"},
-                "category": "Productivity",
+                "category": "Developer Tools",
             }],
         })
         self.write_json(root / ".claude-plugin/marketplace.json", {
             "name": "devcraft-toolkit",
             "owner": {"name": "omarfrancodev"},
+            "metadata": {"description": identity["description"]},
             "plugins": [{
                 "name": "devcraft-toolkit",
                 "source": "./",
                 "description": identity["description"],
+                "category": "Developer Tools",
+                "tags": ["git", "commit", "report", "validation"],
             }],
         })
         return root
+
+    def write_png(self, path, width=64, height=64):
+        # A real, independently constructed RGBA PNG, requiring no image library.
+        def chunk(kind, data):
+            return (struct.pack(">I", len(data)) + kind + data
+                    + struct.pack(">I", zlib.crc32(kind + data)))
+        rows = (b"\x00" + b"\x10\x1b\x2d\xff" * width) * height
+        path.write_bytes(
+            b"\x89PNG\r\n\x1a\n"
+            + chunk(b"IHDR", struct.pack(">IIBBBBB", width, height, 8, 6, 0, 0, 0))
+            + chunk(b"IDAT", zlib.compress(rows)) + chunk(b"IEND", b""))
+
+    def presentation_path(self, root, skill="git-commit-builder"):
+        return root / "skills" / skill / "agents/openai.yaml"
+
+    def test_every_available_skill_requires_presentation(self):
+        root = self.make_root()
+        catalog = json.loads((root / "catalog.json").read_text(encoding="utf-8"))
+        for entry in catalog["skills"]:
+            if entry["status"] == "available":
+                path = root / entry["path"] / "agents/openai.yaml"
+                original = path.read_bytes()
+                with self.subTest(skill=entry["name"]):
+                    path.unlink()
+                    issues = self.validate(root)
+                    self.assertTrue(any(issue.code == "distribution-skill-interface"
+                                        and issue.path == path.relative_to(root).as_posix()
+                                        for issue in issues))
+                path.write_bytes(original)
+
+    def test_skill_presentation_rejects_invalid_yaml_and_shape(self):
+        root = self.make_root()
+        path = self.presentation_path(root)
+        for invalid in ("interface: [unfinished", "[]", "null", "{}", "interface: []",
+                        "interface: {display_name: Example}"):
+            with self.subTest(yaml=invalid):
+                path.write_text(invalid, encoding="utf-8")
+                self.assertIn("distribution-skill-interface", self.codes(root))
+
+    def test_skill_presentation_rejects_invalid_names_and_blurbs(self):
+        root = self.make_root()
+        path = self.presentation_path(root)
+        for field, values in (
+            ("display_name", (None, 17, [], "", "   ", " Name", "Two\nLines", "x" * 65,
+                              "Devcraft Toolkit: Git Commit Builder", "devcraft-toolkit:git-commit-builder")),
+            ("short_description", (None, [], "short", "x" * 65, "Line one\nwith a second line of text")),
+        ):
+            for value in values:
+                with self.subTest(field=field, value=value):
+                    interface = {"display_name": "Git Commit Builder",
+                                 "short_description": "Build scoped commits from selected changes"}
+                    interface[field] = value
+                    self.write_json(path, {"interface": interface})
+                    self.assertIn("distribution-skill-interface", self.codes(root))
+
+    def test_skill_presentation_names_must_be_unique_case_insensitively(self):
+        root = self.make_root()
+        for skill, name in (("git-commit-builder", "Git Commit Builder"),
+                            ("git-stage-changes", "git commit builder")):
+            self.write_json(self.presentation_path(root, skill), {"interface": {
+                "display_name": name,
+                "short_description": "Build scoped commits from selected changes"}})
+        self.assertIn("distribution-skill-interface", self.codes(root))
+
+    def test_skill_presentation_does_not_change_invocation_policy_or_dependencies(self):
+        root = self.make_root()
+        path = self.presentation_path(root)
+        for extras in ({"policy": {"allow_implicit_invocation": False}},
+                       {"dependencies": {"tools": []}}):
+            with self.subTest(fields=extras):
+                self.write_json(path, {"interface": {
+                    "display_name": "Git Commit Builder",
+                    "short_description": "Build scoped commits from selected changes"}, **extras})
+                self.assertIn("distribution-skill-interface", self.codes(root))
+        self.write_json(path, {"interface": {
+            "display_name": "Git Commit Builder",
+            "short_description": "Build scoped commits from selected changes",
+            "default_prompt": "Run without reading the skill"}})
+        self.assertIn("distribution-skill-interface", self.codes(root))
+
+    def test_skill_presentation_accepts_yaml_labels_without_changing_identity(self):
+        root = self.make_root()
+        path = self.presentation_path(root)
+        source = (path.parent.parent / "SKILL.md").read_bytes()
+        path.write_text('interface:\n  display_name: "Precise Commit Preparation"\n'
+                        '  short_description: "Build scoped commits from selected changes"\n', encoding="utf-8")
+        self.assertEqual([], self.validate(root))
+        self.assertEqual(source, (path.parent.parent / "SKILL.md").read_bytes())
+
+    def test_planned_skills_do_not_require_presentation_placeholders(self):
+        root = self.make_root()
+        self.planned_fixture_entry(root)
+        self.assertEqual([], self.validate(root))
+
+    def test_missing_or_malformed_openai_presentation_is_reported(self):
+        root = self.make_root()
+        for bad in (None, [], {}, {"com.openai": None},
+                    {"com.openai": []}, {"com.openai": {}},
+                    {"com.openai": {"interface": []}}):
+            with self.subTest(extensions=bad):
+                self.edit(root, "plugin.json", lambda v: v.update(extensions=bad))
+                self.assertIn("distribution-interface", self.codes(root))
+        self.edit(root, "plugin.json", lambda v: v.pop("extensions"))
+        self.assertIn("distribution-interface", self.codes(root))
+
+    def test_presentation_requires_both_icons(self):
+        root = self.make_root()
+        for field in ("logo", "composerIcon"):
+            with self.subTest(field=field):
+                self.edit(root, "plugin.json", lambda v:
+                          v["extensions"]["com.openai"]["interface"].pop(field))
+                self.assertIn("distribution-asset", self.codes(root))
+                self.edit(root, "plugin.json", lambda v:
+                          v["extensions"]["com.openai"]["interface"].update({field: "./assets/logo.png"}))
+
+    def test_presentation_and_marketplace_categories_must_be_developer_tools(self):
+        root = self.make_root()
+        for bad in ("Productivity", "developer-tools", [], None):
+            with self.subTest(category=bad):
+                self.edit(root, "plugin.json", lambda v:
+                          v["extensions"]["com.openai"]["interface"].update(category=bad))
+                self.assertIn("distribution-interface", self.codes(root))
+                self.edit(root, ".agents/plugins/marketplace.json", lambda v:
+                          v["plugins"][0].update(category=bad))
+                self.assertIn("distribution-metadata", self.codes(root))
+
+    def test_presentation_cannot_override_components(self):
+        root = self.make_root()
+        self.edit(root, "plugin.json", lambda v:
+                  v["extensions"]["com.openai"].update(skills="./foreign/"))
+        self.assertIn("distribution-interface", self.codes(root))
+
+    def test_missing_or_directory_icon_is_reported(self):
+        root = self.make_root()
+        icon = root / "assets/logo.png"
+        icon.unlink()
+        self.assertIn("distribution-asset", self.codes(root))
+        icon.mkdir()
+        self.assertIn("distribution-asset", self.codes(root))
+
+    def test_icons_must_use_packaged_assets_paths(self):
+        root = self.make_root()
+        self.write_png(root.parent / "outside.png")
+        for bad in (None, 17, [], "", "assets/logo.png", "./../outside.png",
+                    "./assets/../../outside.png", "./plugin.json",
+                    "https://example.com/logo.png", "C:/logo.png",
+                    "./assets\\logo.png", "./assets/logo.png?raw=1"):
+            with self.subTest(path=bad):
+                self.edit(root, "plugin.json", lambda v:
+                          v["extensions"]["com.openai"]["interface"].update(logo=bad))
+                self.assertIn("distribution-asset", self.codes(root))
+
+    def test_icon_symlink_cannot_escape_package(self):
+        root = self.make_root()
+        outside = root.parent / "outside.png"
+        self.write_png(outside)
+        icon = root / "assets/logo.png"
+        icon.unlink()
+        try:
+            icon.symlink_to(outside)
+        except OSError as exc:
+            self.skipTest(f"Symlinks unavailable: {exc}")
+        self.assertIn("distribution-asset", self.codes(root))
+
+    def test_icon_must_be_a_complete_png(self):
+        root = self.make_root()
+        icon = root / "assets/logo.png"
+        good = icon.read_bytes()
+        corrupted = bytearray(good)
+        corrupted[29] ^= 1  # IHDR checksum corruption.
+        for bad in (b"not a PNG", good[:33], good[:-1], bytes(corrupted)):
+            with self.subTest(size=len(bad)):
+                icon.write_bytes(bad)
+                self.assertIn("distribution-asset", self.codes(root))
+
+    def test_icons_must_be_square_and_within_size_limits(self):
+        root = self.make_root()
+        icon = root / "assets/logo.png"
+        for width, height in ((47, 47), (64, 48), (4097, 1)):
+            with self.subTest(dimensions=(width, height)):
+                self.write_png(icon, width, height)
+                self.assertIn("distribution-asset", self.codes(root))
+        icon.write_bytes(b"x" * (5 * 1024 * 1024 + 1))
+        self.assertIn("distribution-asset", self.codes(root))
+
+    def test_portable_links_and_claude_metadata_cannot_drift(self):
+        root = self.make_root()
+        for path, fields in (
+            ("plugin.json", ("homepage", "repository")),
+            (".claude-plugin/plugin.json", ("homepage", "repository", "displayName")),
+        ):
+            original = (root / path).read_bytes()
+            for field in fields:
+                with self.subTest(path=path, field=field):
+                    self.edit(root, path, lambda v: v.update({field: "https://example.com/foreign"}))
+                    self.assertIn("distribution-metadata", self.codes(root))
+                (root / path).write_bytes(original)
+
+    def test_claude_directory_icon_is_packaged_and_validated_at_its_manifest(self):
+        root = self.make_root()
+        for bad in (None, "./assets/missing.png", "../outside.png", "https://example.com/logo.png"):
+            with self.subTest(icon=bad):
+                self.edit(root, ".claude-plugin/plugin.json", lambda v: v.update(icon=bad))
+                issues = self.validate(root)
+                self.assertTrue(any(issue.code == "distribution-asset"
+                                    and issue.path == ".claude-plugin/plugin.json" for issue in issues))
+
+    def test_claude_keywords_must_be_nonempty_strings(self):
+        root = self.make_root()
+        for bad in (None, [], "git", [""]):
+            with self.subTest(keywords=bad):
+                self.edit(root, ".claude-plugin/plugin.json", lambda v: v.update(keywords=bad))
+                self.assertIn("distribution-keywords", self.codes(root))
+
+    def test_shared_marketplace_requires_category_tags_and_description(self):
+        root = self.make_root()
+        path = ".claude-plugin/marketplace.json"
+        original = (root / path).read_bytes()
+        mutations = (
+            lambda v: v.pop("metadata"),
+            lambda v: v["plugins"][0].pop("category"),
+            lambda v: v["plugins"][0].update(category="Productivity"),
+            lambda v: v["plugins"][0].update(tags="git"),
+        )
+        for mutation in mutations:
+            with self.subTest(mutation=mutation):
+                self.edit(root, path, mutation)
+                self.assertIn("distribution-metadata", self.codes(root))
+            (root / path).write_bytes(original)
+
+    def test_client_only_fields_do_not_leak_into_portable_manifest_or_shared_catalog(self):
+        root = self.make_root()
+        for path, updates in (
+            ("plugin.json", {"icon": "./assets/logo.png"}),
+            ("plugin.json", {"displayName": "Devcraft Toolkit"}),
+            ("plugin.json", {"category": "Developer Tools"}),
+            (".claude-plugin/marketplace.json", {"icon": "./assets/logo.png"}),
+        ):
+            with self.subTest(path=path, fields=updates):
+                original = (root / path).read_bytes()
+                if path == "plugin.json":
+                    self.edit(root, path, lambda v: v.update(updates))
+                else:
+                    self.edit(root, path, lambda v: v["plugins"][0].update(updates))
+                self.assertIn("distribution-metadata", self.codes(root))
+                (root / path).write_bytes(original)
 
     def edit(self, root, path, change):
         file = root / path

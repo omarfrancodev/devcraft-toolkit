@@ -1,0 +1,3 @@
+interface:
+  display_name: "Git Publish Work"
+  short_description: "Coordinate selected commits, push and pull requests"

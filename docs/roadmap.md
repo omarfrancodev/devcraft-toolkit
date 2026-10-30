@@ -72,3 +72,12 @@ CCR, a custom installer, release automation and public directory submission rema
 ## Next work after the target inventory
 
 Validate a small authenticated Codex invocation with selected installation identity and source/resource checks, then exercise Copilot CLI and VS Code, Claude Code and Kiro CLI V3/IDE/Crew separately. Verify user/project scope and actual version-changing update/removal as applicable. Keep unobserved rows open. Use resulting evidence to improve existing instructions and integration behavior; do not invent new planned capability names. CCR, custom installer, release automation and public-directory submission remain deferred. Preview.8 release preparation belongs to PR #10; its exact merge is the tag/asset source.
+
+## Presentation metadata release
+
+[Preview.9](releases/v0.1.0-preview.9.md) retains eighteen available skills and
+adds client-specific plugin presentation plus self-contained Codex skill labels.
+The changelog, release notes, version updates and source pointers belong to
+PR #11; tag and assets target that exact merge commit with no later preparation
+commit. Native UI rendering after update/reload remains part of the validation
+track above, independently of structural metadata checks.

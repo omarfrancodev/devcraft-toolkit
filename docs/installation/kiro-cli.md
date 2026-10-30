@@ -60,3 +60,9 @@ No authenticated CLI V3 session has passed in an isolated environment here.
 Official references: [V3 discovery](https://kiro.dev/docs/cli/v3/new-features/),
 [Power management from CLI 2.25.0](https://kiro.dev/changelog/cli/2-25/)
 and [skill scopes](https://kiro.dev/docs/skills/).
+
+## Presentation metadata
+
+The shared Power retains the portable identity, project links and activation
+keywords. This does not establish a custom logo/category in CLI V3. The complete
+folder fallback uses each skill's own metadata. See [metadata across clients](metadata.md).

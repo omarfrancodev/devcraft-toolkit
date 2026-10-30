@@ -8,7 +8,7 @@ by this route. IDE/CLI Power inheritance into Crew is not established here.
 
 1. Open Settings > Skills > Discover.
 2. Enter `omarfrancodev/devcraft-toolkit`, or select the
-   [release-pinned source](../releases/v0.1.0-preview.8.md#version-pinned-sources).
+   [release-pinned source](../releases/v0.1.0-preview.9.md#version-pinned-sources).
 3. Select/import all available skill directories from the chosen revision. The interface may confirm
    each import separately; this is a complete skill set, not an atomic plugin.
 4. Inspect each imported source revision, actual discovery path and all bundled
@@ -69,3 +69,10 @@ made that importing skills gives every restricted agent access.
 Official references: [native import](https://kiro.dev/docs/crew/capabilities/skills/),
 [source/resource rules](https://github.com/kirodotdev/KiroCrew/blob/main/src/kiro_crew/docs/skills.md)
 and [existing agent mappings](https://github.com/kirodotdev/KiroCrew/blob/main/src/kiro_crew/docs/agents.md).
+
+## Presentation metadata
+
+Crew's documented route imports skill folders and exposes their names and
+descriptions. It does not register the suite manifest, category or logo as a
+plugin. No toolkit App or template is added for visual branding.
+See [metadata across clients](metadata.md) for the distinction from Powers.

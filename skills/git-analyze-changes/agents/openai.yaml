@@ -1,0 +1,3 @@
+interface:
+  display_name: "Git Analyze Changes"
+  short_description: "Explain staged, unstaged and untracked changes"

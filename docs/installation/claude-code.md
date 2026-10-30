@@ -2,7 +2,7 @@
 
 ## Install the complete remote suite
 
-The default-source recipe uses the integrated package; [release details](../releases/v0.1.0-preview.8.md#version-pinned-sources) describe version-pinned installation. Register this repository from your shell:
+The default-source recipe uses the integrated package; [release details](../releases/v0.1.0-preview.9.md#version-pinned-sources) describe version-pinned installation. Register this repository from your shell:
 
 ```sh
 claude plugin marketplace add omarfrancodev/devcraft-toolkit
@@ -34,3 +34,12 @@ Remove only the chosen scope with `claude plugin uninstall devcraft-toolkit@devc
 [Individual skills](individual-skills.md) use selector `claude-code`. [Local development](development.md) is separate: local-folder updates do not use the Git marketplace refresh path.
 
 See the [official installation and scope reference](https://code.claude.com/docs/en/discover-plugins).
+
+## Presentation metadata
+
+The Claude manifest declares `Devcraft Toolkit` as its `displayName`, project
+homepage/repository links, discovery keywords and `icon: ./assets/logo.png`.
+The shared marketplace declares `Developer Tools` and discovery tags.
+Anthropic documents `icon` for its directory; Claude Code ignores that field at
+runtime, so it does not establish a custom icon in the CLI/plugin UI.
+See [metadata across clients](metadata.md) for validator versions and evidence.

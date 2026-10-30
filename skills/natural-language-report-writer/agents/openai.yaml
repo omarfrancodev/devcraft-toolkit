@@ -1,0 +1,3 @@
+interface:
+  display_name: "Natural Language Report Writer"
+  short_description: "Write audience-focused reports from supplied evidence"
