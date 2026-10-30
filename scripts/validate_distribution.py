@@ -6,13 +6,16 @@ import argparse
 import json
 import os
 import re
-from pathlib import Path
+import struct
+import zlib
+from pathlib import Path, PurePosixPath
 
 from scripts.validate_repository import ValidationIssue, validate_repository
 
 _NAME = "devcraft-toolkit"
 _DESCRIPTION = "Composable Git and development skills for coding agents."
 _AUTHOR = {"name": "omarfrancodev"}
+_CATEGORY = "Developer Tools"
 _SCHEMA = "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json"
 _NUMBER = r"(?:0|[1-9][0-9]*)"
 _IDENTIFIER = r"(?:0|[1-9][0-9]*|[0-9]*[A-Za-z-][0-9A-Za-z-]*)"
@@ -49,6 +52,83 @@ def _check_source(root: Path, relative: str, source, issues: list[ValidationIssu
         issues.append(ValidationIssue("distribution-source", relative, "Source must resolve to this package root."))
 
 
+def _check_icon(root: Path, field: str, relative, issues: list[ValidationIssue]) -> None:
+    """Check the package's square PNG icon contract, without fetching or rendering."""
+    try:
+        if (not isinstance(relative, str) or not relative.startswith("./assets/")
+                or "\\" in relative or ".." in PurePosixPath(relative).parts
+                or PurePosixPath(relative).suffix != ".png"):
+            raise ValueError("Expected a ./assets/ PNG path")
+        path = (root / relative).resolve()
+        if not path.is_relative_to(root) or not path.is_relative_to(root / "assets"):
+            raise ValueError("Icon escapes packaged assets")
+        if not path.is_file() or path.stat().st_size > 5 * 1024 * 1024:
+            raise ValueError("Expected a PNG file no larger than 5 MiB")
+        data = path.read_bytes()
+        if len(data) > 5 * 1024 * 1024 or not data.startswith(b"\x89PNG\r\n\x1a\n"):
+            raise ValueError("Expected PNG bytes")
+        offset, image_data, ended = 8, False, False
+        while offset < len(data):
+            if offset + 12 > len(data):
+                raise ValueError("Truncated PNG chunk")
+            size = struct.unpack_from(">I", data, offset)[0]
+            end = offset + 12 + size
+            if end > len(data):
+                raise ValueError("Truncated PNG chunk data")
+            kind = data[offset + 4:offset + 8]
+            payload = data[offset + 8:end - 4]
+            crc = struct.unpack_from(">I", data, end - 4)[0]
+            if zlib.crc32(kind + payload) != crc:
+                raise ValueError("Invalid PNG chunk checksum")
+            if offset == 8:
+                if kind != b"IHDR" or size != 13:
+                    raise ValueError("Expected PNG image header")
+                width, height = struct.unpack_from(">II", payload)
+                if not 48 <= width == height <= 4096:
+                    raise ValueError("Expected a square icon from 48 to 4096 pixels")
+            elif kind == b"IHDR":
+                raise ValueError("Duplicate PNG image header")
+            if kind == b"IDAT" and payload:
+                image_data = True
+            if kind == b"IEND":
+                if size != 0 or end != len(data) or not image_data:
+                    raise ValueError("Invalid PNG image ending")
+                ended = True
+            offset = end
+        if not ended:
+            raise ValueError("Missing PNG image ending")
+    except (OSError, RuntimeError, ValueError) as exc:
+        issues.append(ValidationIssue(
+            "distribution-asset", "plugin.json",
+            f"{field}: expected a packaged square PNG with intact chunks ({type(exc).__name__})."))
+
+
+def _check_interface(root: Path, extensions, issues: list[ValidationIssue]) -> None:
+    """Keep OpenAI presentation separate from portable identity and components."""
+    openai = extensions.get("com.openai") if isinstance(extensions, dict) else None
+    interface = openai.get("interface") if isinstance(openai, dict) else None
+    if not isinstance(interface, dict):
+        issues.append(ValidationIssue(
+            "distribution-interface", "plugin.json", "Expected extensions.com.openai.interface."))
+        return
+    expected = {
+        "displayName": "Devcraft Toolkit",
+        "shortDescription": "Composable Git tools",
+        "longDescription": _DESCRIPTION,
+        "developerName": _AUTHOR["name"],
+        "category": _CATEGORY,
+        "websiteURL": "https://github.com/omarfrancodev/devcraft-toolkit",
+        "logo": interface.get("logo"),
+        "composerIcon": interface.get("composerIcon"),
+    }
+    if extensions != {"com.openai": {"interface": expected}}:
+        issues.append(ValidationIssue(
+            "distribution-interface", "plugin.json",
+            "Unexpected listing identity, category, fields, or component override."))
+    for field in ("logo", "composerIcon"):
+        _check_icon(root, field, interface.get(field), issues)
+
+
 def _check_marketplace(root: Path, relative: str, codex: bool, issues: list[ValidationIssue]) -> None:
     value = _read_object(root, relative, issues)
     if value is None:
@@ -70,7 +150,7 @@ def _check_marketplace(root: Path, relative: str, codex: bool, issues: list[Vali
             "name": _NAME,
             "source": entry.get("source"),
             "policy": {"installation": "AVAILABLE", "authentication": "ON_INSTALL"},
-            "category": "Productivity",
+            "category": _CATEGORY,
         }
         source = entry.get("source")
         if not isinstance(source, dict) or set(source) != {"source", "path"} or source.get("source") != "local":
@@ -100,6 +180,8 @@ def validate_distribution(root: Path) -> list[ValidationIssue]:
         if portable:
             expected["$schema"] = _SCHEMA
             expected["keywords"] = value.get("keywords")
+            expected["extensions"] = value.get("extensions")
+            _check_interface(root, value.get("extensions"), issues)
             keywords = value.get("keywords")
             if (not isinstance(keywords, list) or not keywords
                     or any(not isinstance(item, str) or not item.strip() for item in keywords)):

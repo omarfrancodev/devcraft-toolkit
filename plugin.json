@@ -11,5 +11,19 @@
     "commit",
     "report",
     "validation"
-  ]
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Devcraft Toolkit",
+        "shortDescription": "Composable Git tools",
+        "longDescription": "Composable Git and development skills for coding agents.",
+        "developerName": "omarfrancodev",
+        "category": "Developer Tools",
+        "websiteURL": "https://github.com/omarfrancodev/devcraft-toolkit",
+        "logo": "./assets/logo.png",
+        "composerIcon": "./assets/logo.png"
+      }
+    }
+  }
 }

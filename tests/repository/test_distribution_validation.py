@@ -5,6 +5,8 @@ from __future__ import annotations
 import importlib.util
 import json
 import shutil
+import struct
+import zlib
 import subprocess
 import sys
 import tempfile
@@ -44,10 +46,22 @@ class DistributionValidationTests(unittest.TestCase):
             "description": "Composable Git and development skills for coding agents.",
             "author": {"name": "omarfrancodev"},
         }
+        (root / "assets").mkdir()
+        self.write_png(root / "assets/logo.png")
         self.write_json(root / "plugin.json", {
             "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
             **identity,
             "keywords": ["git", "commit", "report", "validation"],
+            "extensions": {"com.openai": {"interface": {
+                "displayName": "Devcraft Toolkit",
+                "shortDescription": "Composable Git tools",
+                "longDescription": identity["description"],
+                "developerName": "omarfrancodev",
+                "category": "Developer Tools",
+                "websiteURL": "https://github.com/omarfrancodev/devcraft-toolkit",
+                "logo": "./assets/logo.png",
+                "composerIcon": "./assets/logo.png",
+            }}},
         })
         self.write_json(root / ".claude-plugin/plugin.json", identity)
         self.write_json(root / ".agents/plugins/marketplace.json", {
@@ -57,7 +71,7 @@ class DistributionValidationTests(unittest.TestCase):
                 "name": "devcraft-toolkit",
                 "source": {"source": "local", "path": "./"},
                 "policy": {"installation": "AVAILABLE", "authentication": "ON_INSTALL"},
-                "category": "Productivity",
+                "category": "Developer Tools",
             }],
         })
         self.write_json(root / ".claude-plugin/marketplace.json", {
@@ -70,6 +84,108 @@ class DistributionValidationTests(unittest.TestCase):
             }],
         })
         return root
+
+    def write_png(self, path, width=64, height=64):
+        # A real, independently constructed RGBA PNG, requiring no image library.
+        def chunk(kind, data):
+            return (struct.pack(">I", len(data)) + kind + data
+                    + struct.pack(">I", zlib.crc32(kind + data)))
+        rows = (b"\x00" + b"\x10\x1b\x2d\xff" * width) * height
+        path.write_bytes(
+            b"\x89PNG\r\n\x1a\n"
+            + chunk(b"IHDR", struct.pack(">IIBBBBB", width, height, 8, 6, 0, 0, 0))
+            + chunk(b"IDAT", zlib.compress(rows)) + chunk(b"IEND", b""))
+
+    def test_missing_or_malformed_openai_presentation_is_reported(self):
+        root = self.make_root()
+        for bad in (None, [], {}, {"com.openai": None},
+                    {"com.openai": []}, {"com.openai": {}},
+                    {"com.openai": {"interface": []}}):
+            with self.subTest(extensions=bad):
+                self.edit(root, "plugin.json", lambda v: v.update(extensions=bad))
+                self.assertIn("distribution-interface", self.codes(root))
+        self.edit(root, "plugin.json", lambda v: v.pop("extensions"))
+        self.assertIn("distribution-interface", self.codes(root))
+
+    def test_presentation_requires_both_icons(self):
+        root = self.make_root()
+        for field in ("logo", "composerIcon"):
+            with self.subTest(field=field):
+                self.edit(root, "plugin.json", lambda v:
+                          v["extensions"]["com.openai"]["interface"].pop(field))
+                self.assertIn("distribution-asset", self.codes(root))
+                self.edit(root, "plugin.json", lambda v:
+                          v["extensions"]["com.openai"]["interface"].update({field: "./assets/logo.png"}))
+
+    def test_presentation_and_marketplace_categories_must_be_developer_tools(self):
+        root = self.make_root()
+        for bad in ("Productivity", "developer-tools", [], None):
+            with self.subTest(category=bad):
+                self.edit(root, "plugin.json", lambda v:
+                          v["extensions"]["com.openai"]["interface"].update(category=bad))
+                self.assertIn("distribution-interface", self.codes(root))
+                self.edit(root, ".agents/plugins/marketplace.json", lambda v:
+                          v["plugins"][0].update(category=bad))
+                self.assertIn("distribution-metadata", self.codes(root))
+
+    def test_presentation_cannot_override_components(self):
+        root = self.make_root()
+        self.edit(root, "plugin.json", lambda v:
+                  v["extensions"]["com.openai"].update(skills="./foreign/"))
+        self.assertIn("distribution-interface", self.codes(root))
+
+    def test_missing_or_directory_icon_is_reported(self):
+        root = self.make_root()
+        icon = root / "assets/logo.png"
+        icon.unlink()
+        self.assertIn("distribution-asset", self.codes(root))
+        icon.mkdir()
+        self.assertIn("distribution-asset", self.codes(root))
+
+    def test_icons_must_use_packaged_assets_paths(self):
+        root = self.make_root()
+        self.write_png(root.parent / "outside.png")
+        for bad in (None, 17, [], "", "assets/logo.png", "./../outside.png",
+                    "./assets/../../outside.png", "./plugin.json",
+                    "https://example.com/logo.png", "C:/logo.png",
+                    "./assets\\logo.png", "./assets/logo.png?raw=1"):
+            with self.subTest(path=bad):
+                self.edit(root, "plugin.json", lambda v:
+                          v["extensions"]["com.openai"]["interface"].update(logo=bad))
+                self.assertIn("distribution-asset", self.codes(root))
+
+    def test_icon_symlink_cannot_escape_package(self):
+        root = self.make_root()
+        outside = root.parent / "outside.png"
+        self.write_png(outside)
+        icon = root / "assets/logo.png"
+        icon.unlink()
+        try:
+            icon.symlink_to(outside)
+        except OSError as exc:
+            self.skipTest(f"Symlinks unavailable: {exc}")
+        self.assertIn("distribution-asset", self.codes(root))
+
+    def test_icon_must_be_a_complete_png(self):
+        root = self.make_root()
+        icon = root / "assets/logo.png"
+        good = icon.read_bytes()
+        corrupted = bytearray(good)
+        corrupted[29] ^= 1  # IHDR checksum corruption.
+        for bad in (b"not a PNG", good[:33], good[:-1], bytes(corrupted)):
+            with self.subTest(size=len(bad)):
+                icon.write_bytes(bad)
+                self.assertIn("distribution-asset", self.codes(root))
+
+    def test_icons_must_be_square_and_within_size_limits(self):
+        root = self.make_root()
+        icon = root / "assets/logo.png"
+        for width, height in ((47, 47), (64, 48), (4097, 1)):
+            with self.subTest(dimensions=(width, height)):
+                self.write_png(icon, width, height)
+                self.assertIn("distribution-asset", self.codes(root))
+        icon.write_bytes(b"x" * (5 * 1024 * 1024 + 1))
+        self.assertIn("distribution-asset", self.codes(root))
 
     def edit(self, root, path, change):
         file = root / path

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">Devcraft Toolkit</title>
+  <desc id="desc">Code brackets surrounding a Git branch, on a dark rounded square.</desc>
+  <rect width="256" height="256" rx="52" fill="#101b2d"/>
+  <g fill="none" stroke="#43ddc6" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M82 92 46 128 82 164"/>
+    <path d="m174 92 36 36-36 36"/>
+  </g>
+  <path d="M116 174v-64c0-18 10-28 28-28" fill="none" stroke="#f4f7fc" stroke-width="12" stroke-linecap="round"/>
+  <g fill="#101b2d" stroke="#f4f7fc" stroke-width="7">
+    <circle cx="116" cy="174" r="11"/>
+    <circle cx="116" cy="128" r="11"/>
+  </g>
+  <circle cx="144" cy="82" r="12" fill="#ffb86b"/>
+</svg>

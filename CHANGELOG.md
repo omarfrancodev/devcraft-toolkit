@@ -4,6 +4,18 @@ Release dates use the GitHub publication date in America/Mexico_City. Pre-releas
 
 ## unreleased
 
+### Added
+
+#### Catalog and distribution
+
+- Add an editable Devcraft Toolkit logo and packaged PNG for the Codex listing and composer, with display name and project website metadata.
+
+### Changed
+
+#### Catalog and distribution
+
+- Classify the Codex plugin as `Developer Tools` and validate its presentation metadata, packaged icon paths, PNG chunk integrity and dimensions with offline regressions.
+
 ## 0.1.0-preview.8 — 2026-10-29
 
 ### Added
