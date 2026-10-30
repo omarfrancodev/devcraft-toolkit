@@ -1,0 +1,3 @@
+interface:
+  display_name: "Validation Discovery"
+  short_description: "Discover and run authorized project checks"

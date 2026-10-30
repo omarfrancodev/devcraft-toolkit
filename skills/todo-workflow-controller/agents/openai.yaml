@@ -1,0 +1,3 @@
+interface:
+  display_name: "Todo Workflow Controller"
+  short_description: "Track progress, decisions, blockers and handoffs"

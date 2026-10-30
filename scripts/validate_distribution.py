@@ -10,7 +10,7 @@ import struct
 import zlib
 from pathlib import Path, PurePosixPath
 
-from scripts.validate_repository import ValidationIssue, validate_repository
+from scripts.validate_repository import ValidationIssue, validate_repository, yaml
 
 _NAME = "devcraft-toolkit"
 _DESCRIPTION = "Composable Git and development skills for coding agents."
@@ -170,6 +170,52 @@ def _check_marketplace(root: Path, relative: str, codex: bool, issues: list[Vali
     _check_source(root, relative, path, issues)
 
 
+def _check_skill_interfaces(root: Path, issues: list[ValidationIssue]) -> None:
+    """Require presentation-only Codex metadata for each available capability."""
+    if yaml is None:  # Repository validation already reports the missing parser.
+        return
+    catalog = _read_object(root, "catalog.json", issues)
+    if catalog is None or not isinstance(catalog.get("skills"), list):
+        return
+    seen_names: set[str] = set()
+    for entry in catalog["skills"]:
+        if not isinstance(entry, dict) or entry.get("status") != "available":
+            continue
+        name = entry.get("name")
+        if (not isinstance(name, str) or not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", name)
+                or entry.get("path") != f"skills/{name}"):
+            continue  # Invalid identities/paths are reported by repository validation.
+        relative = f"skills/{name}/agents/openai.yaml"
+        try:
+            skill_root = (root / entry["path"]).resolve()
+            path = root / relative
+            if not skill_root.is_relative_to(root) or not path.resolve().is_relative_to(skill_root):
+                raise ValueError("Presentation metadata escapes its skill")
+            value = yaml.safe_load(path.read_text(encoding="utf-8"))
+            interface = value.get("interface") if isinstance(value, dict) else None
+            if (not isinstance(value, dict) or set(value) != {"interface"}
+                    or not isinstance(interface, dict)
+                    or set(interface) != {"display_name", "short_description"}):
+                raise ValueError("Expected only display_name and short_description under interface")
+            label = interface["display_name"]
+            blurb = interface["short_description"]
+            if (not isinstance(label, str) or not 1 <= len(label) <= 64
+                    or label != label.strip() or not label.isprintable()
+                    or any(character in label for character in ":/\\")):
+                raise ValueError("Expected a short single-line name without a namespace prefix")
+            if (not isinstance(blurb, str) or not 25 <= len(blurb) <= 64
+                    or blurb != blurb.strip() or not blurb.isprintable()):
+                raise ValueError("Expected a single-line description of 25-64 characters")
+            key = label.casefold()
+            if key in seen_names:
+                raise ValueError("Skill display names must be unique")
+            seen_names.add(key)
+        except (OSError, UnicodeError, ValueError, yaml.YAMLError, RecursionError) as exc:
+            issues.append(ValidationIssue(
+                "distribution-skill-interface", relative,
+                f"Expected readable, unique presentation-only skill metadata ({type(exc).__name__})."))
+
+
 def validate_distribution(root: Path) -> list[ValidationIssue]:
     """Return finite local packaging-contract issues; never install or fetch."""
     root = Path(root).resolve()
@@ -210,6 +256,7 @@ def validate_distribution(root: Path) -> list[ValidationIssue]:
 
     for issue in validate_repository(root):
         issues.append(ValidationIssue("distribution-inventory", issue.path, f"{issue.code}: {issue.message}"))
+    _check_skill_interfaces(root, issues)
 
     # Developer fixtures and ignored build/worktree areas are not package components.
     excluded = {".git", ".worktrees", "worktrees", ".superpowers", ".venv", "dist", "tests", "__pycache__", "node_modules"}

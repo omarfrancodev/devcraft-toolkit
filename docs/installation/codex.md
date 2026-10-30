@@ -67,3 +67,8 @@ change an already installed plugin cache.
 
 See OpenAI's [package guide](https://developers.openai.com/plugins/build/plugins)
 and [listing metadata reference](https://developers.openai.com/plugins/deploy/submission).
+
+Each available skill also supplies a concise selector title and description in
+its own `agents/openai.yaml`. These labels omit the plugin prefix while preserving
+canonical names and namespaces. See [skill labels](metadata.md#skill-labels-in-codex)
+for the package contract and update/reload requirements.

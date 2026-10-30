@@ -9,12 +9,14 @@ Release dates use the GitHub publication date in America/Mexico_City. Pre-releas
 #### Catalog and distribution
 
 - Add an editable Devcraft Toolkit logo and packaged PNG for the Codex listing/composer and Claude directory metadata, with client-specific display names and portable project links.
+- Add explicit selector titles and concise UI descriptions to every available skill through self-contained `agents/openai.yaml`, preserving canonical identities and invocation behavior.
 
 ### Changed
 
 #### Catalog and distribution
 
 - Classify the Codex and shared Claude/Copilot marketplace entries as `Developer Tools`, add discovery tags and marketplace description, and validate presentation fields and packaged PNG resources. Document the distinct image/category limits for Copilot, Kiro Powers and Crew.
+- Require unique, unprefixed skill labels and presentation-only metadata in the distribution validator; cover missing, malformed and policy-changing sidecars without adding placeholders for planned capabilities.
 
 ## 0.1.0-preview.8 — 2026-10-29
 

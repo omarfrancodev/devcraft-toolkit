@@ -1,0 +1,3 @@
+interface:
+  display_name: "Git Promote"
+  short_description: "Assess promotion or explicitly merge a request"

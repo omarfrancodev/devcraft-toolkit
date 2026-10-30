@@ -1,0 +1,3 @@
+interface:
+  display_name: "Git Activity Report"
+  short_description: "Summarize local Git activity for a date range"

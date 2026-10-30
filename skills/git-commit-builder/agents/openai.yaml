@@ -1,0 +1,3 @@
+interface:
+  display_name: "Git Commit Builder"
+  short_description: "Build scoped commits from selected local changes"

@@ -1,0 +1,3 @@
+interface:
+  display_name: "Git Publish Changes"
+  short_description: "Publish one committed branch with a normal push"

@@ -37,6 +37,14 @@ class DistributionValidationTests(unittest.TestCase):
         root.mkdir()
         shutil.copy2(ROOT / "catalog.json", root / "catalog.json")
         shutil.copytree(ROOT / "skills", root / "skills")
+        # Fixture presentation is independent of the package's authoring labels.
+        catalog = json.loads((root / "catalog.json").read_text(encoding="utf-8"))
+        for index, entry in enumerate(catalog["skills"]):
+            if entry["status"] == "available":
+                self.write_json(root / entry["path"] / "agents/openai.yaml", {
+                    "interface": {"display_name": f"Capability {index + 1}",
+                                  "short_description": "Inspect selected development work safely"},
+                })
         inventory = Path("docs/capability-inventory.md")
         (root / inventory).parent.mkdir(parents=True)
         shutil.copy2(ROOT / inventory, root / inventory)
@@ -105,6 +113,88 @@ class DistributionValidationTests(unittest.TestCase):
             b"\x89PNG\r\n\x1a\n"
             + chunk(b"IHDR", struct.pack(">IIBBBBB", width, height, 8, 6, 0, 0, 0))
             + chunk(b"IDAT", zlib.compress(rows)) + chunk(b"IEND", b""))
+
+    def presentation_path(self, root, skill="git-commit-builder"):
+        return root / "skills" / skill / "agents/openai.yaml"
+
+    def test_every_available_skill_requires_presentation(self):
+        root = self.make_root()
+        catalog = json.loads((root / "catalog.json").read_text(encoding="utf-8"))
+        for entry in catalog["skills"]:
+            if entry["status"] == "available":
+                path = root / entry["path"] / "agents/openai.yaml"
+                original = path.read_bytes()
+                with self.subTest(skill=entry["name"]):
+                    path.unlink()
+                    issues = self.validate(root)
+                    self.assertTrue(any(issue.code == "distribution-skill-interface"
+                                        and issue.path == path.relative_to(root).as_posix()
+                                        for issue in issues))
+                path.write_bytes(original)
+
+    def test_skill_presentation_rejects_invalid_yaml_and_shape(self):
+        root = self.make_root()
+        path = self.presentation_path(root)
+        for invalid in ("interface: [unfinished", "[]", "null", "{}", "interface: []",
+                        "interface: {display_name: Example}"):
+            with self.subTest(yaml=invalid):
+                path.write_text(invalid, encoding="utf-8")
+                self.assertIn("distribution-skill-interface", self.codes(root))
+
+    def test_skill_presentation_rejects_invalid_names_and_blurbs(self):
+        root = self.make_root()
+        path = self.presentation_path(root)
+        for field, values in (
+            ("display_name", (None, 17, [], "", "   ", " Name", "Two\nLines", "x" * 65,
+                              "Devcraft Toolkit: Git Commit Builder", "devcraft-toolkit:git-commit-builder")),
+            ("short_description", (None, [], "short", "x" * 65, "Line one\nwith a second line of text")),
+        ):
+            for value in values:
+                with self.subTest(field=field, value=value):
+                    interface = {"display_name": "Git Commit Builder",
+                                 "short_description": "Build scoped commits from selected changes"}
+                    interface[field] = value
+                    self.write_json(path, {"interface": interface})
+                    self.assertIn("distribution-skill-interface", self.codes(root))
+
+    def test_skill_presentation_names_must_be_unique_case_insensitively(self):
+        root = self.make_root()
+        for skill, name in (("git-commit-builder", "Git Commit Builder"),
+                            ("git-stage-changes", "git commit builder")):
+            self.write_json(self.presentation_path(root, skill), {"interface": {
+                "display_name": name,
+                "short_description": "Build scoped commits from selected changes"}})
+        self.assertIn("distribution-skill-interface", self.codes(root))
+
+    def test_skill_presentation_does_not_change_invocation_policy_or_dependencies(self):
+        root = self.make_root()
+        path = self.presentation_path(root)
+        for extras in ({"policy": {"allow_implicit_invocation": False}},
+                       {"dependencies": {"tools": []}}):
+            with self.subTest(fields=extras):
+                self.write_json(path, {"interface": {
+                    "display_name": "Git Commit Builder",
+                    "short_description": "Build scoped commits from selected changes"}, **extras})
+                self.assertIn("distribution-skill-interface", self.codes(root))
+        self.write_json(path, {"interface": {
+            "display_name": "Git Commit Builder",
+            "short_description": "Build scoped commits from selected changes",
+            "default_prompt": "Run without reading the skill"}})
+        self.assertIn("distribution-skill-interface", self.codes(root))
+
+    def test_skill_presentation_accepts_yaml_labels_without_changing_identity(self):
+        root = self.make_root()
+        path = self.presentation_path(root)
+        source = (path.parent.parent / "SKILL.md").read_bytes()
+        path.write_text('interface:\n  display_name: "Precise Commit Preparation"\n'
+                        '  short_description: "Build scoped commits from selected changes"\n', encoding="utf-8")
+        self.assertEqual([], self.validate(root))
+        self.assertEqual(source, (path.parent.parent / "SKILL.md").read_bytes())
+
+    def test_planned_skills_do_not_require_presentation_placeholders(self):
+        root = self.make_root()
+        self.planned_fixture_entry(root)
+        self.assertEqual([], self.validate(root))
 
     def test_missing_or_malformed_openai_presentation_is_reported(self):
         root = self.make_root()

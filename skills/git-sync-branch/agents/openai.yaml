@@ -1,0 +1,3 @@
+interface:
+  display_name: "Git Sync Branch"
+  short_description: "Fetch and fast-forward a selected branch safely"

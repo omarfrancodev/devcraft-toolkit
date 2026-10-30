@@ -28,6 +28,35 @@ The PNG and editable SVG are in root `assets/`. Icon paths resolve from the plug
 root. They do not create a dependency from individually installed skills to
 repository-level assets.
 
+## Skill labels in Codex
+
+Each available skill includes `agents/openai.yaml` with its own `interface`:
+
+```yaml
+interface:
+  display_name: "Git Commit Builder"
+  short_description: "Build scoped commits from selected local changes"
+```
+
+These explicit labels configure the selector independently of the plugin title.
+For example, the entry supplies `Using Devcraft Toolkit` rather than including
+the plugin name as a prefix. Namespaces and canonical names in `SKILL.md` remain
+unchanged; the label is not a new invocation identifier.
+
+The distribution validator requires this file for every available catalog entry,
+without a fixed inventory count. Labels are unique, printable single-line strings
+of 1-64 characters without namespace separators. Short descriptions are 25-64
+characters. This increment permits only those two interface fields: no invocation
+policy, tool dependencies, default prompt or extra icon resources are introduced.
+Planned capabilities do not require placeholder metadata.
+
+Keep this file inside the selected skill folder when installing individual skills.
+It needs no root catalog, plugin logo or other installed capability. Maintained
+UI text is English; skill outputs continue to follow the requested user language.
+The [official metadata guide](https://learn.chatgpt.com/docs/build-skills#optional-metadata)
+documents these UI fields. Refresh the installed source and reload Codex to check
+the selector; source validation does not establish native UI rendering.
+
 ## Validation and updates
 
 The offline distribution validator checks this package's finite contract,

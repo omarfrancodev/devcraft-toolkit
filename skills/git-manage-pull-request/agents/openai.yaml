@@ -1,0 +1,3 @@
+interface:
+  display_name: "Git Manage Pull Request"
+  short_description: "Prepare, inspect and update pull or merge requests"
