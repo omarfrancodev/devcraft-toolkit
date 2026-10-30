@@ -2,7 +2,7 @@
 
 ## Install the complete remote suite
 
-Use a **Copilot** harness session in VS Code. The default-source recipe uses the integrated package. See [release details](../releases/v0.1.0-preview.8.md#version-pinned-sources) for source selection and the retained native-validation limits.
+Use a **Copilot** harness session in VS Code. The default-source recipe uses the integrated package. See [release details](../releases/v0.1.0-preview.9.md#version-pinned-sources) for source selection and the retained native-validation limits.
 
 1. In VS Code Settings, add `omarfrancodev/devcraft-toolkit` to `chat.plugins.marketplaces`. Preserve existing entries; this setting is currently experimental.
 2. Open Agent Customizations > Plugins, or the Agent Plugins view.

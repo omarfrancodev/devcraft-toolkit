@@ -45,6 +45,6 @@ Installation tests require disposable actual users/containers or verified client
 
 ## Current release resources
 
-Release `0.1.0-preview.8` contains eighteen available folders, including git-create-work-branch and git-publish-work. Select a checkout/revision that actually contains them; preview.7 contains sixteen. In individual/full-set test recipes, set `$toolkitSource` to that checkout's absolute path before selecting the current names. This is a contributor validation route; complete native remote suite installation remains the primary consumer route. Copy complete owner folders plus explicit mandatory and selected conditional closures. No root inventory is installed as a runtime dependency.
+Release `0.1.0-preview.9` contains eighteen available folders, including git-create-work-branch and git-publish-work. Select a checkout/revision that actually contains them; preview.7 contains sixteen. In individual/full-set test recipes, set `$toolkitSource` to that checkout's absolute path before selecting the current names. This is a contributor validation route; complete native remote suite installation remains the primary consumer route. Copy complete owner folders plus explicit mandatory and selected conditional closures. No root inventory is installed as a runtime dependency.
 
 The [metadata guide](metadata.md) records supported fields and native validation limits by client.
