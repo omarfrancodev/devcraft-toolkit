@@ -4,5 +4,15 @@
   "description": "Composable Git and development skills for coding agents.",
   "author": {
     "name": "omarfrancodev"
-  }
+  },
+  "homepage": "https://github.com/omarfrancodev/devcraft-toolkit",
+  "repository": "https://github.com/omarfrancodev/devcraft-toolkit",
+  "displayName": "Devcraft Toolkit",
+  "keywords": [
+    "git",
+    "commit",
+    "report",
+    "validation"
+  ],
+  "icon": "./assets/logo.png"
 }

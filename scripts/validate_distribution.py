@@ -16,6 +16,7 @@ _NAME = "devcraft-toolkit"
 _DESCRIPTION = "Composable Git and development skills for coding agents."
 _AUTHOR = {"name": "omarfrancodev"}
 _CATEGORY = "Developer Tools"
+_PROJECT_URL = "https://github.com/omarfrancodev/devcraft-toolkit"
 _SCHEMA = "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json"
 _NUMBER = r"(?:0|[1-9][0-9]*)"
 _IDENTIFIER = r"(?:0|[1-9][0-9]*|[0-9]*[A-Za-z-][0-9A-Za-z-]*)"
@@ -52,7 +53,8 @@ def _check_source(root: Path, relative: str, source, issues: list[ValidationIssu
         issues.append(ValidationIssue("distribution-source", relative, "Source must resolve to this package root."))
 
 
-def _check_icon(root: Path, field: str, relative, issues: list[ValidationIssue]) -> None:
+def _check_icon(root: Path, field: str, relative, issues: list[ValidationIssue],
+                manifest: str = "plugin.json") -> None:
     """Check the package's square PNG icon contract, without fetching or rendering."""
     try:
         if (not isinstance(relative, str) or not relative.startswith("./assets/")
@@ -99,7 +101,7 @@ def _check_icon(root: Path, field: str, relative, issues: list[ValidationIssue])
             raise ValueError("Missing PNG image ending")
     except (OSError, RuntimeError, ValueError) as exc:
         issues.append(ValidationIssue(
-            "distribution-asset", "plugin.json",
+            "distribution-asset", manifest,
             f"{field}: expected a packaged square PNG with intact chunks ({type(exc).__name__})."))
 
 
@@ -117,7 +119,7 @@ def _check_interface(root: Path, extensions, issues: list[ValidationIssue]) -> N
         "longDescription": _DESCRIPTION,
         "developerName": _AUTHOR["name"],
         "category": _CATEGORY,
-        "websiteURL": "https://github.com/omarfrancodev/devcraft-toolkit",
+        "websiteURL": _PROJECT_URL,
         "logo": interface.get("logo"),
         "composerIcon": interface.get("composerIcon"),
     }
@@ -134,7 +136,7 @@ def _check_marketplace(root: Path, relative: str, codex: bool, issues: list[Vali
     if value is None:
         return
     head = {"name": _NAME, "interface": {"displayName": "Devcraft Toolkit"}} if codex else {
-        "name": _NAME, "owner": _AUTHOR,
+        "name": _NAME, "owner": _AUTHOR, "metadata": {"description": _DESCRIPTION},
     }
     expected = {**head, "plugins": value.get("plugins")}
     entries = value.get("plugins")
@@ -158,7 +160,10 @@ def _check_marketplace(root: Path, relative: str, codex: bool, issues: list[Vali
             return
         path = source["path"]
     else:
-        expected_entry = {"name": _NAME, "source": entry.get("source"), "description": _DESCRIPTION}
+        expected_entry = {
+            "name": _NAME, "source": entry.get("source"), "description": _DESCRIPTION,
+            "category": _CATEGORY, "tags": ["git", "commit", "report", "validation"],
+        }
         path = entry.get("source")
     if entry != expected_entry:
         issues.append(ValidationIssue("distribution-metadata", relative, "Unexpected plugin identity, policy, or component override."))
@@ -175,19 +180,23 @@ def validate_distribution(root: Path) -> list[ValidationIssue]:
         if value is None:
             continue
         manifests[relative] = value
-        identity = {"name": _NAME, "description": _DESCRIPTION, "author": _AUTHOR}
-        expected = {**identity, "version": value.get("version")}
+        identity = {"name": _NAME, "description": _DESCRIPTION, "author": _AUTHOR,
+                    "homepage": _PROJECT_URL, "repository": _PROJECT_URL}
+        expected = {**identity, "version": value.get("version"), "keywords": value.get("keywords")}
+        keywords = value.get("keywords")
+        if (not isinstance(keywords, list) or not keywords
+                or any(not isinstance(item, str) or not item.strip() for item in keywords)):
+            issues.append(ValidationIssue(
+                "distribution-keywords", relative,
+                "Expected a non-empty array of non-empty keyword strings."))
         if portable:
             expected["$schema"] = _SCHEMA
-            expected["keywords"] = value.get("keywords")
             expected["extensions"] = value.get("extensions")
             _check_interface(root, value.get("extensions"), issues)
-            keywords = value.get("keywords")
-            if (not isinstance(keywords, list) or not keywords
-                    or any(not isinstance(item, str) or not item.strip() for item in keywords)):
-                issues.append(ValidationIssue(
-                    "distribution-keywords", relative,
-                    "Expected a non-empty array of non-empty activation keyword strings."))
+        else:
+            expected["displayName"] = "Devcraft Toolkit"
+            expected["icon"] = value.get("icon")
+            _check_icon(root, "icon", value.get("icon"), issues, manifest=relative)
         if value != expected:
             issues.append(ValidationIssue("distribution-metadata", relative, "Manifest identity, schema, or fields differ from the package contract."))
         version = value.get("version")

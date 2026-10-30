@@ -69,3 +69,10 @@ made that importing skills gives every restricted agent access.
 Official references: [native import](https://kiro.dev/docs/crew/capabilities/skills/),
 [source/resource rules](https://github.com/kirodotdev/KiroCrew/blob/main/src/kiro_crew/docs/skills.md)
 and [existing agent mappings](https://github.com/kirodotdev/KiroCrew/blob/main/src/kiro_crew/docs/agents.md).
+
+## Presentation metadata
+
+Crew's documented route imports skill folders and exposes their names and
+descriptions. It does not register the suite manifest, category or logo as a
+plugin. No toolkit App or template is added for visual branding.
+See [metadata across clients](metadata.md) for the distinction from Powers.

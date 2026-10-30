@@ -8,13 +8,13 @@ Release dates use the GitHub publication date in America/Mexico_City. Pre-releas
 
 #### Catalog and distribution
 
-- Add an editable Devcraft Toolkit logo and packaged PNG for the Codex listing and composer, with display name and project website metadata.
+- Add an editable Devcraft Toolkit logo and packaged PNG for the Codex listing/composer and Claude directory metadata, with client-specific display names and portable project links.
 
 ### Changed
 
 #### Catalog and distribution
 
-- Classify the Codex plugin as `Developer Tools` and validate its presentation metadata, packaged icon paths, PNG chunk integrity and dimensions with offline regressions.
+- Classify the Codex and shared Claude/Copilot marketplace entries as `Developer Tools`, add discovery tags and marketplace description, and validate presentation fields and packaged PNG resources. Document the distinct image/category limits for Copilot, Kiro Powers and Crew.
 
 ## 0.1.0-preview.8 — 2026-10-29
 

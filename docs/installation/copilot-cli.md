@@ -83,3 +83,11 @@ gates from remote registration.
 Official references: [plugin installation](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/plugins-finding-installing),
 [package reference](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-plugin-reference)
 and [settings/scopes](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-config-dir-reference).
+
+## Presentation metadata
+
+Copilot reads the portable project metadata and the existing shared marketplace.
+The latter declares `Developer Tools`, discovery tags and a marketplace
+description. A custom plugin image field is not established by the reviewed CLI
+reference. The Codex logo and Claude directory icon do not configure Copilot.
+See [metadata across clients](metadata.md) for field placement and UI limits.

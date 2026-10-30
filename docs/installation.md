@@ -36,3 +36,8 @@ Version `0.1.0-preview.8` has eighteen skills, adding `git-create-work-branch` a
 
 
 Release `0.1.0-preview.8` has eighteen available skills and no planned entries. Native remote suite installation includes the complete selected revision without a new installer. Local contributor checks remain an optional [development route](installation/development.md). [Individual selections](installation/individual-skills.md) distinguish mandatory and conditional closures.
+
+## Presentation across clients
+
+See [plugin metadata](installation/metadata.md) for display names, categories,
+project links, logo fields and the supported presentation limits in each client.

@@ -6,11 +6,11 @@ import importlib.util
 import json
 import shutil
 import struct
-import zlib
 import subprocess
 import sys
 import tempfile
 import unittest
+import zlib
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -45,6 +45,8 @@ class DistributionValidationTests(unittest.TestCase):
             "version": "0.1.0-preview.2",
             "description": "Composable Git and development skills for coding agents.",
             "author": {"name": "omarfrancodev"},
+            "homepage": "https://github.com/omarfrancodev/devcraft-toolkit",
+            "repository": "https://github.com/omarfrancodev/devcraft-toolkit",
         }
         (root / "assets").mkdir()
         self.write_png(root / "assets/logo.png")
@@ -63,7 +65,12 @@ class DistributionValidationTests(unittest.TestCase):
                 "composerIcon": "./assets/logo.png",
             }}},
         })
-        self.write_json(root / ".claude-plugin/plugin.json", identity)
+        self.write_json(root / ".claude-plugin/plugin.json", {
+            **identity,
+            "displayName": "Devcraft Toolkit",
+            "keywords": ["git", "commit", "report", "validation"],
+            "icon": "./assets/logo.png",
+        })
         self.write_json(root / ".agents/plugins/marketplace.json", {
             "name": "devcraft-toolkit",
             "interface": {"displayName": "Devcraft Toolkit"},
@@ -77,10 +84,13 @@ class DistributionValidationTests(unittest.TestCase):
         self.write_json(root / ".claude-plugin/marketplace.json", {
             "name": "devcraft-toolkit",
             "owner": {"name": "omarfrancodev"},
+            "metadata": {"description": identity["description"]},
             "plugins": [{
                 "name": "devcraft-toolkit",
                 "source": "./",
                 "description": identity["description"],
+                "category": "Developer Tools",
+                "tags": ["git", "commit", "report", "validation"],
             }],
         })
         return root
@@ -186,6 +196,68 @@ class DistributionValidationTests(unittest.TestCase):
                 self.assertIn("distribution-asset", self.codes(root))
         icon.write_bytes(b"x" * (5 * 1024 * 1024 + 1))
         self.assertIn("distribution-asset", self.codes(root))
+
+    def test_portable_links_and_claude_metadata_cannot_drift(self):
+        root = self.make_root()
+        for path, fields in (
+            ("plugin.json", ("homepage", "repository")),
+            (".claude-plugin/plugin.json", ("homepage", "repository", "displayName")),
+        ):
+            original = (root / path).read_bytes()
+            for field in fields:
+                with self.subTest(path=path, field=field):
+                    self.edit(root, path, lambda v: v.update({field: "https://example.com/foreign"}))
+                    self.assertIn("distribution-metadata", self.codes(root))
+                (root / path).write_bytes(original)
+
+    def test_claude_directory_icon_is_packaged_and_validated_at_its_manifest(self):
+        root = self.make_root()
+        for bad in (None, "./assets/missing.png", "../outside.png", "https://example.com/logo.png"):
+            with self.subTest(icon=bad):
+                self.edit(root, ".claude-plugin/plugin.json", lambda v: v.update(icon=bad))
+                issues = self.validate(root)
+                self.assertTrue(any(issue.code == "distribution-asset"
+                                    and issue.path == ".claude-plugin/plugin.json" for issue in issues))
+
+    def test_claude_keywords_must_be_nonempty_strings(self):
+        root = self.make_root()
+        for bad in (None, [], "git", [""]):
+            with self.subTest(keywords=bad):
+                self.edit(root, ".claude-plugin/plugin.json", lambda v: v.update(keywords=bad))
+                self.assertIn("distribution-keywords", self.codes(root))
+
+    def test_shared_marketplace_requires_category_tags_and_description(self):
+        root = self.make_root()
+        path = ".claude-plugin/marketplace.json"
+        original = (root / path).read_bytes()
+        mutations = (
+            lambda v: v.pop("metadata"),
+            lambda v: v["plugins"][0].pop("category"),
+            lambda v: v["plugins"][0].update(category="Productivity"),
+            lambda v: v["plugins"][0].update(tags="git"),
+        )
+        for mutation in mutations:
+            with self.subTest(mutation=mutation):
+                self.edit(root, path, mutation)
+                self.assertIn("distribution-metadata", self.codes(root))
+            (root / path).write_bytes(original)
+
+    def test_client_only_fields_do_not_leak_into_portable_manifest_or_shared_catalog(self):
+        root = self.make_root()
+        for path, updates in (
+            ("plugin.json", {"icon": "./assets/logo.png"}),
+            ("plugin.json", {"displayName": "Devcraft Toolkit"}),
+            ("plugin.json", {"category": "Developer Tools"}),
+            (".claude-plugin/marketplace.json", {"icon": "./assets/logo.png"}),
+        ):
+            with self.subTest(path=path, fields=updates):
+                original = (root / path).read_bytes()
+                if path == "plugin.json":
+                    self.edit(root, path, lambda v: v.update(updates))
+                else:
+                    self.edit(root, path, lambda v: v["plugins"][0].update(updates))
+                self.assertIn("distribution-metadata", self.codes(root))
+                (root / path).write_bytes(original)
 
     def edit(self, root, path, change):
         file = root / path

@@ -25,5 +25,7 @@
         "composerIcon": "./assets/logo.png"
       }
     }
-  }
+  },
+  "homepage": "https://github.com/omarfrancodev/devcraft-toolkit",
+  "repository": "https://github.com/omarfrancodev/devcraft-toolkit"
 }

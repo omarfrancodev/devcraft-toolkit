@@ -51,8 +51,8 @@ The Codex marketplace entry declares `Developer Tools`. Root `plugin.json` suppl
 listing metadata through `extensions.com.openai.interface`, including the display
 name, project website and category. Both `logo` (listing) and `composerIcon`
 (composer) use `./assets/logo.png`; `assets/logo.svg` is the editable source.
-Paths resolve from the plugin root, not the manifest directory. Claude's minimal
-compatibility manifest remains separate from these OpenAI-specific fields.
+Paths resolve from the plugin root, not the manifest directory. Claude's
+compatibility manifest declares its own fields; see [metadata across clients](metadata.md).
 
 For this package, the offline distribution validator requires the declared
 presentation, matching category and packaged PNG icons under `assets/`. It checks
