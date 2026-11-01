@@ -35,7 +35,7 @@ The leading npm `--yes` permits acquisition of the pinned CLI; Skills remains in
 
 Version `0.1.0-preview.9` contains eighteen available skills. Default GitHub/main recipes deliver the integrated suite; set `$toolkitSource = 'https://github.com/omarfrancodev/devcraft-toolkit/tree/v0.1.0-preview.9'` for this fixed version and retain target/scope and explicit dependencies. Local-source testing remains an optional [development route](development.md), not a consumer requirement.
 
-Source selection does not establish native activation. Preview.7 retains sixteen; preview.6 retains fourteen; preview.5 twelve; preview.4 eleven; preview.3 nine; preview.2 seven. Old tags retain their original inventories and resource evidence.
+`prompt-refiner` is a current-source addition absent from preview.9 and earlier releases. Select a revision containing it for its one-folder standalone installation. Source selection does not establish native activation. Preview.7 retains sixteen; preview.6 retains fourteen; preview.5 twelve; preview.4 eleven; preview.3 nine; preview.2 seven. Old tags retain their original inventories and resource evidence.
 
 ## Explicit dependency selection
 
@@ -47,6 +47,7 @@ Source selection does not establish native activation. Preview.7 retains sixteen
 | `conventional-commits-style` | That name only |
 | `todo-workflow-controller` | That name only |
 | `natural-language-report-writer` | That name only |
+| `prompt-refiner` | That name only; requires a source revision containing the unreleased addition |
 | `validation-discovery` | That name only |
 | `git-create-work-branch` | `git-create-work-branch git-working-directory-policy` |
 | `git-publish-work` | `git-publish-work git-publish-changes todo-workflow-controller git-working-directory-policy git-safety-check` |
@@ -64,10 +65,10 @@ The installer does not resolve `catalog.json` dependencies. A bare entry install
 
 ## Complete skill-set fallback
 
-When the native project suite is unavailable (notably Kiro's project Power), select all eighteen current-source skills explicitly. Use the default remote source or the fixed preview.9 source above. Preview.7 has only sixteen and cannot satisfy this selection:
+When the native project suite is unavailable (notably Kiro's project Power), select all nineteen current-source skills explicitly from a revision containing `prompt-refiner`. This addition is unreleased: default remote recipes include it only after integration. For fixed preview.9 remove `prompt-refiner` from the list to select its eighteen available skills. Older tags cannot satisfy the current-source selection:
 
 ```powershell
-$toolkitSkills = @('using-devcraft-toolkit', 'git-working-directory-policy', 'git-safety-check', 'conventional-commits-style', 'todo-workflow-controller', 'natural-language-report-writer', 'validation-discovery', 'git-analyze-changes', 'git-plan-commits', 'git-stage-changes', 'git-commit-builder', 'git-activity-report', 'git-sync-branch', 'git-publish-changes', 'git-manage-pull-request', 'git-promote', 'git-create-work-branch', 'git-publish-work')
+$toolkitSkills = @('using-devcraft-toolkit', 'git-working-directory-policy', 'git-safety-check', 'conventional-commits-style', 'todo-workflow-controller', 'natural-language-report-writer', 'validation-discovery', 'git-analyze-changes', 'git-plan-commits', 'git-stage-changes', 'git-commit-builder', 'git-activity-report', 'git-sync-branch', 'git-publish-changes', 'git-manage-pull-request', 'git-promote', 'git-create-work-branch', 'git-publish-work', 'prompt-refiner')
 npx --yes skills@1.7.4 add "$toolkitSource" --skill $toolkitSkills --agent "$toolkitAgent" --copy
 ```
 

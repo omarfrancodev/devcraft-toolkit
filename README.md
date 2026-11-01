@@ -6,7 +6,7 @@ Release preview.9 contains eighteen skills with client-specific plugin presentat
 
 Skill definitions and default templates use English. User-facing content follows an explicit language preference or the language of the user's request, defaulting to English when neither can be determined. Tests are maintained outside individual skill directories, grouped by the owning skill and then by test scope; repository infrastructure and cross-skill coverage have separate shared groups.
 
-The [approved inventory](docs/capability-inventory.md) and [catalog](catalog.json) contain eighteen available capabilities, with no planned placeholders. Current source retains those capabilities from `0.1.0-preview.8` and adds presentation metadata in `0.1.0-preview.9`. See [installation](docs/installation.md), [architecture](docs/architecture.md), [language behavior](docs/language.md), and [compatibility evidence](docs/compatibility.md).
+The [approved inventory](docs/capability-inventory.md) and [catalog](catalog.json) contain nineteen available capabilities, with no planned placeholders. Current source adds unreleased `prompt-refiner` for text-only request refinement; published `0.1.0-preview.9` retains its eighteen-skill inventory. See [installation](docs/installation.md), [architecture](docs/architecture.md), [language behavior](docs/language.md), and [compatibility evidence](docs/compatibility.md).
 
 The [capability roadmap](docs/roadmap.md) links the self-contained designs and plans for upcoming increments.
 
@@ -16,7 +16,7 @@ Install the complete toolkit directly from GitHub using your client's documented
 
 Choose [Codex](docs/installation/codex.md), [Copilot CLI](docs/installation/copilot-cli.md), [Copilot in VS Code](docs/installation/copilot-vscode.md), [Claude Code](docs/installation/claude-code.md), [Kiro CLI V3](docs/installation/kiro-cli.md), [Kiro IDE](docs/installation/kiro.md), or [Kiro Crew](docs/installation/kiro-crew.md). The [installation overview](docs/installation.md) explains scope and the Kiro project fallback.
 
-Default remote recipes deliver all eighteen skills after this increment is integrated. See [preview.9 release details](docs/releases/v0.1.0-preview.9.md) for version-pinned source options; [earlier preview sources](docs/installation/preview.md) are historical evidence. Native activation remains partially validated; no official catalog listing is claimed.
+Once this increment is integrated, default remote recipes deliver all nineteen current-source skills. Fixed preview.9 sources retain eighteen and do not include `prompt-refiner`. See [preview.9 release details](docs/releases/v0.1.0-preview.9.md) for version-pinned source options; [earlier preview sources](docs/installation/preview.md) are historical evidence. Native activation remains partially validated; no official catalog listing is claimed.
 
 Need selected capabilities instead? Use [individual skill installation](docs/installation/individual-skills.md). Package contributors and manual-copy users can use [local development/reference](docs/installation/development.md).
 
@@ -39,3 +39,13 @@ See the [approved design](docs/superpowers/specs/2026-10-25-git-pr-promotion-des
 `git-create-work-branch` can independently create and select a new local branch at the current committed HEAD while preserving partial staging and all local work. `git-publish-work` coordinates only the selected goal: necessary branch creation, full commit preparation, normal push and optional PR/MR work, with synchronization and merge only when explicitly requested. It forecasts known blockers before earlier writes and preserves actual partial effects.
 
 Standalone branch creation needs two folders; basic coordination needs five. Additional owners are conditional on the selected flow. See the [design](docs/superpowers/specs/2026-10-26-git-work-publication-design.md), [plan](docs/superpowers/plans/2026-10-26-git-work-publication.md), [composition](docs/composition.md) and [exact installation selections](docs/installation/individual-skills.md). Native activation and authenticated provider validation remain open.
+
+## Prompt refinement
+
+`prompt-refiner` turns supplied drafts into clear, ready-to-copy prompts, keeps
+suggestions optional, applies revisions consistently and preserves the user's
+language and execution boundaries. It does not carry out the embedded task.
+It is independently installable with no dependencies and remains an unreleased
+source addition. See the [design](docs/superpowers/specs/2026-10-31-prompt-refiner-design.md),
+[plan](docs/superpowers/plans/2026-10-31-prompt-refiner.md) and
+[individual selection](docs/installation/individual-skills.md).

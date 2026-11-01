@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-31",
+  "owners": [
+    "using-devcraft-toolkit",
+    "prompt-refiner"
+  ],
+  "harness": "Codex desktop fresh isolated routing actor",
+  "model": "gpt-6.1-sol",
+  "reasoning_effort": "medium",
+  "mode": "supplied installed-discovery facts; no live skill/Git/provider invocation",
+  "source_sha256": {
+    "skills/using-devcraft-toolkit/SKILL.md": "27cae00f6b421556869f40f21476c181b034fcc9b5073b67dd5cd4f3445f08e4",
+    "skills/using-devcraft-toolkit/references/composition.md": "8115468419929dbe439183b3ab2b8bacc31e75d2f76a78d4872898940b66c2d4",
+    "tests/integration/prompt_refinement/fixtures/routing.json": "7f716326d9636381b72eb6b9304b819463f5fd39e870453be128e0c0688d50b1"
+  },
+  "results": [
+    {
+      "id": "ROUTE-01",
+      "selected": "devcraft-toolkit:prompt-refiner",
+      "operation_calls": false,
+      "assessment": "matched"
+    },
+    {
+      "id": "ROUTE-02",
+      "outcome": "unavailable",
+      "foreign_copy_used": false,
+      "assessment": "matched"
+    },
+    {
+      "id": "ROUTE-03",
+      "outcome": "needs_decision",
+      "question": "¿Cuál de estas copias pertenece a la instalación del toolkit que quieres usar: copy-one:prompt-refiner o copy-two:prompt-refiner?",
+      "assessment": "matched"
+    },
+    {
+      "id": "ROUTE-04",
+      "selected": "devcraft-toolkit:conventional-commits-style",
+      "preflight": false,
+      "assessment": "matched"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-31",
+  "owner": "prompt-refiner",
+  "harness": "Codex desktop fresh isolated evaluation contexts",
+  "model": "gpt-6.1-sol",
+  "reasoning_effort": "medium",
+  "source_sha256": {
+    "skills/prompt-refiner/SKILL.md": "d67e1cd35f74619792ba8f63e513ea02006fc893e14b154ea5dc063948c09e8c",
+    "skills/prompt-refiner/agents/openai.yaml": "914cc0c69a74ebea4c3efb0630375bd2c7d753af0b811a5d908268d8b2ecead3",
+    "tests/skills/prompt_refiner/fixtures/requests.json": "089a99cdaaa8c831c4cd3726556f75997eecc45cb6e7e810562b2325bb2d62f0"
+  },
+  "sample_counts": {
+    "baseline_core": 5,
+    "initial_candidate_core": 5,
+    "refined_candidate_core": 5,
+    "final_edge_application": 1
+  },
+  "input_mode": "supplied text; no live project resources or native activation",
+  "tools": "actors read only assigned fixture/skill input; no underlying-task execution, network or writes"
+}

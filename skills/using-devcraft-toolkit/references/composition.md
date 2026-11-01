@@ -22,6 +22,8 @@ The entry depends on both supporting skills. `git-safety-check` depends on `git-
 
 ## Optional standalone capabilities
 
+`prompt-refiner` has no required skill dependencies. Install its complete folder alone to refine supplied requests, or alongside the entry for optional owned routing. Quoted task actions stay text: refinement does not inspect Git, call providers, research underlying resources or execute the assignment. Additional considerations remain optional to the downstream reader; revisions preserve unaffected scope. Missing/foreign copies remain unavailable without imitation or automatic installation.
+
 `conventional-commits-style` has no required skill dependencies. Install it separately to use directly, or alongside the entry for optional routing. The entry does not require it; when it is installed, the entry routes commit-message drafting or review to that skill. When absent, the entry reports the missing capability without imitation or automatic installation.
 
 `todo-workflow-controller` has no required skill dependencies. Install it by itself for multi-step progress tracking, or alongside the entry for optional routing. The entry does not require it. When installed, route progress-control requests to it. When absent, report the missing capability without manually imitating it or installing it. The standalone skill can use inline status when a native progress tool is unavailable; a missing tool does not mean the skill itself is unavailable.

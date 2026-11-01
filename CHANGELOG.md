@@ -4,6 +4,12 @@ Release dates use the GitHub publication date in America/Mexico_City. Pre-releas
 
 ## unreleased
 
+### Added
+
+#### Shared capabilities
+
+- Add independently usable `prompt-refiner` for clear, scoped prompts with optional enrichment, faithful follow-up revisions and language-aware output, without executing the embedded assignment. Include presentation metadata and an optional owned-installation entry route.
+
 ## 0.1.0-preview.9 — 2026-10-30
 
 ### Added

@@ -32,6 +32,8 @@ For updates and removal use the selected client's guide and the same installatio
 
 ## Source inventory
 
+Current source adds unreleased `prompt-refiner`, making nineteen available skills. It needs only its own folder and is not present in the published preview.9 tag. Default remote source recipes gain it after this increment is integrated; select an appropriate source revision when testing.
+
 Version `0.1.0-preview.9` has eighteen skills, retaining `git-create-work-branch` and `git-publish-work` while adding client presentation metadata and explicit Codex skill labels. Default-branch recipes use the integrated suite; use this tag for fixed complete/individual selections. Preview.7 retains sixteen and lacks the two additions; preview.6 retains fourteen without hosted management/promotion; preview.5 has twelve, preview.4 eleven, preview.3 nine and preview.2 seven. Select a revision that contains the requested capabilities. Source selection and publication do not establish native activation. Historical tags and native resource evidence remain version-specific; installation does not authorize a runtime write.
 
 

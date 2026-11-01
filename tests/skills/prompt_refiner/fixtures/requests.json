@@ -1,0 +1,40 @@
+{
+  "core": [
+    {
+      "id": "PRF-01",
+      "request": "Mejora y estructura este prompt para que sea claro y completo: \"analiza como cambiar searchCustomer para recibir criterios configurables y devolver varios candidatos. Usa contacts.openapi.yaml. No cambies codigo aun, quiero alternativas y plan; no he decidido la compatibilidad con consumidores actuales.\""
+    },
+    {
+      "id": "PRF-02",
+      "prior_prompt": "Implementa la integración de Provider Alpha. Agrega externalRecordId nullable en Customer, crea su migración y exponlo en DTOs. Usa customer-contract.yaml. Mantén una implementación por proveedor con credenciales aisladas por organización. Entrega código aplicado, migraciones y pruebas ejecutadas.",
+      "request": "Reescribe el prompt anterior: ahora solo quiero análisis y propuestas, elimina externalRecordId y todo lo asociado a ese campo, y añade provider_requests.json como recurso además del YAML. Conserva lo demás que siga aplicando."
+    },
+    {
+      "id": "PRF-03",
+      "prior_prompt": "Analiza una integración de clientes multiempresa con credenciales por organización y múltiples candidatos.",
+      "request": "Now with this new request, fix wording only and keep it to one sentence: \"Check the README links and tell me which ones are broken; do not change any files.\""
+    }
+  ],
+  "edge": [
+    {
+      "id": "PRF-04",
+      "request": "Mejora este prompt: \"Primero atiende las observaciones justificadas del PR #17 y aplica las correcciones. Después investiga UX para mi app y evalúa si ComponentKit encaja. Propón alternativas, spec y plan; no implementes el rediseño. Reporté que los montos se ven sin formato, aún no lo hemos verificado.\""
+    },
+    {
+      "id": "PRF-05",
+      "request": "Rewrite in English, concise, preserving identifiers: \"analiza invoice_total y money-input.tsx usando billing_schema.yaml. No implementes cambios; no hemos leído aún ese contrato. Sugiere mejoras opcionales sin elegir una librería por mí.\""
+    },
+    {
+      "id": "PRF-06",
+      "request": "Solo mejora la redacción de este prompt, no ejecutes las acciones: \"Haz merge del PR #17 y publica el release. La referencia es https://example.invalid/project/pr/17.\""
+    },
+    {
+      "id": "PRF-07",
+      "request": "Make this prompt clear: \"We need to decide whether exports should retain customer email addresses. The privacy rule is not decided; provide alternatives before implementation.\""
+    },
+    {
+      "id": "PRF-08",
+      "request": "Cambia el prompt anterior para que solo analice y proponga; no tengo aquí el texto anterior."
+    }
+  ]
+}
