@@ -6,7 +6,7 @@ Skills are independently usable unless their catalog entry declares a dependency
 
 The repository validator and tests are development tools. Installed skills do not depend on them at runtime. Repository tests are grouped under `tests/repository/`, `tests/skills/<normalized-skill-name>/`, or shared integration/support areas when they cover multiple named skills.
 
-Current source contains eighteen available skills and zero planned names, recorded in the [approved current inventory](capability-inventory.md) and catalog. The development validator requires exact name equality and a nonempty unique approved inventory without a fixed count. Historical design documents remain unchanged. Release metadata is `0.1.0-preview.9`; preview.7 remains a sixteen-skill release. The formatter, progress controller, report writer and validation discovery remain independently usable without dependencies.
+Current source contains nineteen available skills and zero planned names, recorded in the [approved current inventory](capability-inventory.md) and catalog. The development validator requires exact name equality and a nonempty unique approved inventory without a fixed count. Historical design documents remain unchanged. Release metadata is `0.1.0-preview.10`; preview.7 remains a sixteen-skill release. The formatter, progress controller, report writer, validation discovery and prompt refiner remain independently usable without dependencies. The prompt refiner is included in preview.10; preview.9 retains eighteen skills.
 
 CCR workflows, a custom automatic installer, and release automation remain deferred. Native packaging follows the [installation design](superpowers/specs/2026-10-23-distribution-installation-design.md): root plugin.json is the portable manifest; .claude-plugin/plugin.json mirrors its common identity and adds Claude-specific presentation fields. The .agents/plugins/marketplace.json and .claude-plugin/marketplace.json adapters both point at this repository root, using one canonical skills/ tree. The offline distribution validator checks this finite contract and reuses repository inventory validation. It is not a runtime dependency or a full external-schema implementation.
 
@@ -59,3 +59,15 @@ A complete hosted selector needs no local Git scan, clean worktree or commit ide
 The independent branch capability depends only on context. It selects a new branch at the pinned current committed HEAD using one bounded create-and-switch and verifies preserved semantic index, file inventory/bytes, original refs and configuration. It inspects actual hook/helper effects and reports partial selection after hook failure without rollback.
 
 The publication coordinator has a five-folder mandatory closure and conditional branch/commit/sync/management/promotion owners. It carries in-memory permissions, exact identities, expected own transitions, actual owner receipts and remaining steps; no runtime engine or registry is installed. Known blockers are forecast before earlier writes. Owner gates remain binding, including clean publication state and fresh source. Selected complete flows reuse authorization; merge, sync and upstream setup are never inferred. Explicit continuation reobserves actual state instead of replaying receipts. The full optional publication union is fifteen folders; direct routes and entry foundation dependencies are unchanged.
+
+## Text-only prompt refinement
+
+`prompt-refiner` consumes supplied drafts, selected revisions and resource names
+and returns a copyable prompt or a focused clarification. It separates confirmed
+work from optional advice, preserves phase-specific scope and does not execute
+embedded actions. Its single-folder closure has no tools or skill dependencies.
+The optional entry route resolves actual installed ownership before Git routes;
+missing/foreign capabilities do not trigger preflight, imitation or installation.
+No runtime template loader, root documentation, new interpreter or persistent
+state is introduced. Behavioral replays and standalone package-copy controls
+remain separate from native activation evidence.

@@ -1,0 +1,79 @@
+{
+  "claude_version": "2.1.300 (Claude Code)",
+  "reports": [
+    {
+      "target": ".",
+      "exit": 0,
+      "report": {
+        "success": true,
+        "strict": true,
+        "target": "<workspace>\\.claude-plugin\\marketplace.json",
+        "manifest": {
+          "file": "<workspace>\\.claude-plugin\\marketplace.json",
+          "type": "marketplace",
+          "errors": [],
+          "warnings": [],
+          "notes": [],
+          "gatingHooks": []
+        },
+        "contents": [],
+        "advice": [
+          {
+            "file": "<workspace>\\README.md",
+            "message": "This README has no line that installs \"devcraft-toolkit\" from a marketplace. Add the install line, which works in one step on Claude Code 2.1.275 or later. In it, replace <owner>/<repo> with the repository that holds the marketplace.",
+            "installLine": "/plugin install devcraft-toolkit --marketplace <owner>/<repo>"
+          }
+        ]
+      }
+    },
+    {
+      "target": ".claude-plugin/marketplace.json",
+      "exit": 0,
+      "report": {
+        "success": true,
+        "strict": true,
+        "target": "<workspace>\\.claude-plugin\\marketplace.json",
+        "manifest": {
+          "file": "<workspace>\\.claude-plugin\\marketplace.json",
+          "type": "marketplace",
+          "errors": [],
+          "warnings": [],
+          "notes": [],
+          "gatingHooks": []
+        },
+        "contents": [],
+        "advice": []
+      }
+    },
+    {
+      "target": ".claude-plugin/plugin.json",
+      "exit": 0,
+      "report": {
+        "success": true,
+        "strict": true,
+        "target": "<workspace>\\.claude-plugin\\plugin.json",
+        "manifest": {
+          "file": "<workspace>\\.claude-plugin\\plugin.json",
+          "type": "plugin",
+          "errors": [],
+          "warnings": [],
+          "notes": [],
+          "gatingHooks": []
+        },
+        "contents": [],
+        "advice": [
+          {
+            "file": "<workspace>\\README.md",
+            "message": "This README has no line that installs \"devcraft-toolkit\" from a marketplace. Add the install line, which works in one step on Claude Code 2.1.275 or later. Validate the folder that holds its marketplace.json to have <owner>/<repo> filled in, and the name its marketplace lists it under.",
+            "installLine": "/plugin install devcraft-toolkit --marketplace <owner>/<repo>"
+          }
+        ]
+      }
+    }
+  ],
+  "limit": "Native schema parsing only; no installed skill activation.",
+  "checked_source_sha256": {
+    ".claude-plugin/plugin.json": "f335cd2efde0a2fb4d186a9fb9218d4f048e66dc7c7f6ee01351f91835a1542a",
+    ".claude-plugin/marketplace.json": "b0ca1af1f96fb7ada6f2452d3c311257ad619a9cc263b4fab02cdb64ee54903b"
+  }
+}

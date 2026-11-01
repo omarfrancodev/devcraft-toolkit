@@ -164,6 +164,13 @@
       "status": "available",
       "path": "skills/todo-workflow-controller",
       "requires": []
+    },
+    {
+      "name": "prompt-refiner",
+      "role": "support",
+      "status": "available",
+      "path": "skills/prompt-refiner",
+      "requires": []
     }
   ]
 }

@@ -1,0 +1,3 @@
+interface:
+  display_name: "Prompt Refiner"
+  short_description: "Turn rough requests into clear, scoped prompts"

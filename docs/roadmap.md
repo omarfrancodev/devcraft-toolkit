@@ -2,7 +2,7 @@
 
 ## Current foundation
 
-Current source contains eighteen available capabilities and zero planned names, recorded in the [approved inventory](capability-inventory.md). Work-branch creation and full publication coordination are delivered in preview.8. Published preview.7 retains sixteen available/one planned across its historical seventeen names; preview.6 retains fourteen, preview.5 twelve, preview.4 eleven and preview.3 nine. Every capability retains its explicit operation/authorization contract; optional entry routes add no hard dependency.
+Current source contains nineteen available capabilities and zero planned names, recorded in the [approved inventory](capability-inventory.md). Work-branch creation and full publication coordination are delivered in preview.8. Published preview.7 retains sixteen available/one planned across its historical seventeen names; preview.6 retains fourteen, preview.5 twelve, preview.4 eleven and preview.3 nine. Every capability retains its explicit operation/authorization contract; optional entry routes add no hard dependency.
 
 ## Shared capabilities
 
@@ -18,7 +18,7 @@ The [seven-client extension](../tests/integration/distribution/evaluations/2026-
 
 ## Git coordinators
 
-Local commit construction is available in preview.4 with bounded index/commit writes. Git-history activity reporting is available in preview.5 through context and report-writer composition. Scoped synchronization and standalone push are available in preview.6 with independent context/safety closures and bounded explicit authorization. Hosted PR management and explicit promotion are available in preview.7. Independent work-branch creation and full publication coordination are available in preview.8; all eighteen current target capabilities are implemented. Installed capabilities retain their owned dependencies and explicit authorization boundaries.
+Local commit construction is available in preview.4 with bounded index/commit writes. Git-history activity reporting is available in preview.5 through context and report-writer composition. Scoped synchronization and standalone push are available in preview.6 with independent context/safety closures and bounded explicit authorization. Hosted PR management and explicit promotion are available in preview.7. Independent work-branch creation and full publication coordination are available in preview.8; the original eighteen Git/support capabilities are implemented; preview.10 adds prompt refinement and filter-aware analysis. Installed capabilities retain their owned dependencies and explicit authorization boundaries.
 
 ## Deferred capabilities
 
@@ -44,7 +44,7 @@ The table reflects catalog availability. Planned designs do not create installab
 3. **Git-history activity reporting — available in preview.5.** `git-activity-report` provides pinned local history, exact author/date/timezone selection, bounded coverage and report-writer reuse with explicit file output/readback. See the [design](superpowers/specs/2026-10-24-git-activity-report-design.md) and [plan](superpowers/plans/2026-10-24-git-activity-report.md). Native invocation remains unverified.
 4. **Scoped synchronization and push — available in preview.6.** `git-sync-branch` implements one-branch fetch and fast-forward only; `git-publish-changes` implements pinned normal single-branch push and separately requested two-key local upstream setup. See the [design](superpowers/specs/2026-10-25-git-sync-publish-design.md) and [plan](superpowers/plans/2026-10-25-git-sync-publish.md). Both default to offline inspection and remain independently installable.
 5. **PR management and promotion — available in preview.7.** `git-manage-pull-request` owns proposal/inspection, creation and selected title/body updates. `git-promote` owns explicitly requested ordinary source-conditional merge of an existing request, current policy/review/check gates and post-merge provenance/containment. See the [design](superpowers/specs/2026-10-25-git-pr-promotion-design.md) and [plan](superpowers/plans/2026-10-25-git-pr-promotion.md). Two-/three-folder closures remain independent of local publication preflight. Authenticated provider/native validation stays open.
-6. **Work branches and full publication coordination - available in preview.8.** `git-create-work-branch` independently preserves current committed work on one new local branch; `git-publish-work` delegates selected preparation/push/request flows with conditional owners, explicit sync/promotion/upstream permissions, blocker forecasts and actual partial-effect handoffs. See the [design](superpowers/specs/2026-10-26-git-work-publication-design.md), [plan](superpowers/plans/2026-10-26-git-work-publication.md) and [eighteen-name current inventory](capability-inventory.md). All eighteen target names are available; native/authenticated acceptance remains open.
+6. **Work branches and full publication coordination - available in preview.8.** `git-create-work-branch` independently preserves current committed work on one new local branch; `git-publish-work` delegates selected preparation/push/request flows with conditional owners, explicit sync/promotion/upstream permissions, blocker forecasts and actual partial-effect handoffs. See the [design](superpowers/specs/2026-10-26-git-work-publication-design.md), [plan](superpowers/plans/2026-10-26-git-work-publication.md) and [current inventory](capability-inventory.md). Those eighteen original target names are available; native/authenticated acceptance remains open.
 7. **Native/authenticated validation — next validation track.** Start with a small authenticated Codex invocation of the published preview, then Copilot CLI and VS Code, followed by Claude Code and Kiro CLI V3/IDE/Crew. Verify resource reads, user/project scope and version-changing lifecycle per client. Keep unobserved rows open; this track does not block building the read-only capabilities.
 
 CCR, a custom installer, release automation and public directory submission remain deferred. Catalog availability is the current product inventory; old spec/plan checkboxes retain historical execution records and do not establish native validation. In particular, the earlier installation plan's authenticated execution gate remains open.
@@ -90,5 +90,27 @@ configuration no longer limits proven safe paths; active/unknown conversions kee
 bounded coverage, without execution or configuration changes. Staging consumes
 the same read gate while preserving its independent write gates. Owner-grouped
 real Git controls and behavioral replays record evidence separately from native
-activation. This correction is unreleased; the authenticated multi-client
+activation. This correction is included in preview.10; the authenticated multi-client
 validation track above remains open.
+
+## Prompt refinement
+
+Current source adds `prompt-refiner` as an independently installable support
+skill with no dependencies, bringing the current inventory to nineteen. It
+structures supplied requests, separates optional enrichment, applies revisions
+and returns text without executing the assignment. The [approved design](superpowers/specs/2026-10-31-prompt-refiner-design.md)
+and [plan](superpowers/plans/2026-10-31-prompt-refiner.md) define owner-scoped
+behavioral/package evidence and optional owned entry routing. This addition is
+included in preview.10; preview.9 retains eighteen skills. Native/authenticated activation
+and lifecycle checks remain a separate open validation track.
+
+## Combined preview.10 release
+
+PR #12 integrates the filter correction first. PR #13 incorporates that main
+revision, resolves the changelog/roadmap overlap without dropping either change,
+and contains all preview.10 changelog, version, source-pointer and release
+preparation work before its final merge. Tag and assets use that exact PR #13
+merge tree; no later preparation commit on main is required. The suite contains
+nineteen available skills. [Release details](releases/v0.1.0-preview.10.md) and
+[prepared-source evidence](../tests/integration/distribution/evaluations/2026-11-01-preview10-release/preparation.md)
+retain the remaining native/authenticated validation limits.

@@ -1,0 +1,116 @@
+[
+  {
+    "id": "ROUTE-01",
+    "selected_installation": "toolkit-A",
+    "entry_identifier": "devcraft-toolkit:using-devcraft-toolkit",
+    "foundation": [
+      {
+        "canonical": "git-working-directory-policy",
+        "identifier": "devcraft-toolkit:git-working-directory-policy",
+        "owner": "toolkit-A"
+      },
+      {
+        "canonical": "git-safety-check",
+        "identifier": "devcraft-toolkit:git-safety-check",
+        "owner": "toolkit-A"
+      }
+    ],
+    "mode": "supplied discovery facts; no live tool calls",
+    "request": "Mejora este prompt sin ejecutar nada: \"Haz commit, push, abre el PR y publica el release.\"",
+    "available": [
+      {
+        "canonical": "prompt-refiner",
+        "identifier": "devcraft-toolkit:prompt-refiner",
+        "owner": "toolkit-A"
+      }
+    ]
+  },
+  {
+    "id": "ROUTE-02",
+    "selected_installation": "toolkit-A",
+    "entry_identifier": "devcraft-toolkit:using-devcraft-toolkit",
+    "foundation": [
+      {
+        "canonical": "git-working-directory-policy",
+        "identifier": "devcraft-toolkit:git-working-directory-policy",
+        "owner": "toolkit-A"
+      },
+      {
+        "canonical": "git-safety-check",
+        "identifier": "devcraft-toolkit:git-safety-check",
+        "owner": "toolkit-A"
+      }
+    ],
+    "mode": "supplied discovery facts; no live tool calls",
+    "request": "Estructura este prompt: \"Investiga y propone alternativas sin implementar.\"",
+    "available": [
+      {
+        "canonical": "prompt-refiner",
+        "identifier": "other-suite:prompt-refiner",
+        "owner": "foreign-B"
+      }
+    ]
+  },
+  {
+    "id": "ROUTE-03",
+    "selected_installation": "toolkit-A",
+    "entry_identifier": "devcraft-toolkit:using-devcraft-toolkit",
+    "foundation": [
+      {
+        "canonical": "git-working-directory-policy",
+        "identifier": "devcraft-toolkit:git-working-directory-policy",
+        "owner": "toolkit-A"
+      },
+      {
+        "canonical": "git-safety-check",
+        "identifier": "devcraft-toolkit:git-safety-check",
+        "owner": "toolkit-A"
+      }
+    ],
+    "mode": "supplied discovery facts; no live tool calls",
+    "request": "Reescribe mi solicitud usando la instalación del toolkit.",
+    "available": [
+      {
+        "canonical": "prompt-refiner",
+        "identifier": "copy-one:prompt-refiner",
+        "owner": "ambiguous"
+      },
+      {
+        "canonical": "prompt-refiner",
+        "identifier": "copy-two:prompt-refiner",
+        "owner": "ambiguous"
+      }
+    ]
+  },
+  {
+    "id": "ROUTE-04",
+    "selected_installation": "toolkit-A",
+    "entry_identifier": "devcraft-toolkit:using-devcraft-toolkit",
+    "foundation": [
+      {
+        "canonical": "git-working-directory-policy",
+        "identifier": "devcraft-toolkit:git-working-directory-policy",
+        "owner": "toolkit-A"
+      },
+      {
+        "canonical": "git-safety-check",
+        "identifier": "devcraft-toolkit:git-safety-check",
+        "owner": "toolkit-A"
+      }
+    ],
+    "mode": "supplied discovery facts; no live tool calls",
+    "request": "Revisa el mensaje Conventional Commit: fix(parser): handle empty input",
+    "available": [
+      {
+        "canonical": "prompt-refiner",
+        "identifier": "devcraft-toolkit:prompt-refiner",
+        "owner": "toolkit-A"
+      },
+      {
+        "canonical": "conventional-commits-style",
+        "identifier": "devcraft-toolkit:conventional-commits-style",
+        "owner": "toolkit-A"
+      }
+    ]
+  }
+]

@@ -31,7 +31,7 @@ Preview.2 automated checks: 78 tests discovered, 77 passed and one Windows symli
 
 ## Remote-first suite validation
 
-The consumer path now starts with the complete native suite from the public repository. [Individual skills](installation/individual-skills.md) are an alternative; [local/developer installation](installation/development.md) is separate. Default-source recipes use integrated metadata; [release-pinned sources](releases/v0.1.0-preview.9.md#version-pinned-sources) are separate from [historical pre-integration sources](installation/preview.md).
+The consumer path now starts with the complete native suite from the public repository. [Individual skills](installation/individual-skills.md) are an alternative; [local/developer installation](installation/development.md) is separate. Default-source recipes use integrated metadata; [release-pinned sources](releases/v0.1.0-preview.10.md#version-pinned-sources) are separate from [historical pre-integration sources](installation/preview.md).
 
 The [remote evaluation](../tests/integration/distribution/evaluations/2026-10-23-remote-suite/remote.md) fetched public reference b05a8c4367dc02e33ac9d19a8eb98e0bdb31c04e, installed the suite through Codex and Claude's actual remote marketplace flows, and compared every installed skill resource against that source. It also copied an independent formatter for Codex and the complete project fallback for Kiro through the pinned external CLI. The corrected run's 29 commands exited 0; its native outcomes remain limited.
 
@@ -150,3 +150,13 @@ Five fresh no-guidance and five exact-resource supplied-fact actors per new skil
 ## Preview.8 release preparation
 
 Versioned changelog, release notes, consumer pointers and fresh verification are prepared in PR #10 before merge. The release/tag/assets use that exact merged tree. Eighteen skills are available with unchanged reviewed instruction resources and dependency closures. [Release details](releases/v0.1.0-preview.8.md) and [preparation evidence](../tests/integration/distribution/evaluations/2026-10-29-preview8-release/preparation.md) preserve the distinction between packaging and native/authenticated compatibility. Historical probe rows retain their original scope.
+
+## Preview.10 source and release scope
+
+Preview.10 combines path-specific filter inspection with independent prompt
+refinement in a nineteen-skill suite. Existing fixture/replay evidence and the
+[release preparation](../tests/integration/distribution/evaluations/2026-11-01-preview10-release/preparation.md)
+cover source behavior, merged integration and packaging separately from native
+activation. The release adds no claim that a client invoked either capability,
+that filters were executed, or that multi-client authenticated scope/lifecycle
+checks passed. Earlier evidence remains version-specific.
