@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-31",
+  "mode": "manually loaded source recipe; not native installed-plugin activation",
+  "selected_path": "skills/git-analyze-changes/references/inspection.md",
+  "registered_filters_present": true,
+  "effective_filter": "unspecified",
+  "same_named_driver_commands": "absent",
+  "result": "protected selected-path patch collected",
+  "patch_bytes": 10856,
+  "HEAD_index_and_selected_content_unchanged": true,
+  "guard": {
+    "HEAD": "ccbd058749e7db49b303168fb13e778343ea2422",
+    "index_sha256": "ff59e665d8aa90e0ade0662c48a7f8a470201f3b736bafe3fb928c6af98f4875",
+    "selected_sha256": "15fb0613423bd90b2f79f7741ecc513e6e98e8c1c6c4d96775429d1ac78fe1da",
+    "inventory": "736b696c6c732f6769742d616e616c797a652d6368616e6765732f7265666572656e6365732f696e7370656374696f6e2e6d6400",
+    "filter_config": "66696c7465722e6c66732e636c65616e0a6769742d6c667320636c65616e202d2d2025660066696c7465722e6c66732e70726f636573730a6769742d6c66732066696c7465722d70726f6365737300",
+    "attributes": "736b696c6c732f6769742d616e616c797a652d6368616e6765732f7265666572656e6365732f696e7370656374696f6e2e6d640066696c74657200756e73706563696669656400"
+  }
+}

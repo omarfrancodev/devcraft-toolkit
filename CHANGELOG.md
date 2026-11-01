@@ -10,6 +10,12 @@ Release dates use the GitHub publication date in America/Mexico_City. Pre-releas
 
 - Add independently usable `prompt-refiner` for clear, scoped prompts with optional enrichment, faithful follow-up revisions and language-aware output, without executing the embedded assignment. Include presentation metadata and an optional owned-installation entry route.
 
+### Fixed
+
+#### Git operations
+
+- Evaluate effective filter applicability per selected path before analyzing worktree changes, so registered-but-unused LFS filters no longer suppress safe comparisons. Preserve limited coverage for executable or unknown conversions and retain safe-path evidence in mixed scopes.
+
 ## 0.1.0-preview.9 — 2026-10-30
 
 ### Added

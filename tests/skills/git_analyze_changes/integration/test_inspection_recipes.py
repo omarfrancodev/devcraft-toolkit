@@ -77,7 +77,7 @@ class InspectionRecipeTests(unittest.TestCase):
             self.assertFalse((repo / "helper-sentinel").exists())
             self.assertEqual(before, snapshot_repository(repo))
 
-    def test_configured_filter_gate_uses_metadata_without_hashing_worktree(self):
+    def test_applied_filter_gate_uses_metadata_without_hashing_worktree(self):
         with git_fixture("normal", self.root) as repo:
             _git(["config", "--local", "filter.fixture.clean", "echo filter-ran > filter-sentinel"], cwd=repo)
             _git(["config", "--local", "filter.fixture.process", "echo filter-ran > filter-sentinel"], cwd=repo)
@@ -89,7 +89,7 @@ class InspectionRecipeTests(unittest.TestCase):
             self.assertIn("filter.fixture.process", filters)
             self.assertIn("README.md\0", self.git(repo, "ls-files", "--stage", "-z"))
             self.git(repo, "diff", "--cached", "--no-ext-diff", "--no-textconv", "--ignore-submodules=all")
-            # This gate deliberately does NOT run status or a worktree diff.
+            # Both selected paths have an executable conversion; keep their worktree evidence limited.
             self.assertFalse((repo / "filter-sentinel").exists())
             self.assertEqual(before, snapshot_repository(repo))
 
