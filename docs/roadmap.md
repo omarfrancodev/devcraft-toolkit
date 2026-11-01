@@ -81,3 +81,14 @@ The changelog, release notes, version updates and source pointers belong to
 PR #11; tag and assets target that exact merge commit with no later preparation
 commit. Native UI rendering after update/reload remains part of the validation
 track above, independently of structural metadata checks.
+
+## Filter-aware analysis correction
+
+Current source refines `git-analyze-changes` to inspect effective per-path filter
+attributes and commands before worktree comparison. Registered-but-unused LFS
+configuration no longer limits proven safe paths; active/unknown conversions keep
+bounded coverage, without execution or configuration changes. Staging consumes
+the same read gate while preserving its independent write gates. Owner-grouped
+real Git controls and behavioral replays record evidence separately from native
+activation. This correction is unreleased; the authenticated multi-client
+validation track above remains open.

@@ -2,7 +2,7 @@
 
 ## Preconditions and protection
 
-Resolve location/Git paths first without hashing worktree content. Apply the analyzer's no-pager/no-optional-locks/no-lazy-fetch, disabled filesystem monitor/cache and nonrecursive protections while using context/preflight as well. Disable external diff/textconv. Inspect effective clean/process filters before any dependency status/worktree hashing; configured external filters keep affected worktree analysis unsupported/limited. Do not execute a filter to improve coverage.
+Resolve location/Git paths first without hashing worktree content. Apply the analyzer's no-pager/no-optional-locks/no-lazy-fetch, disabled filesystem monitor/cache and nonrecursive protections while using context/preflight as well. Disable external diff/textconv. Apply the analyzer's path-specific effective attribute/command gate before any dependency status/worktree hashing. Registered-but-unused filters do not limit proven safe paths; executable or unknown conversions keep affected worktree analysis unsupported/limited. A safe selected-path result does not authorize a wider scan or index write; retain all staging-specific effect and preservation gates. Do not execute a filter to improve coverage.
 
 Check repository/index selection, GIT_DIR/GIT_WORK_TREE/GIT_INDEX_FILE overrides, current HEAD/index/content/inventory guards, conflicts and active operations. Do not clear an override or change repository/identity/configuration to make an operation work. Unsupported intent-to-add, sparse/skip-worktree entries, binary hunk splits or unknown modes stop the affected selection without clearing flags. Stage-only operation needs no author identity.
 

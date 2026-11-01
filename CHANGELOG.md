@@ -4,6 +4,12 @@ Release dates use the GitHub publication date in America/Mexico_City. Pre-releas
 
 ## unreleased
 
+### Fixed
+
+#### Git operations
+
+- Evaluate effective filter applicability per selected path before analyzing worktree changes, so registered-but-unused LFS filters no longer suppress safe comparisons. Preserve limited coverage for executable or unknown conversions and retain safe-path evidence in mixed scopes.
+
 ## 0.1.0-preview.9 — 2026-10-30
 
 ### Added
