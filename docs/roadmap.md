@@ -18,7 +18,7 @@ The [seven-client extension](../tests/integration/distribution/evaluations/2026-
 
 ## Git coordinators
 
-Local commit construction is available in preview.4 with bounded index/commit writes. Git-history activity reporting is available in preview.5 through context and report-writer composition. Scoped synchronization and standalone push are available in preview.6 with independent context/safety closures and bounded explicit authorization. Hosted PR management and explicit promotion are available in preview.7. Independent work-branch creation and full publication coordination are available in preview.8; the original eighteen Git/support capabilities are implemented; current source also adds unreleased prompt refinement. Installed capabilities retain their owned dependencies and explicit authorization boundaries.
+Local commit construction is available in preview.4 with bounded index/commit writes. Git-history activity reporting is available in preview.5 through context and report-writer composition. Scoped synchronization and standalone push are available in preview.6 with independent context/safety closures and bounded explicit authorization. Hosted PR management and explicit promotion are available in preview.7. Independent work-branch creation and full publication coordination are available in preview.8; the original eighteen Git/support capabilities are implemented; preview.10 adds prompt refinement and filter-aware analysis. Installed capabilities retain their owned dependencies and explicit authorization boundaries.
 
 ## Deferred capabilities
 
@@ -90,7 +90,7 @@ configuration no longer limits proven safe paths; active/unknown conversions kee
 bounded coverage, without execution or configuration changes. Staging consumes
 the same read gate while preserving its independent write gates. Owner-grouped
 real Git controls and behavioral replays record evidence separately from native
-activation. This correction is unreleased; the authenticated multi-client
+activation. This correction is included in preview.10; the authenticated multi-client
 validation track above remains open.
 
 ## Prompt refinement
@@ -101,5 +101,16 @@ structures supplied requests, separates optional enrichment, applies revisions
 and returns text without executing the assignment. The [approved design](superpowers/specs/2026-10-31-prompt-refiner-design.md)
 and [plan](superpowers/plans/2026-10-31-prompt-refiner.md) define owner-scoped
 behavioral/package evidence and optional owned entry routing. This addition is
-unreleased; preview.9 retains eighteen skills. Native/authenticated activation
+included in preview.10; preview.9 retains eighteen skills. Native/authenticated activation
 and lifecycle checks remain a separate open validation track.
+
+## Combined preview.10 release
+
+PR #12 integrates the filter correction first. PR #13 incorporates that main
+revision, resolves the changelog/roadmap overlap without dropping either change,
+and contains all preview.10 changelog, version, source-pointer and release
+preparation work before its final merge. Tag and assets use that exact PR #13
+merge tree; no later preparation commit on main is required. The suite contains
+nineteen available skills. [Release details](releases/v0.1.0-preview.10.md) and
+[prepared-source evidence](../tests/integration/distribution/evaluations/2026-11-01-preview10-release/preparation.md)
+retain the remaining native/authenticated validation limits.

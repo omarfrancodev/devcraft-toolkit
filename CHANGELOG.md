@@ -4,11 +4,19 @@ Release dates use the GitHub publication date in America/Mexico_City. Pre-releas
 
 ## unreleased
 
+## 0.1.0-preview.10 — 2026-11-01
+
 ### Added
 
 #### Shared capabilities
 
 - Add independently usable `prompt-refiner` for clear, scoped prompts with optional enrichment, faithful follow-up revisions and language-aware output, without executing the embedded assignment. Include presentation metadata and an optional owned-installation entry route.
+
+### Changed
+
+#### Repository maintenance
+
+- Keep development worktrees inside repository-local `.worktrees/` or use the primary checkout, and name work branches with the appropriate Conventional Commit type prefix.
 
 ### Fixed
 

@@ -30,4 +30,4 @@ Installed capabilities do not read this document or the root catalog. Historical
 
 ## Current delivery
 
-Nineteen available capabilities, zero planned names. `prompt-refiner` is an unreleased support addition for text-only request refinement; it is absent from preview.9 and earlier tags. Work-branch creation and publication coordination are delivered in `0.1.0-preview.8`. Preview.7 retains sixteen capabilities. See the [roadmap](roadmap.md), [design](superpowers/specs/2026-10-26-git-work-publication-design.md) and [installation selections](installation/individual-skills.md) for scope and source requirements.
+Nineteen available capabilities, zero planned names. `prompt-refiner` is included in preview.10 for text-only request refinement; it is absent from preview.9 and earlier tags. Work-branch creation and publication coordination are delivered in `0.1.0-preview.8`. Preview.7 retains sixteen capabilities. See the [roadmap](roadmap.md), [design](superpowers/specs/2026-10-26-git-work-publication-design.md) and [installation selections](installation/individual-skills.md) for scope and source requirements.
