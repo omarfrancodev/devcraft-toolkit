@@ -1,0 +1,92 @@
+{
+  "date": "2026-10-31",
+  "owner": "git-analyze-changes",
+  "harness": "Codex desktop isolated fresh-context test actors",
+  "model": "gpt-6.1-sol",
+  "reasoning_effort": "medium",
+  "baseline_source": "ccbd058749e7db49b303168fb13e778343ea2422",
+  "request": "Analiza los cambios sin modificar nada; necesito la comparaci\u00f3n de los archivos seleccionados.",
+  "mode": "supplied-facts replay; no live repository commands or writes",
+  "common_facts": {
+    "registered_commands": {
+      "filter.lfs.clean": "git-lfs clean -- %f",
+      "filter.lfs.process": "git-lfs filter-process"
+    },
+    "registration_scope": "system",
+    "helpers_disabled": true,
+    "guards": "stable except case E",
+    "inventory": "complete NUL records",
+    "transport": "protected literal path reads available"
+  },
+  "cases": [
+    {
+      "id": "ANA-F01",
+      "selected": [
+        "README.md"
+      ],
+      "attributes": {
+        "README.md": "unspecified"
+      },
+      "excluded_filtered_paths": []
+    },
+    {
+      "id": "ANA-F02",
+      "selected": [
+        "README.md"
+      ],
+      "attributes": {
+        "README.md": "unspecified",
+        "assets/picture.bin": "lfs"
+      },
+      "excluded_filtered_paths": [
+        "assets/picture.bin"
+      ]
+    },
+    {
+      "id": "ANA-F03",
+      "selected": [
+        "README.md",
+        "assets/picture.bin"
+      ],
+      "attributes": {
+        "README.md": "unspecified",
+        "assets/picture.bin": "lfs"
+      },
+      "worktree": "both modified"
+    },
+    {
+      "id": "ANA-F04",
+      "selected": [
+        "README.md"
+      ],
+      "attributes": "lookup fails"
+    },
+    {
+      "id": "ANA-F05",
+      "selected": [
+        "README.md"
+      ],
+      "attributes": "change during collection"
+    }
+  ],
+  "candidate_initial_source_sha256": {
+    "skills/git-analyze-changes/SKILL.md": "1fbd05728e24f239193c9bba6e77053f61931ed6b2929c11179e83052635ba32",
+    "skills/git-analyze-changes/references/inspection.md": "7c58a25f0797d78fdd7b3798a90b6a301ae031588e783d17689d58b7a86f8490",
+    "skills/git-working-directory-policy/SKILL.md": "4455a163d999921c00cb304143eb7c3c9de278192ace7b95c200d5ee95477eea",
+    "skills/git-stage-changes/references/index-operations.md": "78f946f375c0320d9b3a88002ca719ed3931834b4ad725b637d742b567bf22e5"
+  },
+  "final_source_sha256": {
+    "skills/git-analyze-changes/SKILL.md": "1fbd05728e24f239193c9bba6e77053f61931ed6b2929c11179e83052635ba32",
+    "skills/git-analyze-changes/references/inspection.md": "15fb0613423bd90b2f79f7741ecc513e6e98e8c1c6c4d96775429d1ac78fe1da",
+    "skills/git-working-directory-policy/SKILL.md": "4455a163d999921c00cb304143eb7c3c9de278192ace7b95c200d5ee95477eea",
+    "skills/git-stage-changes/references/index-operations.md": "78f946f375c0320d9b3a88002ca719ed3931834b4ad725b637d742b567bf22e5"
+  },
+  "final_edge_cases": [
+    "A-E as initial replay",
+    "F: unset output with executable same-named clean",
+    "G: unspecified output with executable same-named clean",
+    "H: named driver with absent commands",
+    "I: empty winning command overrides lower executable value",
+    "J: staged-only selection with unknown worktree attributes"
+  ]
+}
