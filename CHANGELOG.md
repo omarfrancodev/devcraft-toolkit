@@ -4,6 +4,14 @@ Release dates use the GitHub publication date in America/Mexico_City. Pre-releas
 
 ## unreleased
 
+## 0.1.0-preview.11 — 2026-11-03
+
+### Added
+
+#### Shared capabilities
+
+- Add independent `issue-builder` for bugs, improvements, new feature issues and requested subtasks, preserving selected revisions and confirmed scope while separating optional advice and unresolved decisions. Include presentation metadata and optional owned entry routing without executing or publishing the authored work.
+
 ## 0.1.0-preview.10 — 2026-11-01
 
 ### Added

@@ -1,0 +1,30 @@
+{
+  "date": "2026-11-03",
+  "model": "gpt-6.1-sol",
+  "reasoning_effort": "medium",
+  "mode": "fresh manually loaded applications",
+  "fixture_sha256": "8dc251c066799e6cdccfe4da81ef0b0c4d66be03db744bf16d105454f4609dc8",
+  "candidate_skill_sha256": "556821167a8c038d1764fb4464223d024e92fb99d9f58f94cb7cb6a1d6818adc",
+  "baseline_files": {
+    "baseline-01.json": "8034f69808a3e982307d868168cf24e39a84074505edd7be8b7f3e766465b889",
+    "baseline-02.json": "07f1e6007e0b059ad8e42ca945da047b54d35b1015f64d6b3120015a2a85f639",
+    "baseline-03.json": "8b797a99bbc811a3cb4cacd764f6717fb2414ea6a01332eaad11af55ad1507cd",
+    "baseline-04.json": "ebb2687f363cf24a82e37fcc63b23959dde6e5f2eaca6621f717ce585b67e9c7",
+    "baseline-05.json": "b154f63ef2eb99b0f6bd5c3aac86695a4c1da8af7590728339b525b91924ea3e",
+    "baseline-edges.json": "e301694006cb5b9c3524d68840723faaeaa971dfd5d97507ba9fee3ee2bbfb0e"
+  },
+  "candidate_files": {
+    "candidate-01.json": "899e972a3db88801d6fe292bbafe20c2f178b7dab5797908bbece128276a35e1",
+    "candidate-02.json": "9cb6e8734c91cc2210ae6eb3398744e795892a2653ef15f363d4a542ada63a50",
+    "candidate-03.json": "7464492b2d45af997a1d707843dac1f86e70f826f9e528f2aa2bc7ae26b1c180",
+    "candidate-04.json": "1865319981bd1c2f4f825a80c5bad224d020300061c5e612d14a365671051904",
+    "candidate-05.json": "b9e12e7ce33bd5ef865757734dcec23440d31124a116a5ee86a011e137cca5b8",
+    "candidate-edges.json": "43d93dad8676184152bf3722060445483c871220e899b7f902c4b3ce6f5a9ca9"
+  },
+  "candidate_presentation_sha256": "9669256f1c30f1c79160fbd3b7a8ff0a18c6d8592e83feffd0d16f20f9d75e51",
+  "routing_files": {
+    "baseline.json": "8823a3d0321481f29a661bde60f48e693cda2df328f83716c4e394bf504fdcea",
+    "candidate.json": "f0681baedd5d48656c783ea94284eaf6714c23645faf08d3018a0f03d048b873"
+  },
+  "full_suite_log_sha256": "456920bb671faa5283fb3242f8752b1281ff7c2e4be8bda187f59b65dae30d54"
+}

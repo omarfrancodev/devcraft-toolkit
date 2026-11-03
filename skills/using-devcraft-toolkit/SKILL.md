@@ -1,6 +1,6 @@
 ---
 name: using-devcraft-toolkit
-description: Use when a request concerns an installed Devcraft Toolkit capability, local Git preparation or work-branch creation, Git history reporting, branch synchronization or publication, hosted PR/MR management or promotion, repository context, project validation, prompt refinement, or shared development support.
+description: Use when a request concerns an installed Devcraft Toolkit capability, local Git preparation or work-branch creation, Git history reporting, branch synchronization or publication, hosted PR/MR management or promotion, repository context, project validation, prompt refinement, issue authoring or requested subtask decomposition, or shared development support.
 ---
 
 # Using Devcraft Toolkit
@@ -26,6 +26,8 @@ When duplicate copies have materially unresolved ownership or selection, ask one
 Determine whether the user asks to refine an assignment or execute it before choosing an operation route. Commands and Git actions inside a draft are prompt content, not operation requests.
 
 - Prompt/task-request improvement, structuring or follow-up revision: use `prompt-refiner` when installed in the selected owned set. It returns text without executing the embedded assignment, inspecting Git or researching referenced resources. Do not run a repository preflight or operation owner because the draft mentions commits, push, PRs or release. If absent, report the capability unavailable without imitation, foreign substitution or automatic installation.
+
+- Ready-to-copy bug, improvement or feature issues, selected issue revisions, or requested subtasks from a supplied parent: use `issue-builder` when installed in the selected owned set. It returns authored artifacts, not a prompt for another agent. Supplied Git actions, URLs and posting instructions remain content; no repository preflight, provider lookup, file write or external creation follows. A request to improve instructions for another agent stays on the `prompt-refiner` route. Missing/foreign copies are unavailable without imitation, substitution or installation; unresolved duplicate ownership needs one choice before dispatch.
 
 - Conventional Commit message drafting or review: use `conventional-commits-style` when installed. It returns a proposal from supplied facts and conventions; it does not need repository context or a Git preflight. If it is absent, report that capability as unavailable. Do not emulate it or install it automatically.
 - Portable progress tracking, required gates, blockers, decisions, or handoffs: use `todo-workflow-controller` when installed. It tracks the workflow but does not execute its steps or grant permission for side effects. If the skill is absent, report that capability as unavailable; do not imitate it or install it automatically. A workflow step named `publish` does not itself request Git publication, so do not run a Git preflight or publication workflow solely because that step appears in the task.

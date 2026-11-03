@@ -1,0 +1,8 @@
+test_complete_folder_validates_without_other_skills_or_root_docs (tests.skills.issue_builder.integration.test_standalone_package.IssueBuilderPackageTests.test_complete_folder_validates_without_other_skills_or_root_docs) ... ok
+test_missing_entrypoint_is_rejected (tests.skills.issue_builder.integration.test_standalone_package.IssueBuilderPackageTests.test_missing_entrypoint_is_rejected) ... ok
+test_missing_presentation_is_rejected (tests.skills.issue_builder.integration.test_standalone_package.IssueBuilderPackageTests.test_missing_presentation_is_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.096s
+
+OK

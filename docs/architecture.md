@@ -6,7 +6,7 @@ Skills are independently usable unless their catalog entry declares a dependency
 
 The repository validator and tests are development tools. Installed skills do not depend on them at runtime. Repository tests are grouped under `tests/repository/`, `tests/skills/<normalized-skill-name>/`, or shared integration/support areas when they cover multiple named skills.
 
-Current source contains nineteen available skills and zero planned names, recorded in the [approved current inventory](capability-inventory.md) and catalog. The development validator requires exact name equality and a nonempty unique approved inventory without a fixed count. Historical design documents remain unchanged. Release metadata is `0.1.0-preview.10`; preview.7 remains a sixteen-skill release. The formatter, progress controller, report writer, validation discovery and prompt refiner remain independently usable without dependencies. The prompt refiner is included in preview.10; preview.9 retains eighteen skills.
+Current source contains twenty available skills and zero planned names, recorded in the [approved current inventory](capability-inventory.md) and catalog. The development validator requires exact name equality and a nonempty unique approved inventory without a fixed count. Historical design documents remain unchanged. Release metadata is `0.1.0-preview.11`; preview.7 remains a sixteen-skill release. The formatter, progress controller, report writer, validation discovery, prompt refiner and issue builder remain independently usable without dependencies. The prompt refiner is included in preview.10; preview.9 retains eighteen skills.
 
 CCR workflows, a custom automatic installer, and release automation remain deferred. Native packaging follows the [installation design](superpowers/specs/2026-10-23-distribution-installation-design.md): root plugin.json is the portable manifest; .claude-plugin/plugin.json mirrors its common identity and adds Claude-specific presentation fields. The .agents/plugins/marketplace.json and .claude-plugin/marketplace.json adapters both point at this repository root, using one canonical skills/ tree. The offline distribution validator checks this finite contract and reuses repository inventory validation. It is not a runtime dependency or a full external-schema implementation.
 
@@ -71,3 +71,14 @@ missing/foreign capabilities do not trigger preflight, imitation or installation
 No runtime template loader, root documentation, new interpreter or persistent
 state is introduced. Behavioral replays and standalone package-copy controls
 remain separate from native activation evidence.
+
+## Text-only issue authoring
+
+`issue-builder` is an independent support capability with no runtime tools or
+skill dependencies. It consumes supplied requirements or the latest selected
+parent and returns an issue, requested child artifacts or a material clarification.
+It separates reported findings and optional advice from confirmed acceptance
+conditions. The optional entry route distinguishes actual issue artifacts from
+prompts, progress reports and hosted PR/MR operations. No tracker adapter or
+publication path is introduced. Preview.11 packages twenty available skills; the published preview.10
+tag retains its historical nineteen-skill release. Tests and manually loaded behavioral evidence stay outside the folder.

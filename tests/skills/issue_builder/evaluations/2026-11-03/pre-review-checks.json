@@ -1,0 +1,11 @@
+{
+  "local_markdown_targets_exist": 170,
+  "protected_metadata_unchanged_after_checkout_EOL_normalization": [
+    "plugin.json",
+    ".claude-plugin/plugin.json",
+    ".claude-plugin/marketplace.json",
+    ".agents/plugins/marketplace.json"
+  ],
+  "published_changelog_suffix_unchanged": true,
+  "routing_candidates": 12
+}

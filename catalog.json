@@ -171,6 +171,13 @@
       "status": "available",
       "path": "skills/prompt-refiner",
       "requires": []
+    },
+    {
+      "name": "issue-builder",
+      "role": "support",
+      "status": "available",
+      "path": "skills/issue-builder",
+      "requires": []
     }
   ]
 }

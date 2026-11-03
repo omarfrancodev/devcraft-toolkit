@@ -1,0 +1,76 @@
+{
+  "cases": [
+    {
+      "id": "IB-03",
+      "responses": [
+        "## Goal\nShow the existing customer block only on the first page of the report, eliminating repetition on subsequent pages.\n\n## Scope\nAdjust the report layout while preserving its data and page numbers. Do not add settings.\n\n## Acceptance\n- The customer block appears on page one only.\n- Subsequent pages do not repeat the block.\n- Page numbers remain present and correct.\n- Report data remains unchanged.\n- A single-page report still displays the customer block and its page number."
+      ]
+    },
+    {
+      "id": "IB-04",
+      "responses": [
+        "# Conservar y asignar isPrimaryRecord=true en los flujos de aprobación correspondientes\n\n## Problema\nSegún el reporte, la operación 1 aprueba una nueva versión sin conservar isPrimaryRecord=true. La operación 2 copia la última versión, conserva su contenido y exige una nueva aprobación. La operación 3 realiza la aprobación automática asumiendo que el campo ya existe. Finalmente, la validación rechaza la versión. No se ha inspeccionado código; la explicación proviene de la investigación del usuario.\n\n## Resultado esperado\nLas versiones que deban tener isPrimaryRecord=true deben conservar o recibir ese valor durante la generación y la aprobación automática, según corresponda.\n\n## Alcance\n- Conservar el campo al crear una versión aprobada cuando corresponda.\n- Asignarlo en la aprobación automática cuando corresponda, sin asumir su presencia previa.\n\n## Criterios de aceptación\n- La generación de una versión aprobada conserva isPrimaryRecord=true en los casos aplicables.\n- La aprobación automática establece el campo en los casos aplicables aunque no estuviera presente.\n- El flujo de copia y nueva aprobación mantiene el contenido y finaliza sin el rechazo asociado a la ausencia del campo.\n\n## Por confirmar\nPrecisar las condiciones que determinan cuándo corresponde el campo y verificar la secuencia reportada durante la investigación técnica."
+        ,
+        "## Subtarea 1: Conservar isBaseRecord=true al generar versiones aprobadas que califiquen\n\n**Contexto:** La generación de una versión aprobada puede omitir el campo requerido para documentos que califican. El campo correcto es isBaseRecord=true.\n\n**Objetivo y alcance:** Corregir la generación de versiones aprobadas para conservar isBaseRecord=true únicamente cuando el documento califique. Esta corrección es independiente de la aprobación automática.\n\n**Criterios de aceptación:**\n- La nueva versión aprobada conserva isBaseRecord=true cuando el documento califica.\n- El cambio no asigna ni conserva el campo indebidamente en documentos que no califican.\n- Se verifican ambos casos con las reglas vigentes de calificación.\n\n**Fuera de alcance:** Aprobación automática y reparación de registros existentes. La validación conjunta de copia y nueva aprobación permanece en el padre.\n\n## Subtarea 2: Asignar isBaseRecord=true en la aprobación automática cuando corresponda\n\n**Contexto:** La aprobación automática puede asumir que el campo ya existe, dejando sin isBaseRecord=true una versión que lo requiere.\n\n**Objetivo y alcance:** Corregir la aprobación automática para asignar isBaseRecord=true cuando el documento califique, sin depender de la corrección de generación de versiones.\n\n**Criterios de aceptación:**\n- La aprobación automática asigna isBaseRecord=true a documentos que califican aunque el campo esté ausente.\n- El cambio no asigna ni conserva el campo indebidamente en documentos que no califican.\n- Se verifican ambos casos con las reglas vigentes de calificación.\n\n**Fuera de alcance:** Generación de versiones y reparación de registros existentes. La validación conjunta de copia y nueva aprobación permanece en el padre.\n\n**Validación retenida en el padre:** Validar conjuntamente el flujo de copia y nueva aprobación, comprobando la aplicación de isBaseRecord=true según la calificación del documento y la validación final de la versión. Las dos subtareas pueden resolverse de forma independiente."
+      ]
+    },
+    {
+      "id": "IB-05",
+      "responses": [
+        "# Manejar la obligatoriedad de taxGroup únicamente en Destination-Q\n\n## Problema\nEl campo taxGroup pasó a ser opcional en el modelo general del cliente. Destination-Q aún lo exige y la integración falla al enviar un cliente sin ese dato.\n\n## Objetivo\nConservar taxGroup como opcional en el modelo general y manejar la exigencia de Destination-Q dentro de esa integración.\n\n## Alcance\nDefinir e implementar el tratamiento de clientes sin taxGroup al enviarlos a Destination-Q, sin extender esa obligatoriedad al resto del sistema.\n\n## Criterios de aceptación\n- El modelo general continúa permitiendo clientes sin taxGroup.\n- La exigencia de taxGroup se aplica únicamente al envío a Destination-Q.\n- El caso sin taxGroup se maneja conforme al comportamiento acordado para Destination-Q.\n- Los clientes con taxGroup válido siguen pudiendo enviarse a Destination-Q.\n- Otras integraciones no adquieren una obligatoriedad nueva por este cambio.\n\n## Decisiones pendientes\nAcordar el comportamiento y el mensaje para el caso sin taxGroup. Definir si se necesita configuración por destino; no se considera una solución ya aprobada."
+      ]
+    },
+    {
+      "id": "IB-06",
+      "responses": [
+        "# Allocate the exact remaining units\n\n**Request:** Allocate the exact remainder from a total of 1,500 units, with 1,200 units already allocated.\n\n**Unresolved discrepancy:** These figures yield 300 remaining units, while the operator reports exactly 400. No override or rounding rule was supplied. The report does not yet establish a product defect or an agreed allocation amount.\n\n**Acceptance, once the figures are confirmed:** The allocation equals the confirmed remainder and the resulting totals reconcile, without an unapproved override or rounding rule.\n\nWhich figure needs correction: the 1,500-unit total, the 1,200-unit allocated amount, or the reported 400-unit remainder?"
+      ]
+    },
+    {
+      "id": "IB-07",
+      "responses": [
+        "Necesito el contenido de final-parent.md para dividir la versión corregida en dos subtareas autocontenidas. Pega aquí esa versión; no puedo determinar si oldFlag sigue vigente ni reutilizarlo como requisito a partir del borrador anterior."
+      ]
+    },
+    {
+      "id": "IB-08",
+      "responses": [
+        "The requested split has an unresolved conflict: a parsing-only child and a rendering-only child cannot also own persistent-storage migration, while leaving no work at parent level.\n\nAll three requirements remain in scope: parse the new record format, render its preview, and migrate existing records in persistent storage. No migration owner has been selected.\n\nMay I add a third child for migration, or broaden one of the two children to include it?"
+      ]
+    },
+    {
+      "id": "IB-09",
+      "responses": [
+        "# Agregar búsqueda por nombre exacto y por email\n\n## Objetivo\nPermitir buscar por nombre exacto y por email, mostrando los resultados en la misma lista existente.\n\n## Alcance\nIncorporar ambos criterios de búsqueda sin introducir búsquedas aproximadas.\n\n## Criterios de aceptación\n- Una búsqueda por nombre devuelve únicamente coincidencias exactas del nombre.\n- Se puede buscar por email y ver los resultados en la misma lista.\n- Las búsquedas no devuelven resultados por similitud o aproximación.\n\n## Por definir\nAcordar si la búsqueda por email requiere coincidencia completa y cómo se tratan mayúsculas y espacios en los criterios de coincidencia."
+        ,
+        "# Agregar búsqueda por nombre exacto\n\n## Objetivo\nPermitir buscar por nombre exacto, mostrando los resultados en la misma lista existente.\n\n## Alcance\nIncorporar la búsqueda por nombre exacto sin introducir búsquedas aproximadas.\n\n## Criterios de aceptación\n- Una búsqueda devuelve únicamente coincidencias exactas del nombre.\n- Los resultados se muestran en la misma lista existente.\n- No se devuelven resultados por similitud o aproximación.\n\n## Por definir\nAcordar cómo se tratan mayúsculas y espacios para determinar la coincidencia exacta."
+        ,
+        "Show the saving state on the Save button"
+      ]
+    },
+    {
+      "id": "IB-10",
+      "responses": [
+        "# Stop automatic retries when allowRetry is disabled in CASE-42\n\n**Observed:** In CASE-42, automatic retries continue after allowRetry is disabled.\n\n**Expected:** Disabling allowRetry prevents automatic retries.\n\n**Acceptance criteria:**\n- CASE-42 performs no automatic retry when allowRetry is disabled.\n- Verify that enabling allowRetry preserves the existing retry behavior."
+      ]
+    },
+    {
+      "id": "IB-11",
+      "responses": [
+        "# Include the final row in exports\n\n## Problem\nThe report states that an export omits its final row. The export format and reproduction steps were not supplied.\n\n## Expected behavior\nThe export includes every row eligible for export, including the final row.\n\n## Acceptance criteria\n- An export of multiple eligible rows includes the final row.\n- The exported row count matches the eligible source row count.\n- A single eligible row is included in the export.\n\n## Information needed\nProvide the export format and a reproducible source dataset or steps demonstrating the omission."
+      ]
+    },
+    {
+      "id": "IB-12",
+      "responses": [
+        "No puedo publicar en https://tracker.invalid/project/demo porque en este contexto no hay cuenta ni herramienta de publicación. Dejo la issue lista para copiar; no se ha publicado.\n\n# Corregir la repetición del último registro en la vista\n\n## Problema\nSegún el reporte, la vista repite el último registro. No se han proporcionado el nombre de la vista ni pasos de reproducción.\n\n## Resultado esperado\nCada registro aparece una sola vez, sin añadir una repetición del último registro.\n\n## Criterios de aceptación\n- El último registro aparece una sola vez.\n- Los demás registros continúan mostrándose sin omisiones ni duplicados introducidos por la corrección.\n- Se verifica el comportamiento con un único registro y con varios registros.\n\n## Información pendiente\nIdentificar la vista afectada y los pasos o datos que reproducen el problema."
+      ]
+    },
+    {
+      "id": "IB-13",
+      "responses": [
+        "# Add an optional label field\n\n**Goal:** Allow an optional label to be supplied.\n\n**Acceptance:** The field accepts a label, and omitting it remains valid.\n\n**Open detail:** Identify the entity or form that receives the field.\n\nA meaningful split into exactly three self-contained subtasks needs three distinct deliverables or component boundaries. None were supplied, so I have not invented them. Which three deliverables should the subtasks cover, or should this remain one issue?"
+      ]
+    }
+  ]
+}

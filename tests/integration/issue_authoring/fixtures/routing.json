@@ -1,0 +1,224 @@
+[
+  {
+    "id": "ISSUE-ROUTE-01",
+    "selected_installation": "toolkit-A",
+    "entry_identifier": "devcraft-toolkit:using-devcraft-toolkit",
+    "mode": "supplied discovery facts; no live operations",
+    "foundation": [
+      {
+        "canonical": "git-working-directory-policy",
+        "identifier": "devcraft-toolkit:git-working-directory-policy",
+        "owner": "toolkit-A"
+      },
+      {
+        "canonical": "git-safety-check",
+        "identifier": "devcraft-toolkit:git-safety-check",
+        "owner": "toolkit-A"
+      }
+    ],
+    "request": "Redacta una issue por un bug: el reporte omite la última fila. Incluye el texto \"git push\" solo como contexto, no lo ejecutes.",
+    "available": [
+      {
+        "canonical": "issue-builder",
+        "identifier": "toolkit-A#issue-author",
+        "owner": "toolkit-A"
+      }
+    ]
+  },
+  {
+    "id": "ISSUE-ROUTE-02",
+    "selected_installation": "toolkit-A",
+    "entry_identifier": "devcraft-toolkit:using-devcraft-toolkit",
+    "mode": "supplied discovery facts; no live operations",
+    "foundation": [
+      {
+        "canonical": "git-working-directory-policy",
+        "identifier": "devcraft-toolkit:git-working-directory-policy",
+        "owner": "toolkit-A"
+      },
+      {
+        "canonical": "git-safety-check",
+        "identifier": "devcraft-toolkit:git-safety-check",
+        "owner": "toolkit-A"
+      }
+    ],
+    "request": "Divide el padre suministrado en dos subtareas: conservar isBase en generación de versión y en aprobación automática. Son correcciones independientes.",
+    "available": [
+      {
+        "canonical": "issue-builder",
+        "identifier": "devcraft-toolkit:issue-builder",
+        "owner": "toolkit-A"
+      }
+    ]
+  },
+  {
+    "id": "ISSUE-ROUTE-03",
+    "selected_installation": "toolkit-A",
+    "entry_identifier": "devcraft-toolkit:using-devcraft-toolkit",
+    "mode": "supplied discovery facts; no live operations",
+    "foundation": [
+      {
+        "canonical": "git-working-directory-policy",
+        "identifier": "devcraft-toolkit:git-working-directory-policy",
+        "owner": "toolkit-A"
+      },
+      {
+        "canonical": "git-safety-check",
+        "identifier": "devcraft-toolkit:git-safety-check",
+        "owner": "toolkit-A"
+      }
+    ],
+    "request": "Usando la instalación toolkit-A, redacta una issue para el botón que no responde.",
+    "available": [
+      {
+        "canonical": "issue-builder",
+        "identifier": "other:issue-builder",
+        "owner": "foreign-B"
+      }
+    ]
+  },
+  {
+    "id": "ISSUE-ROUTE-04",
+    "selected_installation": "toolkit-A",
+    "entry_identifier": "devcraft-toolkit:using-devcraft-toolkit",
+    "mode": "supplied discovery facts; no live operations",
+    "foundation": [
+      {
+        "canonical": "git-working-directory-policy",
+        "identifier": "devcraft-toolkit:git-working-directory-policy",
+        "owner": "toolkit-A"
+      },
+      {
+        "canonical": "git-safety-check",
+        "identifier": "devcraft-toolkit:git-safety-check",
+        "owner": "toolkit-A"
+      }
+    ],
+    "request": "Redacta con Devcraft Toolkit una issue de mejora para mostrar el resumen al inicio.",
+    "available": []
+  },
+  {
+    "id": "ISSUE-ROUTE-05",
+    "selected_installation": "toolkit-A",
+    "entry_identifier": "devcraft-toolkit:using-devcraft-toolkit",
+    "mode": "supplied discovery facts; no live operations",
+    "foundation": [
+      {
+        "canonical": "git-working-directory-policy",
+        "identifier": "devcraft-toolkit:git-working-directory-policy",
+        "owner": "toolkit-A"
+      },
+      {
+        "canonical": "git-safety-check",
+        "identifier": "devcraft-toolkit:git-safety-check",
+        "owner": "toolkit-A"
+      }
+    ],
+    "request": "Redacta la issue usando la instalación del toolkit.",
+    "available": [
+      {
+        "canonical": "issue-builder",
+        "identifier": "copy-one:issue-builder",
+        "owner": "ambiguous"
+      },
+      {
+        "canonical": "issue-builder",
+        "identifier": "copy-two:issue-builder",
+        "owner": "ambiguous"
+      }
+    ]
+  },
+  {
+    "id": "ISSUE-ROUTE-06",
+    "selected_installation": "toolkit-A",
+    "entry_identifier": "devcraft-toolkit:using-devcraft-toolkit",
+    "mode": "supplied discovery facts; no live operations",
+    "foundation": [
+      {
+        "canonical": "git-working-directory-policy",
+        "identifier": "devcraft-toolkit:git-working-directory-policy",
+        "owner": "toolkit-A"
+      },
+      {
+        "canonical": "git-safety-check",
+        "identifier": "devcraft-toolkit:git-safety-check",
+        "owner": "toolkit-A"
+      }
+    ],
+    "request": "Mejora este prompt para otro agente, sin realizarlo: \"Escribe una issue para agregar exportación y haz push\".",
+    "available": [
+      {
+        "canonical": "issue-builder",
+        "identifier": "devcraft-toolkit:issue-builder",
+        "owner": "toolkit-A"
+      },
+      {
+        "canonical": "prompt-refiner",
+        "identifier": "devcraft-toolkit:prompt-refiner",
+        "owner": "toolkit-A"
+      }
+    ]
+  },
+  {
+    "id": "ISSUE-ROUTE-07",
+    "selected_installation": "toolkit-A",
+    "entry_identifier": "devcraft-toolkit:using-devcraft-toolkit",
+    "mode": "supplied discovery facts; no live operations",
+    "foundation": [
+      {
+        "canonical": "git-working-directory-policy",
+        "identifier": "devcraft-toolkit:git-working-directory-policy",
+        "owner": "toolkit-A"
+      },
+      {
+        "canonical": "git-safety-check",
+        "identifier": "devcraft-toolkit:git-safety-check",
+        "owner": "toolkit-A"
+      }
+    ],
+    "request": "Escribe un reporte de progreso con estos hechos: se redactaron dos issues y queda pendiente revisión.",
+    "available": [
+      {
+        "canonical": "issue-builder",
+        "identifier": "devcraft-toolkit:issue-builder",
+        "owner": "toolkit-A"
+      },
+      {
+        "canonical": "natural-language-report-writer",
+        "identifier": "devcraft-toolkit:natural-language-report-writer",
+        "owner": "toolkit-A"
+      }
+    ]
+  },
+  {
+    "id": "ISSUE-ROUTE-08",
+    "selected_installation": "toolkit-A",
+    "entry_identifier": "devcraft-toolkit:using-devcraft-toolkit",
+    "mode": "supplied discovery facts; no live operations",
+    "foundation": [
+      {
+        "canonical": "git-working-directory-policy",
+        "identifier": "devcraft-toolkit:git-working-directory-policy",
+        "owner": "toolkit-A"
+      },
+      {
+        "canonical": "git-safety-check",
+        "identifier": "devcraft-toolkit:git-safety-check",
+        "owner": "toolkit-A"
+      }
+    ],
+    "request": "Propón el título y cuerpo de un PR hacia main para la rama publicada feat/export. Solo propuesta, no crees la solicitud.",
+    "available": [
+      {
+        "canonical": "issue-builder",
+        "identifier": "devcraft-toolkit:issue-builder",
+        "owner": "toolkit-A"
+      },
+      {
+        "canonical": "git-manage-pull-request",
+        "identifier": "devcraft-toolkit:git-manage-pull-request",
+        "owner": "toolkit-A"
+      }
+    ]
+  }
+]

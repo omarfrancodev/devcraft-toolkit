@@ -31,7 +31,7 @@ Preview.2 automated checks: 78 tests discovered, 77 passed and one Windows symli
 
 ## Remote-first suite validation
 
-The consumer path now starts with the complete native suite from the public repository. [Individual skills](installation/individual-skills.md) are an alternative; [local/developer installation](installation/development.md) is separate. Default-source recipes use integrated metadata; [release-pinned sources](releases/v0.1.0-preview.10.md#version-pinned-sources) are separate from [historical pre-integration sources](installation/preview.md).
+The consumer path now starts with the complete native suite from the public repository. [Individual skills](installation/individual-skills.md) are an alternative; [local/developer installation](installation/development.md) is separate. Default-source recipes use integrated metadata; [release-pinned sources](releases/v0.1.0-preview.11.md#version-pinned-sources) are separate from [historical pre-integration sources](installation/preview.md).
 
 The [remote evaluation](../tests/integration/distribution/evaluations/2026-10-23-remote-suite/remote.md) fetched public reference b05a8c4367dc02e33ac9d19a8eb98e0bdb31c04e, installed the suite through Codex and Claude's actual remote marketplace flows, and compared every installed skill resource against that source. It also copied an independent formatter for Codex and the complete project fallback for Kiro through the pinned external CLI. The corrected run's 29 commands exited 0; its native outcomes remain limited.
 
@@ -160,3 +160,15 @@ cover source behavior, merged integration and packaging separately from native
 activation. The release adds no claim that a client invoked either capability,
 that filters were executed, or that multi-client authenticated scope/lifecycle
 checks passed. Earlier evidence remains version-specific.
+
+## Issue authoring source increment
+
+Current source includes `issue-builder`, bringing available capabilities to
+twenty. Its one-folder, dependency-free package uses the existing presentation
+and inventory contracts. Fresh manually supplied instruction applications and
+real isolated folder-copy controls are recorded under
+[owner evidence](../tests/skills/issue_builder/evaluations/2026-11-03/behavior.md).
+These do not prove native skill selection, unrestricted execution behavior or
+client lifecycle. No client was installed or updated for this increment.
+Preview.11 packages twenty skills. Published preview.10 retains nineteen and
+excludes issue-builder. Packaging a new version does not establish native activation.
