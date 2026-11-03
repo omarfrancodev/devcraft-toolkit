@@ -4,7 +4,7 @@ Use this route only when you want selected capabilities instead of the native su
 
 ## Remote source and requirements
 
-The default remote source uses the integrated package. For a fixed version use the [release-pinned source](../releases/v0.1.0-preview.10.md#version-pinned-sources). CLI examples use Node.js >=22.20.0, npm and Skills CLI 1.7.4. Complete-folder manual copying is available in [development/reference](development.md#manual-complete-folder-copying).
+The default remote source uses the integrated package. For a fixed version use the [release-pinned source](../releases/v0.1.0-preview.11.md#version-pinned-sources). CLI examples use Node.js >=22.20.0, npm and Skills CLI 1.7.4. Complete-folder manual copying is available in [development/reference](development.md#manual-complete-folder-copying).
 
 Crew uses its [native individual/full importer](kiro-crew.md), not an assumed external installer selector. Its default user store is `~/.kiro/crew/skills/`; active-project `.kiro/skills/` requires Crew's project-skill enablement and trust. Use exact imported paths and dependencies.
 
@@ -33,7 +33,7 @@ The leading npm `--yes` permits acquisition of the pinned CLI; Skills remains in
 
 ## Source inventory and dependency selection
 
-Current source contains twenty available skills, including `issue-builder`, which needs a revision containing this addition. It reaches default remote recipes after integration. Fixed version `0.1.0-preview.10` contains nineteen available skills and excludes `issue-builder`. Default GitHub/main recipes deliver the integrated suite; set `$toolkitSource = 'https://github.com/omarfrancodev/devcraft-toolkit/tree/v0.1.0-preview.10'` for this fixed version and retain target/scope and explicit dependencies. Local-source testing remains an optional [development route](development.md), not a consumer requirement.
+Preview.11 contains twenty available skills, including independent `issue-builder`. Default remote recipes include the integrated set. Fixed version `0.1.0-preview.10` contains nineteen available skills and excludes `issue-builder`. Default GitHub/main recipes deliver the integrated suite; set `$toolkitSource = 'https://github.com/omarfrancodev/devcraft-toolkit/tree/v0.1.0-preview.11'` for the fixed twenty-skill version and retain target/scope and explicit dependencies. Local-source testing remains an optional [development route](development.md), not a consumer requirement.
 
 `prompt-refiner` is included in preview.10 and absent from preview.9 and earlier releases. Its standalone installation needs one complete folder. Source selection does not establish native activation. Preview.7 retains sixteen; preview.6 retains fourteen; preview.5 twelve; preview.4 eleven; preview.3 nine; preview.2 seven. Old tags retain their original inventories and resource evidence.
 
@@ -48,7 +48,7 @@ Current source contains twenty available skills, including `issue-builder`, whic
 | `todo-workflow-controller` | That name only |
 | `natural-language-report-writer` | That name only |
 | `prompt-refiner` | That name only; available from preview.10 |
-| `issue-builder` | That name only; requires current source containing the unpublished addition |
+| `issue-builder` | That name only; available from preview.11 |
 | `validation-discovery` | That name only |
 | `git-create-work-branch` | `git-create-work-branch git-working-directory-policy` |
 | `git-publish-work` | `git-publish-work git-publish-changes todo-workflow-controller git-working-directory-policy git-safety-check` |
@@ -66,7 +66,7 @@ The installer does not resolve `catalog.json` dependencies. A bare entry install
 
 ## Complete skill-set fallback
 
-When the native project suite is unavailable (notably Kiro's project Power), select all twenty current-source skills explicitly from a revision containing `issue-builder`. Default remote recipes include that set after integration. For fixed preview.10 remove `issue-builder` to select its nineteen skills; for fixed preview.9 also remove `prompt-refiner` to select eighteen. Older tags cannot satisfy the current-source selection:
+When the native project suite is unavailable (notably Kiro's project Power), select all twenty current-source skills explicitly from a revision containing `issue-builder`. Preview.11 provides the complete selection. For fixed preview.10 remove `issue-builder` to select its nineteen skills; for fixed preview.9 also remove `prompt-refiner` to select eighteen. Older tags cannot satisfy the current-source selection:
 
 ```powershell
 $toolkitSkills = @('using-devcraft-toolkit', 'git-working-directory-policy', 'git-safety-check', 'conventional-commits-style', 'todo-workflow-controller', 'natural-language-report-writer', 'validation-discovery', 'git-analyze-changes', 'git-plan-commits', 'git-stage-changes', 'git-commit-builder', 'git-activity-report', 'git-sync-branch', 'git-publish-changes', 'git-manage-pull-request', 'git-promote', 'git-create-work-branch', 'git-publish-work', 'prompt-refiner', 'issue-builder')

@@ -45,7 +45,7 @@ Installation tests require disposable actual users/containers or verified client
 
 ## Current release resources
 
-Current development source has twenty available folders, adding unpublished `issue-builder`. Its complete standalone folder requires no root docs or other skill. Use a selected checkout containing it for local development; fixed preview.10 and older releases do not contain it.
+Preview.11 source has twenty available folders, including `issue-builder`. Its complete standalone folder requires no root docs or other skill. Use a selected checkout containing it for local development; fixed preview.10 and older releases do not contain it.
 
 Preview.10 source has nineteen available folders with `prompt-refiner`. Its standalone copy needs one folder, not the root catalog or docs. Release `0.1.0-preview.9` contains eighteen available folders, including git-create-work-branch and git-publish-work. Select a checkout/revision that actually contains them; preview.7 contains sixteen. In individual/full-set test recipes, set `$toolkitSource` to that checkout's absolute path before selecting the current names. This is a contributor validation route; complete native remote suite installation remains the primary consumer route. Copy complete owner folders plus explicit mandatory and selected conditional closures. No root inventory is installed as a runtime dependency.
 

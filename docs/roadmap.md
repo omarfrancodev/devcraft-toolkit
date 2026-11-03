@@ -125,6 +125,16 @@ The [approved design](superpowers/specs/2026-11-03-issue-builder-design.md) and
 [plan](superpowers/plans/2026-11-03-issue-builder.md) define owner-scoped behavioral
 and package-copy controls plus optional ownership-aware entry routing. The
 current inventory becomes twenty, with no placeholders or additional entry
-requirements. This addition is unpublished and absent from preview.10/older tags.
+requirements. This addition is included in preview.11 and absent from preview.10/older tags.
 Native invocation and multi-client lifecycle remain the next validation track;
 release/publication and deferred integrations are not included in this increment.
+
+## Preview.11 release
+
+PR #14 includes issue authoring and all preview.11 changelog, manifest version,
+current source pointers and preparation evidence before merge. Tag and assets
+use its exact final ordinary merge tree, with no later preparation commit on main.
+The [release details](releases/v0.1.0-preview.11.md) and
+[preparation evidence](../tests/integration/distribution/evaluations/2026-11-03-preview11-release/preparation.md)
+retain the review's environment reservation and fresh release validation results.
+Native activation and lifecycle remain separate open checks.
