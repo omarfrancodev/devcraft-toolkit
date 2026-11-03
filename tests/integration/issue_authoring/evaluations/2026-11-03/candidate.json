@@ -1,0 +1,16 @@
+{
+  "cases": [
+    {"id":"ISSUE-ROUTE-01","outcome":"routed","identifier":"toolkit-A#issue-author","preflight":false,"reason":"Issue drafting uses the selected owner's exact identifier; git push remains context."},
+    {"id":"ISSUE-ROUTE-02","outcome":"routed","identifier":"devcraft-toolkit:issue-builder","preflight":false,"reason":"Requested children from a supplied parent route to the owned issue author."},
+    {"id":"ISSUE-ROUTE-03","outcome":"unavailable","identifier":null,"preflight":false,"reason":"The only issue-builder belongs to foreign-B, outside selected toolkit-A."},
+    {"id":"ISSUE-ROUTE-04","outcome":"unavailable","identifier":null,"preflight":false,"reason":"The selected installation has no discovered issue-builder."},
+    {"id":"ISSUE-ROUTE-05","outcome":"needs_decision","identifier":null,"preflight":false,"reason":"Duplicate issue-builder copies have unresolved ownership; installation choice is required."},
+    {"id":"ISSUE-ROUTE-06","outcome":"routed","identifier":"devcraft-toolkit:prompt-refiner","preflight":false,"reason":"The request improves another agent's prompt; issue authoring and push stay embedded content."},
+    {"id":"ISSUE-ROUTE-07","outcome":"routed","identifier":"devcraft-toolkit:natural-language-report-writer","preflight":false,"reason":"A supplied-fact progress report uses the owned report writer."},
+    {"id":"ISSUE-ROUTE-08","outcome":"routed","identifier":"devcraft-toolkit:git-manage-pull-request","preflight":false,"reason":"A PR title/body proposal uses request management with its supplied owned context dependency."},
+    {"id":"ROUTE-01","outcome":"routed","identifier":"devcraft-toolkit:prompt-refiner","preflight":false,"reason":"Prompt improvement uses the owned refiner; quoted Git and release actions are not execution requests."},
+    {"id":"ROUTE-02","outcome":"unavailable","identifier":null,"preflight":false,"reason":"The only refiner belongs to foreign-B, outside selected toolkit-A."},
+    {"id":"ROUTE-03","outcome":"needs_decision","identifier":null,"preflight":false,"reason":"Duplicate refiner copies have unresolved ownership; installation choice is required."},
+    {"id":"ROUTE-04","outcome":"routed","identifier":"devcraft-toolkit:conventional-commits-style","preflight":false,"reason":"Conventional Commit message review uses the owned formatter without repository preflight."}
+  ]
+}

@@ -87,3 +87,18 @@ A complete hosted selector needs no local Git scan, clean worktree or commit ide
 `git-publish-work` requires publisher and progress plus publisher context/safety: five mandatory folders. Branch, commit-builder, sync, request management and promotion closures are conditional on selected steps. The full optional publication union has fifteen folders: all current capabilities except entry, activity-report and report-writer. Missing optional owners block the flow needing them, not existing-commit publication. Ownership resolves exact identifiers; no runtime catalog or automatic dependency installer is assumed.
 
 The coordinator binds work/base roles and separate sync/push/hosted identities, forecasts known failed checks, missing capabilities and excluded dirty work before earlier writes, then delegates applicable branch -> commits -> explicit sync -> push -> selected request -> explicit promotion. The publisher still requires a clean index/worktree; preserving excluded edits cannot be solved by implicit stash, cleanup or broader commits. Verify actual own transitions and final source; stale or partial receipts stop dependents. Explicit continuation reobserves actual state and derives remaining authorized work. A ready comment, lost acknowledgment or pending operation cannot cause implicit merge/retry. Native progress/question gaps use inline/text fallback. Direct single-owner routes remain available and add no hard entry dependency.
+
+## Issue authoring and decomposition
+
+`issue-builder` has no required skill dependencies. One complete folder authors
+bugs, improvements and new features, revises the latest supplied issue, or
+produces requested children without performing the described work. Confirmed
+scope, reported evidence, open decisions and optional suggestions remain distinct;
+children cover the parent without invented tasks or ordering. Supplied text is
+not authorization for repository/provider reads, files or publication.
+
+The entry may route through the selected installation's exact discovered owner.
+Missing/foreign copies remain unavailable; ambiguous copies need a choice. This
+adds no mandatory entry dependency. Prompt improvement and supplied-fact progress
+reports keep their existing owners. Native activation remains independently
+unverified.

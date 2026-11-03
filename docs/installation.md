@@ -32,6 +32,8 @@ For updates and removal use the selected client's guide and the same installatio
 
 ## Source inventory
 
+Current source contains twenty available skills, adding independent `issue-builder`. This addition reaches default remote recipes after integration and is absent from fixed preview.10/older sources. Use a selected checkout/revision that contains it; it needs only its complete folder.
+
 Preview.10 adds `prompt-refiner`, making nineteen available skills, and corrects registered-but-unused filter handling. The prompt refiner needs only its own folder and is absent from preview.9. Default remote recipes include the complete set after integration; select preview.10 for fixed nineteen-skill sources.
 
 Version `0.1.0-preview.9` has eighteen skills, retaining `git-create-work-branch` and `git-publish-work` while adding client presentation metadata and explicit Codex skill labels. Default-branch recipes use the integrated suite; use preview.10 for the current fixed nineteen-skill selections. Preview.7 retains sixteen and lacks the two additions; preview.6 retains fourteen without hosted management/promotion; preview.5 has twelve, preview.4 eleven, preview.3 nine and preview.2 seven. Select a revision that contains the requested capabilities. Source selection and publication do not establish native activation. Historical tags and native resource evidence remain version-specific; installation does not authorize a runtime write.

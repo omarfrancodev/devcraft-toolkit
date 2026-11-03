@@ -2,7 +2,7 @@
 
 ## Current foundation
 
-Current source contains nineteen available capabilities and zero planned names, recorded in the [approved inventory](capability-inventory.md). Work-branch creation and full publication coordination are delivered in preview.8. Published preview.7 retains sixteen available/one planned across its historical seventeen names; preview.6 retains fourteen, preview.5 twelve, preview.4 eleven and preview.3 nine. Every capability retains its explicit operation/authorization contract; optional entry routes add no hard dependency.
+Current source contains twenty available capabilities and zero planned names, recorded in the [approved inventory](capability-inventory.md). Work-branch creation and full publication coordination are delivered in preview.8. Published preview.7 retains sixteen available/one planned across its historical seventeen names; preview.6 retains fourteen, preview.5 twelve, preview.4 eleven and preview.3 nine. Every capability retains its explicit operation/authorization contract; optional entry routes add no hard dependency.
 
 ## Shared capabilities
 
@@ -95,8 +95,8 @@ validation track above remains open.
 
 ## Prompt refinement
 
-Current source adds `prompt-refiner` as an independently installable support
-skill with no dependencies, bringing the current inventory to nineteen. It
+Preview.10 adds `prompt-refiner` as an independently installable support
+skill with no dependencies, bringing that release inventory to nineteen. It
 structures supplied requests, separates optional enrichment, applies revisions
 and returns text without executing the assignment. The [approved design](superpowers/specs/2026-10-31-prompt-refiner-design.md)
 and [plan](superpowers/plans/2026-10-31-prompt-refiner.md) define owner-scoped
@@ -114,3 +114,17 @@ merge tree; no later preparation commit on main is required. The suite contains
 nineteen available skills. [Release details](releases/v0.1.0-preview.10.md) and
 [prepared-source evidence](../tests/integration/distribution/evaluations/2026-11-01-preview10-release/preparation.md)
 retain the remaining native/authenticated validation limits.
+
+## Issue authoring and requested subtasks
+
+Current source implements independent `issue-builder` for bugs, improvements,
+features, faithful selected revisions and requested parent decomposition. It
+separates confirmed work, reported evidence, open decisions and optional advice,
+returns text and does not create/update hosted records or execute assignments.
+The [approved design](superpowers/specs/2026-11-03-issue-builder-design.md) and
+[plan](superpowers/plans/2026-11-03-issue-builder.md) define owner-scoped behavioral
+and package-copy controls plus optional ownership-aware entry routing. The
+current inventory becomes twenty, with no placeholders or additional entry
+requirements. This addition is unpublished and absent from preview.10/older tags.
+Native invocation and multi-client lifecycle remain the next validation track;
+release/publication and deferred integrations are not included in this increment.

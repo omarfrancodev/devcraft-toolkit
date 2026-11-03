@@ -1,0 +1,3 @@
+interface:
+  display_name: "Issue Builder"
+  short_description: "Turn supplied requirements into clear issues and subtasks"

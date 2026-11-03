@@ -1,0 +1,88 @@
+{
+  "cases": [
+    {
+      "id": "ISSUE-ROUTE-01",
+      "outcome": "outside_scope",
+      "identifier": null,
+      "preflight": false,
+      "reason": "The baseline entry defines no issue-authoring route; quoted push remains context."
+    },
+    {
+      "id": "ISSUE-ROUTE-02",
+      "outcome": "outside_scope",
+      "identifier": null,
+      "preflight": false,
+      "reason": "The baseline entry defines no issue or subtask authoring route."
+    },
+    {
+      "id": "ISSUE-ROUTE-03",
+      "outcome": "outside_scope",
+      "identifier": null,
+      "preflight": false,
+      "reason": "Issue authoring has no route in the baseline entry; foreign discovery adds no route."
+    },
+    {
+      "id": "ISSUE-ROUTE-04",
+      "outcome": "outside_scope",
+      "identifier": null,
+      "preflight": false,
+      "reason": "Issue authoring has no route in the baseline entry."
+    },
+    {
+      "id": "ISSUE-ROUTE-05",
+      "outcome": "outside_scope",
+      "identifier": null,
+      "preflight": false,
+      "reason": "The baseline entry defines no issue-authoring route to resolve against duplicate copies."
+    },
+    {
+      "id": "ISSUE-ROUTE-06",
+      "outcome": "routed",
+      "identifier": "devcraft-toolkit:prompt-refiner",
+      "preflight": false,
+      "reason": "The user requests prompt refinement; embedded issue and push actions remain text."
+    },
+    {
+      "id": "ISSUE-ROUTE-07",
+      "outcome": "routed",
+      "identifier": "devcraft-toolkit:natural-language-report-writer",
+      "preflight": false,
+      "reason": "A supplied-facts progress report routes to the owned writer."
+    },
+    {
+      "id": "ISSUE-ROUTE-08",
+      "outcome": "routed",
+      "identifier": "devcraft-toolkit:git-manage-pull-request",
+      "preflight": false,
+      "reason": "A PR title/body proposal routes to owned request management with its owned context dependency."
+    },
+    {
+      "id": "ROUTE-01",
+      "outcome": "routed",
+      "identifier": "devcraft-toolkit:prompt-refiner",
+      "preflight": false,
+      "reason": "Prompt refinement routes to the owned refiner; quoted Git actions are not execution requests."
+    },
+    {
+      "id": "ROUTE-02",
+      "outcome": "unavailable",
+      "identifier": null,
+      "preflight": false,
+      "reason": "Only a foreign prompt-refiner is discovered; it cannot fill the selected installation capability."
+    },
+    {
+      "id": "ROUTE-03",
+      "outcome": "needs_decision",
+      "identifier": null,
+      "preflight": false,
+      "reason": "Duplicate prompt-refiner ownership is unresolved and needs an installation choice."
+    },
+    {
+      "id": "ROUTE-04",
+      "outcome": "routed",
+      "identifier": "devcraft-toolkit:conventional-commits-style",
+      "preflight": false,
+      "reason": "Conventional Commit text review routes to the owned formatter without repository preflight."
+    }
+  ]
+}

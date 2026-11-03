@@ -1,12 +1,12 @@
 # Devcraft Toolkit
 
-A modular toolkit of composable skills for repository context, Git inspection and planning, exact authorized staging, requested local commits, scoped branch synchronization and publication, hosted PR/MR management and explicit promotion, project validation, reporting, prompt refinement, and portable progress tracking. Compatibility is recorded only for harnesses actually exercised.
+A modular toolkit of composable skills for repository context, Git inspection and planning, exact authorized staging, requested local commits, scoped branch synchronization and publication, hosted PR/MR management and explicit promotion, project validation, reporting, prompt refinement, issue authoring, and portable progress tracking. Compatibility is recorded only for harnesses actually exercised.
 
 Release preview.10 contains nineteen skills, adding standalone prompt refinement and filter-aware Git analysis while retaining client-specific plugin presentation and explicit Codex selector labels. CCR integration remains deferred.
 
 Skill definitions and default templates use English. User-facing content follows an explicit language preference or the language of the user's request, defaulting to English when neither can be determined. Tests are maintained outside individual skill directories, grouped by the owning skill and then by test scope; repository infrastructure and cross-skill coverage have separate shared groups.
 
-The [approved inventory](docs/capability-inventory.md) and [catalog](catalog.json) contain nineteen available capabilities, with no planned placeholders. Preview.10 adds `prompt-refiner` for text-only request refinement and corrects unused-filter handling; preview.9 retains its eighteen-skill inventory. See [installation](docs/installation.md), [architecture](docs/architecture.md), [language behavior](docs/language.md), and [compatibility evidence](docs/compatibility.md).
+The [approved inventory](docs/capability-inventory.md) and [catalog](catalog.json) contain twenty available capabilities, with no planned placeholders. Current source adds `issue-builder`; published preview.10 retains nineteen skills and does not include it. Preview.10 adds `prompt-refiner` for text-only request refinement and corrects unused-filter handling; preview.9 retains its eighteen-skill inventory. See [installation](docs/installation.md), [architecture](docs/architecture.md), [language behavior](docs/language.md), and [compatibility evidence](docs/compatibility.md).
 
 The [capability roadmap](docs/roadmap.md) links the self-contained designs and plans for upcoming increments.
 
@@ -16,7 +16,7 @@ Install the complete toolkit directly from GitHub using your client's documented
 
 Choose [Codex](docs/installation/codex.md), [Copilot CLI](docs/installation/copilot-cli.md), [Copilot in VS Code](docs/installation/copilot-vscode.md), [Claude Code](docs/installation/claude-code.md), [Kiro CLI V3](docs/installation/kiro-cli.md), [Kiro IDE](docs/installation/kiro.md), or [Kiro Crew](docs/installation/kiro-crew.md). The [installation overview](docs/installation.md) explains scope and the Kiro project fallback.
 
-Default remote recipes deliver all nineteen skills after integration. Fixed preview.9 sources retain eighteen and do not include `prompt-refiner`. See [preview.10 release details](docs/releases/v0.1.0-preview.10.md) for version-pinned source options; [earlier preview sources](docs/installation/preview.md) are historical evidence. Native activation remains partially validated; no official catalog listing is claimed.
+Default remote recipes deliver the current available set after integration. Fixed preview.10 contains nineteen skills and lacks `issue-builder`. Fixed preview.9 sources retain eighteen and do not include `prompt-refiner`. See [preview.10 release details](docs/releases/v0.1.0-preview.10.md) for version-pinned source options; [earlier preview sources](docs/installation/preview.md) are historical evidence. Native activation remains partially validated; no official catalog listing is claimed.
 
 Need selected capabilities instead? Use [individual skill installation](docs/installation/individual-skills.md). Package contributors and manual-copy users can use [local development/reference](docs/installation/development.md).
 
@@ -48,3 +48,14 @@ language and execution boundaries. It does not carry out the embedded task.
 It is independently installable with no dependencies and is included in preview.10. See the [design](docs/superpowers/specs/2026-10-31-prompt-refiner-design.md),
 [plan](docs/superpowers/plans/2026-10-31-prompt-refiner.md) and
 [individual selection](docs/installation/individual-skills.md).
+
+## Issue authoring
+
+Current source adds independently usable `issue-builder` for ready-to-copy bugs,
+improvements, feature issues and requested subtasks. It preserves selected
+revisions and confirmed scope while separating optional advice and unresolved
+decisions. It returns conversation text without implementation or tracker actions.
+Its standalone selection is one folder with no dependencies; preview.10 and older
+tags do not include it. See the [design](docs/superpowers/specs/2026-11-03-issue-builder-design.md),
+[plan](docs/superpowers/plans/2026-11-03-issue-builder.md) and
+[installation selection](docs/installation/individual-skills.md).

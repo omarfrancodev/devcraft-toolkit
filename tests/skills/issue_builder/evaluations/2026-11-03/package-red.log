@@ -1,0 +1,41 @@
+test_complete_folder_validates_without_other_skills_or_root_docs (tests.skills.issue_builder.integration.test_standalone_package.IssueBuilderPackageTests.test_complete_folder_validates_without_other_skills_or_root_docs) ... FAIL
+test_missing_entrypoint_is_rejected (tests.skills.issue_builder.integration.test_standalone_package.IssueBuilderPackageTests.test_missing_entrypoint_is_rejected) ... FAIL
+test_missing_presentation_is_rejected (tests.skills.issue_builder.integration.test_standalone_package.IssueBuilderPackageTests.test_missing_presentation_is_rejected) ... FAIL
+
+======================================================================
+FAIL: test_complete_folder_validates_without_other_skills_or_root_docs (tests.skills.issue_builder.integration.test_standalone_package.IssueBuilderPackageTests.test_complete_folder_validates_without_other_skills_or_root_docs)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<workspace>\tests\skills\issue_builder\integration\test_standalone_package.py", line 42, in test_complete_folder_validates_without_other_skills_or_root_docs
+    package = self.selected_package()
+  File "<workspace>\tests\skills\issue_builder\integration\test_standalone_package.py", line 25, in selected_package
+    self.assertEqual(len(entries), 1, "The requested standalone capability is unavailable")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 1 : The requested standalone capability is unavailable
+
+======================================================================
+FAIL: test_missing_entrypoint_is_rejected (tests.skills.issue_builder.integration.test_standalone_package.IssueBuilderPackageTests.test_missing_entrypoint_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<workspace>\tests\skills\issue_builder\integration\test_standalone_package.py", line 64, in test_missing_entrypoint_is_rejected
+    package = self.selected_package()
+  File "<workspace>\tests\skills\issue_builder\integration\test_standalone_package.py", line 25, in selected_package
+    self.assertEqual(len(entries), 1, "The requested standalone capability is unavailable")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 1 : The requested standalone capability is unavailable
+
+======================================================================
+FAIL: test_missing_presentation_is_rejected (tests.skills.issue_builder.integration.test_standalone_package.IssueBuilderPackageTests.test_missing_presentation_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<workspace>\tests\skills\issue_builder\integration\test_standalone_package.py", line 57, in test_missing_presentation_is_rejected
+    package = self.selected_package()
+  File "<workspace>\tests\skills\issue_builder\integration\test_standalone_package.py", line 25, in selected_package
+    self.assertEqual(len(entries), 1, "The requested standalone capability is unavailable")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 1 : The requested standalone capability is unavailable
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.008s
+
+FAILED (failures=3)

@@ -160,3 +160,15 @@ cover source behavior, merged integration and packaging separately from native
 activation. The release adds no claim that a client invoked either capability,
 that filters were executed, or that multi-client authenticated scope/lifecycle
 checks passed. Earlier evidence remains version-specific.
+
+## Issue authoring source increment
+
+Current source includes `issue-builder`, bringing available capabilities to
+twenty. Its one-folder, dependency-free package uses the existing presentation
+and inventory contracts. Fresh manually supplied instruction applications and
+real isolated folder-copy controls are recorded under
+[owner evidence](../tests/skills/issue_builder/evaluations/2026-11-03/behavior.md).
+These do not prove native skill selection, unrestricted execution behavior or
+client lifecycle. No client was installed or updated for this increment.
+Published preview.10 retains nineteen skills and excludes this addition; manifest
+versions remain unchanged until a separately requested release.
