@@ -40,6 +40,7 @@
 | `tests/skills/git_activity_report/scenarios/report-formats-and-output.md` (new) | Scenario inputs and evaluator assertions |
 | `tests/skills/git_activity_report/evaluations/2026-11-06-report-formats-and-output.md` (new) | Actual baseline/candidate observations and execution limits |
 | `tests/skills/git_activity_report/integration/test_package_closure.py` | Installed report references present and reachable in the same package |
+| `tests/skills/git_activity_report/integration/test_windows_output_directory.py` | Native Windows probes for atomic directory identity, collisions and junctions |
 
 ## Task 1: Ask for the format and render verified dates
 
@@ -76,7 +77,7 @@
   | OUT-01 | Explicit file request with no path, absent folder, and November 2 or November 2–4 scope. Repeat as content-only. | One verified Markdown under `activities-report/` with the exact deterministic single-day or range filename. The content-only run creates nothing. |
   | OUT-02 | Explicit repository-relative and absolute Markdown paths with existing parents. Repeat with missing parent or ambiguous path. | Exact path is used and verified. Missing or ambiguous destination prompts or blocks, with no parent creation or default fallback. |
   | OUT-03 | Pre-existing default report, followed by explicit replacement permission for the exact path. Repeat with a conflicting file appearing during creation. | Initial bytes survive until authorized replacement. The race causes a no-clobber failure. |
-  | OUT-04 | Default folder or report path redirected through a symlink/junction. Try relocating the open directory or a worktree ancestor before a write. Repeat with a selected linked worktree and an ordinary folder. | Redirected paths cannot be written. Ordinary output stays in the selected worktree and never uses the primary checkout's folder. |
+  | OUT-04 | Default folder or report path redirected through a symlink/junction. Try substituting a newly created directory before its first open, colliding with exclusive directory creation, and relocating an open directory or a worktree ancestor before a write. Repeat with a selected linked worktree and an ordinary folder. | Redirected paths cannot be written. Ordinary output stays in the selected worktree and never uses the primary checkout's folder. |
   | OUT-05 | Write succeeds but readback fails or differs, then a separate blocked history query. | Receipt reports actual partial effects and no verified save. Blocked history creates nothing. |
   | OUT-06 | Complete zero-match daily report, then a limited-history daily report, both with authorized default-file output. | Each usable report saves with the correct table and status. The limited receipt keeps its coverage caveat. |
 
