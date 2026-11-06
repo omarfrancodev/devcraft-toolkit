@@ -19,8 +19,10 @@ FILE_WRITE_ATTRIBUTES = 0x0100
 SYNCHRONIZE = 0x00100000
 FILE_SHARE_READ = 0x0001
 FILE_SHARE_WRITE = 0x0002
+FILE_SHARE_DELETE = 0x0004
 FILE_CREATE = 2
 FILE_CREATED = 2
+FILE_LINK_INFORMATION_CLASS = 11
 OPEN_EXISTING = 3
 FILE_DIRECTORY_FILE = 0x0001
 FILE_SYNCHRONOUS_IO_NONALERT = 0x0020
@@ -36,6 +38,8 @@ STATUS_REPARSE_POINT_ENCOUNTERED = 0xC000050B
 STATUS_REPARSE_POINT_NOT_RESOLVED = 0xC0000280
 DUPLICATE_SAME_ACCESS = 0x00000002
 ERROR_SHARING_VIOLATION = 32
+JUNCTION_SETUP_UNAVAILABLE = {1, 5, 50, 1314}
+HARD_LINK_UNAVAILABLE = {0xC0000010, 0xC0000022, 0xC0000061, 0xC00000BB}
 
 
 class UnicodeString(ctypes.Structure):
@@ -59,6 +63,15 @@ class ObjectAttributes(ctypes.Structure):
 
 class IoStatusBlock(ctypes.Structure):
     _fields_ = [("status_or_pointer", ctypes.c_void_p), ("information", ctypes.c_size_t)]
+
+
+class LinkInformation(ctypes.Structure):
+    _fields_ = [
+        ("replace_if_exists", wintypes.BOOLEAN),
+        ("root_directory", wintypes.HANDLE),
+        ("file_name_length", wintypes.ULONG),
+        ("file_name", wintypes.WCHAR),
+    ]
 
 
 @unittest.skipUnless(sys.platform == "win32", "Requires Windows native file sharing")
@@ -104,6 +117,13 @@ class WindowsOutputDirectoryTests(unittest.TestCase):
             wintypes.ULONG, wintypes.ULONG, ctypes.c_void_p, wintypes.ULONG,
         ]
         self.create_file.restype = ctypes.c_long
+
+        self.set_information = ctypes.WinDLL("ntdll").NtSetInformationFile
+        self.set_information.argtypes = [
+            wintypes.HANDLE, ctypes.POINTER(IoStatusBlock), ctypes.c_void_p,
+            wintypes.ULONG, wintypes.ULONG,
+        ]
+        self.set_information.restype = ctypes.c_long
 
     @contextmanager
     def pin_directory(self, path, access=FILE_LIST_DIRECTORY | FILE_READ_ATTRIBUTES, share=FILE_SHARE_READ):
@@ -241,12 +261,19 @@ class WindowsOutputDirectoryTests(unittest.TestCase):
             "<I6H", IO_REPARSE_TAG_MOUNT_POINT, 8 + len(names), 0,
             0, len(substitute_name), len(substitute_name) + 2, len(print_name),
         ) + names
-        self.change_reparse_point(FSCTL_SET_REPARSE_POINT, reparse_data)
+        try:
+            self.change_reparse_point(FSCTL_SET_REPARSE_POINT, reparse_data)
+        except OSError as exc:
+            if exc.winerror not in JUNCTION_SETUP_UNAVAILABLE:
+                raise
+            self.skipTest(f"Cannot prepare a Windows junction: {exc}")
 
     def test_atomic_creation_does_not_follow_a_dangling_junction(self):
         target = self.root / "missing-junction-target"
+        target.mkdir()
         self.folder.mkdir()
         self.set_junction(target)
+        target.rmdir()
 
         with self.pin_directory(self.root) as parent:
             with self.create_and_pin_report_directory(parent) as (status, _, handle):
@@ -280,3 +307,52 @@ class WindowsOutputDirectoryTests(unittest.TestCase):
                 )
         self.assertEqual(list(self.folder.iterdir()), [])
         self.assertEqual([path.name for path in sibling.iterdir()], ["absolute-control.md"])
+
+    def add_hard_link(self, original, alias):
+        name = ("\\??\\" + str(alias)).encode("utf-16-le")
+        offset = LinkInformation.file_name.offset
+        data = ctypes.create_string_buffer(max(offset + len(name), ctypes.sizeof(LinkInformation)))
+        info = LinkInformation.from_buffer(data)
+        info.file_name_length = len(name)
+        ctypes.memmove(ctypes.addressof(data) + offset, name, len(name))
+        io_status = IoStatusBlock()
+        share = FILE_SHARE_READ | FILE_SHARE_WRITE | FILE_SHARE_DELETE
+        try:
+            with self.pin_directory(original, access=FILE_WRITE_ATTRIBUTES, share=share) as handle:
+                status = self.set_information(
+                    handle, ctypes.byref(io_status), data, len(data), FILE_LINK_INFORMATION_CLASS,
+                ) & 0xFFFFFFFF
+        except OSError as exc:
+            if exc.winerror not in (1, 5, 50, 1314):
+                raise
+            self.skipTest(f"Cannot open a Windows hard-link fixture: {exc}")
+        if status in HARD_LINK_UNAVAILABLE:
+            self.skipTest(f"Cannot create a Windows hard-link fixture: NTSTATUS {status:#010x}")
+        self.assertEqual(status, 0, hex(status))
+
+    def test_late_hard_link_can_alias_an_opened_or_newly_created_report(self):
+        self.folder.mkdir()
+        sibling = self.root / "outside-reports"
+        sibling.mkdir()
+        existing = self.folder / self.report_name
+        existing.write_bytes(b"# Old report\n")
+        replacement_alias = sibling / "replacement.md"
+        access = GENERIC_READ | GENERIC_WRITE
+
+        with self.pin_directory(existing, access=access, share=0) as writer:
+            self.assertEqual(existing.stat().st_nlink, 1)
+            self.add_hard_link(existing, replacement_alias)
+            self.write_and_read_report_handle(writer)
+        self.assertEqual(replacement_alias.read_bytes(), self.report_bytes)
+
+        fresh = self.folder / "fresh.md"
+        fresh_alias = sibling / "fresh.md"
+        with self.pin_directory(self.folder) as parent:
+            with self.create_relative(parent, fresh.name, access, FILE_NON_DIRECTORY_FILE) as (
+                status, information, writer,
+            ):
+                self.assertEqual((status, information), (0, FILE_CREATED))
+                self.assertEqual(fresh.stat().st_nlink, 1)
+                self.add_hard_link(fresh, fresh_alias)
+                self.write_and_read_report_handle(writer)
+        self.assertEqual(fresh_alias.read_bytes(), self.report_bytes)
