@@ -147,3 +147,10 @@ and [plan](superpowers/plans/2026-11-06-git-activity-report-output.md) describe 
 behavior. All [preview.12 release preparation](releases/v0.1.0-preview.12.md)
 belongs to this PR. Native activation and a demonstrated isolated NTFS save
 remain acceptance work.
+
+## Preview.13 commit-intent boundaries
+
+PR #16 makes intent grouping and single-group rationale explicit and preserves
+partitions through verified publication. The [release notes](releases/v0.1.0-preview.13.md)
+retain PW-06 coverage and the Windows refusal-status correction. The skill
+inventory remains twenty, with existing native activation and save limits.

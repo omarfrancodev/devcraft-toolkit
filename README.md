@@ -2,7 +2,7 @@
 
 A modular toolkit of composable skills for repository context, Git inspection and planning, exact authorized staging, requested local commits, scoped branch synchronization and publication, hosted PR/MR management and explicit promotion, project validation, reporting, prompt refinement, issue authoring, and portable progress tracking. Compatibility is recorded only for harnesses actually exercised.
 
-Release preview.12 contains twenty skills and adds selectable activity-report layouts and guarded Markdown output. Default saves require protection against concurrent hard links; ordinary NTFS handles alone do not meet that requirement. CCR integration remains deferred.
+Release preview.13 contains twenty skills and makes commit boundaries by intent explicit throughout planning and publication. Default saves require protection against concurrent hard links; ordinary NTFS handles alone do not meet that requirement. CCR integration remains deferred.
 
 Skill definitions and default templates use English. User-facing content follows an explicit language preference or the language of the user's request, defaulting to English when neither can be determined. Tests are maintained outside individual skill directories, grouped by the owning skill and then by test scope; repository infrastructure and cross-skill coverage have separate shared groups.
 
@@ -16,13 +16,13 @@ Install the complete toolkit directly from GitHub using your client's documented
 
 Choose [Codex](docs/installation/codex.md), [Copilot CLI](docs/installation/copilot-cli.md), [Copilot in VS Code](docs/installation/copilot-vscode.md), [Claude Code](docs/installation/claude-code.md), [Kiro CLI V3](docs/installation/kiro-cli.md), [Kiro IDE](docs/installation/kiro.md), or [Kiro Crew](docs/installation/kiro-crew.md). The [installation overview](docs/installation.md) explains scope and the Kiro project fallback.
 
-Default remote recipes deliver the current available set after integration. Fixed preview.10 contains nineteen skills and lacks `issue-builder`. Fixed preview.9 sources retain eighteen and do not include `prompt-refiner`. See [preview.12 release details](docs/releases/v0.1.0-preview.12.md) for version-pinned source options; [earlier preview sources](docs/installation/preview.md) are historical evidence. Native activation remains partially validated; no official catalog listing is claimed.
+Default remote recipes deliver the current available set after integration. Fixed preview.10 contains nineteen skills and lacks `issue-builder`. Fixed preview.9 sources retain eighteen and do not include `prompt-refiner`. See [preview.13 release details](docs/releases/v0.1.0-preview.13.md) for version-pinned source options; [earlier preview sources](docs/installation/preview.md) are historical evidence. Native activation remains partially validated; no official catalog listing is claimed.
 
 Need selected capabilities instead? Use [individual skill installation](docs/installation/individual-skills.md). Package contributors and manual-copy users can use [local development/reference](docs/installation/development.md).
 
 ## Preview release
 
-[v0.1.0-preview.12](https://github.com/omarfrancodev/devcraft-toolkit/releases/tag/v0.1.0-preview.12) adds general or daily activity reports and requested Markdown output in the twenty-skill suite. Daily tables include dates without matching commits and qualify incomplete history. See the [changelog](CHANGELOG.md), [release details](docs/releases/v0.1.0-preview.12.md) and [installation guide](docs/installation.md) for save requirements and validation limits.
+[v0.1.0-preview.13](https://github.com/omarfrancodev/devcraft-toolkit/releases/tag/v0.1.0-preview.13) separates independent changes by intent, including multiple changes in one file, and requires evidence for a single coherent commit group. The publisher preserves each group through verified commit creation. See the [changelog](CHANGELOG.md), [release details](docs/releases/v0.1.0-preview.13.md) and [installation guide](docs/installation.md) for save requirements and validation limits.
 
 Preview.6 introduced independent synchronization and push. Synchronization performs an explicitly requested one-branch fetch and eligible fast-forward only. Publication sends one pinned commit to one branch and verifies its effective endpoint. Each has an independent context/safety closure of three skills and defaults to offline inspection. Ignored-file collisions and symbolic tracking destinations stop affected writes. Requested upstream setup requires an existing usable mapping/ref and actual resolution; incomplete setup preserves verified publication and actual state. See the [design](docs/superpowers/specs/2026-10-25-git-sync-publish-design.md), [plan](docs/superpowers/plans/2026-10-25-git-sync-publish.md) and [roadmap](docs/roadmap.md).
 
