@@ -27,6 +27,64 @@ class PublicationControls(unittest.TestCase):
             self.assertEqual(before["config"],branch_snapshot(f.local)["config"])
             self.assertEqual(b"",git(f.local,"status","--porcelain").stdout)
 
+    def test_publish_two_independent_hunks_from_one_file(self):
+        fixture_path = Path(__file__).resolve().parents[1] / "fixtures" / "PW-06.json"
+        case = json.loads(fixture_path.read_text(encoding="utf-8"))
+        path = case["path"]
+        branch = case["branch"]
+        target = f"refs/heads/{branch}"
+        base = case["base"]
+        parser_edit, logging_edit = case["edits"]
+        parser_only = base.replace(parser_edit["before"], parser_edit["after"])
+        final = parser_only.replace(logging_edit["before"], logging_edit["after"])
+
+        with remote_fixture(self.root) as f:
+            file = f.local / path
+            file.write_bytes(base.encode("utf-8"))
+            git(f.local, "add", "--", path)
+            git(f.local, "commit", "-m", "test: seed parser notes fixture")
+            original = head(f.local)
+            seed_push = push_pinned(f, original)
+            self.assertEqual(0, seed_push.returncode, seed_push.stderr)
+            remote_before = refs(f.remote)
+
+            # Prepare a patch for the chosen first hunk, then present the full edit.
+            file.write_bytes(parser_only.encode("utf-8"))
+            patch = self.root / "parser-only.patch"
+            diff_args = ("diff", "--no-ext-diff", "--no-textconv", "--", path)
+            patch.write_bytes(git(f.local, *diff_args).stdout)
+            file.write_bytes(final.encode("utf-8"))
+            dirty_diff = git(f.local, *diff_args).stdout.splitlines()
+            self.assertEqual(2, sum(line.startswith(b"@@ ") for line in dirty_diff))
+            self.assertEqual(b"", git(f.local, "diff", "--cached", "--name-only").stdout)
+
+            create = create_branch(f.local, branch, original)
+            self.assertEqual(0, create.returncode, create.stderr)
+            git(f.local, "apply", "--cached", "--check", "--whitespace=nowarn", str(patch))
+            git(f.local, "apply", "--cached", "--whitespace=nowarn", str(patch))
+            self.assertEqual(file.read_bytes(), final.encode("utf-8"))
+            self.assertEqual(parser_only.encode("utf-8"), git(f.local, "show", f":{path}").stdout)
+
+            git(f.local, "commit", "-m", "docs(parser): correct empty-input behavior")
+            first = head(f.local)
+            self.assertEqual(original, head(f.local, f"{first}^"))
+            self.assertEqual(parser_only.encode("utf-8"), git(f.local, "show", f"{first}:{path}").stdout)
+            self.assertEqual(f" M {path}\n".encode("utf-8"), git(f.local, "status", "--porcelain").stdout)
+
+            git(f.local, "add", "--", path)
+            git(f.local, "commit", "-m", "docs(logging): clarify token redaction")
+            tip = head(f.local)
+            self.assertEqual(first, head(f.local, f"{tip}^"))
+            self.assertEqual(final.encode("utf-8"), git(f.local, "show", f"{tip}:{path}").stdout)
+            self.assertEqual(b"", git(f.local, "status", "--porcelain").stdout)
+
+            push = push_pinned(f, tip, branch)
+            self.assertEqual(0, push.returncode, push.stderr)
+            self.assertEqual(remote_before | {target: tip}, refs(f.remote))
+            published = git(f.remote, "rev-list", "--reverse", f"{original}..{target}")
+            self.assertEqual([first, tip], published.stdout.decode("ascii").splitlines())
+            self.assertEqual(original, head(f.local, "refs/heads/main"))
+
     def test_existing_commit_publication_does_not_create_commit_or_tracking_config(self):
         with remote_fixture(self.root) as f:
             git(f.local,"switch","--no-track","-c","feature/demo");source=commit(f.local,"feat: existing work")
