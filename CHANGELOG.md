@@ -4,6 +4,21 @@ Release dates use the GitHub publication date in America/Mexico_City. Pre-releas
 
 ## unreleased
 
+## 0.1.0-preview.12 — 2026-11-07
+
+### Changed
+
+#### Git operations
+
+- Ask for a general or daily activity report for each new request, preserving the user's language, selected period and evidence. Daily tables include every applicable date and distinguish confirmed empty days from incomplete observations.
+- Save explicitly requested Markdown reports without a supplied path under the selected worktree's `activities-report/` directory, with period-based filenames, replacement authorization and matching readback. Require stable path and hard-link protection before any default-save mutation; ordinary NTFS handles alone cannot authorize the save. Keep exact user-selected destinations under the report writer's existing contract.
+
+### Fixed
+
+#### Validation
+
+- Report Windows junction capability omissions separately from failures and keep existing-file and new-file hard-link regression outcomes independent.
+
 ## 0.1.0-preview.11 — 2026-11-03
 
 ### Added

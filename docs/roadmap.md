@@ -138,3 +138,12 @@ The [release details](releases/v0.1.0-preview.11.md) and
 [preparation evidence](../tests/integration/distribution/evaluations/2026-11-03-preview11-release/preparation.md)
 retain the review's environment reservation and fresh release validation results.
 Native activation and lifecycle remain separate open checks.
+
+## Preview.12 activity report update
+
+PR #15 includes general/daily format selection, local Markdown defaults and
+concurrent-path/link write guards. The [design](superpowers/specs/2026-11-06-git-activity-report-output-design.md)
+and [plan](superpowers/plans/2026-11-06-git-activity-report-output.md) describe the
+behavior. All [preview.12 release preparation](releases/v0.1.0-preview.12.md)
+belongs to this PR. Native activation and a demonstrated isolated NTFS save
+remain acceptance work.
