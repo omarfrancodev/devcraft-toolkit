@@ -49,3 +49,9 @@ A handle-based volume query identified NTFS and reported hard-link support in th
 ## Execution
 
 The full repository run completed with 227 tests, 225 passed and two Windows symlink controls skipped because the host did not grant the required privilege. That run started before the independent review added the repeated-midnight fixture. The final focused run covered the revised sources and all 17 coordinator integration tests, including that fixture. Repository and distribution validation passed on the revised sources. The implementation steps left changes in the selected worktree without a commit.
+
+## Independent hard-link outcomes
+
+The existing-report and new-report hard-link controls now use separate unittest methods. All seven native Windows tests passed on the local volume. Two additional runs injected SkipTest into only one hard-link setup at a time. Both methods were attempted in each run, exactly the selected method was skipped, and the other method completed its real filesystem assertions. These injections establish independent results under partial capability without claiming a new restricted-host run.
+
+The revised coordinator suite passed all 24 tests. Repository and distribution validation and the whitespace check also passed.

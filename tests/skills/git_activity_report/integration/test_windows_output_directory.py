@@ -330,7 +330,7 @@ class WindowsOutputDirectoryTests(unittest.TestCase):
             self.skipTest(f"Cannot create a Windows hard-link fixture: NTSTATUS {status:#010x}")
         self.assertEqual(status, 0, hex(status))
 
-    def test_late_hard_link_can_alias_an_opened_or_newly_created_report(self):
+    def test_late_hard_link_can_alias_an_existing_report(self):
         self.folder.mkdir()
         sibling = self.root / "outside-reports"
         sibling.mkdir()
@@ -345,6 +345,11 @@ class WindowsOutputDirectoryTests(unittest.TestCase):
             self.write_and_read_report_handle(writer)
         self.assertEqual(replacement_alias.read_bytes(), self.report_bytes)
 
+    def test_late_hard_link_can_alias_a_newly_created_report(self):
+        self.folder.mkdir()
+        sibling = self.root / "outside-reports"
+        sibling.mkdir()
+        access = GENERIC_READ | GENERIC_WRITE
         fresh = self.folder / "fresh.md"
         fresh_alias = sibling / "fresh.md"
         with self.pin_directory(self.folder) as parent:
