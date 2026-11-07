@@ -21,7 +21,9 @@ Follow the local [planning reference](references/planning.md).
 
 First narrow to requested paths. Explicit layers select layers; a path alone never selects all layers. Without an explicit layer request, default to nonempty staged content within that path scope; otherwise consider its unstaged/untracked work. Preserve an explicit empty staged-only scope. Record exclusions; broaden only when requested.
 
-Group by one evidenced intent: implementation, related tests and documentation usually belong together. Identify exact evidence IDs and layer/hunk selections; one filename can represent multiple selections. Proposing a split of the index or combining layers creates a pending decision before downstream execution, not permission to restage.
+Read the selected diff before choosing groups. Identify each distinct purpose supported by the evidence, then assign each selected change to exactly one group using its evidence ID, layer and exact hunk boundaries when needed. Split independently describable purposes even within one file and layer. A shared path, ticket or publication goal does not establish a shared intent. For a complete single-group plan, use its `rationale` to explain the common purpose and how all selected changes serve it.
+
+Propose any evidenced split of existing staged content and record the required repartition decision. Combining layers without an explicit layer request also requires a decision before execution.
 
 Give dependent groups a justified order. If intent, boundaries or selected content are materially unknown, ask one focused question and keep affected groups pending. Conflicts and active operations block a complete plan; preserve useful unaffected proposals as conditional. Do not invent resolutions, tickets, outcomes or validation success.
 
