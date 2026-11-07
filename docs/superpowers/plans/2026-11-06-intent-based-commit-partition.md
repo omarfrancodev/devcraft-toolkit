@@ -66,4 +66,3 @@ python -B -m scripts.validate_distribution --root .
 - [x] Record the exact harness and resources used, the planner handoff, and the independent Git observations under `tests/skills/git_publish_work/evaluations/`. Keep outcomes for behavior, Git controls and package validation separate.
 
 [Observed evaluation](../../../tests/skills/git_publish_work/evaluations/2026-11-06-intent-partition.md)
-
