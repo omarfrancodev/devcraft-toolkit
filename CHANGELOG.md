@@ -4,6 +4,27 @@ Release dates use the GitHub publication date in America/Mexico_City. Pre-releas
 
 ## unreleased
 
+## 0.1.0-preview.13 — 2026-11-07
+
+### Added
+
+#### Validation
+
+- Add PW-06 to evaluate two independent intentions in one file, with separate planner groups, exact hunk selections, two verified commits and a single publication to a local bare remote.
+
+### Changed
+
+#### Git operations
+
+- Identify distinct purposes from selected diffs before choosing commit groups, including independent changes within the same file and layer. Require every complete single-group proposal to explain how all selected changes serve one concrete purpose.
+- Preserve planner evidence, exact selections, rationale and pending repartition decisions through commit construction. Publish only after every requested group has a verified commit, retaining completed commits if a later group fails.
+
+### Fixed
+
+#### Validation
+
+- Accept an observed exclusive-create collision refusal in Windows junction probes while preserving null-handle checks and verifying that no file is created in either the redirected target or the original directory.
+
 ## 0.1.0-preview.12 — 2026-11-07
 
 ### Changed
