@@ -27,6 +27,20 @@ class HistoryPackageTests(unittest.TestCase):
         versions = [json.loads((ROOT/p).read_text(encoding="utf-8"))["version"] for p in ("plugin.json", ".claude-plugin/plugin.json")]
         self.assertEqual(1, len(set(versions)))
 
+    def test_report_format_reference_is_packaged(self):
+        skill = ROOT / "skills/git-activity-report"
+        reference = skill / "references/report-format.md"
+        self.assertTrue(reference.is_file(), "Report format reference is missing")
+        self.assertIn("(references/report-format.md)", (skill / "SKILL.md").read_text(encoding="utf-8"))
+        self.assertEqual([], validate_repository(ROOT))
+
+    def test_report_output_reference_is_packaged(self):
+        skill = ROOT / "skills/git-activity-report"
+        reference = skill / "references/report-output.md"
+        self.assertTrue(reference.is_file(), "Report output reference is missing")
+        self.assertIn("(references/report-output.md)", (skill / "SKILL.md").read_text(encoding="utf-8"))
+        self.assertEqual([], validate_repository(ROOT))
+
     def test_installation_selections_match_available_catalog_closures(self):
         entries = {s["name"]:s for s in json.loads((ROOT/"catalog.json").read_text(encoding="utf-8"))["skills"]}
         available = {name for name,s in entries.items() if s["status"] == "available"}

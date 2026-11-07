@@ -155,6 +155,22 @@ class HistoryRecipeTests(unittest.TestCase):
             end = datetime.combine(start.date()+timedelta(days=1), datetime.min.time(), tz)
             self.assertEqual(hours*3600, end.timestamp()-start.timestamp())
 
+    def test_exclusive_second_midnight_still_has_earlier_instants_on_that_date(self):
+        import struct
+
+        header = b"TZif2" + b"\0" * 15 + struct.pack(">6l", 0, 0, 0, 0, 1, 4)
+        block = struct.pack(">lBB", -18000, 0, 0) + b"CST\0"
+        rules = b"\nCST5CDT,M3.2.0/0,M11.1.0/1\n"
+        zone = ZoneInfo.from_file(BytesIO(header + block + header + block + rules), key="Test/Cuba")
+        start = datetime.fromisoformat("2026-11-01T03:30:00+00:00")
+        first_midnight = datetime.fromisoformat("2026-11-01T04:00:00+00:00")
+        end = datetime.fromisoformat("2026-11-01T05:00:00+00:00")
+
+        self.assertEqual("2026-10-31", start.astimezone(zone).date().isoformat())
+        self.assertEqual("2026-11-01T00:00:00-04:00", first_midnight.astimezone(zone).isoformat())
+        self.assertEqual("2026-11-01T00:00:00-05:00", end.astimezone(zone).isoformat())
+        self.assertLess(first_midnight, end)
+
     def test_replacements_ignored_and_grafts_disclose_limits(self):
         with git_fixture("unborn", self.root) as repo:
             parent = self.commit(repo, "matching ancestor")
