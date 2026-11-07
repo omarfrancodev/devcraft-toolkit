@@ -277,7 +277,10 @@ class WindowsOutputDirectoryTests(unittest.TestCase):
 
         with self.pin_directory(self.root) as parent:
             with self.create_and_pin_report_directory(parent) as (status, _, handle):
-                self.assertEqual(status, STATUS_REPARSE_POINT_ENCOUNTERED, hex(status))
+                # Exclusive creation can reject the existing junction name as a collision.
+                self.assertIn(
+                    status, (STATUS_REPARSE_POINT_ENCOUNTERED, STATUS_OBJECT_NAME_COLLISION), hex(status),
+                )
                 self.assertIsNone(handle)
         self.assertEqual(self.folder.lstat().st_reparse_tag, IO_REPARSE_TAG_MOUNT_POINT)
         self.assertFalse(target.exists())
@@ -298,7 +301,15 @@ class WindowsOutputDirectoryTests(unittest.TestCase):
                 with self.create_relative(directory, self.report_name, GENERIC_WRITE, FILE_NON_DIRECTORY_FILE) as (
                     relative_status, _, handle,
                 ):
-                    self.assertIn(relative_status, (STATUS_REPARSE_POINT_NOT_RESOLVED, STATUS_REPARSE_POINT_ENCOUNTERED))
+                    self.assertIn(
+                        relative_status,
+                        (
+                            STATUS_REPARSE_POINT_NOT_RESOLVED,
+                            STATUS_REPARSE_POINT_ENCOUNTERED,
+                            STATUS_OBJECT_NAME_COLLISION,
+                        ),
+                        hex(relative_status),
+                    )
                     self.assertIsNone(handle)
                     self.assertFalse((sibling / self.report_name).exists())
 
