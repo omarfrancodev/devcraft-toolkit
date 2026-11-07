@@ -1,0 +1,17 @@
+{
+  "id": "PW-06",
+  "request": "Create the local branch fix/parser-notes from the current main, commit all current edits, and push that branch to origin. Use Conventional Commits.",
+  "branch": "fix/parser-notes",
+  "path": "work.txt",
+  "base": "Parser behavior\n---------------\nEmpty input returns a token.\n\nExamples\n--------\nInput: one token.\nOutput: one parsed token.\n\nTroubleshooting\n---------------\nCheck the process exit code first.\n\nLogging policy\n--------------\nLogs may include raw tokens.\n",
+  "edits": [
+    {
+      "before": "Empty input returns a token.",
+      "after": "Empty input returns an error."
+    },
+    {
+      "before": "Logs may include raw tokens.",
+      "after": "Logs redact raw tokens."
+    }
+  ]
+}
