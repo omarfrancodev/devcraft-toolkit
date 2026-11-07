@@ -17,7 +17,9 @@ A limited analysis of unselected work does not automatically block a fully obser
 
 ## Intent, layers and order
 
-One commit explains one intent. A change to behavior plus its tests/docs is usually one group; unrelated debug output is another possible intent, even in the same path. Filename, directory and extension alone are not enough to infer the purpose.
+Identify the reasons for the selected changes from the diff before deciding how many groups to propose. Keep independently describable purposes in separate groups. A shared file, layer, component, ticket, PR or publication request is insufficient to establish a common purpose. Implementation and its directly supporting tests or documentation can belong together when the diff connects them to the same behavior.
+
+Split a file within a layer when observed hunks serve separate purposes. Use the analyzer's evidence ID together with the exact hunk selection. Groups may reference the same evidence ID for disjoint selections. Across complete groups, account for each selected change exactly once. If the evidence cannot establish a purpose or a stageable boundary, identify what is missing and keep the affected selection pending.
 
 For each proposed group, include:
 - `id`: execution-local group ID.
@@ -25,12 +27,12 @@ For each proposed group, include:
 - `evidence`: analyzer change IDs used.
 - `selection`: exact paths and staged/unstaged/untracked layers, plus observed hunk boundaries when a path/layer must be divided. If boundaries are not observed, mark pending instead of inventing line numbers.
 - `depends_on`: earlier group IDs only, with a factual reason; empty when independent.
-- `rationale`: why this grouping is coherent and exclusions are separate.
+- `rationale`: why this grouping is coherent and exclusions are separate. If the complete plan has one group, name the concrete common purpose, connect every selected change or set of supporting edits to it, and explain why they form one commit. A file list or summary of the publication goal is insufficient.
 - `message`: formatter-produced proposal, or pending with the material question.
 
 An existing staged area is a user selection. If it contains several intents, propose possible groups but record an explicit repartition decision. If the user explicitly requests a multi-commit decomposition, that permits proposing the split, not executing index changes; preserve exact boundaries and make their review explicit. Cross-layer inclusion also stays a decision unless the user requested those layers. Never advise add-all as the implementation of a mixed-layer plan.
 
-Order groups only for actual dependency: a feature using a new helper follows the helper; unrelated changes have no invented dependency. A cyclic or ambiguous dependency requires a decision. No group can claim selected evidence it does not cover, and no hunk belongs to multiple complete groups.
+Order groups only for actual dependencies. A feature using a new helper follows the helper when each has a distinct purpose. Leave independent groups without dependencies and record a decision for cyclic or ambiguous dependencies.
 
 ## Outcomes and blockers
 
@@ -44,6 +46,6 @@ When several limits apply, report the strongest applicable blocker and list the 
 
 ## Example
 
-Evidence A1 is the staged rounding fix in `src/total.py`; A2 is a later unstaged debug print in that path; A3 is its staged test. With no broadening request, G1 selects A1/A3 as the staged rounding correction. Exclude A2. Ask whether to keep debug output only if that choice affects the requested selection; do not block the staged proposal on an unrelated excluded change.
+Evidence A1 is the staged rounding fix in `src/total.py`. A2 is a later unstaged debug print in the same path, and A3 is the staged regression test. G1 selects A1 and A3 under the staged-first default. Its rationale names correct half-cent rounding as the common purpose. A1 changes the rounding behavior and A3 verifies that same behavior, so they form one commit. Exclude A2 as unrelated unstaged work. Ask about it only if it affects the requested selection.
 
 Supply the evidenced correction and repository conventions to `conventional-commits-style`; for an English request a suitable proposal could be `fix(totals): correct decimal rounding`. This is message text, not a command. In a supplied-fact replay the overall result remains limited until live guards can be verified.

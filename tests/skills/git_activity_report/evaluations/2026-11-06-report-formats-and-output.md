@@ -55,3 +55,11 @@ The full repository run completed with 227 tests, 225 passed and two Windows sym
 The existing-report and new-report hard-link controls now use separate unittest methods. All seven native Windows tests passed on the local volume. Two additional runs injected SkipTest into only one hard-link setup at a time. Both methods were attempted in each run, exactly the selected method was skipped, and the other method completed its real filesystem assertions. These injections establish independent results under partial capability without claiming a new restricted-host run.
 
 The revised coordinator suite passed all 24 tests. Repository and distribution validation and the whitespace check also passed.
+
+## 2026-11-07 exclusive-create refusal statuses
+
+The complete publication check reproduced two failures with the unchanged sources from published main `a2937e2`. Both guarded `NtCreateFile` calls returned `STATUS_OBJECT_NAME_COLLISION` (`0xC0000035`) on this Windows host. The existing assertions accepted only reparse-specific failure codes.
+
+The junction probes now also accept the observed collision refusal from exclusive creation. Both still require a null returned handle. The dangling-junction case checks that its target remains absent and the junction remains present. The relative child case checks that no report appears through the junction, removes only the fixture's reparse metadata, and verifies the original directory is empty. The absolute-path control still reaches the sibling target.
+
+All seven native Windows probes passed after the assertion correction, including both hard-link controls. The general exclusive-create and no-reparse semantics are documented in [NtCreateFile](https://learn.microsoft.com/en-us/windows/win32/api/winternl/nf-winternl-ntcreatefile) and [OBJECT_ATTRIBUTES](https://learn.microsoft.com/en-us/windows/win32/api/ntdef/ns-ntdef-_object_attributes). The collision status is an observation from this host, with filesystem postconditions checked independently.
